@@ -1,4 +1,4 @@
-# Messages for Macedonian (Македонски)
+# Messages for Macedonian (македонски)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Bjankuloski06
@@ -52,15 +52,15 @@ mk:
       notifier: Известувач
       old_node: Стар јазол
       old_node_tag: Стара ознака за јазол
-      old_relation: Стара релација
-      old_relation_member: Стар член во релација
-      old_relation_tag: Стара ознака на релација
+      old_relation: Стар однос
+      old_relation_member: Стар член на однос
+      old_relation_tag: Стара ознака на однос
       old_way: Стар пат
       old_way_node: Стар јазол на пат
       old_way_tag: Стара ознака за пат
-      relation: Релација
-      relation_member: Член на релација
-      relation_tag: Ознака за релација
+      relation: Однос
+      relation_member: Член на однос
+      relation_tag: Ознака за однос
       session: Сесија
       trace: Трага
       tracepoint: Точка на трага
@@ -74,6 +74,8 @@ mk:
   application: 
     require_cookies: 
       cookies_needed: Изгледа сте оневозможиле колачиња - дозволете колачиња во прелистувачот за да можете да продолжите,
+    require_moderator: 
+      not_a_moderator: За да го изведете тоа, треба да сте модератор.
     setup_user_auth: 
       blocked: Пристапот кон API ви е блокиран. Најавете се на посредникот за да дознаете повеќе.
       need_to_see_terms: Вашиот пристап до приложниот програм (API) е привремено запрен. Најавете се на мрежниот посредник за да ги погледате Условите за учесниците. Нема потреба да се согласувате со услоците, но мора да ги прочитате.
@@ -97,8 +99,8 @@ mk:
         one: "Го има следниов %{count} јазол:"
         other: "Ги има следниве %{count} јазли:"
       has_relations: 
-        one: "Ја има следнава %{count} релација:"
-        other: "Ги има следниве %{count} релации:"
+        one: "Го има следниов %{count} однос:"
+        other: "Ги има следниве %{count} односи:"
       has_ways: 
         one: "Го има следниов %{count} пат:"
         other: "Ги има следниве %{count} патишта:"
@@ -113,30 +115,30 @@ mk:
       in_changeset: "Во измените:"
       version: "Верзија:"
     containing_relation: 
-      entry: Релација %{relation_name}
-      entry_role: Релација %{relation_name} (како %{relation_role})
+      entry: Однос %{relation_name}
+      entry_role: Однос %{relation_name} (како %{relation_role})
     map: 
       deleted: Избришано
       edit: 
         area: Уреди подрачје
         node: Уреди јазол
-        relation: Уреди релација
+        relation: Уреди однос
         way: Уреди пат
       larger: 
         area: Погледај го просторот на поголема карта
         node: Погледај го јазолот на поголема карта
-        relation: Погледај ја релацијата на поголема карта
+        relation: Вид. односот на поголема карта
         way: Погледај го патот на поголема карта
       loading: Вчитувам...
     navigation: 
       all: 
         next_changeset_tooltip: "Следни измени:"
         next_node_tooltip: Следен јазол
-        next_relation_tooltip: Следна релација
+        next_relation_tooltip: Следен однос
         next_way_tooltip: Следен пат
         prev_changeset_tooltip: "Претходни измени:"
         prev_node_tooltip: Претходен јазол
-        prev_relation_tooltip: Претходна релација
+        prev_relation_tooltip: Претходен однос
         prev_way_tooltip: Претходен пат
       user: 
         name_changeset_tooltip: Погледај уредувања на %{user}
@@ -157,22 +159,29 @@ mk:
       download_xml: Преземи XML
       node_history: Историја на јазолот
       node_history_title: "Историја на јазолот: %{node_name}"
-      view_details: погледај детали
+      view_details: погледај подробности
     not_found: 
       sorry: Жалиам, но не најдов %{type} со назнака %{id}.
       type: 
         changeset: измени
         node: јазол
-        relation: релација
+        relation: однос
         way: пат
     paging_nav: 
       of: од
       showing_page: Приказ на страница
+    redacted: 
+      message_html: Верзијата %{version} на оваа %{type} не може да се прикаже бидејќи е редактирана. Повеќе на %{redaction_link}.
+      redaction: Редакција %{id}
+      type: 
+        node: јазол
+        relation: однос
+        way: пат
     relation: 
       download: "%{download_xml_link} или %{view_history_link}"
       download_xml: Преземи XML
-      relation: Релација
-      relation_title: "Релација: %{relation_name}"
+      relation: Однос
+      relation_title: "Однос: %{relation_name}"
       view_history: погледај ја историјата
     relation_details: 
       members: "Членови:"
@@ -180,21 +189,21 @@ mk:
     relation_history: 
       download: "%{download_xml_link} или %{view_details_link}"
       download_xml: Преземи XML
-      relation_history: Историја на релацијата
-      relation_history_title: "Историја на релацијата: %{relation_name}"
-      view_details: погледај детали
+      relation_history: Историја на односот
+      relation_history_title: "Историја на односот: %{relation_name}"
+      view_details: погледај подробности
     relation_member: 
       entry_role: "%{type} %{name} како %{role}"
       type: 
         node: Јазол
-        relation: Релација
+        relation: Однос
         way: Пат
     start: 
       manually_select: Рачно избери друга површина
       view_data: Погледајте податоци за тековниот поглед на картата
     start_rjs: 
       data_frame_title: Податоци
-      data_layer_name: Податоци
+      data_layer_name: Прелист. податоци за картата
       details: Подробно
       drag_a_box: Повлечете рамка на картата за да одберете простор
       edited_by_user_at_timestamp: Уредено од [[user]] во [[timestamp]]
@@ -237,7 +246,7 @@ mk:
       type: 
         changeset: менувач
         node: јазол
-        relation: релација
+        relation: однос
         way: пат
     way: 
       download: "%{download_xml_link}, %{view_history_link} или %{edit_link}"
@@ -255,7 +264,7 @@ mk:
     way_history: 
       download: "%{download_xml_link} или %{view_details_link}"
       download_xml: Преземи XML
-      view_details: погледај детали
+      view_details: погледај подробности
       way_history: Историја на патот
       way_history_title: "Историја на патот: %{way_name}"
   changeset: 
@@ -267,7 +276,7 @@ mk:
       no_edits: (нема уредувања)
       show_area_box: прикажи рамка на површина
       still_editing: (сè уште уредува)
-      view_changeset_details: Преглед на детали од измените
+      view_changeset_details: Преглед на подробности од измените
     changeset_paging_nav: 
       next: Следно »
       previous: « Претходно
@@ -281,19 +290,33 @@ mk:
     list: 
       description: Скорешни промени
       description_bbox: Измени во рамките на %{bbox}
+      description_friend: Измени на ваши пријатели
+      description_nearby: Измени од соседни корисници
       description_user: Измени на %{user}
       description_user_bbox: Измени на %{user} во рамките на %{bbox}
       heading: Измени
       heading_bbox: Измени
+      heading_friend: Измени
+      heading_nearby: Измени
       heading_user: Измени
       heading_user_bbox: Измени
       title: Измени
       title_bbox: Измени во рамките на %{bbox}
+      title_friend: Измени на ваши пријатели
+      title_nearby: Измени од соседни корисници
       title_user: Измени на %{user}
       title_user_bbox: Измени на %{user} во рамките на %{bbox}
     timeout: 
       sorry: За жал, на списокот на измени што го побаравте му требаше предолго за да се преземе.
   diary_entry: 
+    comments: 
+      ago: пред %{ago}
+      comment: Коментар
+      has_commented_on: "%{display_name} коментираше на следниве дневнички записи"
+      newer_comments: Понови коментари
+      older_comments: Постари коментари
+      post: Објава
+      when: Кога
     diary_comment: 
       comment_from: Коментар од %{link_user}  во %{comment_created_at}
       confirm: Потврди
@@ -338,6 +361,8 @@ mk:
       older_entries: Постари ставки
       recent_entries: "Скорешни дневнички записи:"
       title: Дневници на корисници
+      title_friends: Дневници на пријателите
+      title_nearby: Дневници на соседните корисници
       user_title: Дневник на %{user}
     location: 
       edit: Уреди
@@ -349,10 +374,6 @@ mk:
       body: Жалиме, но нема дневничка ставка или коментар со назнака %{id}. Проверете дали сте напишале правилно, или да не сте стиснале на погрешна врска.
       heading: "Нема ставка со назнака: %{id}"
       title: Нема таква дневничка ставка
-    no_such_user: 
-      body: Жалиме, но нема корисник по име %{user}. Проверете дали сте напишале правилно, или да не сте стиснале на погрешна врска.
-      heading: Корисникот %{user} не постои
-      title: Нема таков корисник
     view: 
       leave_a_comment: Пиши коментар
       login: Најава
@@ -385,11 +406,10 @@ mk:
       licence: Лиценца
       longitude: Г.Д.
       manually_select: Рачно изберете друга површина
-      mapnik_image: Mapnik-слика
+      map_image: Слика на картата (прикажува стандарден слој)
       max: макс.
       options: Нагодувања
       osm_xml_data: OpenStreetMap XML податоци
-      osmarender_image: Osmarender-слика
       output: Излезни податоци
       paste_html: Ископирајте го HTML кодот за да го вметнете во страницата.
       scale: Размер
@@ -432,7 +452,7 @@ mk:
       zero: помалку од 1 км
     results: 
       more_results: Повеќе резултати
-      no_results: Нема пронајдено резултати
+      no_results: Не пронајдов ништо
     search: 
       title: 
         ca_postcode: Резултати од <a href="http://geocoder.ca/">Geocoder.CA</a>
@@ -447,16 +467,28 @@ mk:
       suffix_place: ", %{distance} %{direction} од %{placename}"
     search_osm_nominatim: 
       prefix: 
+        aeroway: 
+          aerodrome: Аеродром
+          apron: Рампа
+          gate: Порта
+          helipad: Хелиодром
+          runway: Писта
+          taxiway: Рулажна патека
+          terminal: Терминал
         amenity: 
+          WLAN: Безжичен интернет
           airport: Аеродром
           arts_centre: Дом на уметности
+          artwork: Уметничко дело
           atm: Банкомат
           auditorium: Аудиториум
           bank: Банка
           bar: Бар
+          bbq: Скара
           bench: Клупа
           bicycle_parking: Велосипедско паркирање
           bicycle_rental: Изнајмување велосипеди
+          biergarten: Пивска градина
           brothel: Бордел
           bureau_de_change: Менувачница
           bus_station: Автобуска станица
@@ -465,6 +497,7 @@ mk:
           car_sharing: Изнајмување автомобил
           car_wash: Автоперална
           casino: Казино
+          charging_station: Напојна станица
           cinema: Кино
           clinic: Клиника
           club: Клуб
@@ -483,6 +516,7 @@ mk:
           ferry_terminal: Ферибот-терминал
           fire_hydrant: Противпожарен хидрант
           fire_station: Пожарна
+          food_court: Штандови за брза храна
           fountain: Фонтана
           fuel: Гориво
           grave_yard: Гробишта
@@ -523,9 +557,12 @@ mk:
           shelter: Засолниште
           shop: Дуќан
           shopping: Дуќани
+          shower: Туш
+          social_centre: Социјален центар
           social_club: Друштвен клуб
           studio: Студио
           supermarket: Супермаркет
+          swimming_pool: Базен
           taxi: Такси
           telephone: Телефонска говорница
           theatre: Театар
@@ -540,37 +577,17 @@ mk:
           youth_centre: Младински центар
         boundary: 
           administrative: Административна граница
+          census: Пописна граница
+          national_park: Национален парк
+          protected_area: Заштитено подрачје
+        bridge: 
+          aqueduct: Аквадукт
+          suspension: Висечки мост
+          swing: Вртечки мост
+          viaduct: Вијадукт
+          "yes": Мост
         building: 
-          apartments: Станбен блок
-          block: Блок згради
-          bunker: Бункер
-          chapel: Капела
-          church: Црква
-          city_hall: Градски дом
-          commercial: Комерцијална зграда
-          dormitory: Студентски дом
-          entrance: Влез во зграда
-          faculty: Факултетски објект
-          farm: Земјоделски објект
-          flats: Станови
-          garage: Гаража
-          hall: Сала
-          hospital: Болничка зграда
-          hotel: Хотел
-          house: Куќа
-          industrial: Индустриски објект
-          office: Деловна зграда
-          public: Јавен објект
-          residential: Станбена зграда
-          retail: Продажен објект
-          school: Школско здание
-          shop: Дуќан
-          stadium: Стадион
-          store: Продавница
-          terrace: Тераса
-          tower: Кула
-          train_station: Железничка станица
-          university: Универзитетска зграда
+          "yes": Градба
         highway: 
           bridleway: Коњски пат
           bus_guideway: Автобуски шини
@@ -578,12 +595,11 @@ mk:
           byway: Спореден пат
           construction: Автопат во изградба
           cycleway: Велосипедска патека
-          distance_marker: Бележник на растојание
           emergency_access_point: Прва помош
           footway: Тротоар
           ford: Брод
-          gate: Порта
           living_street: Маалска улица
+          milestone: Милјоказ
           minor: Помал спореден пат
           motorway: Автопат
           motorway_junction: Клучка
@@ -595,14 +611,17 @@ mk:
           primary_link: Главен пат
           raceway: Тркачка патека
           residential: Станбен
+          rest_area: Одмориште
           road: Пат
           secondary: Спореден пат
           secondary_link: Спореден пат
           service: Помошен пат
           services: Крајпатен сервис
+          speed_camera: Брзиноловец
           steps: Скалила
           stile: Тарабен премин
           tertiary: Третостепен пат
+          tertiary_link: Третостепен пат
           track: Полски пат
           trail: Патека
           trunk: Магистрала
@@ -616,6 +635,7 @@ mk:
           building: Градба
           castle: Замок
           church: Црква
+          fort: Утврдување
           house: Куќа
           icon: Икона
           manor: Велепоседнички дом
@@ -640,6 +660,7 @@ mk:
           farmland: Обработливо земјиште
           farmyard: Земјоделски двор
           forest: Шума
+          garages: Гаража
           grass: Трева
           greenfield: Неискористено земјиште
           industrial: Индустриско подрачје
@@ -647,25 +668,28 @@ mk:
           meadow: Ливада
           military: Воено подрачје
           mine: Рудник
-          mountain: Планина
           nature_reserve: Природен резерват
+          orchard: Овоштарник
           park: Парк
           piste: Писта
-          plaza: Плоштадче
           quarry: Каменолом
           railway: Железница
           recreation_ground: Рекреативен терен
           reservoir: Резервоар
+          reservoir_watershed: Акумулациска вододелница
           residential: Станбено подрачје
           retail: Дуќани
+          road: Патно подрачје
           village_green: Селско зеленило
           vineyard: Лозници
           wetland: Мочуриште
           wood: Шума
         leisure: 
           beach_resort: Крајбрежно одморалиште
+          bird_hide: Набљудувалиште за птици
           common: Општествена земја
           fishing: Рибарење
+          fitness_station: Технички преглед
           garden: Градина
           golf_course: Голф-терен
           ice_rink: Лизгалиште
@@ -676,12 +700,17 @@ mk:
           pitch: Спортски терен
           playground: Детско игралиште
           recreation_ground: Разонодно место
+          sauna: Сауна
           slipway: Испуст
           sports_centre: Спортски центар
           stadium: Стадион
           swimming_pool: Базен
           track: Спортска патека
           water_park: Аквапарк
+        military: 
+          airfield: Воено слетувалиште
+          barracks: Касарна
+          bunker: Бункер
         natural: 
           bay: Залив
           beach: Плажа
@@ -689,11 +718,12 @@ mk:
           cave_entrance: Влез во пештера
           channel: Канал
           cliff: Гребен
-          coastline: Крајбрежје
           crater: Кратер
+          dune: Дина
           feature: Елемент
           fell: Фел
           fjord: Фјорд
+          forest: Шума
           geyser: Гејзер
           glacier: Глечер
           heath: Голет
@@ -713,6 +743,7 @@ mk:
           scrub: Честак
           shoal: Плитко место
           spring: Извор
+          stone: Камен
           strait: Проток
           tree: Дрво
           valley: Долина
@@ -721,17 +752,31 @@ mk:
           wetland: Мочуриште
           wetlands: Мочуриште
           wood: Шума
+        office: 
+          accountant: Сметководител
+          architect: Архитект
+          company: Фирма
+          employment_agency: Агенција за вработување
+          estate_agent: Агенција за недвижности
+          government: Владина служба
+          insurance: Служба за осигурување
+          lawyer: Адвокат
+          ngo: НВО-канцеларија
+          telecommunication: Телекомуникациска служба
+          travel_agent: Туристичка агенција
+          "yes": Канцеларија
         place: 
           airport: Аеродром
           city: Град
           country: Земја
-          county: Грофовија
+          county: Округ
           farm: Фарма
           hamlet: Селце
           house: Куќа
           houses: Куќи
           island: Остров
           islet: Островче
+          isolated_dwelling: Зафрлено живееалиште
           locality: Месност
           moor: Пустара
           municipality: Општина
@@ -755,6 +800,7 @@ mk:
           junction: Железнички јазол
           level_crossing: Надвозник
           light_rail: Лека железница
+          miniature: Минијатурна железница
           monorail: Едношинска линија
           narrow_gauge: Теснолинејка
           platform: Железнички перон
@@ -769,7 +815,7 @@ mk:
           yard: Железничко депо
         shop: 
           alcohol: Алкохол на црно
-          apparel: Облека
+          antiques: Старинарница
           art: Уметнички дуќан
           bakery: Пекара
           beauty: Козметика
@@ -778,7 +824,6 @@ mk:
           books: Книжарница
           butcher: Месарница
           car: Автосалон
-          car_dealer: Автосалон
           car_parts: Автоделови
           car_repair: Автосервис
           carpet: Дуќан за теписи
@@ -793,7 +838,6 @@ mk:
           department_store: Стоковна куќа
           discount: Распродажен дуќан
           doityourself: Направи-сам
-          drugstore: Аптека
           dry_cleaning: Хемиско чистење
           electronics: Електронска опрема
           estate_agent: Недвижности
@@ -859,7 +903,10 @@ mk:
           valley: Долина
           viewpoint: Видиковец
           zoo: Зоолошка
+        tunnel: 
+          "yes": Тунел
         waterway: 
+          artificial: Вештачки воден пат
           boatyard: Чамцоградилиште
           canal: Канал
           connector: Слив
@@ -887,6 +934,7 @@ mk:
       base: 
         cycle_map: Велосипедска карта
         mapquest: MapQuest Open
+        standard: Стандардна
         transport_map: Сообраќајна карта
     site: 
       edit_disabled_tooltip: Приближете за да ја уредите картата
@@ -896,6 +944,7 @@ mk:
       history_tooltip: Преглед на уредувањата во ова подрачје
       history_zoom_alert: Морате да приближите за да можете да ја видите историјата на уредувања
   layouts: 
+    community: Заедница
     community_blogs: Блогови на заедницата
     community_blogs_title: Блогови од членови на заедницата на OpenStreetMap
     copyright: Авторски права и лиценца
@@ -910,7 +959,7 @@ mk:
     foundation: Фондација
     foundation_title: Фондацијата OpenStreetMap
     gps_traces: GPS-траги
-    gps_traces_tooltip: Работа со GPS траги
+    gps_traces_tooltip: Работа со GPS-траги
     help: Помош
     help_centre: Центар за помош
     help_title: Помошна страница за проектот
@@ -923,13 +972,12 @@ mk:
       other: Имате %{count} непрочитани пораки во сандачето
       zero: Немате непрочитани пораки во сандачето
     intro_1: OpenStreetMap е слободна уредлива карта на целиот свет. Ја прават луѓе како вас.
-    intro_2: OpenStreetMap ви овозможува да разгледувате, уредувате и користите гоеографски податоци на колаборативен начин од било кое место на Земјината топка.
-    intro_3: Вдомувањето на OpenStreetMap го овозможија %{ucl}, %{ic} и %{bytemark}. Другите поддржувачи на проектот се наведени на %{partners}.
-    intro_3_bytemark: bytemark
-    intro_3_ic: Империјалниот колеџ - Лондон
-    intro_3_partners: викито
-    intro_3_partners_url: http://wiki.openstreetmap.org/wiki/Partners?uselang=mk
-    intro_3_ucl: UCL VR Centre
+    intro_2_create_account: Создајте корисничка сметка
+    intro_2_download: преземање
+    intro_2_html: Податоците се слободни за %{download} и %{use} под нивната лиценца %{license}. %{create_account} за да ја подобрите картата.
+    intro_2_license: отворена лиценца
+    intro_2_use: употреба
+    intro_2_use_url: http://wiki.openstreetmap.org/wiki/Using_OpenStreetMap?uselang=mk
     license: 
       title: Податоците на OpenStreetMap се под Creative Commons Наведи извор-Сподели под исти услови 2.0 Нелокализирана лиценца
     log_in: најави ме
@@ -943,6 +991,12 @@ mk:
       title: Поддржете ја OpenStreetMap со паричен прилог
     osm_offline: Базата на податоци на  OpenStreetMap моментално е исклучена додека работиме на неопходни одржувања.
     osm_read_only: Базата на податоци на OpenStreetMap моментално може само да се чита, додека ги извршиме неопходните одржувања.
+    partners_bytemark: вдомителот „Bytemark“
+    partners_html: Вдомувањето е поддржано од %{ucl}, %{ic} и %{bytemark}, како и други %{partners}.
+    partners_ic: Империјалниот колеџ - Лондон
+    partners_partners: партнери
+    partners_ucl: VR-центарот на UCL
+    partners_url: http://wiki.openstreetmap.org/wiki/Partners?uselang=mk
     sign_up: регистрација
     sign_up_tooltip: Создај сметка за уредување
     sotm2011: Дојдете на Конференцијата на OpenStreetMap 2011 што се одржува од 9 до 11 септември во Денвер!
@@ -959,9 +1013,9 @@ mk:
   license_page: 
     foreign: 
       english_link: англискиот оригинал
-      text: Во случај на конфликт помеѓу оваа преведена страница и %{english_original_link}, предност има англиската страница
+      text: Во случај на спротиставеност помеѓу оваа преведена страница и %{english_original_link}, предност има англиската страница
       title: За овој превод
-    legal_babble: "<h2>Авторски права и лиценца</h2>\n<p>\n   OpenStreetMap има <i>отворени податоци</i>, и е лиценциран со <a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/deed.mk\">Криејтив\n   комонс НаведиИзвор-СподелиПодИстиУслови 2.0</a> (CC-BY-SA).\n</p>\n<p>\n  Слободно можете да ги копирате, распространувате, јавно прикажувате и адаптирате нашите карти\n  и податоци, под услов да го наведете OpenStreetMap и неговите\n  учесници. Ако ги менувате или темелите дела врз нашите карти и податоци\n  резултатите можете да ги распространувате само под истата лиценца.\n  Во полниот <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">законски\n  правилник</a> се објаснети вашите права и должности.\n</p>\n\n<h3>Како да го наведувате OpenStreetMap</h3>\n<p>\n  Доколку користите слики од карти на OpenStreetMap, бараме\n  наводот да содржи барем &ldquo;&copy; Учесници на\n  OpenStreetMap, CC-BY-SA&rdquo;. Ако користите само податоци од картите,\n  бараме наводот да гласи &ldquo;Картографски податоци &copy; Учесници на OpenStreetMap,\n  CC-BY-SA&rdquo;.\n</p>\n<p>\n  Кадешто е можно, OpenStreetMap треба да има хиперврска <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  и CC-BY-SA до <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/deed.mk\">http://creativecommons.org/licenses/by-sa/2.0/deed.mk</a>. Доколку\n  користите медиум кадешто не може да се ставаат врски (како на пр.\n  печатено издание), ви препорачуваме да ги наведете корисниците на\n  www.openstreetmap.org (на пр. со проширување на\n  &lsquo;OpenStreetMap&rsquo; со полнава адреса) и до\n  www.creativecommons.org.\n</p>\n\n<h3>Како да дознаете повеќе</h3>\n<p>\n  Прочитајте повеќе за користењето на нашите податоци на <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">Правните\n  ЧПП</a>.\n</p>\n<p>\n  Учесниците во OSM се потсетуваат никогаш да не ставаат податоци од\n  извори заштитени со авторски права (на пр. Google Карти или печатени карти) без\n  јасна дозвола од имателите на авторските права.\n</p>\n<p>\n  Иако OpenStreetMap има отворени податоци, ние сепак не можеме бесплатно да \n  го нудиме картографскиот програм на развивачи кои се трети лица.\n\n  Погледајте ги нашите <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">Правила на користење на програмот</a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Правила на користење на полињата</a>\n  и <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Правила на користење на Nominatim</a>.\n</p>\n\n<h3>Нашите учесници</h3>\n<p>\n  Нашата лиценца CC-BY-SA бара да &ldquo;го наведете изворниот\n  автор разумно за медиумот или средството што го\n  користите&rdquo;. Поединечните картографи на OSM не бараат да\n  бидат наведувани посебно, туку само како &ldquo;Учесници на\n  OpenStreetMap&rdquo;, но онаму кадешто OpenStreetMap содржи податоци\n  од некоја државна картографска установа или друг важен извор,\n  веројатно би било разумно да ги наведете нив директно,\n  наведувајќи ги како што тие обично се наведуваат, или ставајќи врска до нивната страница.\n</p>\n\n<!--\nИнформации за уредниците на страници\n\nТука се наведени само оние организации кои бараат да бидат наведени\nкако предуслов за користење на нивните податоци на OpenStreetMap. Ова не е\nопшт каталог на увезени податоци, и не смее да се користи, освен кога\nсе бара навод за да се задоволат условите на лиценцата на увезените\nподатоци.\n\nСите дополнувања мора најпрвин да се продискутираат со систем-администраторите на OSM.\n-->\n\n<ul id=\"contributors\">\n   <li><strong>Австралија</strong>: Содржи податоци за населби засновани на\n   податоци на Австралиската служба за статистика.</li>\n<li><strong>Австрија</strong>: Содржи податоци од\n   <a href=\"http://data.wien.gv.at/\">Град Виена</a> под лиценцата\n   <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.mk\">CC-BY</a>.</li>\n   <li><strong>Канада</strong>: Содржи податоци од\n   GeoBase&reg;, GeoGratis (&copy; Министерство за природни ресурси\n   Канада), CanVec (&copy; Министерство за природни ресурси\n   Канада) и StatCan (Географско одделение,\n   Статистика Канада).</li>\n   <li><strong>Франција</strong>: Содржи податоци преземени од\n   Главната даночна управа.</li>\n   <li><strong>Нов Зеланд</strong>: Содржи податоци преземени од\n   Land Information New Zealand. Крунски авторски права задржани.</li>\n   <li><strong>Полска</strong>: Содржи податоци од <a\n   href=\"http://ump.waw.pl/\">UMP-pcPL карти</a>. Авторски права на\n   учесниците на UMP-pcPL.</li>\n   <li><strong>Обединето Кралство</strong>: Содржи геодетски податоци\n   &copy; Крунски авторски права и права врз базата на податоци\n   2010.</li>\n</ul>\n\n<p>\n  Поставањето на податоци во OpenStreetMap не подразбира дека изворниот \n  добавувач на податоци го поддржува и застапува OpenStreetMap, дека дава било каква гаранција, или пак\n  дека прифаќа било каква одговорност.\n</p>"
+    legal_babble: "<h2>Авторски права и лиценца</h2>\n<p>\n   OpenStreetMap има <i>отворени податоци</i>, и е лиценциран со <a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/deed.mk\">Криејтив\n   комонс НаведиИзвор-СподелиПодИстиУслови 2.0</a> (CC BY-SA).\n</p>\n<p>\n  Слободно можете да ги копирате, распространувате, јавно прикажувате и адаптирате нашите карти\n  и податоци, под услов да го наведете OpenStreetMap и неговите\n  учесници. Ако ги менувате или темелите дела врз нашите карти и податоци\n  резултатите можете да ги распространувате само под истата лиценца.\n  Во полниот <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">законски\n  правилник</a> се објаснети вашите права и должности.\n</p>\n\n<h3>Како да го наведувате OpenStreetMap</h3>\n<p>\n  Доколку користите слики од карти на OpenStreetMap, бараме\n  наводот да содржи барем &ldquo;&copy; Учесници на\n  OpenStreetMap, CC BY-SA&rdquo;. Ако користите само податоци од картите,\n  бараме наводот да гласи &ldquo;Картографски податоци &copy; Учесници на OpenStreetMap,\n  CC BY-SA&rdquo;.\n</p>\n<p>\n  Кадешто е можно, OpenStreetMap треба да има хиперврска <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  и CC BY-SA до <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/deed.mk\">http://creativecommons.org/licenses/by-sa/2.0/deed.mk</a>. Доколку\n  користите медиум кадешто не може да се ставаат врски (како на пр.\n  печатено издание), ви препорачуваме да ги наведете корисниците на\n  www.openstreetmap.org (на пр. со проширување на\n  &lsquo;OpenStreetMap&rsquo; со полнава адреса) и до\n  www.creativecommons.org.\n</p>\n\n<h3>Како да дознаете повеќе</h3>\n<p>\n  Прочитајте повеќе за користењето на нашите податоци на <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">Правните\n  ЧПП</a>.\n</p>\n<p>\n  Учесниците во OSM се потсетуваат никогаш да не ставаат податоци од\n  извори заштитени со авторски права (на пр. Google Карти или печатени карти) без\n  јасна дозвола од имателите на авторските права.\n</p>\n<p>\n  Иако OpenStreetMap има отворени податоци, ние сепак не можеме бесплатно да \n  го нудиме картографскиот програм на развивачи кои се трети лица.\n\n  Погледајте ги нашите <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">Правила на користење на програмот</a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Правила на користење на полињата</a>\n  и <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Правила на користење на Nominatim</a>.\n</p>\n\n<h3>Нашите учесници</h3>\n<p>\n  Нашата лиценца CC BY-SA бара да &ldquo;го наведете изворниот\n  автор разумно за медиумот или средството што го\n  користите&rdquo;. Поединечните картографи на OSM не бараат да\n  бидат наведувани посебно, туку само како &ldquo;Учесници на\n  OpenStreetMap&rdquo;, но онаму кадешто OpenStreetMap содржи податоци\n  од некоја државна картографска установа или друг важен извор,\n  веројатно би било разумно да ги наведете нив директно,\n  наведувајќи ги како што тие обично се наведуваат, или ставајќи врска до нивната страница.\n</p>\n\n<!--\nИнформации за уредниците на страници\n\nТука се наведени само оние организации кои бараат да бидат наведени\nкако предуслов за користење на нивните податоци на OpenStreetMap. Ова не е\nопшт каталог на увезени податоци, и не смее да се користи, освен кога\nсе бара навод за да се задоволат условите на лиценцата на увезените\nподатоци.\n\nСите дополнувања мора најпрвин да се продискутираат со систем-администраторите на OSM.\n-->\n\n<ul id=\"contributors\">\n   <li><strong>Австралија</strong>: Содржи податоци за населби засновани на\n   податоци на Австралиската служба за статистика.</li>\n<li><strong>Австрија</strong>: Содржи податоци од\n   <a href=\"http://data.wien.gv.at/\">Град Виена</a> (под лиценцата\n   <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.mk\">CC BY</a>),\n   <li><strong>Канада</strong>: Содржи податоци од\n   GeoBase&reg;, GeoGratis (&copy; Министерство за природни ресурси\n   Канада), CanVec (&copy; Министерство за природни ресурси\n   Канада) и StatCan (Географско одделение,\n   Статистика Канада).</li>\n   <li><strong>Франција</strong>: Содржи податоци преземени од\n   Главната даночна управа.</li>\n   <li><strong>Холандија</strong>: Содржи &copy; И податоци, 2007 \n   (<a href=\"http://www.and.com\">www.and.com</a>)</li>\n   <li><strong>Нов Зеланд</strong>: Содржи податоци преземени од\n   Land Information New Zealand. Крунски авторски права задржани.</li>\n   <li><strong>Полска</strong>: Содржи податоци од <a\n   href=\"http://ump.waw.pl/\">UMP-pcPL карти</a>. Авторски права на\n   учесниците на UMP-pcPL.\n  <a href=\"http://wiki.openstreetmap.org/wiki/UMP2OSM_Importing\">\n   Повеќе за употребата на податоци од UMP во OSM</a></li>\n   <li><strong>ЈАР</strong>: Содржи податоци преземени од\n   <a href=\"http://www.ngi.gov.za/\">Главниот директорат:\n   Национални геопросторни информации</a>, Државни права задржани.</li>\n   <li><strong>Обединето Кралство</strong>: Податоци од Ordnance Survey \n   &copy; Крунски авторски права и права врз базата на податоци\n   2010.</li>\n</ul>\n\n<p>\n  Поставањето на податоци во OpenStreetMap не подразбира дека изворниот \n  добавувач на податоци го поддржува и застапува OpenStreetMap, дека дава било каква гаранција, или пак\n  дека прифаќа било каква одговорност.\n</p>"
     native: 
       mapping_link: почнете со изработка на карти
       native_link: македонската верзија
@@ -973,13 +1027,19 @@ mk:
     inbox: 
       date: Датум
       from: Од
+      messages: Имате %{new_messages} и %{old_messages}
       my_inbox: Моето сандаче
+      new_messages: 
+        one: "%{count} нова порака"
+        other: "%{count} нови пораки"
       no_messages_yet: Сè уште немате пораки. Зошто не се поврзете со некој од %{people_mapping_nearby_link}?
+      old_messages: 
+        one: "%{count} стара порака"
+        other: "%{count} стари пораки"
       outbox: за праќање
       people_mapping_nearby: картографите во вашата близина
       subject: Наслов
       title: Примени
-      you_have: Имате %{new_count} нови пораки и %{old_count} стари пораки
     mark: 
       as_read: Пораката е означена како прочитана
       as_unread: Пораката е означена како непрочитана
@@ -1001,13 +1061,12 @@ mk:
       body: Нажалост нема порака со тој id.
       heading: Нема таква порака
       title: Нема таква порака
-    no_such_user: 
-      body: Нажалост нема корисник со тоа име.
-      heading: Нема таков корисник
-      title: Нема таков корисник
     outbox: 
       date: Датум
       inbox: примени пораки
+      messages: 
+        one: Имате %{count} испратена порака
+        other: Имате %{count} испратени пораки
       my_inbox: Моите %{inbox_link}
       no_sent_messages: Сè уште немате испратено пораки. Зошто да не исконтактирате некои %{people_mapping_nearby_link}?
       outbox: за праќање
@@ -1015,7 +1074,6 @@ mk:
       subject: Наслов
       title: За праќање
       to: До
-      you_have_sent_messages: Имате %{count} испратени пораки
     read: 
       back_to_inbox: Назад во добиени
       back_to_outbox: Назад во „за праќање“
@@ -1122,12 +1180,12 @@ mk:
       wiki_signup_url: http://wiki.openstreetmap.org/index.php?title=Special:UserLogin&type=signup&returnto=MK%3AMain_Page&uselang=mk
   oauth: 
     oauthorize: 
-      allow_read_gpx: ви ги чита вашите приватни GPS траги.
+      allow_read_gpx: ви ги чита вашите приватни GPS-траги.
       allow_read_prefs: ви ги чита корисничките прилагодувања.
       allow_to: "Дозволи му на клиентскиот програм да:"
       allow_write_api: ја менува картата.
       allow_write_diary: создава ставки во дневникот, пишува коментари и да се спријателува.
-      allow_write_gpx: подига GPS траги.
+      allow_write_gpx: подига GPS-траги.
       allow_write_prefs: ги менува вашите кориснички прилагодувања.
       request_access: Програмскиот прилог %{app_name} бара пристап до вашата сметка, %{user}. Видете дали би сакале прилогот да ги има следните можности. Можете да одберете колку што сакате.
     revoke: 
@@ -1141,11 +1199,11 @@ mk:
       submit: Уреди
       title: Уредете ја апликацијата
     form: 
-      allow_read_gpx: им ги чита приватните GPS траги
+      allow_read_gpx: им ги чита приватните GPS-траги.
       allow_read_prefs: им ги чита корисничките прилагодувања.
       allow_write_api: ја менува картата.
       allow_write_diary: создава ставки во дневници, да коментира, и да се спријателува.
-      allow_write_gpx: подига GPS траги.
+      allow_write_gpx: подига GPS-траги.
       allow_write_prefs: им ги менува корисничките прилагодувања.
       callback_url: URL адреса за обратен одзив
       name: Име
@@ -1171,24 +1229,57 @@ mk:
       sorry: Нажалост, тој %{type} не е пронајден.
     show: 
       access_url: "URL адреса на пристапниот жетон:"
-      allow_read_gpx: им ги чита приватните GPS траги.
+      allow_read_gpx: им ги чита приватните GPS-траги.
       allow_read_prefs: им ги чита корисничките прилагодувања.
       allow_write_api: ја менува картата.
       allow_write_diary: прави ставки во дневници, да коментира и да се сптијателува.
-      allow_write_gpx: подига GPS траги.
+      allow_write_gpx: подига GPS-траги.
       allow_write_prefs: им ги менува корисничките прилагодувања.
       authorize_url: "Дозволи URL адреса:"
-      edit: Детали од уредувањето
+      confirm: Дали сте сигурни?
+      delete: Избриши клиент
+      edit: Измени подробности
       key: "Потрошувачки клуч:"
       requests: Ги барам следните дозволи од корисникот
       secret: "Потрошувачка тајна:"
       support_notice: Поддржуваме hmac-sha1 (препорачано) како и  ssl режим со прост текст.
-      title: OAuth детали за %{app_name}
+      title: OAuth податоци за %{app_name}
       url: "Побарај URL адреса на жетонот:"
     update: 
       flash: Клиентските информации се успешно подновени
   printable_name: 
     with_version: "%{id}, вер. %{version}"
+  redaction: 
+    create: 
+      flash: Редакцијата е создадена.
+    destroy: 
+      error: Се појави грешна при поништувањето на редакцијата.
+      flash: Редакцијата е поништена.
+      not_empty: Редакцијата не е празна. Одредактирајте ги сите верзии што ѝ принадлежат на оваа редакција пред да ја поништите.
+    edit: 
+      description: Опис
+      heading: Уреди редакција
+      submit: Зачувај редакција
+      title: Уреди редакција
+    index: 
+      empty: Нема редакции.
+      heading: Список на редакции
+      title: Список на редакции
+    new: 
+      description: Опис
+      heading: Внесете информации за новата редакција
+      submit: Создај редакција
+      title: Создавање на нова редакција
+    show: 
+      confirm: Дали сте сигурни?
+      description: "Опис:"
+      destroy: Отстрани ја редакцијава
+      edit: Уреди ја редакцијава
+      heading: Прикажана е редакцијата „%{title}“
+      title: Приказ на редакција
+      user: "Создавач:"
+    update: 
+      flash: Промените се зачувани.
   site: 
     edit: 
       anon_edits_link_text: Дознајте зошто ова е така.
@@ -1203,7 +1294,6 @@ mk:
     index: 
       js_1: Или користите прелистувач кој не поддржува JavaScript, или пак сте го оневозможиле тој програм.
       js_2: OpenStreetMap користи JavaScript за нејзината лизгава карта.
-      js_3: Препорачуваме да ја пробате <a href="http://tah.openstreetmap.org/Browse/">Tiles@Home статичната карта</a> ако не можете да овозможите JavaScript.
       license: 
         license_name: Creative Commons Наведи извор-Сподели под исти услови 2.0
         notice: Под лиценцата %{license_name} од %{project_name} и неговите учесници.
@@ -1280,6 +1370,23 @@ mk:
           unclassified: Некласификуван пат
           unsurfaced: Неасфалтиран пат
           wood: Шумичка
+    markdown_help: 
+      alt: Алетрн. текст
+      first: Прва ставка
+      heading: Наслов
+      headings: Наслови
+      image: Слика
+      link: Врска
+      ordered: Подреден список
+      second: Втора ставка
+      subheading: Поднаслов
+      text: Текст
+      title_html: Парсирано со <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+      unordered: Неподреден список
+      url: URL
+    richtext_area: 
+      edit: Уреди
+      preview: Преглед
     search: 
       search: Пребарај
       search_help: "примери: 'Струмица', 'Илинденска', 'Regent Street, Cambridge', 'CB2 5AQ' или 'post offices near Lünen' <a href='http://wiki.openstreetmap.org/wiki/Search?uselang=mk'>повеќе примери...</a>"
@@ -1295,7 +1402,7 @@ mk:
   trace: 
     create: 
       trace_uploaded: Вашата GPX податотека е подигната и чека да биде вметната во базата на податоци. Ова обично се врши во рок од половина час, и откога ќе заврши, ќе ви биде испратена порака по е-пошта.
-      upload_trace: Подигни GPS трага
+      upload_trace: Подигни GPS-трага
     delete: 
       scheduled_for_deletion: Трагата е закажана за бришење
     edit: 
@@ -1317,16 +1424,12 @@ mk:
       visibility_help: што значи ова?
       visibility_help_url: http://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=mk
     list: 
-      public_traces: Јавни GPS траги
-      public_traces_from: Јавни GPS  траги од %{user}
+      public_traces: Јавни GPS-траги
+      public_traces_from: Јавни GPS-траги од %{user}
       tagged_with: "  означено со %{tags}"
-      your_traces: Ваши GPS траги
+      your_traces: Ваши GPS-траги
     make_public: 
       made_public: Трагата е објавена
-    no_such_user: 
-      body: Жалиме, но нема корисник по име %{user}. Видете дали сте згрешиле при пишувањето, или пак сте кликнале на погрешна врска.
-      heading: Корисникот %{user} не постои.
-      title: Нема таков корисник
     offline: 
       heading: GPX-складиште вон интернет
       message: Системот за складирање и подигање на GPX-податотеки моментално е недостапен.
@@ -1398,8 +1501,9 @@ mk:
     account: 
       contributor terms: 
         agreed: Се согласивте на новите Услови за учество.
-        agreed_with_pd: Исто така изјавивте дека вашите уредувања ги сметате за јавнодоменски.
+        agreed_with_pd: Исто така изјавивте дека вашите уредувања ги сметате за јавна сопственост.
         heading: "Услови за учество:"
+        link: http://www.osmfoundation.org/wiki/License/Contributor_Terms?uselang=mk
         link text: што е ова?
         not yet agreed: Сè уште се немате согласено со новите Услови за учество.
         review link text: Проследете ја врската кога ќе сакате за да ги прегледате и прифатите новите Услови за учество
@@ -1460,7 +1564,7 @@ mk:
       failure: Корисникот %{name} не е пронајден.
       success: Испративме поврдна порака на %{email}, и штом ќе ја потврдите сметката, ќе можете да почнете со картографска работа.<br /><br />Ако користите систем против спам кој испраќа барања за потврда, тогаш ќе морате да ја дозволите адресата webmaster@openstreetmap.org бидејќи ние немаме начин да одговараме на такви потврди.
     filter: 
-      not_an_administrator: За да го изведете тоа, треба да се администратор.
+      not_an_administrator: За да го изведете тоа, треба да сте администратор.
     go_public: 
       flash success: Сега сите уредувања ви се јавни, и ви е дозволено да уредувате.
     list: 
@@ -1475,8 +1579,8 @@ mk:
       summary_no_ip: "%{name} создадено на %{date}"
       title: Корисници
     login: 
+      account is suspended: Нажалост, вашата сметка е закочена поради сомнителна активност.<br />Обратете се кај <a href="%{webmaster}">раководителот</a> ако сакате да продискутирате за проблемот.
       account not active: Жалиме, но сметката сè уште не е активна.<br />Кликнете на врската наведена во пораката со која ви ја потврдуваме сметката за да ја активирате, или пак <a href="%{reconfirm}">побарајте нова потврдна порака</a>.
-      account suspended: Нажалост, вашата сметка е закочена поради сомнителна активност.<br />Обратете се кај %{webmaster} ако сакате да продискутирате за проблемот.
       auth failure: Жалиме, не можевме да ве најавиме со тие податоци.
       create account minute: Направете сметка. Ова трае само една минута.
       email or username: Е-пошта или корисничко име
@@ -1484,7 +1588,9 @@ mk:
       login_button: Најава
       lost password link: Ја заборавивте лозинката?
       new to osm: За новодојденци на OpenStreetMap
+      no account: Немате сметка?
       notice: <a href="http://www.osmfoundation.org/wiki/License/We_Are_Changing_The_License">Дознајте повеќе за престојната промена на лиценцата на OpenStreetMap</a> (<a href="http://wiki.openstreetmap.org/wiki/ODbL/We_Are_Changing_The_License">преводи</a>) (<a href="http://wiki.openstreetmap.org/wiki/Talk:ODbL/Upcoming">разговор</a>)
+      notice_terms: OpenStreetMap добива нова лиценца на 1 април 2012. Оваа лиценца е отворена исто како сегашната, но правните подробности се многу посоодветни на нашата картографска база на податоци. Со задоволство би ги задржале сите ваши придонеси на OpenStreetMap, но ова е можно само доколку согласувате да бидат објавени под условите на новата лиценца. Во спротивно ќе мораме да ги отстраниме од базата.<br /><br />Најавете се, прочитајте ги новите услови и видете дали се согласувате со нив. Ви благодариме!
       openid: "%{logo} OpenID:"
       openid invalid: Нажалост, вашиот OpenID е погрешно обликуван
       openid missing provider: Нажалост, не можев да се поврзам со вашиот добавувач на OpenID
@@ -1513,7 +1619,6 @@ mk:
       remember: "Запомни ме:"
       title: Најава
       to make changes: Мора да имате сметка за да можете да правите измени на податоците на OpenStreetMap.
-      webmaster: мреж. управник
       with openid: "Во друг случај, најавете се со вашиот OpenID:"
       with username: "Веќе имате сметка на OpenStreetMap? Најавете се со корисничкото име и лозинката:"
     logout: 
@@ -1583,8 +1688,9 @@ mk:
       webmaster: мреж. управник
     terms: 
       agree: Се согласувам
-      consider_pd: Покрај горенаведената согласност, сметам дека мојот придонес е јавнодоменски
+      consider_pd: Покрај горенаведената согласност, сметам дека мојот придонес е во јавна сопственост
       consider_pd_why: Што е ова?
+      consider_pd_why_url: http://www.osmfoundation.org/wiki/License/Why_would_I_want_my_contributions_to_be_public_domain?uselang=mk
       decline: Одбиј
       declined: http://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined?uselang=mk
       guidance: "Информации што ќе ви помогнат да ги разберете овие услови: a <a href=\"%{summary}\">краток опис</a> и некои <a href=\"%{translations}\">неформали преводи</a>"
@@ -1604,16 +1710,23 @@ mk:
       block_history: погледај добиени блокови
       blocks by me: извршени болокови
       blocks on me: добиени блокови
+      comments: коментари
       confirm: Потврди
       confirm_user: потврди го корисников
       create_block: блокирај го корисников
       created from: "Создадено од:"
+      ct accepted: Прифатен пред %{ago} дена
+      ct declined: Одбиен
+      ct status: "Услови за учество:"
+      ct undecided: Неодлучено
       deactivate_user: деактивирај го корисников
       delete_user: избриши го корисников
       description: Опис
       diary: дневник
       edits: уредувања
       email address: Е-пошта
+      friends_changesets: Сите измени на пријателите
+      friends_diaries: Прелистување на сите дневнички записи на пријателите
       hide_user: скриј го корисников
       if set location: Ако ја наместите вашата местоположба, под ова ќе ви се појави убава карта и други работи. Матичната местоположба можете да си ја наместите на страницата %{settings_link}.
       km away: "%{count} км од вас"
@@ -1621,11 +1734,14 @@ mk:
       m away: "%{count} м од вас"
       mapper since: "Картограф од:"
       moderator_history: погледај добиени блокови
+      my comments: мои коментари
       my diary: мојот дневник
       my edits: мои уредувања
       my settings: мои прилагодувања
       my traces: мои траги
       nearby users: Други соседни корисници
+      nearby_changesets: Прелистување на сите измени на соседните корисници
+      nearby_diaries: Прелистување на сите дневнички записи на соседните корисници
       new diary entry: нова ставка во дневникот
       no friends: Сè уште немате додадено пријатели.
       no nearby users: Сè уште нема други корисници во вашата околина што признаваат дека работат на карти.
@@ -1671,9 +1787,8 @@ mk:
       submit: Поднови го блокот
       title: Уредување на блок за %{name}
     filter: 
-      block_expired: Блокот е веќе истечен и не може да се ажурира.
+      block_expired: Блокот е веќе истечен и затоа не може да се менува.
       block_period: Периодот на блокада мора да биде со рок избран од паѓачкиот список.
-      not_a_moderator: Треба да бидете модератор за да го направите тоа.
     helper: 
       time_future: Истекува за %{time}.
       time_past: Истечено пред %{time}.
@@ -1735,8 +1850,8 @@ mk:
       time_past: Истечено пред %{time}
       title: "%{block_on} блокиран од %{block_by}"
     update: 
-      only_creator_can_edit: Само модераторот кој го направил блоков може да го ажурира.
-      success: Блокот е ажуриран.
+      only_creator_can_edit: Само модераторот кој го направил блоков може да го менува.
+      success: Блокот е изменет.
   user_role: 
     filter: 
       already_has_role: Корисникот веќе ја има улогата %{role}.

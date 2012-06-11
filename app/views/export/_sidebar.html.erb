@@ -20,9 +20,7 @@
     <p>
       <%= radio_button_tag("format", "osm") %> <%= t'export.start.osm_xml_data' %>
       <br/>
-      <%= radio_button_tag("format", "mapnik") %> <%= t'export.start.mapnik_image' %>
-      <br/>
-      <%= radio_button_tag("format", "osmarender") %> <%= t'export.start.osmarender_image' %>
+      <%= radio_button_tag("format", "mapnik") %> <%= t'export.start.map_image' %>
       <br/>
       <%= radio_button_tag("format", "html") %> <%= t'export.start.embeddable_html' %>
     </p>
@@ -48,21 +46,12 @@
     <p class="export_heading"><%= t'export.start.options' %></p>
 
     <div class="export_details">
-      <p><%= t'export.start.format' %> <%= select_tag("mapnik_format", options_for_select([["PNG", "png"], ["JPEG", "jpeg"], ["SVG", "svg"], ["PDF", "pdf"], ["Postscript", "ps"]], "png")) %></p>
+      <p><%= t'export.start.format' %> <%= select_tag("mapnik_format", options_for_select([["PNG", "png"], ["JPEG", "jpeg"], ["SVG", "svg"], ["PDF", "pdf"]], "png")) %></p>
       <p><%= t'export.start.scale' %> 1 : <%= text_field_tag("mapnik_scale", nil, :size => 8) %> <span class="export_hint">(<%= t'export.start.max' %> 1 : <span id="mapnik_max_scale"></span>)</span></p>
       <p><%= t'export.start.image_size' %> <span id="mapnik_image_width"></span> x <span id="mapnik_image_height"></span></p>
     </div>
   </div>
 
-  <div id="export_osmarender">
-    <p class="export_heading"><%= t'export.start.options' %></p>
-
-    <div class="export_details">
-      <p><%= t'export.start.format' %> <%= select_tag("osmarender_format", options_for_select([["PNG", "png"], ["JPEG", "jpeg"]], "png")) %></p>
-      <p><%= t'export.start.zoom' %> <%= select_tag("osmarender_zoom", options_for_select([4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17])) %></p>
-    </div>
-  </div>
-  
   <div id="export_html">
     <p class="export_heading"><%= t'export.start.options' %></p>
 

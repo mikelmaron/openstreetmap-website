@@ -3,8 +3,10 @@
 /* Default rules for the body of every page */
 
 body {
-  font-family: Arial,sans-serif;
-  color: #000;
+  font-family: 'Helvetica Neue',Arial,sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #222;
   background-color: #fff;
   margin: 0px;
   padding: 0px;
@@ -34,12 +36,22 @@ hr {
   height: 1px;
 }
 
+/* Default rules for headings */
+
+h2 {
+  margin: 5px 0;
+  font-size: 25px;
+  line-height: 30px;
+}
+
 /* Rules for the whole left sidebar, including the logo */
 
 #left {
   position: absolute;
   top: 0px;
-  min-width: 170px;
+  width: 185px;
+  font-size: 11px;
+  line-height: 12px;
 }
 
 /* Rules for the OpenStreetMap logo in the top left corner */
@@ -48,22 +60,20 @@ hr {
   width: 170px;
   min-width: 170px;
   padding: 5px;
-  margin: 5px;
-  height: 150px;
-  background: #fff;
-  border: 1px solid #ccd;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  text-align: center;
+  margin: 25px 0 5px 0;
 }
 
 #logo h1 {
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 20px;
   text-align: center;
   margin: 0px;
 }
 
 #logo h2 {
   font-size: 10px;
+  line-height: 15px;
   margin: 0px;
 }
 
@@ -75,17 +85,12 @@ hr {
 
 /* Rules for the introductory text displayed in the left sidebar to new users */
 
-#intro {
-  width: 170px;
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  font-size: 11px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+.sidebar-copy {
+  border-top: 1px solid #ccc;
+  padding: 0px 5px;
 }
 
-#intro p {
+.sidebar-copy p {
   margin: 5px;
 }
 
@@ -95,16 +100,19 @@ hr {
  * undergoing maintenance.
  */
 
-#alert {
-  width: 170px;
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  background: #d00;
-  line-height: 1.2em;
-  font-size: 14px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+.sidebar-alert {
+  padding: 4px 5px 4px 5px;
+  border-top: 1px solid #ccc;
+  margin-top: 4px;
+  margin-bottom: -4px;
+  background: #e00;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 17px;
+
+  p {
+    margin: 5px;
+  }
 }
 
 /*
@@ -113,36 +121,30 @@ hr {
  * donation drives.
  */
 
-.notice {
-  width: 170px;
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
+.sidebar-notice {
+  padding: 4px 5px 4px 5px;
+  border-top: 1px solid #ccc;
+  margin-top: 4px;
+  margin-bottom: -4px;
   background: #ea0;
-  line-height: 1.2em;
-  font-size: 14px;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  font-size: 13px;
+  line-height: 17px;
+
+  p {
+    margin: 5px;
+  }
 }
 
 /* Rules for the menu displayed in the left sidebar */
 
 .left_menu {
-  width: 170px;
-  min-width: 170px;
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  background: #ddd;
-  line-height: 1.2em;
+  padding: 5px 10px;
+  margin: 4px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  line-height: 20px;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-}
-
-.left_menu td {
-  font-size: 12px;
 }
 
 .left_menu h1 {
@@ -158,6 +160,13 @@ hr {
 .left_menu li {
   margin: 0px;
   padding: 0px;
+}
+
+/* submenus */
+.left_menu ul li ul {
+  font-weight: normal;
+  line-height: 15px;
+  font-size: 12px;
 }
 
 .left_menu a {
@@ -182,22 +191,15 @@ hr {
  */
 
 .optionalbox {
-  width: 170px;
-  min-width: 170px;
-  margin: 5px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  line-height: 1.2em;
-  font-size: 12px;
-  background: #eee;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
+  padding: 5px 10px;
+  margin: 4px 0;
+  border-top: 1px solid #ccc;
 }
 
 .optionalbox h1 {
   font-size: 14px;
   font-weight: bold;
-  line-height: 22px;
+  line-height: 20px;
   margin: 0px;
   vertical-align: bottom;
 }
@@ -205,13 +207,13 @@ hr {
 /* Rules for the search box */
 
 .whereami {
-  line-height: 22px;
+  line-height: 20px;
   vertical-align: bottom;
 }
 
 .search_container {
-  height: 16px;
-  padding-bottom: 6px;
+  height: 15px;
+  padding-bottom: 5px;
 }
 
 #search_field form {
@@ -221,7 +223,7 @@ hr {
 }
 
 #search_field input[type="text"] {
-  width: 136px;
+  width: 130px;
 }
 
 #search_field input[type="submit"] {
@@ -231,21 +233,19 @@ hr {
 }
 
 .search_help {
-  font-size: 10px;
-  line-height: 1em;
-  margin-top: 3px;
+  margin-top: 2px;
   margin-bottom: 0px;
 }
 
 /* Rules for donation request box */
 
 .donate {
-  width: 170px;
-  margin: 5px;
+  width: 153px;
+  margin: 10px 10px;
   padding: 5px;
   border: 1px solid #ccc;
   background: #cbeea7;
-  line-height: 1.2em;
+  line-height: 20px;
   text-align: center;
   font-size: 14px;
   border-radius: 5px;
@@ -261,66 +261,66 @@ hr {
 
 /* Rules for tabbed navigation bar */
 
-#tabnav
-{
-  height: 20px;
-  margin: 0px;
-  padding-top: 5px;
-  background: image-url('tab_bottom.gif') repeat-x bottom;
+#top-bar {
+  border-bottom: 1px solid #ccc;
+  height: 29px;
 }
 
-#tabnav li
-{
-  margin: 0px; 
+#tabnav {
+  padding: 0;
+  margin: 0;
+  overflow:hidden;
+}
+
+#tabnav li {
+  margin: 0px;
   padding: 0px;
   display: inline;
   list-style-type: none;
 }
 
-#tabnav a, #tabnav a:link, #tabnav a:visited 
-{
-  background: #f3f3f3;
-  font-size: 13px;
-  line-height: 14px;
+#tabnav a, #tabnav a:link, #tabnav a:visited {
+  background: #fff;
+  font-size: 14px;
+  line-height: 19px;
   font-weight: bold;
-  padding: 2px 10px;
-  border: 1px solid #ccc;
+  padding: 5px 10px;
   text-decoration: none;
   color: #333;
-  border-top-right-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  -moz-border-radius-topleft: 5px;
 }
 
-#tabnav a:link.active, #tabnav a:visited.active
-{
-  border-bottom: 1px solid #fff;
-  background: #fff;
+#tabnav a:link.active, #tabnav a:visited.active {
+  border-bottom: 1px solid #aaa;
+  background: #9ed485;
   color: #000;
 }
 
-#tabnav a:link:hover, #tabnav a:visited:hover
-{
-  background: #fff;
+#tabnav a:link:hover, #tabnav a:visited:hover {
+  text-decoration:underline;
 }
 
-#tabnav a:link.disabled, #tabnav a:visited.disabled,
-#tabnav a:link:hover.disabled, #tabnav a:visited:hover.disabled
-{
-  background: #bbbbbb;
-  color: white
+#tabnav a:link.disabled,
+#tabnav a:visited.disabled,
+#tabnav a:link:hover.disabled,
+#tabnav a:visited:hover.disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+#tabnav a:link.disabled:hover,
+#tabnav a:visited.disabled:hover,
+#tabnav a:link:hover.disabled:hover,
+#tabnav a:visited:hover.disabled:hover {
+  text-decoration: none;
 }
 
 /* Rules for greeting bar in the top right corner */
 
 #greeting {
-  height: 20px;
+  height: 28px;
   margin: 0px;
-  padding-top: 5px;
   font-size: 13px;
-  line-height: 14px;
-  background: image-url('tab_bottom.gif') repeat-x bottom;
+  line-height: 28px;
 }
 
 .greeting-bar-unread {
@@ -338,8 +338,7 @@ hr {
 /* Rules for OpenLayers maps */
 
 #map {
-  border: 1px solid black;
-  margin: 0px; 
+  margin: 0px;
   padding: 0px;
 }
 
@@ -353,31 +352,48 @@ hr {
 #permalink {
   z-index: 10000;
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  bottom: 0px;
+  right: 0px;
+  padding: 5px;
+  background:#fff;
   text-align: right;
-  font-size: smaller;
+  font-size: 12px;
+}
+
+#permalink a {
+  padding: 5px;
 }
 
 /* Rules for edit menu */
+
+.menuicon {
+  padding: 5px;
+
+  &:hover {
+    background: #eee;
+    text-decoration: none !important;
+  }
+}
 
 .menu {
   display: none;
   z-index: 10000;
   position: absolute;
   background-color: #ffffff;
-  border: 1px solid black;
+  border: 1px solid #cccccc;
+  border-top: 0px;
 }
 
 .menu ul {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .menu li {
+  padding: 2px 5px;
+  margin: 0px;
   list-style-type: none;
+  border-top: 1px solid #eee;
   white-space: nowrap;
 }
 
@@ -396,7 +412,6 @@ hr {
 #sidebar {
   display: none;
   position: absolute;
-  border: 1px solid black;
   margin: 0px;
   padding: 0px;
   width: 30%;
@@ -408,7 +423,7 @@ hr {
   overflow: auto;
   position: absolute;
   font-size: 13px;
-  line-height: 14px;
+  line-height: 15px;
   top: 29px;
   bottom: 0px;
   left: 0px;
@@ -417,11 +432,10 @@ hr {
 
 #sidebar .sidebar_title {
   margin: 0px;
-  padding: 3px 6px;
+  padding: 3px 6px 4px 6px;
   height: 29px;
   font-size: 14px;
   line-height: 15px;
-  border-bottom: 1px solid black;
   background: #bbb;
 }
 
@@ -454,14 +468,14 @@ hr {
 
 .search_results_heading {
   margin: 0px;
-  padding: 3px 6px;
-  border: 1px solid #ccc;
-  background: #ddd;
+  padding: 2px 5px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
 }
 
 .search_results_entry {
   margin: 0px;
-  padding: 2px 6px;
+  padding: 2px 5px;
 }
 
 .search_results_error {
@@ -488,9 +502,9 @@ hr {
 
 .export_heading {
   margin: 0px;
-  padding: 3px 6px;
-  border: 1px solid #ccc;
-  background: #ddd;
+  padding: 2px 5px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
 }
 
 .export_bounds {
@@ -531,11 +545,17 @@ hr {
 /* Rules for the main content area */
 
 #content {
-  padding: 0px;
+  padding: 10px;
   margin: 0px;
-  position: absolute; 
-  bottom: 10px;
-  line-height: 1.2em;
+  position: absolute;
+  bottom: 0px;
+}
+
+#content.site_index,
+#content.site_edit,
+#content.site_export {
+  border: 0px;
+  padding: 0px;
 }
 
 #slim_container {
@@ -727,6 +747,7 @@ table.browse_details th {
   position: relative;
   width: 90%;
   height: 400px;
+  border: 1px solid #ccc;
   display: none;
 }
 
@@ -830,6 +851,7 @@ p#contributorGuidance {
   position: relative;
   width: 500px;
   height: 400px; 
+  border: 1px solid #ccc;
 }
 
 #accountImage td {
@@ -858,6 +880,7 @@ p#contributorGuidance {
   position: relative;
   width: 400px;
   height: 400px; 
+  border: 1px solid #ccc;
 }
 
 .user_view .user_map p#no_home_location {
@@ -976,18 +999,20 @@ p#contributorGuidance {
 .fieldName {
   vertical-align: top;
   font-weight: bold;
+  font-size: 12px;
+  line-height: 20px;
 }
 
 .minorNote {
   font-size: 0.8em;
 }
 
-input[type="text"], input[type="email"], input[type="url"], input[type="password"], textarea {
-  border: 1px solid black;
-}
-
-input[type="submit"] {
-  border: 1px solid black;
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+textarea {
+  border: 1px solid #888;
 }
 
 /* Rules for user images */
@@ -1025,11 +1050,11 @@ abbr.geo {
 
 /* Rules for doing distinct colour of alternate table rows */
 
-.table0 { 
+.table0 {
   background: #f6f6f6;
 }
 
-.table1 { 
+.table1 {
   background: #fff;
 }
 
@@ -1038,4 +1063,64 @@ abbr.geo {
 .openid_logo {
   vertical-align: text-bottom;
   border: 0;
+}
+
+/* Rules for rich text editors */
+
+.richtext_container {
+  white-space: nowrap;
+
+  .richtext_content {
+    display: inline-block;
+    vertical-align: top;
+
+    .richtext_preview {
+      display: inline-block;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      border: 4px solid #eee;
+      background-color: #eee;
+      white-space: normal;
+
+      &.loading {
+        background-image: image-url("loading.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      > :first-child {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  .richtext_help {
+    display: inline-block;
+    vertical-align: top;
+    background-color: #ddd;
+    padding: 5px 10px 10px 10px;
+    font-size: 12px;
+
+    p {
+      margin: 0px;
+    }
+
+    th {
+      vertical-align: top;
+    }
+
+    td {
+      font-family: fixed;
+      line-height: 16px;
+      padding: 0px !important;
+    }
+
+    input.richtext_doedit {
+      margin-top: 5px !important;
+    }
+
+    input.richtext_dopreview {
+      margin-top: 5px !important;
+    }
+  }
 }

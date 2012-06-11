@@ -341,10 +341,6 @@ aln:
       body: Me na fal, por nuk ka shënim në ditar ose koment me id %{id}. Ju lutem shihni drejtshkrimin, ose lidhja që keni kliku asht gabim.
       heading: "Nuk ka shënim me id: %{id}"
       title: Nuk ka hyrje të tilla ditar
-    no_such_user: 
-      body: Me na fal, po nuk ka anëtarë me emnin %{user}. Ju lutem kshyrni shkronjat, ose nashta lidhja që keni trus është gabim.
-      heading: Anëtari %{user} nuk egziston
-      title: Nuk ka anëtarë të tillë
     view: 
       leave_a_comment: Lene naj koment
       login: Hyrje
@@ -366,11 +362,9 @@ aln:
       licence: Licensa
       longitude: "Lon:"
       manually_select: Manualisht zgedhe ni zon te ndryshme
-      mapnik_image: Mapin fotografi
       max: maks
       options: Opcionet
       osm_xml_data: OpenStreetMap XML të dhana
-      osmarender_image: Osmarender fotografi
       output: Outputi
       paste_html: Fute HTML për me ngjit në web sajt
       scale: Shkallë
@@ -522,36 +516,7 @@ aln:
         boundary: 
           administrative: Administrative kufitare
         building: 
-          apartments: Apartament Blloku
-          block: Ndërtimi Blloku
-          bunker: Bunker
-          chapel: Kishëz
-          church: Kishë
-          city_hall: Bashkia
-          commercial: Komercial Ndërtimi
-          dormitory: Konvikt
-          entrance: Ndërtimi Hyrja
-          faculty: Fakulteti Ndërtimi
-          farm: Farm Ndërtimi
-          flats: Banesa
-          garage: Garazh
-          hall: Sallë
-          hospital: Spitali Ndërtimi
-          hotel: Hotel
-          house: Shpi
-          industrial: ndërtesë industriale
-          office: Zyra për ndërtim
-          public: Publike Ndërtimi
-          residential: godinë banimi
-          retail: Shitje me pakicë për ndërtim
-          school: Shkolla Ndërtimi
-          shop: Shitore
-          stadium: Stadium
-          store: Dyqan
-          terrace: Tarracë
-          tower: Kullë
-          train_station: Stacion hekurudhor
-          university: Universiteti për ndërtim
+          "yes": Ndërtesë
         highway: 
           bridleway: Rruge pa osfallt
           bus_guideway: Lane udhëzoi Autobuseve
@@ -559,11 +524,9 @@ aln:
           byway: Rruge ansore
           construction: Highway nën ndërtim
           cycleway: Rruge per biciklla
-          distance_marker: Largësia Marker
           emergency_access_point: Pike Hyrje e urgjencës
           footway: Rrugë e kambsorve
           ford: Fiord
-          gate: Portë
           living_street: rrugës ku njerëzit jetojnë
           minor: rrugë të vogla
           motorway: Autostradë
@@ -628,11 +591,9 @@ aln:
           meadow: Livadh
           military: Zonë Ushtarake
           mine: Imi
-          mountain: Mal
           nature_reserve: Natyra Rezervat
           park: Park
           piste: Piste
-          plaza: Shesh publik
           quarry: Gurore
           railway: Hekurudhor
           recreation_ground: Zbavitje Ground
@@ -670,7 +631,6 @@ aln:
           cave_entrance: Shpella Hyrja
           channel: Kanal
           cliff: Shkamb
-          coastline: Vijë e bregdetit
           crater: Krater
           feature: Veçuni
           fell: Moqal
@@ -750,7 +710,6 @@ aln:
           yard: depo stacioni hekurudhor
         shop: 
           alcohol: kiosk
-          apparel: Veshmbathje Shop
           art: Shitore e kafshëve
           bakery: Dyqan buke
           beauty: Bukuri Shop
@@ -759,7 +718,6 @@ aln:
           books: Librari
           butcher: Kasap
           car: Shitore e Kerreve
-          car_dealer: shitje makine
           car_parts: pjesë makinash
           car_repair: riparimin e makinave
           carpet: dyqan qilim
@@ -774,7 +732,6 @@ aln:
           department_store: Departamenti Shitore
           discount: artikuj zbritje dyqan
           doityourself: Për ta bërë vetë
-          drugstore: Farmaci
           dry_cleaning: Pastrimi kimik
           electronics: Elektronikë Shop
           estate_agent: agjent immobile
@@ -890,9 +847,6 @@ aln:
       other: Kutia jote ka %{count} mesazhe të palexume
       zero: Kutia jote nuk ka asnjë mesazh të palexume
     intro_1: OpenStreetMap është një hartë e lirë editable e tërë botës. Kjo është bërë nga njerëzit si ju.
-    intro_2: OpenStreetMap ta mundëson ty me shiku, ndryshu dhe përdor të dhana gjeografike në një mënyrë bashkëpunuese prej kudo në Tokë.
-    intro_3: OpenStreetMap e pret është i mbështetur mirë nga %{ucl} dhe %{bytemark}. mbështetësit e tjerë të projektit janë të shënuara në %{partners}.
-    intro_3_partners: wiki
     license: 
       title: Të dhënat OpenStreetMap është i liçensuar nën Creative Commons Attribution-Share njësoj License 2,0 Generic
     log_in: log in
@@ -920,7 +874,7 @@ aln:
       english_link: origjinal anglisht
       text: Në ni ngjarje të ni konflikti me faqen e përkthyme dhe %{english_original_link}, faqja anglisht ka përparsi
       title: Rreth kti përkthimi
-    legal_babble: " <h2> Copyright </h2>\n<p>\n   OpenStreetMap është <i> dhënat e hapur </ i>, të licencuar sipas <a\n   href = \"http://creativecommons.org/licenses/by-sa/2.0/\"> Creative\n   Commons Attribution-ShareAlike 2,0 </ a licencës> (CC-BY-SA).\n</ P>\n<p>\n  Ju jeni të lirë ta kopjoni, shpërndani, përcjell dhe përshtatur hartat tona\n  dhe të dhënat, për aq kohë sa ju e kreditit OpenStreetMap e saj\n  kontribuesve. Nëse ju ndryshoni ose me ndërtimin e hartave tona ose të dhëna, ju\n  mund të shpërndani rezultat vetëm në bazë të licencës të njëjtën.\n  <Plotë një\n  href = \"http://creativecommons.org/licenses/by-sa/2.0/legalcode\"> ligjore\n  <Kod / a> shpjegon të drejtat tuaja dhe të përgjegjësive.\n</ P>\n\n> <h3> Si të kreditit OpenStreetMap </ h3\n<p>\n  Nëse jeni duke përdorur harta imazhe OpenStreetMap, ne kërkojmë që\n  kreditit tuaj lexon të paktën \"© OpenStreetMap\n  kontribuesit, CC-BY-SA \". Nëse jeni duke përdorur të dhëna vetëm në hartë,\n  ne kerkojme \"Organizimi i të dhënave © kontribuesit OpenStreetMap,\n  CC-BY-SA \".\n</ P>\n<p>\n  Ku të jetë e mundur, duhet të jetë OpenStreetMap hyperlinked në <a\n  href = \"http://www.openstreetmap.org/\"> http://www.openstreetmap.org/ </ a>\n  dhe CC-BY-SA për <a\n  href = \"http://creativecommons.org/licenses/by-sa/2.0/\"> http://creativecommons.org/licenses/by-sa/2.0/ </ a>. Nëse\n  ju jeni duke përdorur një të mesme, ku lidhjet nuk janë të mundshme (p.sh. një\n  shtypura punë), ne ju sugjerojmë lexuesit tuaj të drejtpërdrejtë të\n  www.openstreetmap.org (ndoshta duke zgjeruar\n  'OpenStreetMap' në këtë adresë të plotë) dhe të\n  www.creativecommons.org.\n</ P>\n\n<h3> Gjetja <më shumë / h3>\n<p>\n  Lexo më shumë lidhje me përdorimin e të dhënave tona në <a\n  href = \"http://wiki.openstreetmap.org/wiki/Legal_FAQ\"> Ligjore\n  FAQ </ a>.\n</ P>\n<p>\n  OSM janë kontribuesit kujtoi kurrë për të shtuar të dhënat nga ndonjë\n  Burime copyright (p.sh. Google Maps apo të shtypura harta) pa\n  lejen shprehimisht nga mbajtësit të drejtën e autorit.\n</ P>\n<p>\n  Edhe pse OpenStreetMap është e hapur të dhëna, ne nuk mund të sigurojë një\n  pa-e-ngarkuar hartë API për zhvilluesit e palëve të treta.\n\n  Shiko <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\"> tonë API Perdorimi Politika </ a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\"> tjegull Perdorimi Politika </ a>\n  dhe <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\"> Nominatim Perdorimi Politika </ a>.\n</ P>\n\n<h3> kontribuesit tona </ h3>\n<p>\n  licencë CC-BY-SA jonë kërkon që ju të \"japin origjinal\n  Author kredi të arsyeshme për të mesëm ose të thotë Ti je\n  shfrytëzuar \". Individuale mappers OSM nuk kërkojnë një\n  kreditit mbi dhe më lart që të \"OpenStreetMap\n  kontribuesit \", por kur të dhënat nga një hartës kombëtare\n  agjenci ose burim kryesor ka qenë i përfshirë në\n  OpenStreetMap, ai mund të jetë e arsyeshme për kredi nga ana e tyre direkt\n  riprodhimin e kreditit e tyre apo duke i lidhur me të në këtë faqe.\n</ P>\n\n<! -\nInformacion për redaktorët faqe\n\nNë vijim lista vetëm ato organizata që kërkojnë pushtet\nsi kusht për të dhënat e tyre duke u përdorur në OpenStreetMap. Kjo nuk është një\nkatalogun e përgjithshme të importit, dhe nuk duhet të përdoret vetëm kur\natribuohet është e nevojshme në përputhje me licencën e importuar\ntë dhënave.\n\nÇdo Futjet këtu duhet të diskutohet me sysadmins OSM parë.\n->\n\nid=\"contributors\"> <ul\n   <li> <strong> Australi </ strong>: Përmban të dhëna të bazuara periferi\n   në Zyra Australiane e Statistikave të dhënave. </ li>\n   <li> <strong> Kanada </ strong>: Përmban të dhëna nga\n   GeoBase ®, GeoGratis (© Departamenti i Natyrore\n   Burimet Kanada), CanVec (Departamenti i Natyrore ©\n   Burimet Kanada), dhe StatCan (Divizioni Gjeografia,\n   Statistika Kanada). </ Li>\n   <li> <strong> Zelanda e Re </ strong>: Përmban të dhëna me burim nga\n   Zelanda e Re Toka e informacionit. Crown Copyright rezervuara. </ Li>\n   <li> <strong> Mbretëria e Bashkuar </ strong>: Përmban të pajisjeve\n   Anketa të dhënat © Crown copyright bazës së të dhënave dhe të drejtë\n   2010. </ Li>\n</> Ul\n\n<p>\n  Përfshirja e të dhënave në OpenStreetMap nuk do të thotë që origjinal\n  dhënave miraton ofrues OpenStreetMap, ofron çdo garanci ose\n  pranon ndonjë përgjegjësi.\n</ P>"
+    legal_babble: " <h2> Copyright </h2>\n<p>\n   OpenStreetMap është <i> dhënat e hapur </ i>, të licencuar sipas <a\n   href = \"http://creativecommons.org/licenses/by-sa/2.0/\"> Creative\n   Commons Attribution-ShareAlike 2,0 </ a licencës> (CC BY-SA).\n</ P>\n<p>\n  Ju jeni të lirë ta kopjoni, shpërndani, përcjell dhe përshtatur hartat tona\n  dhe të dhënat, për aq kohë sa ju e kreditit OpenStreetMap e saj\n  kontribuesve. Nëse ju ndryshoni ose me ndërtimin e hartave tona ose të dhëna, ju\n  mund të shpërndani rezultat vetëm në bazë të licencës të njëjtën.\n  <Plotë një\n  href = \"http://creativecommons.org/licenses/by-sa/2.0/legalcode\"> ligjore\n  <Kod / a> shpjegon të drejtat tuaja dhe të përgjegjësive.\n</ P>\n\n> <h3> Si të kreditit OpenStreetMap </ h3\n<p>\n  Nëse jeni duke përdorur harta imazhe OpenStreetMap, ne kërkojmë që\n  kreditit tuaj lexon të paktën \"© OpenStreetMap\n  kontribuesit, CC BY-SA \". Nëse jeni duke përdorur të dhëna vetëm në hartë,\n  ne kerkojme \"Organizimi i të dhënave © kontribuesit OpenStreetMap,\n  CC BY-SA \".\n</ P>\n<p>\n  Ku të jetë e mundur, duhet të jetë OpenStreetMap hyperlinked në <a\n  href = \"http://www.openstreetmap.org/\"> http://www.openstreetmap.org/ </ a>\n  dhe CC BY-SA për <a\n  href = \"http://creativecommons.org/licenses/by-sa/2.0/\"> http://creativecommons.org/licenses/by-sa/2.0/ </ a>. Nëse\n  ju jeni duke përdorur një të mesme, ku lidhjet nuk janë të mundshme (p.sh. një\n  shtypura punë), ne ju sugjerojmë lexuesit tuaj të drejtpërdrejtë të\n  www.openstreetmap.org (ndoshta duke zgjeruar\n  'OpenStreetMap' në këtë adresë të plotë) dhe të\n  www.creativecommons.org.\n</ P>\n\n<h3> Gjetja <më shumë / h3>\n<p>\n  Lexo më shumë lidhje me përdorimin e të dhënave tona në <a\n  href = \"http://wiki.openstreetmap.org/wiki/Legal_FAQ\"> Ligjore\n  FAQ </ a>.\n</ P>\n<p>\n  OSM janë kontribuesit kujtoi kurrë për të shtuar të dhënat nga ndonjë\n  Burime copyright (p.sh. Google Maps apo të shtypura harta) pa\n  lejen shprehimisht nga mbajtësit të drejtën e autorit.\n</ P>\n<p>\n  Edhe pse OpenStreetMap është e hapur të dhëna, ne nuk mund të sigurojë një\n  pa-e-ngarkuar hartë API për zhvilluesit e palëve të treta.\n\n  Shiko <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\"> tonë API Perdorimi Politika </ a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\"> tjegull Perdorimi Politika </ a>\n  dhe <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\"> Nominatim Perdorimi Politika </ a>.\n</ P>\n\n<h3> kontribuesit tona </ h3>\n<p>\n  licencë CC BY-SA jonë kërkon që ju të \"japin origjinal\n  Author kredi të arsyeshme për të mesëm ose të thotë Ti je\n  shfrytëzuar \". Individuale mappers OSM nuk kërkojnë një\n  kreditit mbi dhe më lart që të \"OpenStreetMap\n  kontribuesit \", por kur të dhënat nga një hartës kombëtare\n  agjenci ose burim kryesor ka qenë i përfshirë në\n  OpenStreetMap, ai mund të jetë e arsyeshme për kredi nga ana e tyre direkt\n  riprodhimin e kreditit e tyre apo duke i lidhur me të në këtë faqe.\n</ P>\n\n<! -\nInformacion për redaktorët faqe\n\nNë vijim lista vetëm ato organizata që kërkojnë pushtet\nsi kusht për të dhënat e tyre duke u përdorur në OpenStreetMap. Kjo nuk është një\nkatalogun e përgjithshme të importit, dhe nuk duhet të përdoret vetëm kur\natribuohet është e nevojshme në përputhje me licencën e importuar\ntë dhënave.\n\nÇdo Futjet këtu duhet të diskutohet me sysadmins OSM parë.\n->\n\nid=\"contributors\"> <ul\n   <li> <strong> Australi </ strong>: Përmban të dhëna të bazuara periferi\n   në Zyra Australiane e Statistikave të dhënave. </ li>\n   <li> <strong> Kanada </ strong>: Përmban të dhëna nga\n   GeoBase ®, GeoGratis (© Departamenti i Natyrore\n   Burimet Kanada), CanVec (Departamenti i Natyrore ©\n   Burimet Kanada), dhe StatCan (Divizioni Gjeografia,\n   Statistika Kanada). </ Li>\n   <li> <strong> Zelanda e Re </ strong>: Përmban të dhëna me burim nga\n   Zelanda e Re Toka e informacionit. Crown Copyright rezervuara. </ Li>\n   <li> <strong> Mbretëria e Bashkuar </ strong>: Përmban të pajisjeve\n   Anketa të dhënat © Crown copyright bazës së të dhënave dhe të drejtë\n   2010. </ Li>\n</> Ul\n\n<p>\n  Përfshirja e të dhënave në OpenStreetMap nuk do të thotë që origjinal\n  dhënave miraton ofrues OpenStreetMap, ofron çdo garanci ose\n  pranon ndonjë përgjegjësi.\n</ P>"
     native: 
       mapping_link: fillo hartografimin
       native_link: THIS_LANGUAGE_NAME_HERE verzion
@@ -938,7 +892,6 @@ aln:
       people_mapping_nearby: njerëzit pranë hartës
       subject: Tema
       title: Inbox
-      you_have: I ki %{new_count} mesazhe të reja dhe %{old_count} mesazhe të vjetra
     mark: 
       as_read: Mesazhi u bo si i lexum
       as_unread: Mesazhi u bo si i palexum
@@ -960,10 +913,6 @@ aln:
       body: Me na fal por nuk ka asnjë mesazh me at id.
       heading: Nuk ka ksi mesazhi
       title: Nuk ka ksi mesazhi
-    no_such_user: 
-      body: Na vjen keq nuk ka asnjë përdorues me atë emër.
-      heading: S'ka ksi shfrytëzuesi
-      title: S'ka ksi shfrytëzuesi
     outbox: 
       date: Data
       inbox: postë
@@ -974,7 +923,6 @@ aln:
       subject: Titulli
       title: Dalje
       to: Te
-      you_have_sent_messages: I ki %{count} mesazhe të dërgume
     read: 
       back_to_inbox: Kthehu në postë
       back_to_outbox: Kthehu në Dalje
@@ -1151,7 +1099,6 @@ aln:
     index: 
       js_1: Ju jeni tuj e përdor naj shfletues që nuk e përkrah JavaScript, ose ju e keni ndalu JavaScript.
       js_2: OpenStreetMap përdor Java skriptet për planet e saj të rrëshqitshëm.
-      js_3: Ju mund të dëshironi të provoni <a href="http://tah.openstreetmap.org/Browse/">Faqja @ tjegull shfletuesin statike pllaka</a> në qoftë se ju nuk jeni në gjendje të mundësojë JavaScript.
       license: 
         license_name: Creative Commons Attribution-Share Alike 2.0
         notice: E licencume nëpërmjet %{license_name} licenca prej %{project_name} dhe kontribuuesve të tij.
@@ -1269,10 +1216,6 @@ aln:
       your_traces: Të dhanat e GPS-it
     make_public: 
       made_public: Gjurma u ba publike
-    no_such_user: 
-      body: Na fal, nuk ka shfrytëzues me emrin %{user}. Ju lutem shihni drejtshkrimin, ose lidhja që keni kliku asht gabim.
-      heading: Shfrytëzusi %{user} nuk ekziston
-      title: Ska ksi shfrytëzuesi
     offline: 
       heading: Mbledhsi i GPX asht jasht linje
       message: Mbledhsi i skedareve GPX dhe sistemi i ngarkimit për momentin janë jasht funksionit.
@@ -1400,7 +1343,6 @@ aln:
       title: Perdoruesit
     login: 
       account not active: Na vjen keq, akonti juej nuk asht hala aktiv<br /> Ju lutemi klikoni në linkun e dërguem në email për me aktivizu akountin tuej.
-      account suspended: Me na fal, por llogaria juaj u suspendu për shkak të aktivitetit të dyshimt.<br />Ju lutem kontaktoni %{webmaster} nëse doni ta diskutoni këtë
       auth failure: Na vjen keq, smunem me ju kyc me ato detaje.
       email or username: "Email Adresa ose Username:"
       heading: Kycu
@@ -1409,7 +1351,6 @@ aln:
       password: "Fjalekalimi:"
       remember: "Kujtom mu:"
       title: Kyçu
-      webmaster: webmaster
     logout: 
       heading: Dil nga OpenStreetMap
       logout_button: Dil
@@ -1554,7 +1495,6 @@ aln:
     filter: 
       block_expired: Blloku ka skaduar dhe nuk mund të redaktohen.
       block_period: Periudha e bllokuar duhet të jetë një nga vlerat selectable në drop-down list.
-      not_a_moderator: Ju duhet të jeni moderator për ta kryer atë veprim.
     helper: 
       time_future: Përfundon në %{time}.
       time_past: Përfundoi %{time} më parë.

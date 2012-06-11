@@ -1,4 +1,4 @@
-# Messages for Simplified Chinese (‪中文(简体)‬)
+# Messages for Simplified Chinese (‪中文（简体）‬)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Anakmalaysia
@@ -175,6 +175,11 @@ zh-CN:
     paging_nav: 
       of: /
       showing_page: 显示页面
+    redacted: 
+      type: 
+        node: 节点
+        relation: 关系
+        way: 路径
     relation: 
       download: "%{download_xml_link} 或%{view_history_link}"
       download_xml: 下载 XML
@@ -202,7 +207,7 @@ zh-CN:
       view_data: 查看当前地图视图中的数据
     start_rjs: 
       data_frame_title: 数据
-      data_layer_name: 数据
+      data_layer_name: 浏览地图数据
       details: 详细信息
       drag_a_box: 通过拖曳窗口来选择区域
       edited_by_user_at_timestamp: 由 [[user]] 于 [[timestamp]] 编辑
@@ -287,19 +292,33 @@ zh-CN:
     list: 
       description: 最近更改
       description_bbox: "%{bbox} 内的修改集合"
+      description_friend: 您的朋友的修改集合
+      description_nearby: 附近用户的修改集合
       description_user: "%{user} 的修改集合"
       description_user_bbox: "%{user} 在 %{bbox} 内的修改集合"
       heading: 修改集合
       heading_bbox: 修改集合
+      heading_friend: 修改集合
+      heading_nearby: 修改集合
       heading_user: 修改集合
       heading_user_bbox: 修改集合
       title: 修改集合
       title_bbox: "%{bbox} 内的修改集合"
+      title_friend: 您的朋友的修改集合
+      title_nearby: 附近用户的修改集合
       title_user: "%{user} 的修改集合"
       title_user_bbox: "%{user} 在 %{bbox} 内的修改集合"
     timeout: 
       sorry: 对不起，取得您要求的修改集合列表时花了太长的时间。
   diary_entry: 
+    comments: 
+      ago: "%{ago}前"
+      comment: 评论
+      has_commented_on: "%{display_name} 在以下的日记中发表了评论"
+      newer_comments: 新的评论
+      older_comments: 旧的评论
+      post: 发布
+      when: 于
     diary_comment: 
       comment_from: 由 %{link_user} 于 %{comment_created_at} 发表的评论
       confirm: 确认
@@ -344,6 +363,8 @@ zh-CN:
       older_entries: 更早的条目
       recent_entries: 最近的日记条目：
       title: 用户的日记
+      title_friends: 朋友的日记
+      title_nearby: 附近用户的日记
       user_title: "%{user} 的日记"
     location: 
       edit: 编辑
@@ -355,10 +376,6 @@ zh-CN:
       body: 对不起，没有 id 为 %{id} 的日记条目或者评论。请检查拼写，或者您点击的链接有误。
       heading: 关于此 id：%{id} 没有条目
       title: 没有这个日记条目
-    no_such_user: 
-      body: 对不起，没有名为 %{user} 的用户。请检查拼写，或者您点击的链接有误。
-      heading: 用户 %{user} 不存在
-      title: 没有这个用户
     view: 
       leave_a_comment: 留下评论
       login: 登录
@@ -391,11 +408,10 @@ zh-CN:
       licence: 协议
       longitude: 经度：
       manually_select: 手动选择一个不同的区域
-      mapnik_image: Mapnik 图像
+      map_image: 地图图片(显示于标准图层)
       max: 最大
       options: 选项
       osm_xml_data: OpenStreetMap XML 数据
-      osmarender_image: Osmarender 图像
       output: 输出
       paste_html: 在网页上粘贴 HTML
       scale: 比率
@@ -455,13 +471,22 @@ zh-CN:
       suffix_suburb: "%{suffix}，%{parentname}"
     search_osm_nominatim: 
       prefix: 
+        aeroway: 
+          aerodrome: 机场
+          gate: 门
+          runway: 跑道
+          taxiway: 滑行道
+          terminal: 航站楼
         amenity: 
+          WLAN: WiFi 接入
           airport: 机场
           arts_centre: 艺术中心
+          artwork: 艺术品
           atm: 自动取款机(ATM)
           auditorium: 礼堂
           bank: 银行
           bar: 酒吧
+          bbq: 烧烤
           bench: 长凳
           bicycle_parking: 自行车停车
           bicycle_rental: 自行车租赁
@@ -473,6 +498,7 @@ zh-CN:
           car_sharing: 汽车共享
           car_wash: 洗车
           casino: 赌场
+          charging_station: 充电站
           cinema: 电影院
           clinic: 诊所
           club: 俱乐部
@@ -531,9 +557,11 @@ zh-CN:
           shelter: 庇护所
           shop: 商店
           shopping: 购物
+          social_centre: 社区中心
           social_club: 社交俱乐部
           studio: 工作室
           supermarket: 超市
+          swimming_pool: 游泳池
           taxi: 出租车
           telephone: 公共电话
           theatre: 剧院
@@ -548,37 +576,14 @@ zh-CN:
           youth_centre: 青少年中心
         boundary: 
           administrative: 行政区边界
+          national_park: 国家公园
+          protected_area: 保护区
+        bridge: 
+          suspension: 悬索桥
+          swing: 索桥
+          "yes": 桥
         building: 
-          apartments: 公寓楼
-          block: 建筑楼
-          bunker: 碉堡
-          chapel: 教堂
-          church: 教堂
-          city_hall: 市政厅
-          commercial: 商业建筑物
-          dormitory: 宿舍
-          entrance: 建筑入口
-          faculty: 师资队伍建设
-          farm: 农场建筑物
-          flats: 公寓
-          garage: 车库
-          hall: 小山
-          hospital: 医院建筑物
-          hotel: 酒店
-          house: 房屋
-          industrial: 工业建筑物
-          office: 办公楼
-          public: 公共建筑物
-          residential: 住宅建筑物
-          retail: 零售建筑物
-          school: 学校建筑物
-          shop: 商店
-          stadium: 体育场
-          store: 商店
-          terrace: 阳台
-          tower: 塔
-          train_station: 火车站
-          university: 大学建筑物
+          "yes": 建筑物
         highway: 
           bridleway: 马道
           bus_guideway: 导轨公交专用道
@@ -586,11 +591,9 @@ zh-CN:
           byway: 非机动车道(英国)
           construction: 在建道路
           cycleway: 单车径
-          distance_marker: 距离标记
           emergency_access_point: 紧急接入点
           footway: 步行道
           ford: 浅滩
-          gate: 门
           living_street: 生活街道
           minor: 次要道路
           motorway: 高速公路
@@ -603,14 +606,17 @@ zh-CN:
           primary_link: 一级道路
           raceway: 滚道
           residential: 住宅
+          rest_area: 休息区
           road: 道路
           secondary: 二级公路
           secondary_link: 二级公路
           service: 服务道路
           services: 高速公路服务区
+          speed_camera: 超速照相机
           steps: 楼梯
           stile: 跨越围栏的台阶
           tertiary: 三级道路
+          tertiary_link: 三级道路
           track: 辙迹
           trail: 轨迹
           trunk: 主干道路
@@ -648,6 +654,7 @@ zh-CN:
           farmland: 农田
           farmyard: 农家庭院
           forest: 森林
+          garages: 车库
           grass: 草地
           greenfield: 绿色地带
           industrial: 工业区
@@ -655,15 +662,15 @@ zh-CN:
           meadow: 草甸
           military: 军事区
           mine: 矿区
-          mountain: 山
           nature_reserve: 自然保护区
+          orchard: 果园
           park: 公园
           piste: 滑雪场
-          plaza: 广场
           quarry: 采石场
           railway: 铁路
           recreation_ground: 游乐场
           reservoir: 水库
+          reservoir_watershed: 库区
           residential: 住宅区
           retail: 零售
           village_green: 绿色村庄
@@ -684,12 +691,15 @@ zh-CN:
           pitch: 体育场
           playground: 游乐场
           recreation_ground: 游乐场
+          sauna: 桑拿
           slipway: 船入水滑道
           sports_centre: 体育馆
           stadium: 体育场
           swimming_pool: 游泳池
           track: 赛道
           water_park: 水上乐园
+        military: 
+          barracks: 军营
         natural: 
           bay: 海湾
           beach: 海滩
@@ -697,11 +707,12 @@ zh-CN:
           cave_entrance: 洞口
           channel: 海峡
           cliff: 悬崖
-          coastline: 海岸线
           crater: 火山口
+          dune: 沙丘
           feature: 特征
           fell: 下跌
           fjord: 峡湾
+          forest: 森林
           geyser: 喷泉
           glacier: 冰川
           heath: 荒地
@@ -729,6 +740,17 @@ zh-CN:
           wetland: 湿地
           wetlands: 湿地
           wood: 林
+        office: 
+          accountant: 会计事务所
+          company: 公司
+          employment_agency: 职业中介
+          estate_agent: 房产中介
+          government: 政府办事处
+          insurance: 保险
+          lawyer: 律师事务所
+          ngo: 非政府组织办事处
+          travel_agent: 旅行社
+          "yes": 办公室
         place: 
           airport: 机场
           city: 城市
@@ -777,7 +799,7 @@ zh-CN:
           yard: 铁路货场
         shop: 
           alcohol: 无许可证
-          apparel: 服装店
+          antiques: 古玩店
           art: 艺术品店
           bakery: 面包店
           beauty: 美容店
@@ -786,7 +808,6 @@ zh-CN:
           books: 书店
           butcher: 屠宰
           car: 车店
-          car_dealer: 汽车销售
           car_parts: 汽车零件
           car_repair: 汽车维修
           carpet: 地毯店
@@ -801,7 +822,6 @@ zh-CN:
           department_store: 百货商店
           discount: 折扣精品店
           doityourself: DIY
-          drugstore: 药店
           dry_cleaning: 干洗
           electronics: 电子产品商店
           estate_agent: 房产中介
@@ -867,7 +887,10 @@ zh-CN:
           valley: 谷
           viewpoint: 景点
           zoo: 动物园
+        tunnel: 
+          "yes": 隧道
         waterway: 
+          artificial: 运河
           boatyard: 船坞
           canal: 运河
           connector: 航道连接器
@@ -895,9 +918,8 @@ zh-CN:
     map: 
       base: 
         cycle_map: Cycle Map
-        mapnik: Mapnik
         mapquest: MapQuest Open
-        osmarender: Osmarender
+        standard: 标准
         transport_map: Transport Map
       overlays: 
         maplint: Maplint
@@ -909,6 +931,7 @@ zh-CN:
       history_tooltip: 查看对此区域的编辑
       history_zoom_alert: 您必须先放大才能编辑此区域
   layouts: 
+    community: 社区
     community_blogs: 社区博客
     community_blogs_title: OpenStreetMap 社区成员的博客
     copyright: 版权及许可
@@ -937,13 +960,11 @@ zh-CN:
       other: 您的收件箱有 %{count} 封未读消息
       zero: 您的收件箱中没有未读消息
     intro_1: OpenStreetMap 是一个可供自由编辑的世界地图，它是由像您这样的用户创造的
-    intro_2: OpenStreetMap 允许您查看，编辑或者使用世界各地的地理数据来帮助您。
-    intro_3: OpenStreetMap 的主机是由%{ucl}、%{ic}和 %{bytemark}大力支持的。这个项目的其他支持者都列在%{partners}中。
-    intro_3_bytemark: Bytemark 虚拟主机
-    intro_3_ic: 英国伦敦帝国学院
-    intro_3_partners: 维基
-    intro_3_partners_url: http://wiki.openstreetmap.org/wiki/Partners
-    intro_3_ucl: 伦敦大学学院 VR 中心
+    intro_2_create_account: 创建用户帐户
+    intro_2_download: 下载
+    intro_2_html: 数据可以免费%{download}，并依据%{license}%{use}。%{create_account}以改善地图。
+    intro_2_license: 开放许可协议
+    intro_2_use: 使用
     license: 
       alt: 知识共享 署名-相同方式共享 2.0
       title: OpenStreetMap 数据是以知识共享 署名-相同方式共享 2.0 通用许可授权
@@ -958,6 +979,11 @@ zh-CN:
       title: 捐款支持 OpenStreetMap
     osm_offline: OpenStreetMap 的数据库目前离线中，直到必要的数据库维护工作完成为止。
     osm_read_only: OpenStreetMap 数据库目前处于只读模式中，数据库的维护工作正在进行中。
+    partners_bytemark: Bytemark 主机
+    partners_html: 主机由%{ucl}、%{ic}、%{bytemark}和其他%{partners}所支持。
+    partners_ic: 英国伦敦帝国学院
+    partners_partners: 合作伙伴
+    partners_ucl: 伦敦大学学院 VR 中心
     project_name: 
       h1: OpenStreetMap
       title: OpenStreetMap
@@ -978,7 +1004,7 @@ zh-CN:
       english_link: 英文原文
       text: 这个翻译页面和%{english_original_link}在事件上有冲突时，以英文页面为准
       title: 关于这个翻译
-    legal_babble: "<h2>版权和许可</h2>\n<p>\n   OpenStreetMap 是<i>开放数据</i>的，采用<a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/\">知识\n   共享 署名-相同方式共享 2.0</a>协议(CC-BY-SA)授权。\n</p>\n<p>\n  您可以自由地复制、发行、传播和创作演绎我们的地图\n  和数据，只要您信任 OpenStreetMap 和它的\n  贡献者。如果您改变、转换或者以我们的地图或数据为基础进行创作，您\n  只能采用与本协议相同的许可协议发布您的作品。完整\n  的<a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">法律\n  文本</a>阐明了您的权利和义务。\n</p>\n\n<h3>How to credit OpenStreetMap</h3>\n<p>\n  If you are using OpenStreetMap map images, we request that\n  your credit reads at least &ldquo;&copy; OpenStreetMap\n  contributors, CC-BY-SA&rdquo;. If you are using map data only,\n  we request &ldquo;Map data &copy; OpenStreetMap contributors,\n  CC-BY-SA&rdquo;.\n</p>\n<p>\n  Where possible, OpenStreetMap should be hyperlinked to <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  and CC-BY-SA to <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. If\n  you are using a medium where links are not possible (e.g. a\n  printed work), we suggest you direct your readers to\n  www.openstreetmap.org (perhaps by expanding\n  &lsquo;OpenStreetMap&rsquo; to this full address) and to\n  www.creativecommons.org.\n</p>\n\n<h3>了解更多</h3>\n<p>\n  阅读更多关于使用我们数据的 <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">常见\n  法律问题</a>。\n</p>\n<p>\n  OSM contributors are reminded never to add data from any\n  copyrighted sources (e.g. Google Maps or printed maps) without\n  explicit permission from the copyright holders.\n</p>\n<p>\n  虽然 OpenStreetMap 是开放数据的，我们无法为\n  第三方开发者提供一个免费的地图 API。\n\n  请参阅我们的 <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">API 使用政策</a>、\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">拼贴使用政策</a>\n  和 <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Nominatim 使用政策</a>。\n</p>\n\n<h3>我们的贡献者</h3>\n<p>\n  Our CC-BY-SA licence requires you to &ldquo;give the Original\n  Author credit reasonable to the medium or means You are\n  utilising&rdquo;. Individual OSM mappers do not request a\n  credit over and above that to &ldquo;OpenStreetMap\n  contributors&rdquo;, but where data from a national mapping\n  agency or other major source has been included in\n  OpenStreetMap, it may be reasonable to credit them by directly\n  reproducing their credit or by linking to it on this page.\n</p>\n\n<!--\n致页面编辑者的信息\n\nThe following lists only those organisations who require attribution\nas a condition of their data being used in OpenStreetMap. It is not a\ngeneral catalogue of imports, and must not be used except when\nattribution is required to comply with the licence of the imported\ndata.\n\n在这里添加任何东西，必须首先与 OSM 系统管理员讨论。\n-->\n\n<ul id=\"contributors\">\n    <li><strong>澳大利亚</strong>：Contains suburb data based\n    on Australian Bureau of Statistics data.</li>\n    <li><strong>奥地利</strong>：包含来自于 \n    <a href=\"http://data.wien.gv.at/\">Stadt Wien</a> 基于 \n    <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.de\">CC-BY</a> 授权的数据。</li>\n    <li><strong>加拿大</strong>：Contains data from\n    GeoBase&reg;, GeoGratis (&copy; Department of Natural\n    Resources Canada), CanVec (&copy; Department of Natural\n    Resources Canada), and StatCan (Geography Division,\n    Statistics Canada).</li>\n    <li><strong>法国</strong>：Contains data sourced from\n    Direction Générale des Impôts.</li>\n    <li><strong>新西兰</strong>：Contains data sourced from\n    Land Information New Zealand. Crown Copyright reserved.</li>\n    <li><strong>波兰</strong>：Contains data from <a\n    href=\"http://ump.waw.pl/\">UMP-pcPL maps</a>. Copyright\n    UMP-pcPL contributors.</li>\n    <li><strong>英国</strong>：Contains Ordnance\n    Survey data &copy; Crown copyright and database right\n    2010.</li>\n</ul>\n\n<p>\n  Inclusion of data in OpenStreetMap does not imply that the original\n  data provider endorses OpenStreetMap, provides any warranty, or\n  accepts any liability.\n</p>"
+    legal_babble: "<h2>版权和许可</h2>\n<p>\n   OpenStreetMap 是<i>开放数据</i>的，采用<a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/\">知识\n   共享 署名-相同方式共享 2.0</a>协议(CC BY-SA)授权。\n</p>\n<p>\n  您可以自由地复制、发行、传播和创作演绎我们的地图\n  和数据，只要您信任 OpenStreetMap 和它的\n  贡献者。如果您改变、转换或者以我们的地图或数据为基础进行创作，您\n  只能采用与本协议相同的许可协议发布您的作品。完整\n  的<a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">法律\n  文本</a>阐明了您的权利和义务。\n</p>\n\n<h3>How to credit OpenStreetMap</h3>\n<p>\n  If you are using OpenStreetMap map images, we request that\n  your credit reads at least &ldquo;&copy; OpenStreetMap\n  contributors, CC BY-SA&rdquo;. If you are using map data only,\n  we request &ldquo;Map data &copy; OpenStreetMap contributors,\n  CC BY-SA&rdquo;.\n</p>\n<p>\n  Where possible, OpenStreetMap should be hyperlinked to <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  and CC BY-SA to <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. If\n  you are using a medium where links are not possible (e.g. a\n  printed work), we suggest you direct your readers to\n  www.openstreetmap.org (perhaps by expanding\n  &lsquo;OpenStreetMap&rsquo; to this full address) and to\n  www.creativecommons.org.\n</p>\n\n<h3>了解更多</h3>\n<p>\n  阅读更多关于使用我们数据的 <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">常见\n  法律问题</a>。\n</p>\n<p>\n  OSM contributors are reminded never to add data from any\n  copyrighted sources (e.g. Google Maps or printed maps) without\n  explicit permission from the copyright holders.\n</p>\n<p>\n  虽然 OpenStreetMap 是开放数据的，我们无法为\n  第三方开发者提供一个免费的地图 API。\n\n  请参阅我们的 <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">API 使用政策</a>、\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">拼贴使用政策</a>\n  和 <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Nominatim 使用政策</a>。\n</p>\n\n<h3>我们的贡献者</h3>\n<p>\n  Our CC BY-SA licence requires you to &ldquo;give the Original\n  Author credit reasonable to the medium or means You are\n  utilising&rdquo;. Individual OSM mappers do not request a\n  credit over and above that to &ldquo;OpenStreetMap\n  contributors&rdquo;, but where data from a national mapping\n  agency or other major source has been included in\n  OpenStreetMap, it may be reasonable to credit them by directly\n  reproducing their credit or by linking to it on this page.\n</p>\n\n<!--\n致页面编辑者的信息\n\nThe following lists only those organisations who require attribution\nas a condition of their data being used in OpenStreetMap. It is not a\ngeneral catalogue of imports, and must not be used except when\nattribution is required to comply with the licence of the imported\ndata.\n\n在这里添加任何东西，必须首先与 OSM 系统管理员讨论。\n-->\n\n<ul id=\"contributors\">\n    <li><strong>澳大利亚</strong>：Contains suburb data based\n    on Australian Bureau of Statistics data.</li>\n    <li><strong>奥地利</strong>：包含来自于 \n    <a href=\"http://data.wien.gv.at/\">Stadt Wien</a> 基于 \n    <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.de\">CC BY</a> 授权的数据。</li>\n    <li><strong>加拿大</strong>：Contains data from\n    GeoBase&reg;, GeoGratis (&copy; Department of Natural\n    Resources Canada), CanVec (&copy; Department of Natural\n    Resources Canada), and StatCan (Geography Division,\n    Statistics Canada).</li>\n    <li><strong>法国</strong>：Contains data sourced from\n    Direction Générale des Impôts.</li>\n    <li><strong>新西兰</strong>：Contains data sourced from\n    Land Information New Zealand. Crown Copyright reserved.</li>\n    <li><strong>波兰</strong>：Contains data from <a\n    href=\"http://ump.waw.pl/\">UMP-pcPL maps</a>. Copyright\n    UMP-pcPL contributors.</li>\n    <li><strong>英国</strong>：Contains Ordnance\n    Survey data &copy; Crown copyright and database right\n    2010.</li>\n</ul>\n\n<p>\n  Inclusion of data in OpenStreetMap does not imply that the original\n  data provider endorses OpenStreetMap, provides any warranty, or\n  accepts any liability.\n</p>"
     native: 
       mapping_link: 开始制图
       native_link: 简体中文版
@@ -990,13 +1016,15 @@ zh-CN:
     inbox: 
       date: 日期
       from: 来自
+      messages: 您有 %{new_messages}和 %{old_messages}
       my_inbox: 我的收件箱
+      new_messages: "%{count} 条新消息"
       no_messages_yet: 您还没有消息，何不联系一些%{people_mapping_nearby_link}？
+      old_messages: "%{count} 条旧消息"
       outbox: 发件箱
       people_mapping_nearby: 在您附近的人
       subject: 标题
       title: 收件箱
-      you_have: 您有 %{new_count} 条新消息和 %{old_count} 条旧消息
     mark: 
       as_read: 标记消息为已读
       as_unread: 标记消息为未读
@@ -1018,13 +1046,10 @@ zh-CN:
       body: 对不起，没有具有该 id 的消息。
       heading: 没有此消息
       title: 没有此消息
-    no_such_user: 
-      body: 对不起，没有使用该名称的用户。
-      heading: 没有此用户
-      title: 没有此用户
     outbox: 
       date: 日期
       inbox: 收件箱
+      messages: 您有 %{count} 条已发送消息
       my_inbox: 我的%{inbox_link}
       no_sent_messages: 您尚未发送信息。何不联系一些%{people_mapping_nearby_link}?
       outbox: 发件箱
@@ -1032,7 +1057,6 @@ zh-CN:
       subject: 主题
       title: 发件箱
       to: 给
-      you_have_sent_messages: 您有 %{count} 个已发送信息
     read: 
       back_to_inbox: 返回收件箱
       back_to_outbox: 返回发件箱
@@ -1195,6 +1219,7 @@ zh-CN:
       allow_write_gpx: 上传 GPS 轨迹。
       allow_write_prefs: 修改他们的用户首选项。
       authorize_url: 授权 URL：
+      confirm: 您确定吗？
       edit: 编辑详细信息
       key: 用户键：
       requests: 要向用户要求下列权限：
@@ -1208,6 +1233,11 @@ zh-CN:
     with_id: "%{id}"
     with_name: "%{name} (%{id})"
     with_version: "%{id}，版本 %{version}"
+  redaction: 
+    show: 
+      confirm: 您确定吗？
+    update: 
+      flash: 更改已保存。
   site: 
     edit: 
       anon_edits: (%{link})
@@ -1224,7 +1254,6 @@ zh-CN:
     index: 
       js_1: 您或许正在使用不支持 JavaScript 的浏览器，或许您禁用了 JavaScript。
       js_2: OpenStreetMap 使用 JavaScript 让地图更平滑。
-      js_3: 如果您无法启用 JavaScript，可以尝试 <a href="http://tah.openstreetmap.org/Browse/">Tiles@Home 静态拼贴浏览器</a>。
       license: 
         license_name: 知识共享 署名-相同方式共享 2.0
         license_url: http://creativecommons.org/licenses/by-sa/2.0/
@@ -1290,7 +1319,7 @@ zh-CN:
           station: 火车站
           subway: 地铁
           summit: 
-            - 首脑会议
+            - 山峰
             - 高峰
           tourist: 旅游景点
           track: 辙迹
@@ -1302,6 +1331,23 @@ zh-CN:
           unclassified: 未分类道路
           unsurfaced: 无铺面道路
           wood: 林
+    markdown_help: 
+      alt: 替代文本
+      first: 第一项
+      heading: 标题
+      headings: 标题
+      image: 图像
+      link: 链接
+      ordered: 有序列表
+      second: 第二项
+      subheading: 副标题
+      text: 文本
+      title_html: 按照 <a href="http://daringfireball.net/projects/markdown/">Markdown</a> 来解析
+      unordered: 无序列表
+      url: URL
+    richtext_area: 
+      edit: 编辑
+      preview: 预览
     search: 
       search: 搜索
       search_help: 例如：'Alkmaar'，'Regent Street, Cambridge'，'CB2 5AQ'，或 'post offices near Lünen' <a href='http://wiki.openstreetmap.org/wiki/Search'>更多例子...</a>
@@ -1345,10 +1391,6 @@ zh-CN:
       your_traces: 您的 GPS 轨迹
     make_public: 
       made_public: 公开化路径
-    no_such_user: 
-      body: 对不起，没有名为 %{user} 的用户。请查看您的拼写，或者可能您点击有误。
-      heading: 用户 %{user} 不存在
-      title: 没有此用户
     offline: 
       heading: GPX 脱机存储
       message: GPX 文件存储和上传系统当前不可用。
@@ -1498,8 +1540,8 @@ zh-CN:
       summary_no_ip: "%{name} 创建于 %{date}"
       title: 用户
     login: 
+      account is suspended: 对不起，您的帐户因可疑活动已被暂停。<br />如果你想讨论这个，请联系<a href="%{webmaster}">网站管理员</a>。
       account not active: 对不起，您的账户尚未激活。<br />请点击在账户确认邮件中的链接来激活您的账户，或<a href="%{reconfirm}">请求新的确认电子邮件</a>。
-      account suspended: 对不起，您的帐户已因可疑活动被暂停了。 <br />如果您想讨论这一点，请联系%{webmaster}。
       auth failure: 对不起，凭这些信息您无法登录。
       create account minute: 创建一个帐户。只需要一分钟。
       email or username: 电子邮件地址或用户名：
@@ -1507,7 +1549,9 @@ zh-CN:
       login_button: 登录
       lost password link: 找回密码?
       new to osm: 第一次来到 OpenStreetMap？
+      no account: 还没有帐户？
       notice: <a href="http://www.osmfoundation.org/wiki/License/We_Are_Changing_The_License">了解有关 OpenStreetMap 即将更换许可协议的信息</a> (<a href="http://wiki.openstreetmap.org/wiki/ODbL/We_Are_Changing_The_License">翻译</a>) (<a href="http://wiki.openstreetmap.org/wiki/Talk:ODbL/Upcoming">讨论</a>)
+      notice_terms: OpenStreetMap 将于 2012 年 4 月 1 日更换到新的许可。这和当前的许可一样开放，但法律地位更适合我们的地图数据库。我们很乐意在 OpenStreetMap 保留您的贡献，但我们只能在您同意让我们根据新的许可证分发时，才能这么做。否则，我们将不得不从数据库中删除您的贡献。<br><br>请登录，然后花几秒钟查看并接受新的条款。谢谢！
       openid: "%{logo} OpenID："
       openid invalid: 对不起，您的 OpenID 格式似乎不正确
       openid missing provider: 对不起，无法联系您的 OpenID 提供者
@@ -1536,7 +1580,6 @@ zh-CN:
       remember: 记住我：
       title: 登录
       to make changes: 要修改 OpenStreetMap 的数据，您必须拥有一个帐户。
-      webmaster: 网站管理员
       with openid: 或者请使用您的 OpenID 登录：
       with username: 已经有一个 OpenStreetMap 帐户？请使用您的用户名和密码登录：
     logout: 
@@ -1628,16 +1671,23 @@ zh-CN:
       block_history: 查看接受的封禁
       blocks by me: 被我所封禁
       blocks on me: 对我的封禁
+      comments: 注释
       confirm: 确认
       confirm_user: 确认此用户
       create_block: 阻止此用户
       created from: 建立于：
+      ct accepted: 于%{ago}以前接受
+      ct declined: 已拒绝
+      ct status: 贡献者条款：
+      ct undecided: 未决定
       deactivate_user: 停用该用户
       delete_user: 删除此用户
       description: 说明
       diary: 日记
       edits: 编辑
       email address: 电子邮件地址：
+      friends_changesets: 浏览朋友的所有修改集合
+      friends_diaries: 浏览朋友的所有日记条目
       hide_user: 隐藏此用户
       if set location: 如果您设定您的位置，一张精美的地图及其他相关信息将出现在下方。您可以通过您的%{settings_link}页面来设置您的位置。
       km away: "%{count} 公里之外"
@@ -1645,11 +1695,14 @@ zh-CN:
       m away: "%{count} 米之外"
       mapper since: 成为制图者于：
       moderator_history: 查看封禁来自
+      my comments: 我的评论
       my diary: 我的日记
       my edits: 我的编辑
       my settings: 我的设置
       my traces: 我的轨迹
       nearby users: 附近的其他用户
+      nearby_changesets: 浏览附近用户的所有修改集合
+      nearby_diaries: 浏览附近用户的所有日记条目
       new diary entry: 新日记入口
       no friends: 您还没有添加任何好友。
       no nearby users: 附近没有在进行制图的用户。
@@ -1697,7 +1750,6 @@ zh-CN:
     filter: 
       block_expired: 这个封禁已经过期，并且不能再编辑。
       block_period: 封禁时期必须是在下拉菜单中可选择的数值之一。
-      not_a_moderator: 您必须是管理员才能执行该操作。
     helper: 
       time_future: 结束于 %{time}。
       time_past: "%{time}前已结束。"

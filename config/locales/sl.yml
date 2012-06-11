@@ -1,4 +1,4 @@
-# Messages for Slovenian (Slovenščina)
+# Messages for Slovenian (slovenščina)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Dbc334
@@ -171,6 +171,13 @@ sl:
     paging_nav: 
       of: od
       showing_page: Prikazana stran
+    redacted: 
+      message_html: Verzija %{version} te %{type} ne more biti prikazana, ker je bila zavrnjena licenca. Glej %{redaction_link} za podrobnosti.
+      redaction: Redakcija %{id}
+      type: 
+        node: vozlišče
+        relation: zveza
+        way: pot
     relation: 
       download: "%{download_xml_link} ali %{view_history_link}"
       download_xml: prenesi XML
@@ -197,7 +204,7 @@ sl:
       view_data: Ogled podatkov trenutno prikazanega zemljevida
     start_rjs: 
       data_frame_title: Podatki
-      data_layer_name: Podatki
+      data_layer_name: Prebrskaj podatke zemljevida
       details: Podrobnosti
       drag_a_box: Za izbor področja povlecite pravokotnik na zemljevidu
       edited_by_user_at_timestamp: Uredil [[user]] v [[timestamp]]
@@ -283,19 +290,33 @@ sl:
     list: 
       description: Nedavne spremembe
       description_bbox: Paketi sprememb znotraj področja %{bbox}
+      description_friend: Paketi sprememb vaših prijateljev
+      description_nearby: Paketi sprememb bližnjih uporabnikov
       description_user: Paketi sprememb uporabnika %{user}
       description_user_bbox: Paketi sprememb uporabnika %{user} znotraj %{bbox}
       heading: Paketi sprememb
       heading_bbox: Paketi sprememb
+      heading_friend: Paketi sprememb
+      heading_nearby: Paketi sprememb
       heading_user: Paketi sprememb
       heading_user_bbox: Paketi sprememb
       title: Paketi sprememb
       title_bbox: Paketi sprememb znotraj področja %{bbox}
+      title_friend: Paket sprememb vaših prijateljev
+      title_nearby: Paketi sprememb bližnjih uporabnikov
       title_user: Paketi sprememb uporabnika %{user}
       title_user_bbox: Paketi sprememb uporabnika %{user} znotraj %{bbox}
     timeout: 
       sorry: Žal je seznam zahtevanih sprememb predolg za prenos.
   diary_entry: 
+    comments: 
+      ago: pred %{ago}
+      comment: Komentar
+      has_commented_on: "%{display_name} je komentiral naslednje vaše vnose v dnevnik"
+      newer_comments: Novejši komentarji
+      older_comments: Starejši komentarji
+      post: Objavi
+      when: Kdaj
     diary_comment: 
       comment_from: Komentar uporabnika %{link_user} dne %{comment_created_at}
       confirm: Potrdi
@@ -340,6 +361,8 @@ sl:
       older_entries: Starejši zapisi
       recent_entries: "Nedavni zapisi v dnevnik:"
       title: Dnevniki uporabnikov
+      title_friends: Dnevniki vaših prijateljev
+      title_nearby: Dnevniki bližnjih uporabnikov
       user_title: Dnevnik uporabnika %{user}
     location: 
       edit: Uredi
@@ -351,10 +374,6 @@ sl:
       body: Oprostite, vnosa v dnevnik št. %{id} ni. Prosimo, preverite črkovanje in povezavo, ki ste jo kliknili.
       heading: "Vnosa v dnevnik z id-jem: %{id} ni"
       title: Takšnega vnosa v dnevnik ni
-    no_such_user: 
-      body: Oprostite, uporabnika z imenom %{user} ni. Prosimo, preverite črkovanje in povezavo, ki ste jo kliknili.
-      heading: Uporabnik %{user} ne obstaja
-      title: Ni tega uporabnika
     view: 
       leave_a_comment: Napiši komentar
       login: Prijavite se
@@ -387,11 +406,10 @@ sl:
       licence: Dovoljenje
       longitude: "Dol:"
       manually_select: Ročno izberite drugo področje
-      mapnik_image: Mapnik slika zemljevida
+      map_image: Slika zemljevida (prikaže standardni izris)
       max: največ
       options: Možnosti
       osm_xml_data: Podatki OpenStreetMap v zapisu XML
-      osmarender_image: Osmarender slika zemljevida
       output: Rezultat
       paste_html: Uporabite ta HTML za vključitev zemljevida na spletno stran
       scale: Merilo
@@ -449,13 +467,24 @@ sl:
       suffix_place: ", %{distance} %{direction} od %{placename}"
     search_osm_nominatim: 
       prefix: 
+        aeroway: 
+          aerodrome: Aerodrom
+          apron: Letališka ploščad
+          gate: Vrata
+          helipad: Heliodrom
+          runway: Vzletna steza
+          taxiway: Vozna steza
+          terminal: Terminal
         amenity: 
+          WLAN: WiFi dostop
           airport: Letališče
           arts_centre: Umetnostni center
+          artwork: Umetnina
           atm: Bankomat
           auditorium: Avditorij
           bank: Banka
           bar: Bar
+          bbq: Žar
           bench: Klop
           bicycle_parking: Parkirišče za kolesa
           bicycle_rental: Izposoja koles
@@ -467,6 +496,7 @@ sl:
           car_sharing: Souporaba avtomobila
           car_wash: Avtopralnica
           casino: Kazino
+          charging_station: Polnilna postaja
           cinema: Kinematograf
           clinic: Klinika
           club: Klub
@@ -525,9 +555,11 @@ sl:
           shelter: Zaklonišče
           shop: Trgovina
           shopping: Nakupovanje
+          shower: Tuš
           social_club: Društveni klub
           studio: Studio
           supermarket: Supermarket
+          swimming_pool: Bazen
           taxi: Taksi
           telephone: Telefonska govorilnica
           theatre: Gledališče
@@ -542,37 +574,11 @@ sl:
           youth_centre: Mladinski center
         boundary: 
           administrative: Upravne meje
+        bridge: 
+          viaduct: Viadukt
+          "yes": Most
         building: 
-          apartments: Stanovanjski blok
-          block: Blok
-          bunker: Bunker
-          chapel: Kapelica
-          church: Cerkev
-          city_hall: Mestna hiša
-          commercial: Poslovna zgradba
-          dormitory: Študentski dom
-          entrance: Vhod
-          faculty: Fakulteta
-          farm: Kmetija
-          flats: Stanovanja
-          garage: Garaža
-          hall: Dvorana
-          hospital: Bolnišnica
-          hotel: Hotel
-          house: Hiša
-          industrial: Industrijski objekt
-          office: Poslovna stavba
-          public: Javne zgradba
-          residential: Stanovanjska stavba
-          retail: Trgovina na drobno
-          school: Šola
-          shop: Trgovina
-          stadium: Stadion
-          store: Trgovina
-          terrace: Terasa
-          tower: Stolp
-          train_station: Železniška postaja
-          university: Univerza
+          "yes": Zgradba
         highway: 
           bridleway: Jahalna pot
           bus_guideway: Turistični avtobus
@@ -580,12 +586,11 @@ sl:
           byway: Obvoz
           construction: Autocesta v izgradnji
           cycleway: Kolesarska steza
-          distance_marker: Kilometerski stebriček
           emergency_access_point: Dostop za interventna vozila
           footway: Pešpot
           ford: Prehod
-          gate: Vrata
           living_street: Ulica z umirjenim prometom
+          milestone: Kilometerski kamen
           minor: Manjša cesta
           motorway: Avtocesta
           motorway_junction: Avtocestno križišče
@@ -597,6 +602,7 @@ sl:
           primary_link: Priključek na glavno cesto
           raceway: Dirkališče
           residential: Stanovanjska
+          rest_area: Počivališče
           road: Nedoločena cesta
           secondary: Regionalna cesta
           secondary_link: Priključek na regionalno cesto
@@ -649,11 +655,9 @@ sl:
           meadow: Travnik
           military: Vojaško območje
           mine: Minsko polje
-          mountain: Planina
           nature_reserve: Naravni rezervat
           park: Park
           piste: Proga
-          plaza: Trg
           quarry: Dnevni kop
           railway: Železnica
           recreation_ground: Rekreacijsko območje
@@ -691,7 +695,6 @@ sl:
           cave_entrance: Vhod v jamo
           channel: Kanal
           cliff: Klif
-          coastline: Obala
           crater: Krater
           feature: Znamenitost
           fell: Višinski travnik
@@ -771,7 +774,6 @@ sl:
           yard: Železniško dvorišče
         shop: 
           alcohol: Trgovina alkoholnih pijač
-          apparel: Trgovina z oblekami
           art: Prodajna galerija
           bakery: Pekarna
           beauty: Salon lepote
@@ -780,7 +782,6 @@ sl:
           books: Knjigarna
           butcher: Mesar
           car: Avtomobilski salon
-          car_dealer: Avto trgovec
           car_parts: Avtomobilski deli
           car_repair: Avtoservis
           carpet: Prodajalna preprog
@@ -795,7 +796,6 @@ sl:
           department_store: Trgovska hiša
           discount: Outlet
           doityourself: Orodjarna
-          drugstore: Lekarna
           dry_cleaning: Čistilnica
           electronics: Elektronska trgovina
           estate_agent: Nepremičninska agencija
@@ -921,12 +921,6 @@ sl:
       other: Prejeli ste %{count} novih sporočil
       zero: Niste prejeli novih spročil
     intro_1: OpenStreetMap je prost zemljevid sveta, ki ga urejajo ljudje, kot ste Vi.
-    intro_2: OpenStreetMap vam omogoča ogled, urejanje in souporabo geografskih podatkov kjerkoli na Zemlji.
-    intro_3: Gostovanje OpenStreetMap prijazno podpirajo %{ucl}, %{ic} in %{bytemark}. Drugi podporniki projekta so navedeni na %{partners}.
-    intro_3_bytemark: bytemarku
-    intro_3_ic: Imperial College v Londonu
-    intro_3_partners: wiki
-    intro_3_ucl: UCL VR Centru
     license: 
       title: Podatki OpenStreetMap so licencirani v skladu z Creative Commons Attribution-Share Alike 2.0 Generic License
     log_in: prijava
@@ -974,7 +968,6 @@ sl:
       people_mapping_nearby: ljudmi, ki kartirajo blizu vas
       subject: Zadeva
       title: Prejeta pošta
-      you_have: Imate %{new_count} novih, neprebranih in %{old_count} starih, že prebranih sporočil
     mark: 
       as_read: Sporočilo označeno kot prebrano
       as_unread: Sporočilo označeno kot neprebrano
@@ -996,10 +989,6 @@ sl:
       body: Žal ni sporočila, s tem id-jem.
       heading: Ni tega sporočila
       title: Ni tega sporočila
-    no_such_user: 
-      body: Oprostite, uporabnika s tem imenom ni.
-      heading: Ni takega uporabnika
-      title: Ni takega uporabnika
     outbox: 
       date: Datum
       inbox: prejeta
@@ -1010,7 +999,6 @@ sl:
       subject: Zadeva
       title: Poslana pošta
       to: Za
-      you_have_sent_messages: Poslali ste %{count} sporočil
     read: 
       back_to_inbox: Nazaj na prejeto pošto
       back_to_outbox: Nazaj na poslano pošto
@@ -1150,7 +1138,7 @@ sl:
       list_tokens: "Naslednji žetoni so bili izdani aplikacijam za vaše ime:"
       my_apps: Moje odjemalskie aplikacije
       my_tokens: Moje pooblaščene aplikacije
-      no_apps: Imate aplikacijo, ki jo želite registrirati za uporabo z nami po  %{OAuth} standardu? Najprej morate registrirati vašo spletno aplikacijo, preden bo lahko izvajala OAuth prijave za to storitev.
+      no_apps: Imate aplikacijo, ki jo želite registrirati za uporabo z nami po  %{oauth} standardu? Najprej morate registrirati vašo spletno aplikacijo, preden bo lahko izvajala OAuth prijave za to storitev.
       register_new: Registriraj svojo aplikacijo
       registered_apps: "Registrirane imate naslednje odjemalske aplikacije:"
       revoke: Prekliči!
@@ -1194,7 +1182,6 @@ sl:
     index: 
       js_1: Bodisi uporabljate brskalnik, ki ne podpira Javascript-a, ali pa je izvajanje Javascript-a onemogočeno.
       js_2: OpenStreetMap za prikaz zemljevida uporablja Javascript.
-      js_3: Če Javascripta ne morete omogočiti lahko poizkusite <a href="http://tah.openstreetmap.org/Browse/">statičen pregledovalnik zemljevida Tiles@Home</a>.
       license: 
         license_name: Creative Commons Priznanje avtorstva-Deljenje pod enakimi pogoji 2.0
         notice: "%{project_name} z avtorji objavlja pod licenco %{license_name}."
@@ -1271,6 +1258,9 @@ sl:
           unclassified: Ostale ceste izven naselij
           unsurfaced: Neasfaltirana cesta
           wood: Pragozd
+    richtext_area: 
+      edit: Uredi
+      preview: Predogled
     search: 
       search: Iskanje
       search_help: "primeri: 'Bovec', 'Prešernova, Celje', 'Živalski vrt' ali 'vzpenjača' <a href='http://wiki.openstreetmap.org/wiki/Search'>Več primerov...</a>"
@@ -1313,10 +1303,6 @@ sl:
       your_traces: Vaše sledi GPS
     make_public: 
       made_public: Sled je postala javna
-    no_such_user: 
-      body: Oprostite, uporabnika z imenom %{user} ni. Prosimo, preverite črkovanje in povezavo, ki ste jo kliknili.
-      heading: Uporabnik %{user} ne obstaja
-      title: Ni tega uporabnika
     offline: 
       heading: GPX sistem trenutno ni na voljo
       message: Sistem za nalaganje GPX datotek in GPX sistem trenutno nista na voljo
@@ -1464,7 +1450,6 @@ sl:
       title: Uporabniki
     login: 
       account not active: Oprostite, vaš uporabniški račun še ni aktiven.<br />Za aktivacijo prosimo uporabite povezavo, ki ste jo prejeli v elektronskem sporočilu za potrditev uporabniškega računa, ali <a href="%{reconfirm}">zahtevajte novo potrditveno elektronsko sporočilo</a>.
-      account suspended: Žal je bil vaš račun zaklenjen zaradi sumljive dejavnosti.<br />Obrnite se na %{webmaster}, če želite razpravljati o tem.
       auth failure: Oprostite, prijava s temi podatki ni uspela.
       create account minute: Naredite si račun. To vam bo vzelo le minuto.
       email or username: "Naslov e-pošte ali uporabniško ime:"
@@ -1501,7 +1486,6 @@ sl:
       remember: "Zapomni si me:"
       title: Prijava
       to make changes: Če želite spreminjati podatke na OpenStreetMap, morate imeti račun.
-      webmaster: skrbnik strani
       with openid: "Lahko se prijavite tudi s svojim OpenID-jrm:"
       with username: "Že imate OpenStreetMap račun? Prosim, prijavite se s svojim uporabniškim imenom in geslom:"
     logout: 
@@ -1600,6 +1584,8 @@ sl:
       diary: dnevnik
       edits: prispevki
       email address: "E-poštni naslov:"
+      friends_changesets: Brskanje po paketih sprememb vaših prijateljev
+      friends_diaries: Brskanje po dnevnikih vaših prijateljev
       hide_user: skriti tega uporabnika
       if set location: Če nastavite vašo domačo lokacijo bo tu prikazan lep zemljevd in podobne dobrote. Domačo lokacijo lahko nastavite v %{settings_link}.
       km away: oddaljen %{count} km
@@ -1612,6 +1598,8 @@ sl:
       my settings: moje nastavitve
       my traces: moje sledi
       nearby users: Drugi bližnji uporabniki
+      nearby_changesets: Brskanje po paketih sprememb bližnjih uporabnikov
+      nearby_diaries: Brskanje po dnevnikih bližnjih uporabnikov
       new diary entry: nov vnos v dnevnik
       no friends: Niste še dodali nobenih prijateljev.
       no nearby users: Ni še drugih uporabnikov, ki bi priznali, da kartirajo v vaši bližini.
@@ -1659,10 +1647,9 @@ sl:
     filter: 
       block_expired: Blokada je že potekla in je ni mogoče urejati.
       block_period: Čas blokade mora biti ena od izbir s spustnega seznama vrednosti.
-      not_a_moderator: Morate biti moderator za izvedbo tega dejanja.
     helper: 
       time_future: Konča v %{time}.
-      time_past: Je končala % {čas} nazaj.
+      time_past: Je končala %{time} nazaj.
       until_login: Aktivna dokler uporabnik se prijavi.
     index: 
       empty: Ni bilo še nobene blokade.
@@ -1718,7 +1705,7 @@ sl:
       show: Prikaži
       status: Stanje
       time_future: Konča v %{time}
-      time_past: Je končala % {čas} nazaj
+      time_past: Je končala %{time} nazaj
       title: "%{block_on} je blokiral %{block_by}"
     update: 
       only_creator_can_edit: Samo moderator, ki je ustvaril to blokado, jo lahko ureja.

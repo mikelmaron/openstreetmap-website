@@ -3,6 +3,7 @@
 # Export driver: syck-pecl
 # Author: Grille chompa
 # Author: Huji
+# Author: Leyth
 # Author: Reza1615
 # Author: Sahim
 # Author: Wayiran
@@ -45,12 +46,14 @@ fa:
     models: 
       acl: دسترسی به لیست کنترل
       changeset: مجموعه تغییرات
+      changeset_tag: برچسب Changeset
       country: کشور
       friend: دوست
       language: زبان
       message: پیغام
       node: گره
       node_tag: تگ گره
+      notifier: آگاه‌گردان
       relation: ارتباط
       session: نشست
       trace: ردیابی
@@ -282,8 +285,6 @@ fa:
       edit: ویرایش
       location: "مکان:"
       view: نمایش
-    no_such_user: 
-      title: چنین کاربری وجود ندارد
     view: 
       leave_a_comment: ارسال نظر
       login: ورود به سیستم
@@ -313,11 +314,9 @@ fa:
       licence: اجازه‌نامه
       longitude: "طول:"
       manually_select: به صورت دستی منطقه دیگری را انتخاب کنید
-      mapnik_image: Mapnik تصویر
       max: حداکثر
       options: تنظیمات
       osm_xml_data: داده‌های XML نقشه‌باز‌شهری
-      osmarender_image: تصویر پردازش شده نقشه‌باز‌شهری
       output: خروجی
       paste_html: برای تعبیه کردن در وب‌گاه اچ‌تی‌ام‌ال را پیست کنید
       scale: مقیاس
@@ -462,45 +461,14 @@ fa:
         boundary: 
           administrative: مرز کشوری
         building: 
-          apartments: بلوک آپارتمان
-          block: بلوک ساختمان
-          bunker: پناهگاه
-          chapel: کلیسا
-          church: کلیسا
-          city_hall: سالن شهر
-          commercial: ساختمان تجاری
-          dormitory: خوابگاه دانشجویی
-          entrance: ورودی ساختمان
-          faculty: ساختمان دانشکده
-          farm: ساختمان در مزرعه
-          flats: آپارتمان
-          garage: گاراژ
-          hall: سالن
-          hospital: ساختمان بیمارستان
-          hotel: هتل
-          house: خانه
-          industrial: ساختمان صنعتی
-          office: ساختمان اداری
-          public: ساختمان عمومی
-          residential: ساختمان مسکونی
-          retail: معاملات املاک
-          school: ساختمان مدرسه
-          shop: فروشگاه
-          stadium: ورزشگاه
-          store: فروشگاه
-          terrace: تراس
-          tower: برج
-          train_station: ایستگاه راه‌آهن
-          university: ساختمان دانشگاه
+          "yes": ساختمان
         highway: 
           bus_stop: ایستگاه اتوبوس
           construction: بزرگراه در دست ساخت
           cycleway: مسیر چرخه
-          distance_marker: نشانگر مسافت
           emergency_access_point: نقطهٔ دسترسی اضطراری
           footway: پیاده رو
           ford: فورد
-          gate: دروازه
           minor: جادهٔ فرعی
           motorway: اتوبان
           motorway_junction: اتصال بزرگراه‌ها
@@ -548,7 +516,6 @@ fa:
           industrial: ناحیهٔ صنعتی
           military: منطقهٔ نظامی
           mine: معدن
-          mountain: کوه
           park: پارک
           railway: راه‌آهن
           reservoir: مخزن
@@ -576,19 +543,22 @@ fa:
           beach: ساحل
           cave_entrance: ورودی غار
           channel: کانال
-          coastline: خط ساحلی
           fell: قطع کردن
           glacier: یخچال طبیعی
           hill: تپه
           island: جزیره
           land: زمین
+          marsh: مرداب
           moor: دشت
           mud: گل
           peak: قله
           point: نقطه
+          reef: آب‌سنگ
+          ridge: خط‌الرأس
           river: رود خانه
           rock: صخره
           spring: بهار
+          strait: تنگه
           tree: درخت
           valley: دره
           volcano: کوه آتشفشان
@@ -600,6 +570,7 @@ fa:
           airport: فرودگاه
           city: شهر بزرگ
           country: کشور
+          county: شهرستان
           farm: مزرعه
           house: خانه
           houses: خانه‌ها
@@ -607,21 +578,56 @@ fa:
           islet: جزیره کوچک
           locality: محل
           moor: دشت
+          municipality: شهرداری
           postcode: کدپستی
           region: منطقه
           sea: دریا
+          state: ایالت
+          subdivision: زیربخش
           suburb: محله
           town: شهر
           village: دهکده
+        railway: 
+          abandoned: راه‌آهن رهاشده
+          construction: راه‌آهن در دست ساخت
+          disused: راه‌آهن منسوخ
+          disused_station: ایستگاه منسوخ راه‌آهن
+          funicular: راه‌آهن بندی
+          halt: ایستگاه قطار
+          historic_station: ایستگاه تاریخی راه‌آهن
+          junction: اتصال راه‌آهن
+          level_crossing: محل تقاطع دو خط راه‌آهن
+          light_rail: ریل سبک
+          monorail: مونوریل
+          narrow_gauge: زاه‌آهن تبادلگر باریک
+          platform: بستر راه‌آهن
+          station: ایستگاه راه‌آهن
+          subway: ایستگاه مترو
+          subway_entrance: ورودی مترو
+          tram: تراموای
         shop: 
+          art: فروشگاه لوازم هنری
           bakery: نانوایی
+          beauty: فروشگاه لوازم آرایشی
+          beverages: فروشگاه نوشیدنی‌ها و عرقیات
+          bicycle: فروشگاه دوچرخه
           books: فروشگاه کتاب
           butcher: قصاب
+          car: فروشگاه خودرو
+          car_parts: قطعات خودرو
+          car_repair: تعمیرگاه خودرو
+          carpet: فروشگاه فرش
+          clothes: فروشگاه پوشاک
+          computer: فروشگاه رایانه
+          copyshop: مغازه فتوکپی
+          cosmetics: فروشگاه لوازم آرایشی
           greengrocer: سبزی فروش
           kiosk: کیوسک
           laundry: خشکشویی
           market: بازار
           supermarket: سوپرمارکت
+          toys: اسباب‌بازی‌فروشی
+          travel_agency: آژانس مسافرتی
         tourism: 
           artwork: آثار هنری
           attraction: جاذبه
@@ -629,6 +635,7 @@ fa:
           cabin: اطاق
           camp_site: محل اردوگاه
           chalet: کلبه ییلاقی
+          guest_house: مهمانخانه
           hostel: هتل
           hotel: هتل
           information: اطلاعات
@@ -654,7 +661,6 @@ fa:
     help: راهنما
     history: تاریخچه
     home_tooltip: رفتن به مکان خانگی
-    intro_3_partners: ویکی‌
     log_in: ورود به سیستم
     logo: 
       alt_text: لوگوی OpenStreetMap
@@ -703,9 +709,6 @@ fa:
       title: فرستادن پیام
     no_such_message: 
       title: چنین پیغامی وجود ندارد
-    no_such_user: 
-      heading: چنین کاربری وجود ندارد
-      title: چنین کاربری وجود ندارد
     outbox: 
       date: تاریخ
       inbox: صندوق دریافتی
@@ -816,10 +819,6 @@ fa:
       your_traces: آثار جی‌پی‌اس شما
     make_public: 
       made_public: رسم‌کردن عمومی
-    no_such_user: 
-      body: شرمند کاربری با نام %{user} وجود ندارد. لطفا اسم کاربر را از نو وارد کنید  یا ممکن است لینکی را که شما انتخاب کرده‌اید اشتباه باشد
-      heading: کاربر %{user} وجود ندارد
-      title: چنین کاربری وجود ندارد
     offline: 
       heading: ذخیره بدون اینترنت جی‌پی‌اس
       message: ذخیره جی‌پی‌اس و بارگذاری سامانه غیرقابل دسترس می‌باشد
@@ -947,14 +946,14 @@ fa:
     list: 
       confirm: تایید کاربران انتخاب شده
       empty: هیچ کاربر مشابهی یافت نشد
-      heading: کاربرها
+      heading: کاربران
       hide: پنهان کردن کاربران انتخاب شده
       showing: 
         one: "نمایش صفحه %{page} (%{first_item} از %{items}) "
         other: " نمایش صفحه صفحه %{page} (%{first_item}-%{last_item} از %{items})"
       summary: "%{name} ایجاد شده از %{ip_address} در %{date}"
       summary_no_ip: "  %{name}در  %{date} ایجاد شد"
-      title: کاربرها
+      title: کاربران
     login: 
       email or username: "رایانامه یا نام کاربری:"
       heading: ورود به سیستم
@@ -963,7 +962,6 @@ fa:
       password: "کلمه عبور:"
       remember: "به‌خاطر سپردن من:"
       title: ورود به سیستم
-      webmaster: مدیر تارنما
     logout: 
       heading: خروج از نقشه باز شهری
       logout_button: خروج
@@ -978,7 +976,7 @@ fa:
       title: شکست گذرواژه
     make_friend: 
       already_a_friend: شما در حال حاضر دوست با %{name} هستید.
-      failed: شرمنده افزودن %{name} به عنوان دوست انجام نشد
+      failed: شرمنده، نمی‌توان %{name} را به عنوان دوست افزود
       success: "%{name} الان از دوستان شما هست."
     new: 
       confirm email address: "تایید نشانی رایانامه:"

@@ -4,12 +4,14 @@ class DiaryEntryController < ApplicationController
   before_filter :authorize_web
   before_filter :set_locale
   before_filter :require_user, :only => [:new, :edit, :comment, :hide, :hidecomment]
+  before_filter :lookup_this_user, :only => [:view, :comments]
   before_filter :check_database_readable
   before_filter :check_database_writable, :only => [:new, :edit]
   before_filter :require_administrator, :only => [:hide, :hidecomment]
 
-  caches_action :list, :view, :layout => false
+  caches_action :list, :layout => false, :unless => :user_specific_list?
   caches_action :rss, :layout => true
+  caches_action :view, :layout => false
   cache_sweeper :diary_sweeper, :only => [:new, :edit, :comment, :hide, :hidecomment]
 
   def new
@@ -83,10 +85,7 @@ class DiaryEntryController < ApplicationController
                                           :order => 'created_at DESC',
                                           :per_page => 20)
       else
-        @title = t'diary_entry.no_such_user.title'
-        @not_found_user = params[:display_name]
-
-        render :action => 'no_such_user', :status => :not_found
+        render_unknown_user params[:display_name]
       end
     elsif params[:language]
       @title = t 'diary_entry.list.in_language_title', :language => Language.find(params[:language]).english_name
@@ -102,12 +101,12 @@ class DiaryEntryController < ApplicationController
       if @user
         @title = t 'diary_entry.list.title_friends'
         @entry_pages, @entries = paginate(:diary_entries, :include => :user,
-                                        :conditions => {
-                                          :user_id => @user.friend_users.public,
-                                          :visible => true
-                                        },
-                                        :order => 'created_at DESC',
-                                        :per_page => 20)
+                                          :conditions => {
+                                            :user_id => @user.friend_users,
+                                            :visible => true
+                                          },
+                                          :order => 'created_at DESC',
+                                          :per_page => 20)
       else
           require_user
           return     
@@ -116,12 +115,12 @@ class DiaryEntryController < ApplicationController
       if @user
         @title = t 'diary_entry.list.title_nearby'
         @entry_pages, @entries = paginate(:diary_entries, :include => :user,
-                                        :conditions => {
-                                          :user_id => @user.nearby,
-                                          :visible => true
-                                        },
-                                        :order => 'created_at DESC',
-                                        :per_page => 20)                                        
+                                          :conditions => {
+                                            :user_id => @user.nearby,
+                                            :visible => true
+                                          },
+                                          :order => 'created_at DESC',
+                                          :per_page => 20)                                        
       else
           require_user
           return     
@@ -166,34 +165,37 @@ class DiaryEntryController < ApplicationController
   end
 
   def view
-    user = User.active.find_by_display_name(params[:display_name])
-
-    if user
-      @entry = user.diary_entries.visible.where(:id => params[:id]).first
-      if @entry
-        @title = t 'diary_entry.view.title', :user => params[:display_name], :title => @entry.title
-      else
-        @title = t 'diary_entry.no_such_entry.title', :id => params[:id]
-        render :action => 'no_such_entry', :status => :not_found
-      end
+    @entry = @this_user.diary_entries.visible.where(:id => params[:id]).first
+    if @entry
+      @title = t 'diary_entry.view.title', :user => params[:display_name], :title => @entry.title
     else
-      @not_found_user = params[:display_name]
-
-      render :action => 'no_such_user', :status => :not_found
+      @title = t 'diary_entry.no_such_entry.title', :id => params[:id]
+      render :action => 'no_such_entry', :status => :not_found
     end
   end
 
   def hide
     entry = DiaryEntry.find(params[:id])
-    entry.update_attributes(:visible => false)
+    entry.update_attributes({:visible => false}, :without_protection => true)
     redirect_to :action => "list", :display_name => entry.user.display_name
   end
 
   def hidecomment
     comment = DiaryComment.find(params[:comment])
-    comment.update_attributes(:visible => false)
+    comment.update_attributes({:visible => false}, :without_protection => true)
     redirect_to :action => "view", :display_name => comment.diary_entry.user.display_name, :id => comment.diary_entry.id
   end
+
+  def comments
+    @comment_pages, @comments = paginate(:diary_comments,
+                                         :conditions => { 
+                                           :user_id => @this_user,
+                                           :visible => true
+                                         },
+                                         :order => 'created_at DESC',
+                                         :per_page => 20)
+    @page = (params[:page] || 1).to_i
+  end  
 private
   ##
   # require that the user is a administrator, or fill out a helpful error message
@@ -203,5 +205,11 @@ private
       flash[:error] = t('user.filter.not_an_administrator')
       redirect_to :controller => 'diary_entry', :action => 'view', :display_name => params[:id]
     end
+  end
+
+  ##
+  # is this list user specific?
+  def user_specific_list?
+    params[:friends] or params[:nearby]
   end
 end

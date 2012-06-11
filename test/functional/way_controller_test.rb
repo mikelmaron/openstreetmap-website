@@ -4,6 +4,35 @@ require 'way_controller'
 class WayControllerTest < ActionController::TestCase
   api_fixtures
 
+  ##
+  # test all routes which lead to this controller
+  def test_routes
+    assert_routing(
+      { :path => "/api/0.6/way/create", :method => :put },
+      { :controller => "way", :action => "create" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/way/1/full", :method => :get },
+      { :controller => "way", :action => "full", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/way/1", :method => :get },
+      { :controller => "way", :action => "read", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/way/1", :method => :put },
+      { :controller => "way", :action => "update", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/way/1", :method => :delete },
+      { :controller => "way", :action => "delete", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/ways", :method => :get },
+      { :controller => "way", :action => "ways" }
+    )
+  end
+
   # -------------------------------------
   # Test reading ways.
   # -------------------------------------
@@ -454,7 +483,7 @@ class WayControllerTest < ActionController::TestCase
                          current_ways(:used_way).id
                        ]
     found_way_ids = ways_xml.find("//osm/way").collect { |w| w["id"].to_i }
-    assert_equal expected_way_ids, found_way_ids,
+    assert_equal expected_way_ids.sort, found_way_ids.sort,
       "expected ways for node #{current_nodes(:used_node_1).id} did not match found"
     
     # check the full ways to ensure we're not missing anything

@@ -1,4 +1,4 @@
-# Messages for Estonian (Eesti)
+# Messages for Estonian (eesti)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Avjoska
@@ -8,6 +8,8 @@
 et: 
   activerecord: 
     attributes: 
+      diary_comment: 
+        body: Sisu
       diary_entry: 
         language: Keel
         latitude: Laiuskraad
@@ -19,7 +21,7 @@ et:
         user: Kasutaja
       message: 
         body: Sisu
-        recipient: Vastuvõtja
+        recipient: Saaja
         sender: Saatja
         title: Teema
       trace: 
@@ -224,6 +226,9 @@ et:
     list: 
       description: Viimased muudatused
   diary_entry: 
+    comments: 
+      newer_comments: Uuemad kommentaarid
+      older_comments: Vanemad kommentaarid
     diary_comment: 
       confirm: Kinnita
       hide_link: Peida see kommentaar
@@ -231,7 +236,11 @@ et:
       comment_count: 
         one: 1 kommentaar
         other: "%{count} kommentaari"
+      comment_link: Kommenteeri seda päeviku sissekannet
       confirm: Kinnita
+      edit_link: Muuda seda sissekannet
+      hide_link: Peida see sissekanne
+      reply_link: Vasta sellele sissekandele
     edit: 
       body: "Tekst:"
       language: "Keel:"
@@ -240,6 +249,7 @@ et:
       longitude: "Pikkuskraad:"
       save_button: Salvesta
       subject: "Teema:"
+      title: Muuda päeviku sissekannet
       use_map_link: kasuta kaarti
     list: 
       new: Uus päeviku sissekanne
@@ -254,9 +264,11 @@ et:
       edit: muuda
       location: "Asukoht:"
       view: Vaata
-    no_such_user: 
-      body: Kahjuks ei ole meil kasutajat %{user}. Nimes võib olla kirjaviga või link võib olla vigane.
-      heading: Kasutajat %{user} ei ole olemas
+    new: 
+      title: Uus päeviku sissekanne
+    no_such_entry: 
+      heading: Sissekannet id'ga %{id} pole olemas
+      title: Sellist päeviku sissekannet pole olemas
     view: 
       leave_a_comment: Kommenteeri
       login: Logi sisse
@@ -286,11 +298,9 @@ et:
       licence: Litsents
       longitude: "Pikkus:"
       manually_select: Vali käsitsi teine ala
-      mapnik_image: Mapnik'u pilt
       max: maks.
       options: Sätted
       osm_xml_data: OpenStreetMap'i andmed XML kujul
-      osmarender_image: Osmarender'i pilt
       output: Väljund
       paste_html: Kopeeri ja lisa see HTML-kood oma veebilehele.
       scale: Mõõtkava
@@ -299,6 +309,7 @@ et:
         heading: Ala on liiga suur
       zoom: Suurendus
     start_rjs: 
+      add_marker: Lisa kaardile marker
       change_marker: Muuda märgi asukohta
       export: Ekspordi
       view_larger_map: Näita suuremat kaarti
@@ -332,6 +343,9 @@ et:
       suffix_place: ", %{distance} %{direction} kohast %{placename}"
     search_osm_nominatim: 
       prefix: 
+        aeroway: 
+          gate: Värav
+          terminal: Terminal
         amenity: 
           airport: Lennujaam
           atm: Pangaautomaat
@@ -357,6 +371,7 @@ et:
           drinking_water: Joogivesi
           driving_school: Autokool
           embassy: Saatkond
+          emergency_phone: Hädaabi telefon
           fast_food: Kiirtoit
           fire_station: Tuletõrjedepoo
           fountain: Purskkaev
@@ -396,45 +411,27 @@ et:
           youth_centre: Noortekeskus
         boundary: 
           administrative: Halduspiir
+        bridge: 
+          viaduct: Viadukt
+          "yes": Sild
         building: 
-          bunker: Punker
-          chapel: Kabel
-          church: Kirik
-          commercial: Ärihoone
-          dormitory: Ühiselamu
-          faculty: Õppehoone
-          farm: Talumaja
-          flats: Korruselamu
-          garage: Garaaž
-          hall: Hall
-          hospital: Haigla hoone
-          hotel: Hotell
-          house: Maja
-          industrial: Tööstushoone
-          office: Kontorihoone
-          public: Avalik hoone
-          school: Koolihoone
-          shop: Kauplus
-          stadium: Staadion
-          store: Kauplus
-          tower: Torn
-          train_station: Raudteejaam
-          university: Ülikoolihoone
+          "yes": Hoone
         highway: 
           bridleway: Ratsatee
           bus_stop: Bussipeatus
           cycleway: Jalgrattatee
           footway: Jalgrada
           ford: Koolmekoht
-          gate: Värav
           living_street: Õueala
           motorway: Kiirtee
           path: Rada
-          pedestrian: Jalakäijatele
+          pedestrian: Jalakäijatele tee
           platform: Platvorm
+          primary: Põhimaantee
           road: Tee
           secondary: Tugimaantee
           steps: Trepp
+          tertiary: Kohalik maantee
           unsurfaced: Katteta tee
         historic: 
           battlefield: Lahinguväli
@@ -442,6 +439,7 @@ et:
           building: Hoone
           castle: Kindlus
           church: Kirik
+          fort: Kindlus
           house: Maja
           icon: Ikoon
           manor: Mõis
@@ -455,16 +453,18 @@ et:
         landuse: 
           cemetery: Surnuaed
           forest: Mets
+          garages: Garaažid
           grass: Muru
+          industrial: Tööstuspiirkond
           landfill: Prügimägi
           meadow: Niit
           mine: Kaevandus
-          mountain: Mägi
           nature_reserve: Looduskaitseala
           park: Park
           quarry: Karjäär
           railway: Raudtee
           reservoir: Veehoidla
+          residential: Elamurajoon
           vineyard: Viinamarjaistandus
           wetland: Soo
           wood: Mets
@@ -477,11 +477,16 @@ et:
           park: park
           pitch: Spordiväljak
           playground: Mänguväljak
+          sauna: Saun
           slipway: Slipp
           sports_centre: Spordikeskus
           stadium: Saadion
           swimming_pool: Ujula
           water_park: Veepark
+        military: 
+          airfield: Sõjaväe lennuväli
+          barracks: Kasarmud
+          bunker: Punker
         natural: 
           bay: Laht
           beach: Rand
@@ -489,9 +494,10 @@ et:
           cave_entrance: Koopa sissepääs
           channel: Kanal
           cliff: Kalju
-          coastline: Rannajoon
           crater: Kraater
+          dune: Düün
           fjord: Fjord
+          forest: Mets
           geyser: Geiser
           glacier: Liustik
           heath: Nõmm
@@ -505,6 +511,7 @@ et:
           river: Jõgi
           rock: Kivi
           spring: Allikas
+          stone: Kivi
           strait: Väin
           tree: Puu
           valley: Org
@@ -513,13 +520,15 @@ et:
           wetland: Märgala
           wetlands: Soo
           wood: Mets
+        office: 
+          architect: Arhitekt
         place: 
-          airport: lennujaam
+          airport: Lennujaam
           city: Linn
-          country: riik
+          country: Riik
           county: Maakond
-          farm: talu
-          house: maja
+          farm: Talu
+          house: Maja
           houses: Majad
           island: Saar
           islet: Saareke
@@ -528,16 +537,22 @@ et:
           postcode: Sihtnumber
           sea: meri
           state: Osariik
+          suburb: Linnaosa
           town: Linn
           village: Küla
         railway: 
+          abandoned: Ülesvõetud raudtee
+          construction: Ehitusjärgus raudtee
+          funicular: Köisraudtee
           halt: Rongipeatus
+          historic_station: Ajalooline raudteejaam
           junction: Raudtee ülekäigukoht
           level_crossing: Raudtee ülesõidukoht
           narrow_gauge: Kitsarööpmeline raudtee
           platform: Raudteeperroon
           station: Raudteejaam
           subway: Metroojaam
+          switch: Pöörangud
           tram: Trammitee
           tram_stop: Trammipeatus
         shop: 
@@ -549,11 +564,11 @@ et:
           clothes: Riidepood
           computer: Arvutikauplus
           cosmetics: Kosmeetikapood
-          drugstore: Apteek
           dry_cleaning: Keemiline puhastus
           fish: Kalapood
           florist: Lillepood
           food: Toidupood
+          funeral_directors: Matusebüroo
           furniture: Mööbel
           gallery: Galerii
           garden_centre: Aianduskeskus
@@ -561,6 +576,7 @@ et:
           insurance: Kindlustus
           jewelry: Juveelipood
           kiosk: Kiosk
+          market: Turg
           mobile_phone: Mobiiltelefonide pood
           music: Muusikapood
           pet: Lemmikloomapood
@@ -573,7 +589,7 @@ et:
           alpine_hut: Alpimaja
           attraction: Turismiatraktsioon
           camp_site: Laagriplats
-          guest_house: külalistemaja
+          guest_house: Külalistemaja
           hostel: Hostel
           hotel: Hotell
           information: informatsioon
@@ -586,6 +602,8 @@ et:
           canal: Kanal
           dam: Tamm
           ditch: Kraav
+          mineral_spring: Mineraalvee allikas
+          rapids: Kärestik
           river: Jõgi
           riverbank: Jõekallas
           stream: Oja
@@ -594,11 +612,13 @@ et:
     map: 
       base: 
         cycle_map: Rattakaart
+        transport_map: Transpordikaart
     site: 
       edit_disabled_tooltip: Kaardi redigeerimiseks suurenda kaarti
       edit_tooltip: Töötle kaarti
       history_tooltip: Vaata tehtud muudatusi
   layouts: 
+    community: Kogukond
     community_blogs: Kogukonna Blogid
     community_blogs_title: OpenStreetMap'i kogukonna liikmete blogid
     copyright: Autoriõigused ja litsents
@@ -620,7 +640,6 @@ et:
       one: Sul on üks lugemata sõnum
       other: Sul on %{count} lugemata sõnumit
       zero: Sul ei ole lugemata sõnumeid
-    intro_3_partners: wiki
     log_in: logi sisse
     log_in_tooltip: Logi sisse oma kasutajanimega
     logo: 
@@ -654,13 +673,19 @@ et:
     inbox: 
       date: Kuupäev
       from: Saatja
+      messages: Sul on %{new_messages} ja %{old_messages}
       my_inbox: Minu postkast
+      new_messages: 
+        one: "%{count} uus kiri"
+        other: "%{count} uut kirja"
       no_messages_yet: Sul ei ole veel sõnumeid. Miks mitte kontakteeruda mõne %{people_mapping_nearby_link}?
+      old_messages: 
+        one: "%{count} vana kiri"
+        other: "%{count} vana kirja"
       outbox: Saadetud kirjad
       people_mapping_nearby: lähedaloleva kaardistajaga
       subject: Teema
       title: Saabunud kirjad
-      you_have: Sul on %{new_count} uut sõnumit ja %{old_count} vana sõnumit
     mark: 
       as_read: Sõnum on märgitud loetuks
       as_unread: Sõnum on märgitud kui lugemata
@@ -682,13 +707,12 @@ et:
       body: Vabandust kuid sellise id'ga sõnumit ei ole olemas.
       heading: Sellist sõnumit ei ole olemas
       title: Sellist sõnumit ei ole olemas
-    no_such_user: 
-      body: Vabandust kuid sellise nimega kasutajat ei ole olemas.
-      heading: Kasutajat ei leitud
-      title: Kasutajat ei leitud
     outbox: 
       date: Kuupäev
       inbox: saabunud kirjad
+      messages: 
+        one: Sul on %{count} saadetud kiri
+        other: Sul on %{count} saadetud kirja
       my_inbox: "%{inbox_link}"
       no_sent_messages: Sul ei ole veel saadetud sõnumeid. Miks mitte kontakteeruda mõne %{people_mapping_nearby_link}?
       outbox: saadetud sõnumid
@@ -696,7 +720,6 @@ et:
       subject: Teema
       title: Saadetud sõnumid
       to: Kellele
-      you_have_sent_messages: Sul on %{count} saadetud sõnumit
     read: 
       back_to_inbox: Tagasi postkasti
       back_to_outbox: Tagasi saadetud sõnumite juurde
@@ -712,6 +735,7 @@ et:
   notifier: 
     diary_comment_notification: 
       hi: Tere, %{to_user}!
+      subject: "[OpenStreetMap] %{user} kommenteeris sinu päeviku sissekannet"
     email_confirm: 
       subject: "[OpenStreetMap] Kinnita oma e-posti aadress"
     email_confirm_html: 
@@ -851,9 +875,8 @@ et:
       uploaded_at: "Üles laaditud:"
       visibility: "Nähtavus:"
       visibility_help: Mida see tähendab?
-    no_such_user: 
-      title: Sellist kasutajat ei ole
     trace: 
+      ago: "%{time_in_words_ago} tagasi"
       count_points: 
         one: "%{count} punkt"
         other: "%{count} punkti"
@@ -872,6 +895,8 @@ et:
       visibility: Nähtavus
       visibility_help: mida see tähendab?
     trace_header: 
+      see_all_traces: Vaata kõiki GPS-radasid
+      see_your_traces: Vaata oma GPS-radasid
       upload_trace: Lisa GPS-rada
     trace_optionals: 
       tags: Sildid
@@ -884,7 +909,7 @@ et:
       description: "Kirjeldus:"
       download: laadi alla
       edit: redigeeri
-      edit_track: Muuda seda jälge
+      edit_track: Muuda seda rada
       filename: "Failinimi:"
       map: kaardil
       none: Puuduvad
@@ -903,7 +928,7 @@ et:
         link text: Mis see on?
       current email address: "Praegune e-posti aadress:"
       delete image: Eemalda praegune pilt
-      email never displayed publicly: (mitte kunagi näidata avalikult)
+      email never displayed publicly: (ei näidata mitte kunagi avalikult)
       flash update success: Kasutaja informatsioon uuendatud edukalt.
       home location: "Kodu asukoht:"
       image: "Pilt:"
@@ -930,7 +955,7 @@ et:
       public editing note: 
         heading: Avalik toimetamine
       replace image: Asenda praegune pilt
-      return to profile: Tagasi profiili
+      return to profile: Tagasi profiili juurde
       save changes button: Salvesta muudatused
       title: Redigeeri kasutajakontot
     confirm: 
@@ -967,6 +992,7 @@ et:
     lost_password: 
       email address: "E-posti aadress:"
       heading: Parool ununenud?
+      help_text: Sisesta e-posti aadress, mida kasutasid registreerumisel. Me saadame sinna lingi, mida saad kasutada oma parooli uuesti seadmiseks.
       new password button: Saada mulle uus salasõna
       notice email cannot find: Seda e-posti aadressi ei leitud.
       title: Unustatud salasõna
@@ -984,7 +1010,7 @@ et:
       fill_form: Täitke vorm ning me saadame teile e-posti konto aktiveerimiseks.
       heading: Loo uus kasutajanimi
       openid: "%{logo} OpenID:"
-      password: "Parool:"
+      password: "Uus parool:"
       title: Loo uus konto
     no_such_user: 
       body: Vabandust kuid kasutajat nimega %{user} pole olemas. Kontrolli sisestatud lingi õigekirja. Võimalik, et link millele sa vajutasid on vigane.
@@ -1021,6 +1047,7 @@ et:
       ago: (%{time_in_words_ago} tagasi)
       confirm: Kinnita
       create_block: blokeeri see kasutaja
+      ct accepted: Vastu võetud %{ago}  tagasi
       delete_user: kustuta see kasutaja
       description: Kirjeldus
       diary: päevik
@@ -1055,11 +1082,10 @@ et:
   user_block: 
     edit: 
       back: Vaata kõiki blokeeringuid
-    filter: 
-      not_a_moderator: Selle tegevuse sooritamiseks pead sa olema moderaator.
     helper: 
-      time_future: Lõpeb %{time}.
+      time_future: Lõppeb %{time}.
       time_past: Lõppes %{time} tagasi.
+      until_login: Aktiivne kuni kasutaja logib sisse.
     new: 
       back: Vaata kõiki blokeeringuid
     partial: 
@@ -1076,6 +1102,7 @@ et:
       show: Näita
       status: Olek
       time_future: Lõpeb %{time}
+      time_past: Lõppes %{time} tagasi
   user_role: 
     grant: 
       confirm: Kinnita

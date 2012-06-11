@@ -1,4 +1,4 @@
-# Messages for Traditional Chinese (‪中文(繁體)‬)
+# Messages for Traditional Chinese (‪中文（繁體）‬)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Anakmalaysia
@@ -344,10 +344,6 @@ zh-TW:
       body: 抱歉，沒有日記項目或評論的 id 是 %{id}。請檢查您的拼字，或者可能是按到錯誤的連結。
       heading: 沒有項目的 id 為： %{id}
       title: 沒有這個日記項目
-    no_such_user: 
-      body: 抱歉，沒有名為 %{user} 的使用者。請檢查您的拼字，或者可能是按到錯誤的連結。
-      heading: 使用者 %{user} 不存在
-      title: 沒有這個使用者
     view: 
       leave_a_comment: 留下評論
       login: 登入
@@ -369,11 +365,9 @@ zh-TW:
       licence: 授權
       longitude: 經度：
       manually_select: 手動選擇不同的區域
-      mapnik_image: Mapnik 圖片
       max: 最大
       options: 選項
       osm_xml_data: OpenStreetMap XML 資料
-      osmarender_image: Osmarender 圖片
       output: 輸出
       paste_html: 貼上 HTML 內嵌於網站
       scale: 比例
@@ -470,8 +464,6 @@ zh-TW:
           telephone: 公共電話
           toilets: 洗手間
           university: 大學
-        building: 
-          church: 教堂
         historic: 
           museum: 博物館
         landuse: 
@@ -479,7 +471,6 @@ zh-TW:
           military: 軍事區
           reservoir: 水庫
         natural: 
-          coastline: 海岸線
           volcano: 火山
         place: 
           airport: 機場
@@ -572,9 +563,6 @@ zh-TW:
       other: 您的收件匣有 %{count} 個未閱讀的訊息
       zero: 您的收件匣沒有未閱讀的訊息
     intro_1: OpenStreetMap 是一個自由、可編輯的全世界地圖。它是由像您這樣的人所製作的。
-    intro_2: OpenStreetMap 讓您可以從地球上的任何地方以合作的方式檢視、編輯與使用地圖資料。
-    intro_3: OpenStreetMap 的主機是由 %{ucl} 和 %{bytemark} 大力支援的。這個專案的其他支持者都列在 %{partners}。
-    intro_3_partners: wiki
     license: 
       title: OpenStreetMap 資料是以創用 CC 姓名標示-相同方式分享 2.0 通用條款授權
     log_in: 登入
@@ -621,7 +609,6 @@ zh-TW:
       people_mapping_nearby: 附近製作地圖
       subject: 主旨
       title: 收件匣
-      you_have: 您有 %{new_count} 個新訊息和 %{old_count} 個舊訊息
     mark: 
       as_read: 訊息標記為已讀
       as_unread: 訊息標記為未讀
@@ -643,10 +630,6 @@ zh-TW:
       body: 抱歉，並沒有這個 id 的訊息。
       heading: 沒有這個訊息
       title: 沒有這個訊息
-    no_such_user: 
-      body: 抱歉沒有這個名字的使用者。
-      heading: 沒有這個使用者
-      title: 沒有這個使用者
     outbox: 
       date: 日期
       inbox: 收件匣
@@ -657,7 +640,6 @@ zh-TW:
       subject: 主旨
       title: 寄件匣
       to: 收件者
-      you_have_sent_messages: 您有 %{count} 個寄送的訊息
     read: 
       back_to_inbox: 回到收件匣
       back_to_outbox: 回到寄件匣
@@ -836,7 +818,6 @@ zh-TW:
     index: 
       js_1: 您使用不支援 JavaScript 的瀏覽器，或者停用了 JavaScript。
       js_2: OpenStreetMap 使用 JavaScript 讓地圖更平順。
-      js_3: 如果您無法啟用 JavaScript，可以試試 <a href="http://tah.openstreetmap.org/Browse/">Tiles@Home 靜態拼貼瀏覽器</a>。
       license: 
         license_name: 創用 CC 姓名標示-相同方式分享 2.0
         notice: 由 %{project_name} 和它的貢獻者依 %{license_name} 條款授權。
@@ -944,10 +925,6 @@ zh-TW:
       your_traces: 您的 GPS 軌跡
     make_public: 
       made_public: 軌跡標記為公開
-    no_such_user: 
-      body: 抱歉，沒有名為 %{user} 的使用者。請檢查您的拼字，或者可能是按到錯誤的連結。
-      heading: 使用者 %{user} 不存在
-      title: 沒有這個使用者
     offline: 
       heading: GPX 離線儲存
       message: GPX 檔案儲存，上傳系統目前無法使用。
@@ -1083,7 +1060,6 @@ zh-TW:
       title: 使用者
     login: 
       account not active: 抱歉，您的帳號尚未啟用。<br />請點選帳號確認電子郵件中的連結來啟用您的帳號，或是<a href="%{reconfirm}">要求寄一封新的確認信</a>。
-      account suspended: 對不起，您的帳號已因可疑活動被暫停了。 <br />如果你想討論這一點，請聯繫%{webmaster}。
       auth failure: 抱歉，無法以這些資料登入。
       create account minute: 建立一個帳號。只需要一分鐘。
       email or username: 電子郵件位址或使用者名稱：
@@ -1097,7 +1073,6 @@ zh-TW:
       remember: 記住我：
       title: 登入
       to make changes: 要更改的 OpenStreetMap 的資料，您必須擁有一個帳號。
-      webmaster: 網站管理員
     logout: 
       heading: 從 OpenStreetMap 登出
       logout_button: 登出

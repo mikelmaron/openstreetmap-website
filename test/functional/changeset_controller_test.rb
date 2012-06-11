@@ -4,6 +4,79 @@ require 'changeset_controller'
 class ChangesetControllerTest < ActionController::TestCase
   api_fixtures
 
+  ##
+  # test all routes which lead to this controller
+  def test_routes
+    assert_routing(
+      { :path => "/api/0.6/changeset/create", :method => :put },
+      { :controller => "changeset", :action => "create" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changeset/1/upload", :method => :post },
+      { :controller => "changeset", :action => "upload", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changeset/1/download", :method => :get },
+      { :controller => "changeset", :action => "download", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changeset/1/expand_bbox", :method => :post },
+      { :controller => "changeset", :action => "expand_bbox", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changeset/1", :method => :get },
+      { :controller => "changeset", :action => "read", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changeset/1", :method => :put },
+      { :controller => "changeset", :action => "update", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changeset/1/close", :method => :put },
+      { :controller => "changeset", :action => "close", :id => "1" }
+    )
+    assert_routing(
+      { :path => "/api/0.6/changesets", :method => :get },
+      { :controller => "changeset", :action => "query" }
+    )
+    assert_routing(
+      { :path => "/user/name/edits", :method => :get },
+      { :controller => "changeset", :action => "list", :display_name => "name" }
+    )
+    assert_routing(
+      { :path => "/user/name/edits/feed", :method => :get },
+      { :controller => "changeset", :action => "feed", :display_name => "name", :format => :atom }
+    )
+    assert_routing(
+      { :path => "/browse/friends", :method => :get },
+      { :controller => "changeset", :action => "list", :friends => true }
+    )
+    assert_routing(
+      { :path => "/browse/nearby", :method => :get },
+      { :controller => "changeset", :action => "list", :nearby => true }
+    )
+    assert_routing(
+      { :path => "/browse/changesets", :method => :get },
+      { :controller => "changeset", :action => "list" }
+    )
+    assert_routing(
+      { :path => "/browse/changesets/feed", :method => :get },
+      { :controller => "changeset", :action => "feed", :format => :atom }
+    )
+    assert_recognizes(
+      { :controller => "changeset", :action => "list" },
+      { :path => "/browse", :method => :get }
+    )
+    assert_recognizes(
+      { :controller => "changeset", :action => "list" },
+      { :path => "/history", :method => :get }
+    )
+    assert_recognizes(
+      { :controller => "changeset", :action => "feed", :format => :atom },
+      { :path => "/history/feed", :method => :get }
+    )
+  end
+
   # -----------------------
   # Test simple changeset creation
   # -----------------------
@@ -1673,7 +1746,56 @@ EOF
     assert_response :not_found
     assert_template 'user/no_such_user'
   end
+      
+  ##
+  # This should display the last 20 changesets closed.
+  def test_feed
+    changesets = Changeset.find(:all, :order => "created_at DESC", :conditions => ['num_changes > 0'], :limit=> 20)
+    assert changesets.size <= 20
+    get :feed, {:format => "atom"}
+    assert_response :success
+    assert_template "list"
+    # Now check that all 20 (or however many were returned) changesets are in the html
+    assert_select "feed", :count => 1
+    assert_select "entry", :count => changesets.size
+    changesets.each do |changeset|
+      # FIXME this test needs rewriting - test for feed contents
+    end
+  end
+
+  ##
+  # Checks the display of the user changesets feed
+  def test_feed_user
+    user = users(:public_user)
+    get :feed, {:format => "atom", :display_name => user.display_name}
+    assert_response :success
+    assert_template "changeset/_user"
+    ## FIXME need to add more checks to see which if edits are actually shown if your data is public
+  end
+
+  ##
+  # Check the not found of the user changesets feed
+  def test_feed_user_not_found
+    get :feed, {:format => "atom", :display_name => "Some random user"}
+    assert_response :not_found
+  end
   
+  ##
+  # check that the changeset download for a changeset with a redacted
+  # element in it doesn't contain that element.
+  def test_diff_download_redacted
+    changeset_id = changesets(:public_user_first_change).id
+
+    get :download, :id => changeset_id
+    assert_response :success
+
+    assert_select "osmChange", 1
+    # this changeset contains node 17 in versions 1 & 2, but 1 should
+    # be hidden.
+    assert_select "osmChange node[id=17]", 1
+    assert_select "osmChange node[id=17][version=1]", 0
+  end
+
   #------------------------------------------------------------
   # utility functions
   #------------------------------------------------------------

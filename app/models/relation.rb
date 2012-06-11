@@ -2,8 +2,9 @@ class Relation < ActiveRecord::Base
   require 'xml/libxml'
   
   include ConsistencyValidations
-  
-  set_table_name 'current_relations'
+  include NotRedactable
+
+  self.table_name = "current_relations"
 
   belongs_to :changeset
 
@@ -66,6 +67,10 @@ class Relation < ActiveRecord::Base
     # and manually set to false before the actual delete.
     relation.visible = true
 
+    # Start with no tags
+    relation.tags = Hash.new
+
+    # Add in any tags from the XML
     pt.find('tag').each do |tag|
       raise OSM::APIBadXMLError.new("relation", pt, "tag is missing key") if tag['k'].nil?
       raise OSM::APIBadXMLError.new("relation", pt, "tag is missing value") if tag['v'].nil?

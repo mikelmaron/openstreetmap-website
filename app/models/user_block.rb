@@ -5,7 +5,15 @@ class UserBlock < ActiveRecord::Base
   belongs_to :creator, :class_name => "User", :foreign_key => :creator_id
   belongs_to :revoker, :class_name => "User", :foreign_key => :revoker_id
   
+  after_initialize :set_defaults
+
   PERIODS = USER_BLOCK_PERIODS
+
+  ##
+  # return a renderable version of the reason text.
+  def reason
+    RichText.new(read_attribute(:reason_format), read_attribute(:reason))
+  end
 
   ##
   # returns true if the block is currently active (i.e: the user can't
@@ -18,12 +26,21 @@ class UserBlock < ActiveRecord::Base
   # revokes the block, allowing the user to use the API again. the argument
   # is the user object who is revoking the ban.
   def revoke!(revoker)
-    update_attributes({ :ends_at => Time.now.getutc(),
-                        :revoker_id => revoker.id,
-                        :needs_view => false })
+    update_attributes({
+      :ends_at => Time.now.getutc(),
+      :revoker_id => revoker.id,
+      :needs_view => false
+    }, :without_protection => true)
   end
 
-  private
+private
+
+  ##
+  # set default values for new records.
+  def set_defaults
+    self.reason_format = "markdown" unless self.attribute_present?(:reason_format)
+  end
+
   ##
   # validate that only moderators are allowed to change the
   # block. this should be caught and dealt with in the controller,

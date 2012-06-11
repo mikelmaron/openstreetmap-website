@@ -23,4 +23,18 @@ class DiaryEntry < ActiveRecord::Base
   validates_numericality_of :longitude, :allow_nil => true,
                             :greater_than_or_equal_to => -180, :less_than_or_equal_to => 180
   validates_associated :language
+
+  attr_accessible :title, :body, :language_code, :latitude, :longitude
+
+  after_initialize :set_defaults
+
+  def body
+    RichText.new(read_attribute(:body_format), read_attribute(:body))
+  end
+
+private
+
+  def set_defaults
+    self.body_format = "markdown" unless self.attribute_present?(:body_format)
+  end
 end

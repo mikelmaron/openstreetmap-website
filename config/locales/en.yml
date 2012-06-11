@@ -195,6 +195,13 @@ en:
     paging_nav:
       showing_page: "Showing page"
       of: "of"
+    redacted:
+      redaction: "Redaction %{id}"
+      message_html: "Version %{version} of this %{type} cannot be shown as it has been redacted. Please see %{redaction_link} for details."
+      type:
+        node: "node"
+        way: "way"
+        relation: "relation"
     relation_details:
       members: "Members:"
       part_of: "Part of:"
@@ -221,7 +228,7 @@ en:
       view_data: "View data for current map view"
       manually_select: "Manually select a different area"
     start_rjs:
-      data_layer_name: "Data"
+      data_layer_name: "Browse Map Data"
       data_frame_title: "Data"
       zoom_or_select: "Zoom in or select an area of the map to view"
       drag_a_box: "Drag a box on the map to select an area"
@@ -309,14 +316,12 @@ en:
       title_user_bbox: "Changesets by %{user} within %{bbox}"
       title_friend: "Changesets by your friends"
       title_nearby: "Changesets by nearby users"
-      
       heading: "Changesets"
       heading_user: "Changesets"
       heading_bbox: "Changesets"
       heading_user_bbox: "Changesets"
       heading_friend: "Changesets"
       heading_nearby: "Changesets"
-      
       description: "Recent changes"
       description_user: "Changesets by %{user}"
       description_bbox: "Changesets within %{bbox}"
@@ -362,10 +367,6 @@ en:
       title: "No such diary entry"
       heading: "No entry with the id: %{id}"
       body: "Sorry, there is no diary entry or comment with the id %{id}. Please check your spelling, or maybe the link you clicked is wrong."
-    no_such_user:
-      title: "No such user"
-      heading: "The user %{user} does not exist"
-      body: "Sorry, there is no user with the name %{user}. Please check your spelling, or maybe the link you clicked is wrong."
     diary_entry:
       posted_by: "Posted by %{link_user} on %{created} in %{language_link}"
       comment_link: Comment on this entry
@@ -394,14 +395,21 @@ en:
       all:
         title: "OpenStreetMap diary entries"
         description: "Recent diary entries from users of OpenStreetMap"
+    comments:
+      has_commented_on: "%{display_name} has commented on the following diary entries"
+      post: Post
+      when: When
+      comment: Comment
+      ago: "%{ago} ago"
+      newer_comments: "Newer Comments"
+      older_comments: "Older Comments"
   export:
     start:
       area_to_export: "Area to Export"
       manually_select: "Manually select a different area"
       format_to_export: "Format to Export"
       osm_xml_data: "OpenStreetMap XML Data"
-      mapnik_image: "Mapnik Image"
-      osmarender_image: "Osmarender Image"
+      map_image: "Map Image (shows standard layer)"
       embeddable_html: "Embeddable HTML"
       licence: "Licence"
       export_details: 'OpenStreetMap data is licensed under the <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-ShareAlike 2.0 license</a>.'
@@ -446,16 +454,27 @@ en:
     search_osm_nominatim:
       prefix_format: "%{name}"
       prefix:
+        aeroway:
+          aerodrome: "Aerodrome"
+          apron: "Apron"
+          gate: "Gate"
+          helipad: "Helipad"
+          runway: "Runway"
+          taxiway: "Taxiway"
+          terminal: "Terminal"
         amenity:
           airport: "Airport"
           arts_centre: "Arts Centre"
+          artwork: "Artwork"
           atm: "ATM"
           auditorium: "Auditorium"
           bank: "Bank"
           bar: "Bar"
+          bbq: "BBQ"
           bench: "Bench"
           bicycle_parking: "Cycle Parking"
           bicycle_rental: "Cycle Rental"
+          biergarten: "Beer Garden"
           brothel: "Brothel"
           bureau_de_change: "Bureau de Change"
           bus_station: "Bus Station"
@@ -464,6 +483,7 @@ en:
           car_sharing: "Car Sharing"
           car_wash: "Car Wash"
           casino: "Casino"
+          charging_station: "Charging Station"
           cinema: "Cinema"
           clinic: "Clinic"
           club: "Club"
@@ -482,6 +502,7 @@ en:
           ferry_terminal: "Ferry Terminal"
           fire_hydrant: "Fire Hydrant"
           fire_station: "Fire Station"
+          food_court: "Food Court"
           fountain: "Fountain"
           fuel: "Fuel"
           grave_yard: "Grave Yard"
@@ -522,9 +543,12 @@ en:
           shelter: "Shelter"
           shop: "Shop"
           shopping: "Shopping"
+          shower: "Shower"
+          social_centre: "Social Centre"
           social_club: "Social Club"
           studio: "Studio"
           supermarket: "Supermarket"
+          swimming_pool: "Swimming Pool"
           taxi: "Taxi"
           telephone: "Public Telephone"
           theatre: "Theatre"
@@ -536,41 +560,21 @@ en:
           village_hall: "Village Hall"
           waste_basket: "Waste Basket"
           wifi: "WiFi Access"
+          WLAN: "WiFi Access"
           youth_centre: "Youth Centre"
         boundary:
           administrative: "Administrative Boundary"
+          census: "Census Boundary"
+          national_park: "National Park"
+          protected_area : "Protected Area"
+        bridge:
+          aqueduct: "Aqueduct"
+          suspension: "Suspension Bridge"
+          swing: "Swing Bridge"
+          viaduct: "Viaduct"
+          "yes": "Bridge"
         building:
-          apartments: "Apartment Block"
-          block: "Building Block"
-          bunker: "Bunker"
-          chapel: "Chapel"
-          church: "Church"
-          city_hall: "City Hall"
-          commercial: "Commercial Building"
-          dormitory: "Dormitory"
-          entrance: "Building Entrance"
-          faculty: "Faculty Building"
-          farm: "Farm Building"
-          flats: "Flats"
-          garage: "Garage"
-          hall: "Hall"
-          hospital: "Hospital Building"
-          hotel: "Hotel"
-          house: "House"
-          industrial: "Industrial Building"
-          office: "Office Building"
-          public: "Public Building"
-          residential: "Residential Building"
-          retail: "Retail Building"
-          school: "School Building"
-          shop: "Shop"
-          stadium: "Stadium"
-          store: "Store"
-          terrace: "Terrace"
-          tower: "Tower"
-          train_station: "Railway Station"
-          university: "University Building"
-          yes: "Building"
+          "yes": "Building"
         highway:
           bridleway: "Bridleway"
           bus_guideway: "Guided Bus Lane"
@@ -578,12 +582,11 @@ en:
           byway: "Byway"
           construction: "Highway under Construction"
           cycleway: "Cycle Path"
-          distance_marker: "Distance Marker"
           emergency_access_point: "Emergency Access Point"
           footway: "Footpath"
           ford: "Ford"
-          gate: "Gate"
           living_street: "Living Street"
+          milestone: "Milestone"
           minor: "Minor Road"
           motorway: "Motorway"
           motorway_junction: "Motorway Junction"
@@ -595,14 +598,17 @@ en:
           primary_link: "Primary Road"
           raceway: "Raceway"
           residential: "Residential"
+          rest_area: "Rest Area"
           road: "Road"
           secondary: "Secondary Road"
           secondary_link: "Secondary Road"
           service: "Service Road"
           services: "Motorway Services"
+          speed_camera: "Speed Camera"
           steps: "Steps"
           stile: "Stile"
           tertiary: "Tertiary Road"
+          tertiary_link: "Tertiary Road"
           track: "Track"
           trail: "Trail"
           trunk: "Trunk Road"
@@ -616,6 +622,7 @@ en:
           building: "Building"
           castle: "Castle"
           church: "Church"
+          fort: "Fort"
           house: "House"
           icon: "Icon"
           manor: "Manor"
@@ -640,6 +647,7 @@ en:
           farmland: "Farmland"
           farmyard: "Farmyard"
           forest: "Forest"
+          garages: "Garages"
           grass: "Grass"
           greenfield: "Greenfield Land"
           industrial: "Industrial Area"
@@ -647,25 +655,28 @@ en:
           meadow: "Meadow"
           military: "Military Area"
           mine: "Mine"
-          mountain: "Mountain"
+          orchard: "Orchard"
           nature_reserve: "Nature Reserve"
           park: "Park"
           piste: "Piste"
-          plaza: "Plaza"
           quarry: "Quarry"
           railway: "Railway"
           recreation_ground: "Recreation Ground"
           reservoir: "Reservoir"
+          reservoir_watershed: "Reservoir Watershed"
           residential: "Residential Area"
           retail: "Retail"
+          road: "Road Area"
           village_green: "Village Green"
           vineyard: "Vineyard"
           wetland: "Wetland"
           wood: "Wood"
         leisure:
           beach_resort: "Beach Resort"
+          bird_hide: "Bird Hide"
           common: "Common Land"
           fishing: "Fishing Area"
+          fitness_station: "Fitness Station"
           garden: "Garden"
           golf_course: "Golf Course"
           ice_rink: "Ice Rink"
@@ -676,12 +687,17 @@ en:
           pitch: "Sports Pitch"
           playground: "Playground"
           recreation_ground: "Recreation Ground"
+          sauna: "Sauna"
           slipway: "Slipway"
           sports_centre: "Sports Centre"
           stadium: "Stadium"
           swimming_pool: "Swimming Pool"
           track: "Running Track"
           water_park: "Water Park"
+        military:
+          airfield: "Military Airfield"
+          barracks: "Barracks"
+          bunker: "Bunker"
         natural:
           bay: "Bay"
           beach: "Beach"
@@ -689,11 +705,12 @@ en:
           cave_entrance: "Cave Entrance"
           channel: "Channel"
           cliff: "Cliff"
-          coastline: "Coastline"
           crater: "Crater"
+          dune: "Dune"
           feature: "Feature"
           fell: "Fell"
           fjord: "Fjord"
+          forest: "Forest"
           geyser: "Geyser"
           glacier: "Glacier"
           heath: "Heath"
@@ -713,6 +730,7 @@ en:
           scrub: "Scrub"
           shoal: "Shoal"
           spring: "Spring"
+          stone: "Stone"
           strait: "Strait"
           tree: "Tree"
           valley: "Valley"
@@ -721,6 +739,19 @@ en:
           wetland: "Wetland"
           wetlands: "Wetlands"
           wood: "Wood"
+        office:
+          accountant: "Accountant"
+          architect: "Architect"
+          company: "Company"
+          employment_agency: "Employment Agency"
+          estate_agent: "Estate Agent"
+          government: "Governmental Office"
+          insurance: "Insurance Office"
+          lawyer: "Lawyer"
+          ngo: "NGO Office"
+          telecommunication: "Telecommunication Office"
+          travel_agent: "Travel Agency"
+          "yes": "Office"
         place:
           airport: "Airport"
           city: "City"
@@ -732,6 +763,7 @@ en:
           houses: "Houses"
           island: "Island"
           islet: "Islet"
+          isolated_dwelling: "Isolated Dwelling"
           locality: "Locality"
           moor: "Moor"
           municipality: "Municipality"
@@ -755,6 +787,7 @@ en:
           junction: "Railway Junction"
           level_crossing: "Level Crossing"
           light_rail: "Light Rail"
+          miniature: "Miniature Rail"
           monorail: "Monorail"
           narrow_gauge: "Narrow Gauge Railway"
           platform: "Railway Platform"
@@ -769,7 +802,7 @@ en:
           yard: "Railway Yard"
         shop:
           alcohol: "Off License"
-          apparel: "Apparel Shop"
+          antiques: "Antiques"
           art: "Art Shop"
           bakery: "Bakery"
           beauty: "Beauty Shop"
@@ -778,7 +811,6 @@ en:
           books: "Book Shop"
           butcher: "Butcher"
           car: "Car Shop"
-          car_dealer: "Car Dealer"
           car_parts: "Car Parts"
           carpet: "Carpet Shop"
           car_repair: "Car Repair"
@@ -793,7 +825,6 @@ en:
           department_store: "Department Store"
           discount: "Discount Items Shop"
           doityourself: "Do-It-Yourself"
-          drugstore: "Drugstore"
           dry_cleaning: "Dry Cleaning"
           electronics: "Electronics Shop"
           estate_agent: "Estate Agent"
@@ -859,7 +890,10 @@ en:
           valley: "Valley"
           viewpoint: "Viewpoint"
           zoo: "Zoo"
+        tunnel:
+          "yes": "Tunnel"
         waterway:
+          artificial: "Artificial Waterway"
           boatyard: "Boatyard"
           canal: "Canal"
           connector: "Waterway Connector"
@@ -942,14 +976,19 @@ en:
     user_diaries_tooltip: View user diaries
     edit_with: Edit with %{editor}
     tag_line: The Free Wiki World Map
-    intro_1: "OpenStreetMap is a free editable map of the whole world. It is made by people like you."
-    intro_2: "OpenStreetMap allows you to view, edit and use geographical data in a collaborative way from anywhere on Earth."
-    intro_3: "OpenStreetMap's hosting is kindly supported by %{ucl}, %{ic} and %{bytemark}. Other supporters of the project are listed in the %{partners}."
-    intro_3_ucl: "the UCL VR Centre"
-    intro_3_ic: "Imperial College London"
-    intro_3_bytemark: "Bytemark Hosting"
-    intro_3_partners: "wiki"
-    intro_3_partners_url: "http://wiki.openstreetmap.org/wiki/Partners"
+    intro_1: "OpenStreetMap is a free worldwide map, created by people like you."
+    intro_2_html: "The data is free to %{download} and %{use} under its %{license}. %{create_account} to improve the map."
+    intro_2_create_account: "Create a user account"
+    intro_2_license: "open license"
+    intro_2_use: "use"
+    intro_2_download: "download"
+    intro_2_use_url: "http://wiki.openstreetmap.org/wiki/Using_OpenStreetMap"
+    partners_html: "Hosting is supported by %{ucl}, %{ic} and %{bytemark}, and other %{partners}."
+    partners_ucl: "the UCL VR Centre"
+    partners_ic: "Imperial College London"
+    partners_bytemark: "Bytemark Hosting"
+    partners_partners: "partners"
+    partners_url: "http://wiki.openstreetmap.org/wiki/Partners"
     osm_offline: "The OpenStreetMap database is currently offline while essential database maintenance work is carried out."
     osm_read_only: "The OpenStreetMap database is currently in read-only mode while essential database maintenance work is carried out."
     donate: "Support OpenStreetMap by %{link} to the Hardware Upgrade Fund."
@@ -964,13 +1003,14 @@ en:
     documentation: Documentation
     documentation_title: Documentation for the project
     copyright: "Copyright & License"
+    community: Community
     community_blogs: "Community Blogs"
     community_blogs_title: "Blogs from members of the OpenStreetMap community"
     foundation: Foundation
     foundation_title: The OpenStreetMap Foundation
     sotm2011: 'Come to the 2011 OpenStreetMap Conference, The State of the Map, September 9-11th in Denver!'
     license:
-      alt: CC by-sa 2.0
+      alt: CC BY-SA 2.0
       title: OpenStreetMap data is licensed under the Creative Commons Attribution-Share Alike 2.0 Generic License
     make_a_donation:
       title: Support OpenStreetMap with a monetary donation
@@ -991,7 +1031,7 @@ en:
       <p>
          OpenStreetMap is <i>open data</i>, licensed under the <a
          href="http://creativecommons.org/licenses/by-sa/2.0/">Creative
-         Commons Attribution-ShareAlike 2.0</a> licence (CC-BY-SA).
+         Commons Attribution-ShareAlike 2.0</a> licence (CC BY-SA).
       </p>
       <p>
         You are free to copy, distribute, transmit and adapt our maps
@@ -1007,14 +1047,14 @@ en:
       <p>
         If you are using OpenStreetMap map images, we request that
         your credit reads at least &ldquo;&copy; OpenStreetMap
-        contributors, CC-BY-SA&rdquo;. If you are using map data only,
+        contributors, CC BY-SA&rdquo;. If you are using map data only,
         we request &ldquo;Map data &copy; OpenStreetMap contributors,
-        CC-BY-SA&rdquo;.
+        CC BY-SA&rdquo;.
       </p>
       <p>
         Where possible, OpenStreetMap should be hyperlinked to <a
         href="http://www.openstreetmap.org/">http://www.openstreetmap.org/</a>
-        and CC-BY-SA to <a
+        and CC BY-SA to <a
         href="http://creativecommons.org/licenses/by-sa/2.0/">http://creativecommons.org/licenses/by-sa/2.0/</a>. If
         you are using a medium where links are not possible (e.g. a
         printed work), we suggest you direct your readers to
@@ -1045,7 +1085,7 @@ en:
 
       <h3>Our contributors</h3>
       <p>
-        Our CC-BY-SA licence requires you to &ldquo;give the Original
+        Our CC BY-SA licence requires you to &ldquo;give the Original
         Author credit reasonable to the medium or means You are
         utilising&rdquo;. Individual OSM mappers do not request a
         credit over and above that to &ldquo;OpenStreetMap
@@ -1071,8 +1111,10 @@ en:
           <li><strong>Australia</strong>: Contains suburb data based
           on Australian Bureau of Statistics data.</li>
           <li><strong>Austria</strong>: Contains data from
-          <a href="http://data.wien.gv.at/">Stadt Wien</a> under
-          <a href="http://creativecommons.org/licenses/by/3.0/at/deed.de">CC-BY</a>.</li>
+          <a href="http://data.wien.gv.at/">Stadt Wien</a> (under
+          <a href="http://creativecommons.org/licenses/by/3.0/at/deed.de">CC BY</a>),
+          <a href="http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Land Vorarlberg</a> and
+          Land Tirol (under <a href="http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC-BY AT with amendments</a>).</li>
           <li><strong>Canada</strong>: Contains data from
           GeoBase&reg;, GeoGratis (&copy; Department of Natural
           Resources Canada), CanVec (&copy; Department of Natural
@@ -1080,11 +1122,18 @@ en:
           Statistics Canada).</li>
           <li><strong>France</strong>: Contains data sourced from
           Direction Générale des Impôts.</li>
+          <li><strong>Netherlands</strong>: Contains &copy; AND data, 2007
+          (<a href="http://www.and.com">www.and.com</a>)</li>
           <li><strong>New Zealand</strong>: Contains data sourced from
           Land Information New Zealand. Crown Copyright reserved.</li>
           <li><strong>Poland</strong>: Contains data from <a
           href="http://ump.waw.pl/">UMP-pcPL maps</a>. Copyright
-          UMP-pcPL contributors.</li>
+          UMP-pcPL contributors.
+          <a href="http://wiki.openstreetmap.org/wiki/UMP2OSM_Importing">
+          More about OSM&apos;s use of UMP data</a></li>
+          <li><strong>South Africa</strong>: Contains data sourced from
+          <a href="http://www.ngi.gov.za/">Chief Directorate:
+          National Geo-Spatial Information</a>, State copyright reserved.</li>
           <li><strong>United Kingdom</strong>: Contains Ordnance
           Survey data &copy; Crown copyright and database right
           2010.</li>
@@ -1189,7 +1238,13 @@ en:
       title: "Inbox"
       my_inbox: "My inbox"
       outbox: "outbox"
-      you_have: "You have %{new_count} new messages and %{old_count} old messages"
+      messages: "You have %{new_messages} and %{old_messages}"
+      new_messages:
+        one: "%{count} new message"
+        other: "%{count} new messages"
+      old_messages:
+        one: "%{count} old message"
+        other: "%{count} old messages"
       from: "From"
       subject: "Subject"
       date: "Date"
@@ -1209,10 +1264,6 @@ en:
       back_to_inbox: "Back to inbox"
       message_sent: "Message sent"
       limit_exceeded: "You have sent a lot of messages recently. Please wait a while before trying to send any more."
-    no_such_user:
-      title: "No such user"
-      heading: "No such user"
-      body: "Sorry there is no user with that name."
     no_such_message:
       title: "No such message"
       heading: "No such message"
@@ -1222,7 +1273,9 @@ en:
       my_inbox: "My %{inbox_link}"
       inbox: "inbox"
       outbox: "outbox"
-      you_have_sent_messages: "You have %{count} sent messages"
+      messages:
+        one: "You have %{count} sent message"
+        other: "You have %{count} sent messages"
       to: "To"
       subject: "Subject"
       date: "Date"
@@ -1242,7 +1295,7 @@ en:
       reading_your_sent_messages: "Reading your sent messages"
       to: "To"
       back_to_outbox: "Back to outbox"
-      wrong_user: "You are logged in as `%{user}' but the message you have asked to read to was not sent by or to that user. Please login as the correct user in order to read it."
+      wrong_user: "You are logged in as `%{user}' but the message you have asked to read was not sent by or to that user. Please login as the correct user in order to read it."
     sent_message_summary:
       delete_button: "Delete"
     mark:
@@ -1254,7 +1307,6 @@ en:
     index:
       js_1: "You are either using a browser that does not support JavaScript, or you have disabled JavaScript."
       js_2: "OpenStreetMap uses JavaScript for its slippy map."
-      js_3: 'You may want to try the <a href="http://tah.openstreetmap.org/Browse/">Tiles@Home static tile browser</a> if you are unable to enable JavaScript.'
       permalink: Permalink
       shortlink: Shortlink
       license:
@@ -1354,6 +1406,23 @@ en:
           permissive: "Permissive access"
           destination: "Destination access"
           construction: "Roads under construction"
+    richtext_area:
+      edit: Edit
+      preview: Preview
+    markdown_help:
+      title_html: Parsed with <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+      headings: Headings
+      heading: Heading
+      subheading: Subheading
+      unordered: Unordered list
+      ordered: Ordered list
+      first: First item
+      second: Second item
+      link: Link
+      text: Text
+      image: Image
+      alt: Alt text
+      url: URL
   trace:
     visibility:
       private: "Private (only shared as anonymous, unordered points)"
@@ -1381,10 +1450,6 @@ en:
       visibility: "Visibility:"
       visibility_help: "what does this mean?"
       visibility_help_url: "http://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces"
-    no_such_user:
-      title: "No such user"
-      heading: "The user %{user} does not exist"
-      body: "Sorry, there is no user with the name %{user}. Please check your spelling, or maybe the link you clicked is wrong."
     trace_form:
       upload_gpx: "Upload GPX File:"
       description: "Description:"
@@ -1459,6 +1524,8 @@ en:
   application:
     require_cookies:
       cookies_needed: "You appear to have cookies disabled - please enable cookies in your browser before continuing."
+    require_moderator:
+      not_a_moderator: "You need to be a moderator to perform that action."
     setup_user_auth:
       blocked: "Your access to the API has been blocked. Please log-in to the web interface to find out more."
       need_to_see_terms: "Your access to the API is temporarily suspended. Please log-in to the web interface to view the Contributor Terms. You do not need to agree, but you must view them."
@@ -1490,6 +1557,8 @@ en:
       authorize_url: "Authorise URL:"
       support_notice: "We support HMAC-SHA1 (recommended) as well as plain text in SSL mode."
       edit: "Edit Details"
+      delete: "Delete Client"
+      confirm: "Are you sure?"
       requests: "Requesting the following permissions from the user:"
       allow_read_prefs:  "read their user preferences."
       allow_write_prefs: "modify their user preferences."
@@ -1536,7 +1605,7 @@ en:
       email or username: "Email Address or Username:"
       password: "Password:"
       openid: "%{logo} OpenID:"
-      remember: "Remember me:"
+      remember: "Remember me"
       lost password link: "Lost your password?"
       login_button: "Login"
       register now: Register now
@@ -1545,9 +1614,9 @@ en:
       new to osm: New to OpenStreetMap?
       to make changes: To make changes to the OpenStreetMap data, you must have an account.
       create account minute: Create an account. It only takes a minute.
+      no account: Don't have an account?
       account not active: "Sorry, your account is not active yet.<br />Please use the link in the account confirmation email to activate your account, or <a href=\"%{reconfirm}\">request a new confirmation email</a>."
-      account suspended: Sorry, your account has been suspended due to suspicious activity.<br />Please contact the %{webmaster} if you wish to discuss this.
-      webmaster: webmaster
+      account is suspended: Sorry, your account has been suspended due to suspicious activity.<br />Please contact the <a href="%{webmaster}">webmaster</a> if you wish to discuss this.
       auth failure: "Sorry, could not log in with those details."
       notice: "<a href=\"http://www.osmfoundation.org/wiki/License/We_Are_Changing_The_License\">Find out more about OpenStreetMap's upcoming license change</a> (<a href=\"http://wiki.openstreetmap.org/wiki/ODbL/We_Are_Changing_The_License\">translations</a>) (<a href=\"http://wiki.openstreetmap.org/wiki/Talk:ODbL/Upcoming\">discussion</a>)"
       notice_terms: "OpenStreetMap is moving to a new licence on 1st April 2012. It's just as open as our current one, but the legal bits are much better suited to our map database. We'd love to keep your contributions in OpenStreetMap, but we can only do so if you agree to let us distribute them under the new licence. Otherwise, we'll have to remove them from the database.<br /><br />Please log in, then take a few seconds to review and accept the new terms. Thank you!"
@@ -1652,6 +1721,7 @@ en:
       my edits: my edits
       my traces: my traces
       my settings: my settings
+      my comments: my comments
       oauth settings: oauth settings
       blocks on me: blocks on me
       blocks by me: blocks by me
@@ -1693,6 +1763,7 @@ en:
           moderator: "Revoke moderator access"
       block_history: "view blocks received"
       moderator_history: "view blocks given"
+      comments: "comments"
       create_block: "block this user"
       activate_user: "activate this user"
       deactivate_user: "deactivate this user"
@@ -1856,7 +1927,6 @@ en:
       back: "View all blocks"
       needs_view: "Does the user need to log in before this block will be cleared?"
     filter:
-      not_a_moderator: "You need to be a moderator to perform that action."
       block_expired: "The block has already expired and cannot be edited."
       block_period: "The blocking period must be one of the values selectable in the drop-down list."
     create:
@@ -1921,8 +1991,7 @@ en:
   javascripts:
     map:
       base:
-        mapnik: Mapnik
-        osmarender: Osmarender
+        standard: Standard
         cycle_map: Cycle Map
         transport_map: Transport Map
         mapquest: MapQuest Open
@@ -1935,3 +2004,34 @@ en:
       history_tooltip: View edits for this area
       history_disabled_tooltip: Zoom in to view edits for this area
       history_zoom_alert: You must zoom in to view edits for this area
+  redaction:
+    edit:
+      description: "Description"
+      heading: "Edit redaction"
+      submit: "Save redaction"
+      title: "Edit redaction"
+    index:
+      empty: "No redactions to show."
+      heading: "List of redactions"
+      title: "List of redactions"
+    new:
+      description: "Description"
+      heading: "Enter information for new redaction"
+      submit: "Create redaction"
+      title: "Creating new redaction"
+    show:
+      description: "Description:"
+      heading: "Showing redaction \"%{title}\""
+      title: "Showing redaction"
+      user: "Creator:"
+      edit: "Edit this redaction"
+      destroy: "Remove this redaction"
+      confirm: "Are you sure?"
+    create:
+      flash: "Redaction created."
+    update:
+      flash: "Changes saved."
+    destroy:
+      not_empty: "Redaction is not empty. Please un-redact all versions belonging to this redaction before destroying it."
+      flash: "Redaction destroyed."
+      error: "There was an error destroying this redaction."

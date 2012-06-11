@@ -2,6 +2,7 @@ class ApiController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
   before_filter :check_api_readable, :except => [:capabilities]
+  before_filter :setup_user_auth, :only => [:permissions]
   after_filter :compress_output
   around_filter :api_call_handle_error, :api_call_timeout
 
@@ -68,7 +69,7 @@ class ApiController < ApplicationController
           if gpx_file.identifiable?
             track << (XML::Node.new("name") << gpx_file.name)
             track << (XML::Node.new("desc") << gpx_file.description)
-            track << (XML::Node.new("url") << url_for(:controller => 'trace', :action => 'view', :id => gpx_file.id))
+            track << (XML::Node.new("url") << url_for(:controller => 'trace', :action => 'view', :display_name => gpx_file.user.display_name, :id => gpx_file.id))
           end
         else
           # use the anonymous track segment if the user hasn't allowed
@@ -288,5 +289,21 @@ class ApiController < ApplicationController
     doc.root << api
 
     render :text => doc.to_s, :content_type => "text/xml"
+  end
+
+  # External apps that use the api are able to query which permissions
+  # they have. This currently returns a list of permissions granted to the current user:
+  # * if authenticated via OAuth, this list will contain all permissions granted by the user to the access_token.
+  # * if authenticated via basic auth all permissions are granted, so the list will contain all permissions.
+  # * unauthenticated users have no permissions, so the list will be empty.
+  def permissions
+    @permissions = case
+                   when current_token.present?
+                     ClientApplication.all_permissions.select { |p| current_token.read_attribute(p) }
+                   when @user
+                     ClientApplication.all_permissions
+                   else
+                     []
+                   end
   end
 end

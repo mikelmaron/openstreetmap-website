@@ -30,9 +30,7 @@ class TraceController < ApplicationController
     if !display_name.blank?
       target_user = User.active.where(:display_name => display_name).first
       if target_user.nil?
-        @title = t'trace.no_such_user.title'
-        @not_found_user = display_name
-        render :action => 'no_such_user', :status => :not_found
+        render_unknown_user display_name
         return
       end
     end
@@ -153,7 +151,7 @@ class TraceController < ApplicationController
         @trace.errors.add(:gpx_file, "can't be blank")
       end
     else
-      @trace = Trace.new(:visibility => default_visibility)
+      @trace = Trace.new({:visibility => default_visibility}, :without_protection => true)
     end
 
     @title = t 'trace.create.upload_trace'
@@ -163,7 +161,9 @@ class TraceController < ApplicationController
     trace = Trace.find(params[:id])
 
     if trace.visible? and (trace.public? or (@user and @user == trace.user))
-      if request.format == Mime::XML
+      if Acl.no_trace_download(request.remote_ip)
+        render :nothing => true, :status => :forbidden
+      elsif request.format == Mime::XML
         send_file(trace.xml_file, :filename => "#{trace.id}.xml", :type => Mime::XML.to_s, :disposition => 'attachment')
       else
         send_file(trace.trace_name, :filename => "#{trace.id}#{trace.extension_name}", :type => trace.mime_type, :disposition => 'attachment')
@@ -185,7 +185,7 @@ class TraceController < ApplicationController
         @trace.tagstring = params[:trace][:tagstring]
         @trace.visibility = params[:trace][:visibility]
         if @trace.save
-          redirect_to :action => 'view'
+          redirect_to :action => 'view', :display_name => @user.display_name
         end
       end
     else
@@ -199,13 +199,13 @@ class TraceController < ApplicationController
     trace = Trace.find(params[:id])
 
     if @user and trace.user == @user
-      if request.post? and trace.visible?
+      if trace.visible?
         trace.visible = false
         trace.save
         flash[:notice] = t 'trace.delete.scheduled_for_deletion'
         redirect_to :action => :list, :display_name => @user.display_name
       else
-        render :nothing => true, :status => :bad_request
+        render :nothing => true, :status => :not_found
       end
     else
       render :nothing => true, :status => :forbidden
@@ -222,7 +222,7 @@ class TraceController < ApplicationController
     end
 
     if params[:tag]
-      traces = traces.where("EXISTS (SELECT * FROM gpx_file_tags AS gft WHERE gft.gpx_id = gpx_files.id AND gft.tag = ?)")
+      traces = traces.where("EXISTS (SELECT * FROM gpx_file_tags AS gft WHERE gft.gpx_id = gpx_files.id AND gft.tag = ?)", params[:tag])
     end
 
     traces = traces.order("timestamp DESC")
@@ -331,34 +331,30 @@ class TraceController < ApplicationController
   end
 
   def api_create
-    if request.post?
-      tags = params[:tags] || ""
-      description = params[:description] || ""
-      visibility = params[:visibility]
+    tags = params[:tags] || ""
+    description = params[:description] || ""
+    visibility = params[:visibility]
 
-      if visibility.nil?
-        if params[:public] && params[:public].to_i.nonzero?
-          visibility = "public"
-        else
-          visibility = "private"
-        end
+    if visibility.nil?
+      if params[:public] && params[:public].to_i.nonzero?
+        visibility = "public"
+      else
+        visibility = "private"
       end
+    end
 
-      if params[:file].respond_to?(:read)
-        do_create(params[:file], tags, description, visibility)
+    if params[:file].respond_to?(:read)
+      do_create(params[:file], tags, description, visibility)
 
-        if @trace.id
-          render :text => @trace.id.to_s, :content_type => "text/plain"
-        elsif @trace.valid?
-          render :nothing => true, :status => :internal_server_error
-        else
-          render :nothing => true, :status => :bad_request
-        end
+      if @trace.id
+        render :text => @trace.id.to_s, :content_type => "text/plain"
+      elsif @trace.valid?
+        render :nothing => true, :status => :internal_server_error
       else
         render :nothing => true, :status => :bad_request
       end
     else
-      render :nothing => true, :status => :method_not_allowed
+      render :nothing => true, :status => :bad_request
     end
   end
 
@@ -384,7 +380,7 @@ private
       :inserted => true,
       :user => @user,
       :timestamp => Time.now.getutc
-    })
+    }, :without_protection => true)
 
     Trace.transaction do
       begin

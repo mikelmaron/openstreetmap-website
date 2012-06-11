@@ -143,10 +143,11 @@ class ChangesetController < ApplicationController
   def download
     changeset = Changeset.find(params[:id])
     
-    # get all the elements in the changeset and stick them in a big array.
-    elements = [changeset.old_nodes, 
-                changeset.old_ways, 
-                changeset.old_relations].flatten
+    # get all the elements in the changeset which haven't been redacted
+    # and stick them in a big array.
+    elements = [changeset.old_nodes.unredacted, 
+                changeset.old_ways.unredacted, 
+                changeset.old_relations.unredacted].flatten
     
     # sort the elements by timestamp and version number, as this is the 
     # almost sensible ordering available. this would be much nicer if 
@@ -259,10 +260,8 @@ class ChangesetController < ApplicationController
           else
             changesets = changesets.where("false")
           end
-        elsif request.format == :html
-          @title = t 'user.no_such_user.title'
-          @not_found_user = params[:display_name]
-          render :template => 'user/no_such_user', :status => :not_found
+        else
+          render_unknown_user params[:display_name]
           return
         end
       end
@@ -284,7 +283,7 @@ class ChangesetController < ApplicationController
           return
         end
       end
-      
+
       if params[:bbox]
         bbox = BoundingBox.from_bbox_params(params)
       elsif params[:minlon] and params[:minlat] and params[:maxlon] and params[:maxlat]
@@ -305,8 +304,8 @@ class ChangesetController < ApplicationController
         @heading =  t 'changeset.list.heading_friend'
         @description = t 'changeset.list.description_friend'
       elsif params[:nearby] and @user
-        @title =  t 'changeset.list.title_nearby'
-        @heading =  t 'changeset.list.heading_nearby'
+        @title = t 'changeset.list.title_nearby'
+        @heading = t 'changeset.list.heading_nearby'
         @description = t 'changeset.list.description_nearby'
       elsif user and bbox
         @title =  t 'changeset.list.title_user_bbox', :user => user.display_name, :bbox => bbox.to_s
@@ -332,9 +331,9 @@ class ChangesetController < ApplicationController
       @bbox = bbox
       
       @edits = changesets.order("changesets.created_at DESC").offset((@page - 1) * @page_size).limit(@page_size).preload(:user, :changeset_tags)
-    end
 
-    render :action => :list
+      render :action => :list
+    end
   end
 
   ##

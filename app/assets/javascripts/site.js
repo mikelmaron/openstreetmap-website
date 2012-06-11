@@ -1,5 +1,7 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery.autogrowtextarea
+//= require jquery.timers
 
 /*
  * Called as the user scrolls/zooms around to aniplate hrefs of the
@@ -45,12 +47,13 @@ function updatelinks(lon,lat,zoom,layers,minlon,minlat,maxlon,maxlat,objtype,obj
         var minzoom = match[1];
         var name = link.id.replace(/anchor$/, "");
 
+        $(link).off("click.minzoom");
+
         if (zoom >= minzoom) {
-          $(link).off("click");
           $(link).attr("title", i18n("javascripts.site." + name + "_tooltip"));
           $(link).removeClass("disabled");
         } else {
-          $(link).click(function () { alert(i18n("javascripts.site." + name + "_zoom_alert")); return false; });
+          $(link).on("click.minzoom", function () { alert(i18n("javascripts.site." + name + "_zoom_alert")); return false; });
           $(link).attr("title", i18n("javascripts.site." + name + "_disabled_tooltip"));
           $(link).addClass("disabled");
         }
@@ -72,17 +75,17 @@ function updatelinks(lon,lat,zoom,layers,minlon,minlat,maxlon,maxlat,objtype,obj
 
     // This is a hack to omit the default mapnik layer from the shortlink.
     if (layers && layers != "M") {
-      args["layers"] = layers;
+      args.layers = layers;
     }
     else {
-      delete args["layers"];
+      delete args.layers;
     }
 
     // Here we're assuming that all parameters but ?layers= and
     // ?{node,way,relation}= can be safely omitted from the shortlink
     // which encodes lat/lon/zoom. If new URL parameters are added to
     // the main slippy map this needs to be changed.
-    if (args["layers"] || args[objtype]) {
+    if (args.layers || args[objtype]) {
       this.href = setArgs(prefix + "/go/" + code, args);
     } else {
       this.href = prefix + "/go/" + code;
@@ -105,7 +108,7 @@ function shortlinkPrefix() {
  * Called to get the arguments from a URL as a hash.
  */
 function getArgs(url) {
-  var args = new Object();
+  var args = {};
   var querystart = url.indexOf("?");
 
   if (querystart >= 0) {
@@ -116,7 +119,7 @@ function getArgs(url) {
         if (match = queryitems[i].match(/^(.*)=(.*)$/)) {
            args[unescape(match[1])] = unescape(match[2]);
         } else {
-           args[unescape(queryitems[i])] = null
+           args[unescape(queryitems[i])] = null;
         }
      }
   }
@@ -128,10 +131,9 @@ function getArgs(url) {
  * Called to set the arguments on a URL from the given hash.
  */
 function setArgs(url, args) {
-   var queryitems = new Array();
+   var queryitems = [];
 
-   for (arg in args)
-   {
+   for (arg in args) {
       if (args[arg] == null) {
          queryitems.push(escape(arg));
       } else {
@@ -143,23 +145,6 @@ function setArgs(url, args) {
 }
 
 /*
- * Called to get a CSS property for an element.
- */
-function getStyle(el, property) {
-  var style;
-
-  if (el.currentStyle) {
-    style = el.currentStyle[property];
-  } else if( window.getComputedStyle ) {
-    style = document.defaultView.getComputedStyle(el,null).getPropertyValue(property);
-  } else {
-    style = el.style[property];
-  }
-
-  return style;
-}
-
-/*
  * Called to interpolate JavaScript variables in strings using a
  * similar syntax to rails I18n string interpolation - the only
  * difference is that [[foo]] is the placeholder syntax instead
@@ -167,7 +152,7 @@ function getStyle(el, property) {
  * rails and then later by javascript.
  */
 function i18n(string, keys) {
-  string = i18n_strings[string] || string
+  string = i18n_strings[string] || string;
 
   for (var key in keys) {
     var re_key = '\\[\\[' + key + '\\]\\]';
@@ -221,3 +206,64 @@ function makeShortCode(lat, lon, zoom) {
     }
     return str;
 }
+
+/*
+ * Click handler to switch a rich text control to preview mode
+ */
+function previewRichtext(event) {
+  var editor = $(this).parents(".richtext_container").find("textarea");
+  var preview = $(this).parents(".richtext_container").find(".richtext_preview");
+  var width = editor.outerWidth() - preview.outerWidth() + preview.innerWidth();
+  var minHeight = editor.outerHeight() - preview.outerHeight() + preview.innerHeight();
+
+  if (preview.contents().length == 0) {
+    preview.oneTime(500, "loading", function () {
+      preview.addClass("loading");
+    });
+
+    preview.load(editor.attr("data-preview-url"), { text: editor.val() }, function () {
+      preview.stopTime("loading");
+      preview.removeClass("loading");
+    });
+  }
+
+  editor.hide();
+  preview.width(width);
+  preview.css("min-height", minHeight + "px");
+  preview.show();
+
+  $(this).siblings(".richtext_doedit").prop("disabled", false);
+  $(this).prop("disabled", true);
+
+  event.preventDefault();
+}
+
+/*
+ * Click handler to switch a rich text control to edit mode
+ */
+function editRichtext(event) {
+  var editor = $(this).parents(".richtext_container").find("textarea");
+  var preview = $(this).parents(".richtext_container").find(".richtext_preview");
+
+  preview.hide();
+  editor.show();
+
+  $(this).siblings(".richtext_dopreview").prop("disabled", false);
+  $(this).prop("disabled", true);
+
+  event.preventDefault();
+}
+
+/*
+ * Setup any rich text controls
+ */
+$(document).ready(function () {
+  $(".richtext_preview").hide();
+  $(".richtext_content textarea").change(function () { 
+    $(this).parents(".richtext_container").find(".richtext_preview").empty();
+  });
+  $(".richtext_doedit").prop("disabled", true);
+  $(".richtext_dopreview").prop("disabled", false);
+  $(".richtext_doedit").click(editRichtext);
+  $(".richtext_dopreview").click(previewRichtext);
+});

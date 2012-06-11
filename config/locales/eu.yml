@@ -1,4 +1,4 @@
-# Messages for Basque (Euskara)
+# Messages for Basque (euskara)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: 9and3r
@@ -200,11 +200,9 @@ eu:
       latitude: "Lat:"
       licence: Lizentzia
       longitude: "Lon:"
-      mapnik_image: Mapnik irudia
       max: max
       options: Aukerak
       osm_xml_data: OpenStreetMap XML Data
-      osmarender_image: Osmarender irudia
       scale: Eskala
       zoom: Zooma
     start_rjs: 
@@ -314,29 +312,12 @@ eu:
         boundary: 
           administrative: Muga Administratiboa
         building: 
-          bunker: Bunker
-          chapel: Kapera
-          church: Eliza
-          city_hall: Udaletxea
-          garage: Garajea
-          hospital: Ospitale erakina
-          hotel: Hotela
-          house: Etxe
-          industrial: Eraikin industriala
-          public: Eraikin publiko
-          school: Eskola eraikina
-          shop: Denda
-          stadium: Estadio
-          store: Denda
-          tower: Dorre
-          train_station: Tren Geltokia
-          university: Unibertsitate eraikina
+          "yes": Eraikina
         highway: 
           bus_stop: Autobus-geraleku
           construction: Eraikitze-lanetan dagoen Autopista
           emergency_access_point: Larrialdi Sarbide Gunea
           footway: Oinezkoen bide
-          gate: Ate
           motorway: Autobide
           motorway_link: Autobidea
           platform: Nasa
@@ -371,10 +352,8 @@ eu:
           meadow: Larre
           military: Eremu Militarra
           mine: Meategi
-          mountain: Mendi
           nature_reserve: Natura-erreserba
           park: Parke
-          plaza: Enparantza
           quarry: Harrobi
           railway: Trenbide
           reservoir: Urtegi
@@ -400,7 +379,6 @@ eu:
           cape: Lurmutur
           cave_entrance: Kobazulo Sarrera
           channel: Kanal
-          coastline: Itsasertz
           crater: Crater
           fjord: Fiordo
           geyser: Geiser
@@ -529,7 +507,6 @@ eu:
     history: Historia
     home: hasiera
     inbox: sarrera-ontzia (%{count})
-    intro_3_partners: wiki
     license: 
       title: OpenStreetMap-eko datuak Creative Commons Aitortu-Partekatu 2.0 Generiko baimen baten mende daude.
     log_in: Saioa hasi
@@ -767,7 +744,6 @@ eu:
       register now: Erregistratu orain
       remember: "Gogora nazazu:"
       title: Saio-hasiera
-      webmaster: webmaster
     logout: 
       heading: OpenStreetMap-etik saioa itxi
       logout_button: Saioa itxi

@@ -6,26 +6,6 @@ html body {
   text-align: left;
 }
 
-/*
- * Rules for alert boxes shown in the left sidebar when important
- * information needs to be conveyed such as when the site is
- * undergoing maintenance.
- */
-
-#alert {
-  text-align: left;
-}
-
-/*
- * Rules for notice boxes shown in the left sidebar when important, but
- * non-critical information needs to be conveyed such as notices about
- * donation drives.
- */
-
-.notice {
-  text-align: left;
-}
-
 /* Rules for the menu displayed in the left sidebar */
 
 .left_menu {
@@ -68,15 +48,15 @@ html body {
 
 /* Rules for tabbed navigation bar */
 
-#tabnav
-{
-  padding-left: 215px;
+#top-bar {
+  margin-left: 185px;
 }
 
-#tabnav a, #tabnav a:link, #tabnav a:visited 
-{
+#tabnav a,
+#tabnav a:link,
+#tabnav a:visited {
   float: left;
-  margin-right: 4px;
+  margin-right: 1px;
 }
 
 /* Rules for greeting bar in the top right corner */
@@ -90,6 +70,12 @@ html body {
 
 #noscript {
   left: 15px
+}
+
+/* Rules for OpenLayers maps */
+
+#map {
+  border-left: 1px solid #ccc;
 }
 
 /* Rules for attribution text under the main map shown on printouts */
@@ -106,7 +92,7 @@ html body {
 
 #sidebar {
   left: 0px;
-  margin-right: 3px;
+  border-left: 1px solid #ccc;
 }
 
 #sidebar #sidebar_title {
@@ -120,8 +106,9 @@ html body {
 /* Rules for the main content area */
 
 #content {
-  left: 192px;
-  right: 10px;
+  border-left: 1px solid #ccc;
+  left: 185px;
+  right: 0px;
   text-align: left;
 }
 
@@ -187,12 +174,6 @@ html body {
   float: right;
 }
 
-/* Rules for the login page */
-
-#login_wrapper input[type=submit] {
-  float: right;
-}
-
 /* Rules for the account confirmation page */
 
 form#termsForm div#buttons {
@@ -230,7 +211,32 @@ form#termsForm input#agree {
   text-align: right;
 }
 
-input.openid_url { 
+input.openid_url {
   background: image-url('openid_input.png') repeat-y left white;
   padding-left: 16px;
+}
+
+/* Rules for rich text editors */
+
+.richtext_container {
+  .richtext_help {
+    margin-left: 15px;
+
+    th {
+      text-align: left;
+      padding: 0px 15px 0px 0px !important;
+    }
+
+    td {
+      text-align: left;
+    }
+
+    input.richtext_doedit {
+      margin-right: 10px !important;
+    }
+
+    input.richtext_dopreview {
+      margin-left: 10px !important;
+    }
+  }
 }

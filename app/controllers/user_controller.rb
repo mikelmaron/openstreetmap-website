@@ -7,8 +7,8 @@ class UserController < ApplicationController
   before_filter :authorize_web, :except => [:api_details, :api_gpx_files]
   before_filter :set_locale, :except => [:api_details, :api_gpx_files]
   before_filter :require_user, :only => [:account, :go_public, :make_friend, :remove_friend]
-  before_filter :check_database_readable, :except => [:api_details, :api_gpx_files]
-  before_filter :check_database_writable, :only => [:login, :new, :account, :go_public, :make_friend, :remove_friend]
+  before_filter :check_database_readable, :except => [:login, :api_details, :api_gpx_files]
+  before_filter :check_database_writable, :only => [:new, :account, :confirm, :confirm_email, :lost_password, :reset_password, :go_public, :make_friend, :remove_friend]
   before_filter :check_api_readable, :only => [:api_details, :api_gpx_files]
   before_filter :require_allow_read_prefs, :only => [:api_details]
   before_filter :require_allow_read_gpx, :only => [:api_gpx_files]
@@ -38,6 +38,8 @@ class UserController < ApplicationController
       else
         render :action => 'terms'
       end
+    elsif params[:user] and Acl.no_account_creation(request.remote_ip, params[:user][:email].split("@").last)
+      render :action => 'blocked'
     else
       session[:referer] = params[:referer]
 
@@ -79,9 +81,7 @@ class UserController < ApplicationController
   def save
     @title = t 'user.new.title'
 
-    if Acl.address(request.remote_ip).where(:k => "no_account_creation").exists?
-      render :action => 'new'
-    elsif params[:decline]
+    if params[:decline]
       if @user
         @user.terms_seen = true
 
@@ -112,6 +112,8 @@ class UserController < ApplicationController
       else
         redirect_to :action => :account, :display_name => @user.display_name
       end
+    elsif Acl.no_account_creation(request.remote_ip, params[:user][:email].split("@").last)
+      render :action => 'blocked'
     else
       @user = User.new(params[:user])
 
@@ -149,7 +151,11 @@ class UserController < ApplicationController
         @user.pass_crypt_confirmation = params[:user][:pass_crypt_confirmation]
       end
 
-      @user.description = params[:user][:description]
+      if params[:user][:description] != @user.description
+        @user.description = params[:user][:description]
+        @user.description_format = "markdown"
+      end
+
       @user.languages = params[:user][:languages].split(",")
 
       case params[:image_action]
@@ -269,6 +275,8 @@ class UserController < ApplicationController
                        :openid_url => params[:openid])
 
       flash.now[:notice] = t 'user.new.openid association'
+    elsif Acl.no_account_creation(request.remote_ip)
+      render :action => 'blocked'
     end
   end
 
@@ -415,9 +423,7 @@ class UserController < ApplicationController
        (@this_user.visible? or (@user and @user.administrator?))
       @title = @this_user.display_name
     else
-      @title = t 'user.no_such_user.title'
-      @not_found_user = params[:display_name]
-      render :action => 'no_such_user', :status => :not_found
+      render_unknown_user params[:display_name]
     end
   end
 
@@ -469,7 +475,8 @@ class UserController < ApplicationController
   ##
   # sets a user's status
   def set_status
-    @this_user.update_attributes(:status => params[:status])
+    @this_user.status = params[:status]
+    @this_user.save
     redirect_to :controller => 'user', :action => 'view', :display_name => params[:display_name]
   end
 
@@ -512,8 +519,7 @@ private
     elsif user = User.authenticate(:username => username, :password => password, :pending => true)
       failed_login t('user.login.account not active', :reconfirm => url_for(:action => 'confirm_resend', :display_name => user.display_name))
     elsif User.authenticate(:username => username, :password => password, :suspended => true)
-      webmaster = link_to t('user.login.webmaster'), "mailto:webmaster@openstreetmap.org"
-      failed_login t('user.login.account suspended', :webmaster => webmaster)
+      failed_login t('user.login.account is suspended', :webmaster => "mailto:webmaster@openstreetmap.org")
     else
       failed_login t('user.login.auth failure')
     end
@@ -546,8 +552,7 @@ private
             when "active", "confirmed" then
               successful_login(user)
             when "suspended" then
-              webmaster = link_to t('user.login.webmaster'), "mailto:webmaster@openstreetmap.org"
-              failed_login t('user.login.account suspended', :webmaster => webmaster)
+              failed_login t('user.login.account is suspended', :webmaster => "mailto:webmaster@openstreetmap.org")
             else
               failed_login t('user.login.auth failure')
           end
@@ -622,7 +627,7 @@ private
     cookies.permanent["_osm_username"] = user.display_name
 
     session[:user] = user.id
-    session_expires_after 1.month if session[:remember_me]
+    session_expires_after 28.days if session[:remember_me]
 
     target = session[:referer] || url_for(:controller => :site, :action => :index)
 
@@ -660,6 +665,8 @@ private
   def update_user(user)
     if user.save
       set_locale
+
+      cookies.permanent["_osm_username"] = user.display_name
 
       if user.new_email.blank?
         flash.now[:notice] = t 'user.account.flash update success'
@@ -713,7 +720,7 @@ private
   # Choose the layout to use. See
   # https://rails.lighthouseapp.com/projects/8994/tickets/5371-layout-with-onlyexcept-options-makes-other-actions-render-without-layouts
   def choose_layout
-    oauth_url = url_for(:controller => :oauth, :action => :oauthorize, :only_path => true)
+    oauth_url = url_for(:controller => :oauth, :action => :authorize, :only_path => true)
 
     if [ 'api_details' ].include? action_name
       nil

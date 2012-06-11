@@ -1,4 +1,4 @@
-# Messages for Croatian (Hrvatski)
+# Messages for Croatian (hrvatski)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Ex13
@@ -347,10 +347,6 @@ hr:
       body: Žao mi je, ne postoji zapis u dnevniku ili komentar sa id %{id}. Provjerite ispravnost upisa, ili linka na koji ste kliknuli.
       heading: "Nema zapisa sa id: %{id}"
       title: Nema takvog zapisa u dnevnik
-    no_such_user: 
-      body: Žao mi je, ne postoji korisnik s imenom %{user}. Provjerite ispravnost upisa, ili linka na koji ste kliknuli.
-      heading: Korisnik %{user} ne postoji
-      title: Nema takvog korisnika
     view: 
       leave_a_comment: Ostavi komentar
       login: Prijava
@@ -383,11 +379,9 @@ hr:
       licence: Dozvola
       longitude: "Lon:"
       manually_select: Ručno izaberi drukčije područje
-      mapnik_image: Mapnik slika
       max: max
       options: Opcije
       osm_xml_data: OpenStreetMap XML podaci
-      osmarender_image: Osmarender slika
       output: Izlaz
       paste_html: Zalijepi HTML za ubacivanje na webstranicu
       scale: Mjerilo
@@ -539,36 +533,7 @@ hr:
         boundary: 
           administrative: Administrativna granica
         building: 
-          apartments: Stambeni blok
-          block: Blok zgrada
-          bunker: Bunker
-          chapel: Kapelica
-          church: Crkva
-          city_hall: Gradska vjećnica
-          commercial: Poslovna zgrada
-          dormitory: Studentski dom
-          entrance: Ulaz
-          faculty: Zgrada fakulteta
-          farm: Farma (zgrada)
-          flats: Stanovi
-          garage: Garaža
-          hall: Dvorana
-          hospital: Bolnica
-          hotel: Hotel
-          house: Kuća
-          industrial: Industrijska zgrada
-          office: Uredska zgrada
-          public: Javna zgrada
-          residential: Stambena zgrada
-          retail: Maloprodajna zgrada
-          school: Školska zgrada
-          shop: Trgovina
-          stadium: Stadion
-          store: Trgovina
-          terrace: Terasa
-          tower: Toranj
-          train_station: Željeznički kolodvor
-          university: Zgrada Sveučilišta
+          "yes": Zgrada
         highway: 
           bridleway: Konjička staza
           bus_guideway: Autobusna traka
@@ -576,11 +541,9 @@ hr:
           byway: Prečica
           construction: Autocesta u izgradnji
           cycleway: Biciklistička staza
-          distance_marker: Oznaka km
           emergency_access_point: S.O.S. točka
           footway: Pješačka staza
           ford: Ford
-          gate: Kapija
           living_street: Ulica smirenog prometa
           minor: Drugorazredna cesta
           motorway: Autocesta
@@ -645,11 +608,9 @@ hr:
           meadow: Livada
           military: Vojno područje
           mine: Rudnik
-          mountain: Planina
           nature_reserve: Rezervat prirode
           park: Park
           piste: Pista
-          plaza: Plaza
           quarry: Kamenolom
           railway: Željeznica
           recreation_ground: Rekreacijsko područje
@@ -687,7 +648,6 @@ hr:
           cave_entrance: Pećina (ulaz)
           channel: Kanal
           cliff: Litica
-          coastline: Obala
           crater: Krater
           feature: Obilježje
           fell: Brdo
@@ -767,7 +727,6 @@ hr:
           yard: Ranžirni kolodvor
         shop: 
           alcohol: Trgovina pićem
-          apparel: Trgovina odjećom
           art: Atelje
           bakery: Pekara
           beauty: Parfumerija
@@ -776,7 +735,6 @@ hr:
           books: Knjižara
           butcher: Mesnica
           car: Autokuća
-          car_dealer: Autokuća
           car_parts: Autodijelovi
           car_repair: Autoservis
           carpet: Trgovina tepisima
@@ -791,7 +749,6 @@ hr:
           department_store: Robna kuća
           discount: Diskont
           doityourself: Uradi sam
-          drugstore: Drogerija
           dry_cleaning: Kemijska čistionica
           electronics: Trgovina elektronikom
           estate_agent: Agencija za nekretnine
@@ -917,11 +874,6 @@ hr:
       other: Imate %{count} nepročitane(ih) poruke(a)
       zero: Nema nepročitanih poruka
     intro_1: OpenStreetMap je slobodna, promjenjiva karta cijelog svijeta. Napravili su je ljudi slični tebi.
-    intro_2: OpenStreetMap omogućava pregledavanje, uređivanje i korištenje geografskih podataka u suradničkom načinu od bilo gdje sa Zemlje.
-    intro_3: Smještaj OpenStreetMapa je ljubazno podržan od %{ucl} i %{bytemark}. Ostali podržavatelji projekta su navedeni u %{partners}.
-    intro_3_bytemark: bytemarka
-    intro_3_partners: wiki
-    intro_3_ucl: UCL VR Centra
     license: 
       title: OpenStreetMap podaci su objavljeni pod licencom Creative Commons Attribution-Share Alike 2.0 Generic License
     log_in: prijava
@@ -953,7 +905,7 @@ hr:
       english_link: Engleski izvornik
       text: U slučaju konflikta između ove prevedene stranice i %{english_original_link}, Engleski stranice imaju prednost
       title: O ovom prijevodu
-    legal_babble: "<h2>Autorska prava i Dozvola</h2>\n<p>\n   OpenStreetMap su <i>otvoreni podaci</i>, licencirani pod <a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/\">Creative\n   Commons Attribution-ShareAlike 2.0</a> dozvolom (CC-BY-SA).\n</p>\n<p>\n  Slobodni ste kopirati, distribuirati, prenositi i adaptirati naše karte\n  i podatke, sve dok navodite OpenStreetMap kao izvor i doprinositelje. Ako izmjenite \n  ili nadogradite naše karte ili podatke, možete distribuirati rezultate\n  samo pod istom licencom. Potpuni <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">tekst</a> objašnjava prava i odgovornosti.\n</p>\n\n<h3>Kako navoditi OpenStreetMap kao izvor</h3>\n<p>\n  Ako koristite slike OpenstreetMap karte, zahtjevamo da\n  se navede najmanje &ldquo;&copy; OpenStreetMap\n  contributors, CC-BY-SA&rdquo;. Ako koristite samo podatke,\n  zahtjevamo &ldquo;Map data &copy; OpenStreetMap contributors,\n  CC-BY-SA&rdquo;.\n</p>\n<p>\n  Gdje je moguće, OpenStreetMap treba biti kao hyperlink na <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  and CC-BY-SA to <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. Ako\n  koristite medij gdje linkovi nisu mogući (npr. tiskane\n  karte), predlažemo da uputite vaše čitatelje na\n  www.openstreetmap.org (proširenjem na\n  &lsquo;OpenStreetMap&rsquo; za ovo punu adresu) i na\n  www.creativecommons.org.\n</p>\n\n<h3>Više o</h3>\n<p>\n  Čitajte više o korištenju naših podataka na <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">Legal\n  FAQ</a>.\n</p>\n<p>\n  OSM korisnici - doprinostielji se podsjećaju da nikada ne dodaju podakte iz bilo kojeg\n  izvora zaštićenog autorskim pravima (npr. Google Maps ili tiskane karte) bez izričite dozvole\n  vlasnika autorskih prava.\n</p>\n<p>\n  Iako su OpenstreetMap otvoreni podaci, ne možemo pružiti\n  besplatni API za kartu za ostale developere.\n\n  Vidi našu <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">Politiku korištenja API-a</a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Politiku korištenja pločica</a>\n  and <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Politiku korištenja Nominatim-a</a>.\n</p>\n\n<h3>Naši korisnici - doprinostielji</h3>\n<p>\n  Naša CC-BY-SA licenca zahtjeva od vas da &ldquo; navedete izvor Originala\n  razumno prema mediju ili načinima koje koristite&rdquo;. \n  Pojedini OSM maperi ne traže navođenje njih preko ili više od\n  &ldquo;OpenStreetMap korisnici - doprinostielja&rdquo;, ali gdje su podaci\n  iz nacionalne agencije za kartiranje ili nekog drugog glavnog izvora uključeni u\n  OpenStreetMap, razumno je navesti i njih direktno\n  navodeći ime ili link na njihovu stranicu.\n</p>\n\n<!--\nInformacije za urednike stranica\n\nSlijedeće popisuje samo one organizacije koje zahtjevaju navođenje/ \npripisivanje kao uvjet da se njihovi podaci koriste u OpenStreetMap. \nOvo nije cjeloviti katalog \"uvoza\" podataka, i ne smije se koristiti osim\nkada se pripisivanje zahtjeva da bude u skladu s dozvolom uvezenih podataka.\n\nBilo koje dodavanje ovdje, najprije se mora raspraviti s OSM sistemskim administratorima.\n-->\n\n<ul id=\"contributors\">\n   <li><strong>Australija</strong>: Sadrži podatke o predgrađima na osnovu podataka Australian Bureau of Statistics.</li>\n   <li><strong>Kanada</strong>: Sadrži podatke iz\n   GeoBase&reg;, GeoGratis (&copy; Department of Natural\n   Resources Canada), CanVec (&copy; Department of Natural\n   Resources Canada), i StatCan (Geography Division,\n   Statistics Canada).</li>\n   <li><strong>Novi Zeland</strong>: Sadrži podatke izvorno iz\n   Land Information New Zealand. Crown Copyright reserved.</li>\n   <li><strong>Poljska</strong>: Sadrži podatke iz <a\n   href=\"http://ump.waw.pl/\">UMP-pcPL maps</a>. Copyright\n   UMP-pcPL contributors.</li>\n   <li><strong>Velika Britanija</strong>: Sadrži podatke Ordnance\n   Survey data &copy; Crown copyright and database right\n   2010.</li>\n</ul>\n\n<p>\n  Uvrštenje podataka u OpenStreetMap ne podrazumjeva da se izvorni\n  davatelj podataka podržava OpenStreetMap, pruža bilo kakovo jamstvo, ili \n  prihvaća bilo kakve obveze.\n</p>"
+    legal_babble: "<h2>Autorska prava i Dozvola</h2>\n<p>\n   OpenStreetMap su <i>otvoreni podaci</i>, licencirani pod <a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/\">Creative\n   Commons Attribution-ShareAlike 2.0</a> dozvolom (CC BY-SA).\n</p>\n<p>\n  Slobodni ste kopirati, distribuirati, prenositi i adaptirati naše karte\n  i podatke, sve dok navodite OpenStreetMap kao izvor i doprinositelje. Ako izmjenite \n  ili nadogradite naše karte ili podatke, možete distribuirati rezultate\n  samo pod istom licencom. Potpuni <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">tekst</a> objašnjava prava i odgovornosti.\n</p>\n\n<h3>Kako navoditi OpenStreetMap kao izvor</h3>\n<p>\n  Ako koristite slike OpenstreetMap karte, zahtjevamo da\n  se navede najmanje &ldquo;&copy; OpenStreetMap\n  contributors, CC BY-SA&rdquo;. Ako koristite samo podatke,\n  zahtjevamo &ldquo;Map data &copy; OpenStreetMap contributors,\n  CC BY-SA&rdquo;.\n</p>\n<p>\n  Gdje je moguće, OpenStreetMap treba biti kao hyperlink na <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  and CC BY-SA to <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. Ako\n  koristite medij gdje linkovi nisu mogući (npr. tiskane\n  karte), predlažemo da uputite vaše čitatelje na\n  www.openstreetmap.org (proširenjem na\n  &lsquo;OpenStreetMap&rsquo; za ovo punu adresu) i na\n  www.creativecommons.org.\n</p>\n\n<h3>Više o</h3>\n<p>\n  Čitajte više o korištenju naših podataka na <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">Legal\n  FAQ</a>.\n</p>\n<p>\n  OSM korisnici - doprinostielji se podsjećaju da nikada ne dodaju podakte iz bilo kojeg\n  izvora zaštićenog autorskim pravima (npr. Google Maps ili tiskane karte) bez izričite dozvole\n  vlasnika autorskih prava.\n</p>\n<p>\n  Iako su OpenstreetMap otvoreni podaci, ne možemo pružiti\n  besplatni API za kartu za ostale developere.\n\n  Vidi našu <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">Politiku korištenja API-a</a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Politiku korištenja pločica</a>\n  and <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Politiku korištenja Nominatim-a</a>.\n</p>\n\n<h3>Naši korisnici - doprinostielji</h3>\n<p>\n  Naša CC BY-SA licenca zahtjeva od vas da &ldquo; navedete izvor Originala\n  razumno prema mediju ili načinima koje koristite&rdquo;. \n  Pojedini OSM maperi ne traže navođenje njih preko ili više od\n  &ldquo;OpenStreetMap korisnici - doprinostielja&rdquo;, ali gdje su podaci\n  iz nacionalne agencije za kartiranje ili nekog drugog glavnog izvora uključeni u\n  OpenStreetMap, razumno je navesti i njih direktno\n  navodeći ime ili link na njihovu stranicu.\n</p>\n\n<!--\nInformacije za urednike stranica\n\nSlijedeće popisuje samo one organizacije koje zahtjevaju navođenje/ \npripisivanje kao uvjet da se njihovi podaci koriste u OpenStreetMap. \nOvo nije cjeloviti katalog \"uvoza\" podataka, i ne smije se koristiti osim\nkada se pripisivanje zahtjeva da bude u skladu s dozvolom uvezenih podataka.\n\nBilo koje dodavanje ovdje, najprije se mora raspraviti s OSM sistemskim administratorima.\n-->\n\n<ul id=\"contributors\">\n   <li><strong>Australija</strong>: Sadrži podatke o predgrađima na osnovu podataka Australian Bureau of Statistics.</li>\n   <li><strong>Kanada</strong>: Sadrži podatke iz\n   GeoBase&reg;, GeoGratis (&copy; Department of Natural\n   Resources Canada), CanVec (&copy; Department of Natural\n   Resources Canada), i StatCan (Geography Division,\n   Statistics Canada).</li>\n   <li><strong>Novi Zeland</strong>: Sadrži podatke izvorno iz\n   Land Information New Zealand. Crown Copyright reserved.</li>\n   <li><strong>Poljska</strong>: Sadrži podatke iz <a\n   href=\"http://ump.waw.pl/\">UMP-pcPL maps</a>. Copyright\n   UMP-pcPL contributors.</li>\n   <li><strong>Velika Britanija</strong>: Sadrži podatke Ordnance\n   Survey data &copy; Crown copyright and database right\n   2010.</li>\n</ul>\n\n<p>\n  Uvrštenje podataka u OpenStreetMap ne podrazumjeva da se izvorni\n  davatelj podataka podržava OpenStreetMap, pruža bilo kakovo jamstvo, ili \n  prihvaća bilo kakve obveze.\n</p>"
     native: 
       mapping_link: počnite kartirati
       native_link: HRVATSKI verzija
@@ -971,7 +923,6 @@ hr:
       people_mapping_nearby: obližnji ljudi koji mapiraju
       subject: Tema
       title: Dolazna pošta
-      you_have: Imate %{new_count} novih poruka i %{old_count} starih poruka
     mark: 
       as_read: Poruka označena pročitanom
       as_unread: Poruka označena nepročitanom
@@ -993,10 +944,6 @@ hr:
       body: Nažalost nema poruka s tim id.
       heading: Nema takve poruke
       title: Nema takve poruke
-    no_such_user: 
-      body: Nažalost ne postoji korisnik s tim imenom.
-      heading: Nema takvog korisnika
-      title: Nema takvog korisnika
     outbox: 
       date: Datum
       inbox: dolazna pošta
@@ -1007,7 +954,6 @@ hr:
       subject: Tema
       title: Odlazna pošta
       to: Za
-      you_have_sent_messages: Imate %{count} poslanih poruka
     read: 
       back_to_inbox: Nazad u dolaznu poštu
       back_to_outbox: Nazad u odlaznu poštu
@@ -1189,7 +1135,6 @@ hr:
     index: 
       js_1: Koristite internet preglednik koji ne podržava JavaScript, ili vam je isključen JavaScript.
       js_2: OpenStreetMap koristi JavaScript for za slippy kartu.
-      js_3: Možete probati <a href="http://tah.openstreetmap.org/Browse/">Tiles@Home preglednih statičnih pločica </a> ako ne možete omogućiti JavaScript.
       license: 
         license_name: Creative Commons Attribution-Share Alike 2.0
         notice: Licencirano pod %{license_name} licenca %{project_name} i njenih suradnika.
@@ -1308,10 +1253,6 @@ hr:
       your_traces: Vaše GPS trase
     make_public: 
       made_public: Trase za javnost
-    no_such_user: 
-      body: Žao mi je, ali ne postoji korisnik s imenom %{user}. Provjerite svoj upis, ili link kojeg ste kliknuli.
-      heading: Korisnik %{user} ne postoji
-      title: Nema takvog korisnika
     offline: 
       heading: GPX spremište Offline
       message: Sustav za GPX spremanje i upload trenutno nisu u funkciji.
@@ -1455,7 +1396,6 @@ hr:
       title: Korisnici
     login: 
       account not active: Žao nam je, Vaš korisnički račun još nije aktivan. <br /> Molimo vas da koristite link u e-pošti potvrde da biste aktivirali svoj račun, ili <a href="%{reconfirm}">zatražiti novu e-poštu potvrde</a> .
-      account suspended: Žao nam je, Vaš račun je suspendiran zbog sumnjive aktivnosti. <br /> Molimo kontaktirajte %{webmaster}, ako želite razgovarati o tome.
       auth failure: Žao mi je, ne mogu prijaviti s ovim detaljima.
       create account minute: Otvorite korisnički račun. To traje samo minutu.
       email or username: "Email adresa ili korisničko ime:"
@@ -1469,7 +1409,6 @@ hr:
       remember: "Zapamti me:"
       title: Prijava
       to make changes: Da bi napravili izmjene na OpenStreetMap podacima, morate imati korisnički račun.
-      webmaster: webmaster
     logout: 
       heading: Odjava iz OpenStreetMap
       logout_button: Odjava
@@ -1618,7 +1557,6 @@ hr:
     filter: 
       block_expired: Blokada je već istekla i ne može se uređivati.
       block_period: period blokade mora biti jedna od vrijednosti iz drop-down liste.
-      not_a_moderator: Morate biti moderator da možete izvestu tu akciju.
     helper: 
       time_future: Završava u %{time}.
       time_past: Završeno prije %{time}.

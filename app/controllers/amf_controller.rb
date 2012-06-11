@@ -45,66 +45,58 @@ class AmfController < ApplicationController
   # calls each action (private method) accordingly.
   
   def amf_read
-    if request.post?
-      self.status = :ok
-      self.content_type = Mime::AMF
-      self.response_body = Dispatcher.new(request.raw_post) do |message,*args|
-        logger.info("Executing AMF #{message}(#{args.join(',')})")
+    self.status = :ok
+    self.content_type = Mime::AMF
+    self.response_body = Dispatcher.new(request.raw_post) do |message,*args|
+      logger.info("Executing AMF #{message}(#{args.join(',')})")
 
-        case message
-          when 'getpresets';        result = getpresets(*args)
-          when 'whichways';         result = whichways(*args)
-          when 'whichways_deleted'; result = whichways_deleted(*args)
-          when 'getway';            result = getway(args[0].to_i)
-          when 'getrelation';       result = getrelation(args[0].to_i)
-          when 'getway_old';        result = getway_old(args[0].to_i,args[1])
-          when 'getway_history';    result = getway_history(args[0].to_i)
-          when 'getnode_history';   result = getnode_history(args[0].to_i)
-          when 'findgpx';           result = findgpx(*args)
-          when 'findrelations';     result = findrelations(*args)
-          when 'getpoi';            result = getpoi(*args)
-        end
-        
-        result
+      case message
+        when 'getpresets';        result = getpresets(*args)
+        when 'whichways';         result = whichways(*args)
+        when 'whichways_deleted'; result = whichways_deleted(*args)
+        when 'getway';            result = getway(args[0].to_i)
+        when 'getrelation';       result = getrelation(args[0].to_i)
+        when 'getway_old';        result = getway_old(args[0].to_i,args[1])
+        when 'getway_history';    result = getway_history(args[0].to_i)
+        when 'getnode_history';   result = getnode_history(args[0].to_i)
+        when 'findgpx';           result = findgpx(*args)
+        when 'findrelations';     result = findrelations(*args)
+        when 'getpoi';            result = getpoi(*args)
       end
-    else
-      render :nothing => true, :status => :method_not_allowed
+        
+      result
     end
   end
 
   def amf_write
-    if request.post?
-      renumberednodes = {}              # Shared across repeated putways
-      renumberedways = {}               # Shared across repeated putways
-      err = false                       # Abort batch on error
+    renumberednodes = {}              # Shared across repeated putways
+    renumberedways = {}               # Shared across repeated putways
+    err = false                       # Abort batch on error
 
-      self.status = :ok
-      self.content_type = Mime::AMF
-      self.response_body = Dispatcher.new(request.raw_post) do |message,*args|
-        logger.info("Executing AMF #{message}")
+    self.status = :ok
+    self.content_type = Mime::AMF
+    self.response_body = Dispatcher.new(request.raw_post) do |message,*args|
+      logger.info("Executing AMF #{message}")
 
-        if err
-          result = [-5, nil]
-        else
-          case message
-            when 'putway';         orn = renumberednodes.dup
-                                   result = putway(renumberednodes, *args)
-                                   result[4] = renumberednodes.reject { |k,v| orn.has_key?(k) }
-                                   if result[0] == 0 and result[2] != result[3] then renumberedways[result[2]] = result[3] end
-            when 'putrelation';    result = putrelation(renumberednodes, renumberedways, *args)
-            when 'deleteway';      result = deleteway(*args)
-            when 'putpoi';         result = putpoi(*args)
-                                   if result[0] == 0 and result[2] != result[3] then renumberednodes[result[2]] = result[3] end
-            when 'startchangeset'; result = startchangeset(*args)
-          end
-
-          err = true if result[0] == -3  # If a conflict is detected, don't execute any more writes
+      if err
+        result = [-5, nil]
+      else
+        case message
+          when 'putway';         orn = renumberednodes.dup
+                                 result = putway(renumberednodes, *args)
+                                 result[4] = renumberednodes.reject { |k,v| orn.has_key?(k) }
+                                 if result[0] == 0 and result[2] != result[3] then renumberedways[result[2]] = result[3] end
+          when 'putrelation';    result = putrelation(renumberednodes, renumberedways, *args)
+          when 'deleteway';      result = deleteway(*args)
+          when 'putpoi';         result = putpoi(*args)
+                                 if result[0] == 0 and result[2] != result[3] then renumberednodes[result[2]] = result[3] end
+          when 'startchangeset'; result = startchangeset(*args)
         end
 
-        result
+        err = true if result[0] == -3  # If a conflict is detected, don't execute any more writes
       end
-    else
-      render :nothing => true, :status => :method_not_allowed
+
+      result
     end
   end
 
@@ -367,13 +359,13 @@ class AmfController < ApplicationController
     amf_handle_error_with_timeout("'getway_old' #{id}, #{timestamp}", 'way',id) do
       if timestamp == ''
         # undelete
-        old_way = OldWay.where(:visible => true, :way_id => id).order("version DESC").first
+        old_way = OldWay.where(:visible => true, :way_id => id).unredacted.order("version DESC").first
         points = old_way.get_nodes_undelete unless old_way.nil?
       else
         begin
           # revert
           timestamp = DateTime.strptime(timestamp.to_s, "%d %b %Y, %H:%M:%S")
-          old_way = OldWay.where("way_id = ? AND timestamp <= ?", id, timestamp).order("timestamp DESC").first
+          old_way = OldWay.where("way_id = ? AND timestamp <= ?", id, timestamp).unredacted.order("timestamp DESC").first
           unless old_way.nil?
             points = old_way.get_nodes_revert(timestamp)
             if !old_way.visible
@@ -411,11 +403,11 @@ class AmfController < ApplicationController
       # Find list of revision dates for way and all constituent nodes
       revdates=[]
       revusers={}
-      Way.find(wayid).old_ways.collect do |a|
+      Way.find(wayid).old_ways.unredacted.collect do |a|
         revdates.push(a.timestamp)
         unless revusers.has_key?(a.timestamp.to_i) then revusers[a.timestamp.to_i]=change_user(a) end
         a.nds.each do |n|
-          Node.find(n).old_nodes.collect do |o|
+          Node.find(n).old_nodes.unredacted.collect do |o|
             revdates.push(o.timestamp)
             unless revusers.has_key?(o.timestamp.to_i) then revusers[o.timestamp.to_i]=change_user(o) end
           end
@@ -431,7 +423,7 @@ class AmfController < ApplicationController
       # Remove any elements where 2 seconds doesn't elapse before next one
       revdates.delete_if { |d| revdates.include?(d+1) or revdates.include?(d+2) }
       # Collect all in one nested array
-      revdates.collect! {|d| [d.succ.strftime("%d %b %Y, %H:%M:%S")] + revusers[d.to_i] }
+      revdates.collect! {|d| [(d + 1).strftime("%d %b %Y, %H:%M:%S")] + revusers[d.to_i] }
       revdates.uniq!
 
       return ['way', wayid, revdates]
@@ -444,8 +436,8 @@ class AmfController < ApplicationController
 
   def getnode_history(nodeid) #:doc:
     begin 
-      history = Node.find(nodeid).old_nodes.reverse.collect do |old_node|
-        [old_node.timestamp.succ.strftime("%d %b %Y, %H:%M:%S")] + change_user(old_node)
+      history = Node.find(nodeid).old_nodes.unredacted.reverse.collect do |old_node|
+        [(old_node.timestamp + 1).strftime("%d %b %Y, %H:%M:%S")] + change_user(old_node)
       end
       return ['node', nodeid, history]
     rescue ActiveRecord::RecordNotFound
@@ -790,7 +782,7 @@ class AmfController < ApplicationController
       n = Node.find(id)
       v = n.version
       unless timestamp == ''
-        n = OldNode.where("id = ? AND timestamp <= ?", id, timestamp).order("timestamp DESC").first
+        n = OldNode.where("node_id = ? AND timestamp <= ?", id, timestamp).unredacted.order("timestamp DESC").first
       end
 
       if n
