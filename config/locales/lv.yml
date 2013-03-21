@@ -5,6 +5,7 @@
 # Author: GreenZeb
 # Author: Karlis
 # Author: Lafriks
+# Author: Nemo bis
 # Author: Papuass
 # Author: Raitisx
 # Author: Ttdnet
@@ -89,7 +90,6 @@ lv:
     changeset: 
       changeset: "Izmaiņu kopa: %{id}"
       changesetxml: Izmaiņu kopas XML
-      download: Lejupielādēt %{changeset_xml_link} vai %{osmchange_xml_link}
       feed: 
         title: Izmaiņu kopa %{id}
         title_comment: Izmaiņu kopa %{id} - %{comment}
@@ -111,7 +111,7 @@ lv:
         one: "Ir sekojošais %{count} ceļš:"
         other: "Ir sekojošie %{count} ceļi:"
       no_bounding_box: Nav saglabāta rāmja priekš šīs izmaiņu kopas
-      show_area_box: Rādīt Apgabala Rāmi
+      show_area_box: Rādīt apgabala rāmi
     common_details: 
       changeset_comment: "Komentārs:"
       deleted_at: "Izdzēsts:"
@@ -151,21 +151,19 @@ lv:
         next_changeset_tooltip: Nākamais lietotāja %{user} labojums
         prev_changeset_tooltip: Iepriekšējais lietotāja %{user} labojums
     node: 
-      download: "%{download_xml_link}, %{view_history_link} vai %{edit_link}"
       download_xml: Lejupielādēt XML
-      edit: rediģēt
+      edit: Labot punktu
       node: Punkts
       node_title: "Punkts: %{node_name}"
-      view_history: skatīt vēsturi
+      view_history: Skatīt vēsturi
     node_details: 
-      coordinates: "Koordinātes:"
+      coordinates: "Koordinātas:"
       part_of: "Daļa no:"
     node_history: 
-      download: "%{download_xml_link} vai %{view_details_link}"
       download_xml: Lejupielādēt XML
       node_history: Punkta vēsture
       node_history_title: "Punkta vēsture: %{node_name}"
-      view_details: skatīt sīkāku informāciju
+      view_details: Skatīt sīkāk
     not_found: 
       sorry: Atvainojiet, %{type} ar id %{id} nevarēja atrast.
       type: 
@@ -184,39 +182,33 @@ lv:
         relation: relācija
         way: ceļš
     relation: 
-      download: "%{download_xml_link} vai %{view_history_link}"
       download_xml: Lejupielādēt XML
       relation: Relācija
       relation_title: "Relācija: %{relation_name}"
-      view_history: skatīt vēsturi
+      view_history: Skatīt vēsturi
     relation_details: 
       members: "Locekļi:"
       part_of: "Daļa no:"
     relation_history: 
-      download: "%{download_xml_link} vai %{view_details_link}"
       download_xml: Lejupielādēt XML
       relation_history: Relācijas vēsture
       relation_history_title: "Relācijas vēsture: %{relation_name}"
-      view_details: skatīt sīkāku informāciju
+      view_details: Skatīt detaļas
     relation_member: 
       entry_role: "%{type} %{name} kā %{role}"
       type: 
         node: Punkts
         relation: Relācija
         way: Līnija
-    start: 
-      manually_select: Manuāli izvēlēties citu apgabalu
-      view_data: Skatīt datus pašreizējā kartes skatā
     start_rjs: 
       data_frame_title: Dati
       data_layer_name: Pārlūkot kartes datus
       details: Sīkāka informācija
-      drag_a_box: Uzvelciet rāmi uz kartes, lai izvēlētos apgabalu
-      edited_by_user_at_timestamp: Rediģēja [[user]] [[timestamp]]
+      edited_by_user_at_timestamp: Rediģēja %{user} %{timestamp}
       hide_areas: Paslēpt zonas
-      history_for_feature: Vēsture [[feature]]
+      history_for_feature: Vēsture %{feature}
       load_data: Ielādēt datus
-      loaded_an_area_with_num_features: "Jūs esat ielādējis apgabalu, kurš satur [[num_features]] iezīmes. Pamatā, daži pārlūki var pārāk labi netikt galā ar šādu lielu datu kvantuma parādīšanu. Parasti, pārlūki tiek galā vislabāk rādot mazāk nekā 100 iezīmes vienlaikus: jebkā cita darīšana tos bremzē. Ja Jūs esat drošs, ka vēlaties attēlot šos datus, Jūs tā varat izdarīt spiežot pogu zemāk."
+      loaded_an_area_with_num_features: "Jūs esat ielādējis apgabalu, kurš satur %{num_features} iezīmes. Pamatā, daži pārlūki var pārāk labi netikt galā ar šādu lielu datu kvantuma parādīšanu. Parasti, pārlūki tiek galā vislabāk rādot mazāk nekā %{max_features} iezīmes vienlaikus: jebkā cita darīšana tos bremzē. Ja Jūs esat drošs, ka vēlaties attēlot šos datus, Jūs tā varat izdarīt spiežot pogu zemāk."
       loading: Ielādē…
       manually_select: Manuāli izvēlēties citu apgabalu
       object_list: 
@@ -226,19 +218,20 @@ lv:
         heading: Objektu saraksts
         history: 
           type: 
-            node: Punkts [[id]]
-            way: Līnija [[id]]
+            node: Punkts %{id}
+            way: Līnija %{id}
         selected: 
           type: 
-            node: Punkts [[id]]
-            way: Līnija [[id]]
+            node: Punkts %{id}
+            way: Līnija %{id}
         type: 
           node: Punkts
           way: Līnija
       private_user: privāts lietotājs
       show_areas: Rādīt apgabalus
       show_history: Rādīt vēsturi
-      unable_to_load_size: "Nevar ielādēt: Apgabala rāmis [[bbox_size]], ir pārāk liels (jābūt mazākam nekā %{max_bbox_size})"
+      unable_to_load_size: "Nevar ielādēt: Apgabala rāmis %{bbox_size}, ir pārāk liels (jābūt mazākam nekā %{max_bbox_size})"
+      view_data: Skatīt datus pašreizējā kartes skatā
       wait: Uzgaidiet ...
       zoom_or_select: Tuvini vai atlasi kartes apgabalu, lai skatītu
     tag_details: 
@@ -255,10 +248,9 @@ lv:
         relation: relācija
         way: līnija
     way: 
-      download: "%{download_xml_link}, %{view_history_link} vai %{edit_link}"
       download_xml: Lejupielādēt XML
-      edit: rediģēt
-      view_history: skatīt vēsturi
+      edit: Labot ceļu
+      view_history: Skatīt vēsturi
       way: Līnija
       way_title: "Līnija: %{way_name}"
     way_details: 
@@ -268,9 +260,8 @@ lv:
       nodes: "Punkti:"
       part_of: "Daļā no:"
     way_history: 
-      download: "%{download_xml_link} vai %{view_details_link}"
       download_xml: Lejupielādēt XML
-      view_details: skatīt sīkāku informāciju
+      view_details: Skatīt detaļas
       way_history: Līnijas vēsture
       way_history_title: "Ceļa Vēsture: %{way_name}"
   changeset: 
@@ -299,6 +290,8 @@ lv:
       description_nearby: Tuvējo lietotāju izmaiņu kopas
       description_user: Lietotāja %{user} izmaiņu kopas
       description_user_bbox: Lietotāja %{user} izmaiņu kopas iekš %{bbox}
+      empty_anon_html: Vēl nav labojumu
+      empty_user_html: Izskatās, ka tu vēl neesi veicis labojumus. Lai sāktu, iepazīsties ar <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>Iesācēju Gidu</a>.
       heading: Izmaiņu kopas
       heading_bbox: Izmaiņu kopas
       heading_friend: Izmaiņu kopas
@@ -328,8 +321,9 @@ lv:
       hide_link: Paslēpt šo komentāru
     diary_entry: 
       comment_count: 
-        one: 1 komentārs
+        one: "%{count} komentārs"
         other: "%{count} komentāri"
+        zero: Nav komentāru
       comment_link: Komentēt šo ierakstu
       confirm: Apstiprināt
       edit_link: Rediģēt šo ierakstu
@@ -370,7 +364,7 @@ lv:
       title_nearby: Tuvumā esošu lietotāju dienasgrāmatas
       user_title: "%{user} dienasgrāmata"
     location: 
-      edit: Rediģēt
+      edit: Labot
       location: "Atrašanās vieta:"
       view: Skatīt
     new: 
@@ -381,7 +375,7 @@ lv:
       title: Dienasgrāmatas ieraksts nav atrasts
     view: 
       leave_a_comment: Ierakstīt komentāru
-      login: Ieiet
+      login: Pieslēgties
       login_to_leave_a_comment: "%{login_link} lai komentētu"
       save_button: Saglabāt
       title: "%{user} dienasgrāmata | %{title}"
@@ -403,7 +397,7 @@ lv:
       area_to_export: Kvadrants, kuru eksportēt
       embeddable_html: Ievietojams HTML kods
       export_button: Eksportēt
-      export_details: OpenStreetMap dati ir licencēta saskaņā ar <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-ShareAlike 2.0 licenci</a>.
+      export_details: OpenStreetMap dati ir licencēti saskaņā ar <a href="http://opendatacommons.org/licenses/odbl/1.0/">Atvērtās Datu Kopas Atvērtās Datubāzes licenci</a> (ODbL).
       format: Formāts
       format_to_export: Eksportēšanas formāts
       image_size: Attēla izmērs
@@ -434,14 +428,11 @@ lv:
     description: 
       title: 
         geonames: Atrašanās vieta no <a href="http://www.geonames.org/">GeoNames</a>
-        osm_namefinder: "%{types} no <a href=\"http://gazetteer.openstreetmap.org/namefinder/\">OpenStreetMap Namefinder</a>"
         osm_nominatim: Atrašanās vieta no <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
       types: 
         cities: Pilsētas
         places: Vietas
         towns: Pilsētas
-    description_osm_namefinder: 
-      prefix: "%{distance} %{direction} no %{type}"
     direction: 
       east: austrumi
       north: ziemeļi
@@ -463,13 +454,9 @@ lv:
         ca_postcode: Rezultāti no <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: Rezultāti no <a href="http://www.geonames.org/">GeoNames</a>
         latlon: Rezultāti no <a href="http://openstreetmap.org/">Iekšējās meklēšanas</a>
-        osm_namefinder: Rezultāti no <a href="http://gazetteer.openstreetmap.org/namefinder/">OpenStreetMap Namefinder</a>
         osm_nominatim: Rezultāti no <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: Rezultāti no <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Rezultāti no <a href="http://geocoder.us/">Geocoder.us</a>
-    search_osm_namefinder: 
-      suffix_parent: "%{suffix} (%{parentdistance} %{parentdirection} no %{parentname})"
-      suffix_place: ", %{distance} %{direction} no %{placename}"
     search_osm_nominatim: 
       prefix: 
         aeroway: 
@@ -954,7 +941,7 @@ lv:
     documentation_title: Projekta dokumentācija
     donate: Atbalstiet OpenStreetMap, %{link} aparatūras uzlabošanas fondam.
     donate_link_text: ziedojot
-    edit: Rediģēt
+    edit: Labot
     edit_with: Rediģēt ar %{editor}
     export: Eksportēt
     export_tooltip: Eksportēt kartes datus
@@ -968,7 +955,7 @@ lv:
     history: Vēsture
     home: sākums
     home_tooltip: Doties uz sākumu
-    inbox: iesūtne (%{count})
+    inbox_html: iesūtne %{count}
     inbox_tooltip: 
       one: Tavā iesūtnē ir 1 nelasīts ziņojums
       other: Tavā iesūtnē ir %{count} nelasīti ziņojumi
@@ -980,8 +967,6 @@ lv:
     intro_2_license: Atvērtā licence
     intro_2_use: izmanto
     intro_2_use_url: http://wiki.openstreetmap.org/wiki/LV:tagging_guidelines
-    license: 
-      title: OpenStreetMap dati ir licencēti ar Creative Commons Attribution-Share Alike 2.0 Generic licenci
     log_in: ieiet
     log_in_tooltip: Ieiet ar esošu kontu
     logo: 
@@ -1001,13 +986,11 @@ lv:
     partners_url: http://wiki.openstreetmap.org/wiki/Partners
     sign_up: piereģistrēties
     sign_up_tooltip: Izveidot kontu rediģēšanai
-    sotm2011: Nāciet uz 2011. gada OpenStreetMap konferenci "The State of the Map" 9. - 11. septembrī Denverā!
     tag_line: Atvērtā Wiki pasaules karte
     user_diaries: Lietotāju dienasgrāmatas
     user_diaries_tooltip: Skatīt lietotāju dienasgrāmatas
     view: Skatīt
     view_tooltip: Skatīti karti
-    welcome_user: Laipni lūdzam, %{user_link}
     welcome_user_link_tooltip: Tava lietotāja lapa
     wiki: Viki
     wiki_title: Projekta viki vietne
@@ -1016,7 +999,35 @@ lv:
       english_link: angliskais oriģināls
       text: Gadījumā, ja šī tulkotā lapa ir nesaskaņā ar %{english_original_link}, vērā jāņem un jāvadās no angliskās lapas
       title: Par šo tulkojumu
-    legal_babble: "<h2>Autortiesības un Licence</h2>\n<p>\n   OpenStreetMap ir <i>atvērti dati</i>, licencēti zem <a\n   href=\"http://creativecommons.org/licenses/by-sa/2.0/\">Creative\n   Commons Attribution-ShareAlike 2.0</a> licences (CC BY-SA).\n</p>\n<p>\n  Tu vari kopēt, izplatīt, nosūtīt un adaptēt mūsu kartes\n  un datus, kamēr tu atsaucies uz OpenStreetMap un tās\n  veidotājiem. Ja tu maini vai veido uz mūsu kartēm, tu\n  vari izplatīt rezultātu tikai zem tās pašas licences. Pilns\n  <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">juridiskais kods</a> izskaidro tavas tiesības un pienākumus.\n</p>\n\n<h3>Kā atsaukties uz OpenStreetMap</h3>\n<p>\n  Ja Tu lieto OpenStreetMap kartes bildes, mēs pieprasām ka\n  tava atsaucē ir vismaz &ldquo;&copy; OpenStreetMap\n  veidotāji, CC BY-SA&rdquo;. Ja tu izmanto tikai kartes datus,\n  mēs pieprasām &ldquo;Kartes dati &copy; OpenStreetMap veidotāji,\n  CC BY-SA&rdquo;.\n</p>\n<p>\n  Kur iespējams, OpenStreetMap vajadzētu būt iesaitētam uz <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  un CC BY-SA uz <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. Ja\n  tu lieto mediju, kur saites nav iespējamas (piem. \n  printēts darbs), mēs iesakām pārsūtīt savus lasītājus uz\n  www.openstreetmap.org (piemēram paplašinot\n  &lsquo;OpenStreetMap&rsquo; uz pilno adresi) un uz\n  www.creativecommons.org.\n</p>\n\n<h3>Uzzināt vairāk</h3>\n<p>\n  Lasi vairāk par mūsu datu izmantošanu <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">Juridiskajā\n  FAQ</a>.\n</p>\n<p>\n  OSM veidotājiem tiek atgādināts nievietot datus no\n  ar autortiesībām aizsargātām vietām (piem. Google Maps vai drukātas kartes) bez\n  skaidri izteiktas atļaujas no autortiesību turētājiem.\n</p>\n<p>\n  Lai arī OpenStreetMap ir atvērti dati, mēs nevaram piedāvāt\n  bezmaksas karšu API trešo pušu izstrādātājiem.\n\n  Skatīt mūsu <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">API Lietošanas Politiku</a>,\n  <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Flīžu Lietošanas Politiku</a>\n  and <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Nominatim L:ietošanas Politiku</a>.\n</p>\n\n<h3>Mūsu veidotāji</h3>\n<p>\n  Mūsu CC BY-SA licence pieprasa tev &ldquo;dot Oriģinālajam\n  Autoram atsauci saprātīgu līdz vidēju vai veidu, ka Tu lieto\n  &rdquo;. Individuāli OSM kartētāji nepieprasa\n  atsauci pāri &ldquo;OpenStreetMap\n  veidotāji&rdquo;, bet, kur dati no nacionālas kartēšanas aģentūras\n  vai cita nopietna avota ir iekļauti iekš\n  OpenStreetMap, varētu būt saprātīgi uz viņiem atsaukties tieši\n  reproducējot viņu atsauci vai iesaitējot uz šo lapu.\n</p>\n\n<!--\nInformation for page editors\n\nThe following lists only those organisations who require attribution\nas a condition of their data being used in OpenStreetMap. It is not a\ngeneral catalogue of imports, and must not be used except when\nattribution is required to comply with the licence of the imported\ndata.\n\nAny additions here must be discussed with OSM sysadmins first.\n-->\n\n<ul id=\"contributors\">\n    <li><strong>Austrālija</strong>: Ietver pilsētu datus no\n    Australian Bureau of Statistics data.</li>\n    <li><strong>Austrija</strong>: Ietver datus no\n    <a href=\"http://data.wien.gv.at/\">Stadt Wien</a> (zem\n    <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.de\">CC BY</a>).</li>\n    <li><strong>Kanāda</strong>: Ietver datus no\n    GeoBase&reg;, GeoGratis (&copy; Department of Natural\n    Resources Canada), CanVec (&copy; Department of Natural\n    Resources Canada), un StatCan (Geography Division,\n    Statistics Canada).</li>\n    <li><strong>Francija</strong>: Ietver datus no\n    Direction Générale des Impôts.</li>\n<li><strong>Nīderlande</strong>: Satur &copy; AND data, 2007\n(<a href=\"http://www.and.com\">www.and.com</a>)</li>\n    <li><strong>Jaunzēlande</strong>: Ietver datus no\n    Land Information New Zealand. Crown Copyright reserved.</li>\n    <li><strong>Polija</strong>: Ietver datus no <a\n    href=\"http://ump.waw.pl/\">UMP-pcPL kartes</a>. Autortiesības\n    UMP-pcPL veidotāji.\n    <a href=\"http://wiki.openstreetmap.org/wiki/UMP2OSM_Importing\">\n    Vairāk par OSM&apos; UMP datu lietojumu</a></li>\n    <li><strong>Dienvidāfrika</strong>: Ietver datus no\n    <a href=\"http://www.ngi.gov.za/\">Chief Directorate:\n    National Geo-Spatial Information</a>, State copyright reserved.</li>\n    <li><strong>Apvienotā Karaliste</strong>: Satur Ordnance\n    Survey datus &copy; Crown copyright and database right\n    2010.</li>\n</ul>\n\n<p>\n  Datu ievietošana OpenStreetMap nenozīmē ka oriģinālais\n  datu avots sniedz atbalstu OpenStreetMap, dod garantiju, vai\n  pieņem jebkādu atbildību.\n</p>"
+    legal_babble: 
+      attribution_example: 
+        alt: Piemērs, kā OpenStreetMap apzīmēt web lapā
+        title: Atsauces piemērs
+      contributors_at_html: "<strong>Austrija</strong>: Ietver datus no\n    <a href=\"http://data.wien.gv.at/\">Stadt Wien</a> (zem\n    <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.de\">CC BY</a>)."
+      contributors_ca_html: "<strong>Kanāda</strong>: Ietver datus no\n    GeoBase&reg;, GeoGratis (&copy; Department of Natural\n    Resources Canada), CanVec (&copy; Department of Natural\n    Resources Canada), un StatCan (Geography Division,\n    Statistics Canada)."
+      contributors_footer_1_html: "Sīkāku informāciju par šiem, un citiem avotiem, kas izmantoti,\nlai uzlabotu OpenStreetMap, lūdzu apskati <a\nhref=\"http://wiki.openstreetmap.org/wiki/Contributors\">Veidotāju\nlapu</a> iekš OpenStreetMap Wiki."
+      contributors_footer_2_html: "  Datu ievietošana OpenStreetMap nenozīmē ka oriģinālais\n  datu avots sniedz atbalstu OpenStreetMap, dod garantiju, vai\n  pieņem jebkādu atbildību."
+      contributors_fr_html: "<strong>Francija</strong>: Ietver datus no\n    Direction Générale des Impôts."
+      contributors_gb_html: "<strong>Apvienotā Karaliste</strong>: Satur Ordnance\n    Survey datus &copy; Kroņa tiesības un datubāze\n    2010-12."
+      contributors_intro_html: "Mūsu veidotāji ir tūkstošiem cilvēku. Mēs arī ievietojam\natvērti-licencētus datus no nacionālajām kartēšanas aģentūrām\nun citiem avotiem, to skaitā:"
+      contributors_nl_html: "<strong>Nīderlande</strong>: Satur &copy; AND data, 2007\n(<a href=\"http://www.and.com\">www.and.com</a>)"
+      contributors_nz_html: "<strong>Jaunzēlande</strong>: Ietver datus no\n    Land Information New Zealand. Crown Copyright reserved."
+      contributors_title_html: Mūsu veidotāji
+      contributors_za_html: "<strong>Dienvidāfrika</strong>: Ietver datus no\n    <a href=\"http://www.ngi.gov.za/\">Chief Directorate:\n    National Geo-Spatial Information</a>, State copyright reserved."
+      credit_1_html: "Mēs pieprasām, ka tu izmanto atsauci &ldquo;&copy; OpenStreetMap\nveidotāji&rdquo;."
+      credit_2_html: "Kur iespējams, OpenStreetMap vajadzētu būt iesaitētam uz <a\n  href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a>\n  un CC BY-SA uz <a\n  href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. Ja\n  tu lieto mediju, kur saites nav iespējamas (piem. \n  printēts darbs), mēs iesakām pārsūtīt savus lasītājus uz\n  www.openstreetmap.org (piemēram paplašinot\n  &lsquo;OpenStreetMap.org&rsquo; uz pilno adresi) un uz\n  www.creativecommons.org."
+      credit_3_html: "Priekš pārlūkojamas elektroniskās kartes, atsaucei ir jāparādās kartes stūrī. Piemēram:"
+      credit_title_html: Kā atsaukties uz OpenStreetMap
+      infringement_1_html: "OSM veidotājiem tiek atgādināts, nekad neizmantot datus no jebkuriem \nar autortiesībām aizsargātiem avotiem (piem. Google Maps vai drukātām kartēm), bez \nprecīzi formulētas atļaujas no autortiesību īpašniekiem."
+      infringement_2_html: "Ja tu tici, ka ar autortiesībām aizsargāts materiāls ir ticis neatbilstoši\npievienots OpenStreetMap datubāzei vai vietnei, lūdzu atsaucies uz\nmūsu <a href=\"http://www.osmfoundation.org/wiki/License/Takedown_procedure\">noņemšanas\nprocedūru</a> vai paziņo pa tiešo mums, izmantojot\n<a href=\"http://dmca.openstreetmap.org/\">on-line ziņošanas veidni</a>."
+      infringement_title_html: Autortiesību pārkāpums
+      intro_1_html: "OpenStreetMap ir <i>atvērti dati</i>, kad licencēti zem <a\nhref=\"http://opendatacommons.org/licenses/odbl/\">Atvērtās Datu Kopas Atvērtās Datubāzes licences</a> (ODbL)."
+      intro_2_html: "Tu vari kopēt, izplatīt, nosūtīt un adaptēt mūsu kartes\n  un datus, kamēr tu atsaucies uz OpenStreetMap un tās\n  veidotājiem. Ja tu maini vai veido uz mūsu kartēm, tu\n  vari izplatīt rezultātu tikai zem tās pašas licences. Pilns\n  <a href=\"http://opendatacommons.org/licenses/odbl/1.0/\">juridiskais kods</a> izskaidro tavas tiesības un pienākumus."
+      intro_3_html: "Kartogrāfija mūsu karšu flīzēs un mūsu dokumentācija ir licencēti zem <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">Creative\nCommons Attribution-ShareAlike 2.0</a> licences (CC-BY-SA)."
+      more_1_html: "Lasi vairāk par mūsu datiem, un kā uz mums atsaukties <a\n  href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">juridiskajā\n  FAQ</a>."
+      more_2_html: "Lai gan OpenStreetMap ir atvērti dati, mēs nevaram piedāvāt bezmaksas kartes API trešās puses izstrādātājiem.\nApskati mūsu <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">API Lietošanas Politiku</a>,\n<a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Flīžu Lietošanas Politiku</a>\nun <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Nominatim Lietošanas Politiku</a>."
+      more_title_html: Uzzināt vairāk
+      title_html: Autortiesības un Licence
     native: 
       mapping_link: sākt kartēt
       native_link: latviskā versija
@@ -1080,8 +1091,6 @@ lv:
       back_to_outbox: Atpakaļ uz izsūtni
       date: Datums
       from: 'No'
-      reading_your_messages: Lasu jūsu ziņas
-      reading_your_sent_messages: Lasu jūsu nosūtītās ziņas
       reply_button: Atbilde
       subject: Temats
       title: Lasīt ziņu
@@ -1145,14 +1154,15 @@ lv:
       header: "OpenStreetMap lietotājs %{from_user} ir jums nosūtījis ziņu ar tematu %{subject}:"
       hi: Sveiks %{to_user},
     signup_confirm: 
-      subject: "[OpenStreetMap] Apstipriniet savu e-pasta adresi"
+      confirm: "Pirms mēs turpinām, mums vajag pārliecināties, ka pieprasījums nāca no tevis, ja tas nāca, lūdzu uzklikšķini uz zemāk redzamās saites, lai aktivizētu savu lietotāju:"
+      created: Kāds (cerams tu) tikko izveidoja lietotāju %{site_url}.
+      greeting: Sveicināti!
+      subject: "[OpenStreetMap] Laipni lūgti OpenStreetMap"
+      welcome: Mēs vēletos tevi sveikt un dot tev papildus informāciju par OpenStreetMap.
     signup_confirm_html: 
       ask_questions: Tu vari jautāt jebkurus jautājumus par OpenStreetMap mūsu <a href="http://help.openstreetmap.org/">jautājumu un atbilžu lapā</a>.
-      click_the_link: Ja tas esat jūs, laipni aicināti! Lūdzu klikšķiniet uz zemāk esošās saites lai apstiprinātu lietotāja kontu un uzzinātu vairāk par OpenStreetMap
       current_user: Saraksts ar pašreizējiem lietotājiem kategorijās, pamatojoties uz to, kur tie atrodas pasaulē, ir pieejams no <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
       get_reading: Izlasi par OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_Guide">iekš wiki</a>, panāc ar jaunākajām ziņām, izmantojot <a href="http://blog.openstreetmap.org/">OpenStreetMap blogu</a> vai <a href="http://twitter.com/openstreetmap">Twitter</a>, vai pārlūko caur OpenStreetMap dibinātāja Steve Coast's <a href="http://www.opengeodata.org/">OpenGeoData blogu</a> priekš projekta vēstures, kuram ir <a href="http://www.opengeodata.org/?cat=13">podcasti, kurus klausīties</a>!
-      greeting: Sveicināti!
-      hopefully_you: Kāds (cerams, jūs) vēlas izveidot lietotāja kontu
       introductory_video: Iespējams noskatīties %{introductory_video_link}.
       more_videos: Ir vēl citi %{more_videos_link}.
       more_videos_here: video šeit
@@ -1162,18 +1172,12 @@ lv:
     signup_confirm_plain: 
       ask_questions: "Tu vari jautāt jebkurus jautājumus par OpenStreetMap mūsu jautājumu un atbilžu lapā:"
       blog_and_twitter: "Sekojiet jaunumiem OpenStreetMap emuārā un Twitter:"
-      click_the_link_1: Ja tas esat jūs, laipni aicināti! Lūdzu sekojiet saitei zemāk lai apstiprinātu savu
-      click_the_link_2: lietotāja kontu un uzzinātu vairāk par OpenStreetMap.
-      current_user_1: Esošo lietotāju saraksts kategorijās, atkarībā no tā, kur pasaulē
-      current_user_2: "viņi atrodas, ir pieejama:"
-      greeting: Sveicināti!
-      hopefully_you: Kāds (cerams, jūs) vēlas izveidot lietotāja kontu
+      current_user: "Saraksts ar esošajiem lietotājiem kategorijās, ņemot vērā, kur pasaulē viņi atrodas, ir pieejams:"
       introductory_video: "Šeit varat noskatīties video, kas iepazīstina ar OpenStreetMap:"
       more_videos: "Šeit ir vēl citi video:"
       opengeodata: "OpenGeoData.org ir OpenStreetMap dibinātāja Stīva Kousta emuārs, tajā ir arī podraides:"
       the_wiki: "Lasiet par OpenStreetMap mūsu viki:"
-      user_wiki_1: Tas ir ieteicams, ka tu izveido sava lietotāja wiki lapu, kura satur
-      user_wiki_2: kategoriju tagus, norādot, kas tu esi, kā piemēram [[Category:Users_in_London]].
+      user_wiki_page: Ir ieteicams izveidot lietotājam wiki lapu, kurā atrastos kategoriju birkas, kuras norādīs uz to, kur tu atrodies, piemēram [[Category:Users_in_London]].
       wiki_signup: Tu arī varētu vēlēties piereģistrēties mūsu OpenStreetMap wiki, šeit
   oauth: 
     oauthorize: 
@@ -1193,7 +1197,7 @@ lv:
     destroy: 
       flash: Iznīcināja klienta aplikācijas reģistrāciju
     edit: 
-      submit: Rediģēt
+      submit: Labot
       title: Rediģē savu pieteikumu
     form: 
       allow_read_gpx: lasīt savas privātās GPS trases.
@@ -1290,9 +1294,7 @@ lv:
       js_1: Vai nu jūs lietojat pārlūkprogrammu, kas neatbalsta JavaScript, vai arī jūsu pārlūkprogrammā JavaScript ir atslēgts.
       js_2: OpenStreetMap kartes rādīšanai lieto JavaScript.
       license: 
-        license_name: Creative Commons Attribution-Share Alike 2.0
-        notice: Licencēts zem %{license_name} licences, pēc %{project_name} un tā atbalstītājiem.
-        project_name: OpenStreetMap projekts
+        copyright: Autortiesības OpenStreetMap un tā veidotāji, zem atvērtas licences
       permalink: Pastāvīgā saite
       remote_failed: Rediģēšana neizdevās - pārbaudi, ka JOSM vai Merkaartor ir ielādēts un attālinātās vadības iespēja ir aktivizēta
       shortlink: Īsā saite
@@ -1403,7 +1405,7 @@ lv:
     edit: 
       description: "Apraksts:"
       download: lejupielādēt
-      edit: rediģēt
+      edit: labot
       filename: "Faila nosaukums:"
       heading: Rediģē trasi %{name}
       map: karte
@@ -1418,6 +1420,7 @@ lv:
       visibility: "Redzamība:"
       visibility_help: ko tas nozīmē?
     list: 
+      empty_html: Pašlaik šeit nekā nav. <a href='%{upload_link}'>Augšupielādē jaunu trasi</a> vai uzzini vairāk par GPS trasēm iekš <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>wiki lapas</a>.
       public_traces: Publiskās GPS trases
       public_traces_from: Publiskas GPS trases no %{user}
       tagged_with: ar birkām %{tags}
@@ -1433,7 +1436,7 @@ lv:
       ago: pirms %{time_in_words_ago}
       by: 'no'
       count_points: "%{count} punkti"
-      edit: rediģēt
+      edit: labot
       edit_map: Rediģēt karti
       identifiable: IDENTIFICĒJAMS
       in: iekš
@@ -1462,14 +1465,14 @@ lv:
     trace_optionals: 
       tags: Birkas
     trace_paging_nav: 
-      next: Nākamā »
-      previous: « Iepriekšējā
+      newer: Jaunākas Trases
+      older: Vecākas trases
       showing_page: Rāda lapu %{page}
     view: 
       delete_track: Dzēst šo trasi
       description: "Apraksts:"
       download: lejupielādēt
-      edit: rediģēt
+      edit: labot
       edit_track: Rediģēt šo trasi
       filename: "Faila nosaukums:"
       heading: Trase %{name}
@@ -1503,6 +1506,9 @@ lv:
       email never displayed publicly: (nekad netiek rādīta publiski)
       flash update success: Lietotāja informācija veiksmīgi atjaunināta.
       flash update success confirm needed: Lietotāja informācija veiksmīgi atjaunota. Pārbaudi e-pastu, lai apstiprinātu savu jauno e-pasta adresi.
+      gravatar: 
+        gravatar: Izmantot Gravatar
+        link text: kas šis ir?
       home location: "Māju atrašanās vieta:"
       image: "Attēls:"
       image size hint: (vislabāk der kvadrātveida attēli vismaz 100x100 izmērā)
@@ -1575,13 +1581,11 @@ lv:
       auth failure: Diemžēl nevarēja ieiet ar šiem datiem
       create account minute: Izveidojiet kontu. Tas aizņem mazāk par minūti.
       email or username: "E-pasta adrese vai lietotājvārds:"
-      heading: Ieiet
-      login_button: Ieiet
+      heading: Pieslēgties
+      login_button: Pieslēgties
       lost password link: Aizmirsi paroli?
       new to osm: Jauns iekš OpenStreetMap?
       no account: Nav lietotāja?
-      notice: <a href="http://www.osmfoundation.org/wiki/License/We_Are_Changing_The_License">Uzzini vairāk par OpenStreetMap tuvojošos licences maiņu</a> (<a href="http://wiki.openstreetmap.org/wiki/ODbL/We_Are_Changing_The_License">tulkojumi</a>) (<a href="http://wiki.openstreetmap.org/wiki/Talk:ODbL/Upcoming">diskusija</a>)
-      notice_terms: OpenStreetMap pārceļas uz jaunu licenci 1. aprīlī 2012. gadā. Tā ir tikpat atvērta kā esošā, bet juridiskās detaļas ir labāk saderīgas ar mūsu karšu datubāzi. Mēs vēlētos tavu devumu OpenStreetMap paturēt, bet mēs to varam izdarīt tikai tad, ja Tu ļauj mums tos izplatīt zem jaunās licences. Citādāk, mums nāksies tos noņemt no datubāzes.<br /><br />Lūdzu autorizējies, tad atvēli dažas sekundes, lai pārskatītu un pieņemtu jaunos nosacījumus. Paldies!
       openid: "%{logo} OpenID:"
       openid invalid: Atvaino, šķiet, ka  tavs OpenID ir izkropļots
       openid missing provider: Atvaino, nevar sazināties ar tavu OpenID sniedzēju
@@ -1608,7 +1612,7 @@ lv:
       password: "Parole:"
       register now: Reģistrēties
       remember: "Atcerēties mani:"
-      title: Ieiet
+      title: Pieslēgties
       to make changes: Lai veiktu izmaiņas OpenStreetMap datos, jums jābūt savam kontam.
       with openid: "Alternatīvi, lūdzu lieto savu OpenID, lai autorizētos:"
       with username: "Jau ir OpenStreetMap lietotājs? Lūdzu autorizējies ar savu lietotājvārdu un paroli:"
@@ -1626,7 +1630,9 @@ lv:
       title: Aizmirsāt paroli
     make_friend: 
       already_a_friend: Jūs jau esat draugos ar %{name}.
+      button: Pievienot kā draugu
       failed: Atvainojiet, neizdevās pievienot %{name} kā draugu.
+      heading: Pievienot %{user} kā draugu?
       success: "%{name} tagad ir jūsu draugs."
     new: 
       confirm email address: "Apstipriniet e-pasta adresi:"
@@ -1638,6 +1644,7 @@ lv:
       email address: "E-pasta adrese:"
       fill_form: Aizpildi šo formu un mēs tev nosūtīsim ātru e-pastu, lai aktivizētu tavu lietotāju.
       flash create success message: Paldies, ka reģistrējies. Mēs tev nosūtījām pārbaudes e-pastu uz %{email} un tiklīdz tu apstiprināsi savu lietotāju, tu varēsi sākt kartēt.<br /><br />Ja tu lieto pretmēstuļu sistēmu, kura nosūta pārbaudes pieprasījumus, tad pārliecinies, ka esi ielicis webmaster@openstreetmap.org baltajā sarakstā, jo mēs nevaram atbildēt uz pārbaudes pieprasījumiem.
+      flash welcome: Paldies, ka reģistrējies. Mēs tev nosūtījām sveiciena vēstuli uz %{email} ar dažiem ieteikumiem, kā sākt kartes papildināšanu.
       heading: Izveidot lietotāja kontu
       license_agreement: Kad tu apstiprini savu lietotāju, tev būs nepieciešams pieņemt <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">veidotāju noteikumus</a>.
       no_auto_account_create: Diemžēl mēs šobrīd nevaram izveidot kontu automātiski.
@@ -1659,6 +1666,8 @@ lv:
       nearby mapper: Kartētājs tuvējā apkārtnē
       your location: Jūsu atrašanās vieta
     remove_friend: 
+      button: 'Noņemt kā draugu'
+      heading: 'Noņemt %{user} kā draugu?'
       not_a_friend: "%{name} nav no jūsu draugs."
       success: "%{name} tika izņemts no jūsu draugiem."
     reset_password: 
@@ -1695,7 +1704,7 @@ lv:
       activate_user: aktivizēt šo lietotāju
       add as friend: pievienot kā draugu
       ago: (pirms %{time_in_words_ago})
-      block_history: skatīt saņemtos bloķējumus
+      block_history: saņemtie bloķējumi
       blocks by me: mani piešķirtie bloki
       blocks on me: bloki par mani
       comments: komentāri
@@ -1721,7 +1730,7 @@ lv:
       latest edit: "Pēdējais labojums %{ago}:"
       m away: "%{count} m attālumā"
       mapper since: "Kartētājs kopš:"
-      moderator_history: skatīt dotos bloķējumus
+      moderator_history: dotie bloķējumi
       my comments: mani komentāri
       my diary: mana dienasgrāmata
       my edits: mani labojumi
@@ -1805,12 +1814,15 @@ lv:
       confirm: Vai esat pārliecināts?
       creator_name: Autors
       display_name: Bloķēts lietotājs
-      edit: Rediģēt
+      edit: Labot
+      next: Nākamais »
       not_revoked: (nav atsaukts)
+      previous: « Iepriekšējais
       reason: Iemesls liegumam
       revoke: Atsaukt!
       revoker_name: Atsaucis
       show: Rādīt
+      showing_page: Rāda lapu %{page}
       status: Statuss
     period: 
       one: 1 stunda
@@ -1826,7 +1838,7 @@ lv:
     show: 
       back: Skatīt visus bloķējumus
       confirm: Vai esat pārliecināts?
-      edit: Rediģēt
+      edit: Labot
       heading: "%{block_on} bloķēts pēc %{block_by}"
       needs_view: Lietotājam ir jāautorizējas, pirms liegums tiks notīrīts.
       reason: "Bloķēšanas iemesls:"

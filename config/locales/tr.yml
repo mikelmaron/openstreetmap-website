@@ -3,8 +3,10 @@
 # Export driver: syck-pecl
 # Author: Alerque
 # Author: Emperyan
+# Author: Erdemaslancan
 # Author: George Animal
 # Author: Gizemb
+# Author: Incelemeelemani
 # Author: Katpatuka
 # Author: SalihB
 # Author: Szoszv
@@ -68,7 +70,6 @@ tr:
     changeset: 
       changeset: "Değişiklik takımı: %{id}"
       changesetxml: Değişiklik takımı XML
-      download: "%{changeset_xml_link} veya %{osmchange_xml_link} indir"
       feed: 
         title: Değişiklik takımı %{id}
         title_comment: Değişiklik takımı %{id} - %{comment}
@@ -120,21 +121,18 @@ tr:
         next_changeset_tooltip: "%{user} tarafından sonraki düzenleme"
         prev_changeset_tooltip: "%{user} tarafından önceki düzenleme"
     node: 
-      download: "%{download_xml_link}, %{view_history_link} veya %{edit_link}"
       download_xml: XML İndir
-      edit: değiştir
       node: Nokta
       node_title: "Nokta: %{node_name}"
-      view_history: geçmişi görüntüle
+      view_history: Geçmişi görüntüle
     node_details: 
       coordinates: "Koordinatları:"
       part_of: "Ortak parça:"
     node_history: 
-      download: "%{download_xml_link} veya %{view_details_link}"
       download_xml: XML indir
       node_history: Nokta Geçmişi
       node_history_title: "Nokta geçmişi: %{node_name}"
-      view_details: ayrıntıları göster
+      view_details: Ayrıntıları göster
     not_found: 
       sorry: Üzgünüm, %{id} numaralı %{type} bulunamadı.
       type: 
@@ -149,7 +147,6 @@ tr:
       type: 
         node: nokta
     relation: 
-      download: "%{download_xml_link} veya %{view_history_link}"
       download_xml: XML indir
       relation: İlişki
       relation_title: "Ilişki: %{relation_name}"
@@ -158,28 +155,23 @@ tr:
       members: "Elemanlar:"
       part_of: "Ortak parça:"
     relation_history: 
-      download: "%{download_xml_link} veya %{view_details_link}"
       download_xml: XML İndir
       relation_history: Ilişki Geçmişi
       relation_history_title: "İlişki Geçmişi: %{relation_name}"
-      view_details: ayrıntıları göster
+      view_details: Ayrıntıları göster
     relation_member: 
       entry_role: "%{type} %{name}, adı %{role}"
       type: 
         node: Nokta
         relation: İlişki
         way: Yol
-    start: 
-      manually_select: Fare kullanarak farklı bir alan seç
-      view_data: Geçerli harita alanının verileri görüntüle
     start_rjs: 
       data_frame_title: Veri
       data_layer_name: Harita Verisi Gözat
       details: Ayrıntılar
-      drag_a_box: Fare kullanarak harita üzerinde bir alan seç
-      edited_by_user_at_timestamp: "[[user]] tarafından düzenlendi ([[timestamp]])"
+      edited_by_user_at_timestamp: "%{user} tarafından düzenlendi (%{timestamp})"
       hide_areas: Bölgeleri gizle
-      history_for_feature: "[[feature]] (geçmiş)"
+      history_for_feature: "%{feature} (geçmiş)"
       load_data: Veri Yükle
       loading: Yükleniyor...
       manually_select: Fare kullanarak farklı bir alan seç
@@ -190,19 +182,19 @@ tr:
         heading: Nesne listesi
         history: 
           type: 
-            node: Nokta [[id]]
-            way: Yol [[id]]
+            node: Nokta %{id}
+            way: Yol %{id}
         selected: 
           type: 
-            node: Nokta [[id]]
-            way: Yol [[id]]
+            node: Nokta %{id}
+            way: Yol %{id}
         type: 
           node: Nokta
           way: Yol
       private_user: gizli kullanıcı
       show_areas: Bölgeleri göster
       show_history: Geçmişi görüntüle
-      unable_to_load_size: "Yüklenemiyor: alan boyutu [[bbox_size]] çok büyük - (%{max_bbox_size}'den küçük olması gerekir)"
+      unable_to_load_size: "Yüklenemiyor: alan boyutu %{bbox_size} çok büyük - (%{max_bbox_size}'den küçük olması gerekir)"
       wait: Bekleyin...
       zoom_or_select: Yakınlaştır ya da haritada bir alan seç
     tag_details: 
@@ -218,7 +210,6 @@ tr:
         relation: ilişki
         way: yol
     way: 
-      download: "%{download_xml_link}, %{view_history_link} veya %{edit_link}"
       download_xml: XML İndir
       edit: Düzenle
       view_history: Geçmişi görüntüle
@@ -228,7 +219,6 @@ tr:
       nodes: "Noktalar:"
       part_of: "Ortak parça:"
     way_history: 
-      download: "%{download_xml_link} veya %{view_details_link}"
       download_xml: XML İndir
       view_details: ayrıntıları göster
       way_history: Yol Geçmişi
@@ -259,6 +249,7 @@ tr:
       description_nearby: Yakındaki kullanıcıların değişiklik kayıtları
       description_user: "%{user} tarafından değişiklik setleri"
       description_user_bbox: "%{user} tarafından %{bbox} alanındaki değişiklik setleri"
+      empty_anon_html: Henüz hiçbir düzenleme yapılmadı
       heading: Değişiklik Setleri
       heading_bbox: Değişiklik Setleri
       heading_friend: Değişiklik Kayıtları
@@ -275,6 +266,7 @@ tr:
       sorry: Üzgünüz, değişiklik kayıtlarının listelenmesi fazla sürdü.
   diary_entry: 
     comments: 
+      ago: "%{ago} önce"
       comment: Yorum
       has_commented_on: "%{display_name} aşağıdaki günlük girdilerini yorumladı"
       newer_comments: Daha yeni yorumlar
@@ -398,8 +390,6 @@ tr:
         cities: Büyükşehirler
         places: Yerler
         towns: Şehirler
-    description_osm_namefinder: 
-      prefix: "%{distance} %{direction} - %{type}"
     direction: 
       east: doğu
       north: kuzey
@@ -421,7 +411,6 @@ tr:
         ca_postcode: <a href="http://geocoder.ca/">Geocoder.CA</a>'dan sonuçları
         geonames: <a href="http://www.geonames.org/">GeoNames.org</a>'un sonuçları
         latlon: <a href="http://openstreetmap.org/">OSM</a>'un sonuçları
-        osm_namefinder: <a href="http://gazetteer.openstreetmap.org/namefinder/">OpenStreetMap Ad Bulucu</a>
         osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OSM Nominatim</a> sonuçları
         uk_postcode: <a href="http://www.npemap.org.uk/">FreeThe Postcode</a> sonuçları (İngiltere)
         us_postcode: <a href="http://geocoder.us/">Geocoder.us</a>'dan sonuçları
@@ -431,13 +420,16 @@ tr:
           aerodrome: Havaalanı
           helipad: Helikopter alanı
           runway: Uçak pisti
+          terminal: Terminal
         amenity: 
+          WLAN: WiFi Erişim Noktası
           airport: Havaalanı
           arts_centre: Sanat Merkezi
           atm: Bankamatik
           auditorium: Oditoryum
           bank: Banka
           bar: Bar
+          bbq: Mangal alanı
           bench: Bank
           bicycle_parking: Bisiklet Parkı
           bicycle_rental: Bisiklet kiralama
@@ -505,9 +497,11 @@ tr:
           shelter: Korunak
           shop: Dükkan
           shopping: Alışveriş Merkezi
+          shower: Duş
           social_club: Sosyal kulübü
           studio: Stüdyo
           supermarket: Süpermarket
+          swimming_pool: Yüzme Havuzu
           taxi: Taksi
           telephone: Telefon
           theatre: Tiyatro
@@ -522,6 +516,10 @@ tr:
           youth_centre: Gençlik Merkezi
         boundary: 
           administrative: İdari Sınır
+          national_park: Milli Park
+        bridge: 
+          suspension: Asma köprüsü
+          "yes": Köprü
         building: 
           "yes": Bina
         highway: 
@@ -546,14 +544,17 @@ tr:
           primary_link: Devlet Yolu bağlantısı
           raceway: Koşu yolu
           residential: Sokak
+          rest_area: Dinlenme Alanı
           road: Yol
           secondary: İl yolu
           secondary_link: İl yolunun bağlantısı
           service: Servis Yolu
           services: Dinleme Tesisi
+          speed_camera: Hız Kamerası
           steps: Merdiven
           stile: Çit basamağı
           tertiary: Köy arası yolu
+          tertiary_link: Köy arası yolu
           track: Toprak yolu
           trail: İz
           trunk: Bölünmüş anayol
@@ -569,6 +570,7 @@ tr:
           church: Kilise
           house: Tarihi Konak
           icon: Simge
+          manor: Köşk
           memorial: Anıt
           mine: Maden Ocağı
           monument: Anıt
@@ -594,6 +596,7 @@ tr:
           military: Askeri Bölge
           mine: Maden Ocağı
           nature_reserve: Doğa Koruma Alanı
+          orchard: Meyve Bahçesi
           park: Park
           quarry: Ocak
           railway: Demiryolu
@@ -608,6 +611,7 @@ tr:
         leisure: 
           beach_resort: Plajlı tatilköyü
           fishing: Balıkçılık alanı
+          fitness_station: Spor Merkezi
           garden: Bahçe
           golf_course: Golf Sahası
           ice_rink: Buz pateni
@@ -618,12 +622,16 @@ tr:
           pitch: Spor sahası
           playground: Çocuk parkı
           recreation_ground: Eğlence parkı
+          sauna: Sauna
           slipway: Kızak yolu
           sports_centre: Spor Merkezi
           stadium: Stadyum
           swimming_pool: Yüzme Havuzu
           track: Koşuş yolu
           water_park: Su Parkı
+        military: 
+          airfield: Askeri Havaalanı
+          barracks: Kışla
         natural: 
           bay: Koy / körfez
           beach: Plaj
@@ -635,6 +643,7 @@ tr:
           feature: Özelliği
           fell: Ağaçsız tepe
           fjord: Haliç
+          forest: Orman
           geyser: Gayzer
           glacier: Buzul
           heath: Fundalık
@@ -662,6 +671,15 @@ tr:
           wetland: Sulak alan
           wetlands: Sulak Alanlar
           wood: Orman
+        office: 
+          accountant: Muhasebeci
+          architect: Mimar
+          company: Şirket
+          employment_agency: İş ve İşçi Bulma Kurumu
+          estate_agent: Emlakçı
+          lawyer: Avukat
+          travel_agent: Seyahat Acentası
+          "yes": Ofis
         place: 
           airport: Havaalanı
           city: Büyükşehir / il merkezi
@@ -705,9 +723,11 @@ tr:
           tram_stop: Tramvay Durağı
         shop: 
           alcohol: Tekel bayii
+          antiques: Antikacı
           art: Sanat Galerisi
           bakery: Fırın
           beauty: Güzellik Salonu
+          beverages: İçecek Dükkanı
           bicycle: Bisikletçi
           books: Kitap Evi
           butcher: Kasap
@@ -718,6 +738,7 @@ tr:
           chemist: Eczacı
           clothes: Giysi Dükkanı
           computer: Bilgisayar Mağazası
+          convenience: Bakkal
           copyshop: Fotokopi Merkezi
           cosmetics: Kozmetik Mağazası
           discount: İndirimli Ürünler Mağazası
@@ -755,6 +776,7 @@ tr:
           shoes: Ayakkabı Dükkanı
           shopping_centre: Alışveriş Merkezi
           sports: Spor Malzemeleri Mağazası
+          stationery: Kırtasiye
           supermarket: Süpermarket
           toys: Oyuncakçı
           travel_agency: Seyahat Acentası
@@ -781,18 +803,30 @@ tr:
           valley: Dere/vadi
           viewpoint: Panoramik view
           zoo: Hayvanat bahçesi
+        tunnel: 
+          "yes": Tünel
         waterway: 
+          artificial: Yapay su yolu
+          boatyard: Tersane
           canal: Kanal
+          connector: Su yolu bağlantısı
           dam: Baraj
+          derelict_canal: Sahipsiz kanal
           ditch: Sulama kanalı
           dock: İskele
           drain: Atık su kanalı
+          lock: İskele
+          lock_gate: Menfez
           mineral_spring: Maden Suyu
+          mooring: Baba
+          rapids: Akıntı
           river: Nehir
           riverbank: Irmak kenarı
           stream: Çay
           wadi: Vadi
+          water_point: İçme suyu
           waterfall: Şelale
+          weir: Küçük köprü
   javascripts: 
     map: 
       base: 
@@ -830,19 +864,17 @@ tr:
     history: Geçmiş
     home: konum
     home_tooltip: Kendin konuma git
-    inbox: mesajlar (%{count})
+    inbox_html: mesajlar %{count}
     inbox_tooltip: 
       one: Bir tane okunmamış mesajın var
       other: "%{count} okunmamış mesaj var"
       zero: Okunmamış mesajın yok
     intro_1: OpenStreetMap herkese serbest ve ücretsiz senin gibi insanlar tarafından oluşturduğu bir dünya haritasıdır.
-    intro_2_create_account: hesabı oluşturunuz
+    intro_2_create_account: hesap oluşturunuz
     intro_2_download: indirmesi
     intro_2_html: "%{license} olan verilerinin %{download} ve %{use} tamamen serbesttir. Harita geliştirmek için bir %{create_account}."
     intro_2_license: Kamuya açık lisansı
     intro_2_use: kullanması
-    license: 
-      title: OpenStreetMap veri Creative Commons Attribution-Share Alike 2.0 Genel Lisans altında lisanslanmıştır
     log_in: Oturum aç
     log_in_tooltip: Var olan bir hesapla giriş yapın
     logo: 
@@ -861,13 +893,11 @@ tr:
     partners_ucl: UCL VR Centre
     sign_up: Kaydol
     sign_up_tooltip: Düzenleme moduna girmek için bir hesap oluştur
-    sotm2011: 2011 OpenStreetMap konferans, The State of the Map (Haritanın Durumu), 9-11 Eylül Denver'de!
     tag_line: Özgür Viki Dünya Haritası
     user_diaries: Günlük
     user_diaries_tooltip: Kullanıcı günlükleri görüntüle
     view: Harita
     view_tooltip: Haritayı göster
-    welcome_user: Merhaba, %{user_link}
     welcome_user_link_tooltip: Senin kullanıcı sayfan
     wiki: Viki
     wiki_title: Projenin viki sayfaları
@@ -875,6 +905,9 @@ tr:
     foreign: 
       english_link: İngilizce orijinal
       title: Bu çeviri hakkında
+    legal_babble: 
+      contributors_title_html: Katkıcılarımız
+      title_html: Telif Hakkı ve Lisans
     native: 
       mapping_link: harita çizmeye başla
       native_link: THIS_LANGUAGE_NAME_HERE sürümü
@@ -885,6 +918,7 @@ tr:
     inbox: 
       date: Tarih
       from: Gönderen
+      messages: "%{new_messages} yeni ve %{old_messages} eski mesaj var"
       my_inbox: Gelen kutusu
       outbox: Gönderilmiş kutusu
       people_mapping_nearby: yakın çevredeki haritacılar
@@ -924,8 +958,6 @@ tr:
       back_to_outbox: Gönderilmiş kutusuna dön
       date: Tarih
       from: Gönderen
-      reading_your_messages: Mesajlarını oku
-      reading_your_sent_messages: Gönderilmiş mesajlarını oku
       reply_button: Yanıtla
       subject: Konu
       title: Mesaj oku
@@ -941,9 +973,14 @@ tr:
     email_confirm: 
       subject: "[OpenStreetMap] E-posta adresi onaylama mesajı"
     email_confirm_html: 
+      click_the_link: Bu e-postayı sana aitse onaylamak için aşağıdaki bağlantıyı tıkla.
       greeting: Merhaba,
+      hopefully_you: Birisi (umarım sen) %{server_url} deki kayıtlı olan e-posta adresi %{new_address} olarak değiştirmek istiyor.
     email_confirm_plain: 
+      click_the_link: Bu e-posta adresi sana aitse onaylamak için aşağıdaki bağlantıyı tıkla.
       greeting: Merhaba,
+      hopefully_you_1: "Birisi (umarım sen) kendi e-posta adresini değiştirmek istiyor:"
+      hopefully_you_2: "%{server_url} deki %{new_address} olacak."
     friend_notification: 
       befriend_them: "%{befriendurl} üzerinden arkadaş olarak da ekleyebilirsiniz."
       had_added_you: Kullanıcı %{user} seni arkadaş olarak OpenStreetMap'te ekledi.
@@ -961,23 +998,27 @@ tr:
     lost_password: 
       subject: "[OpenStreetMap] Şifre sıfırlama isteği"
     lost_password_html: 
+      click_the_link: Bu istek sana aitse şifre sıfırlamak için aşağıdaki bağlantıyı tıkla.
       greeting: Merhaba,
     lost_password_plain: 
+      click_the_link: Bu istek sana aitse şifre sıfırlamak için aşağıdaki bağlantıyı tıkla.
       greeting: Merhaba,
+      hopefully_you_1: "Birisi (muhtemelen sen) şifre sıfırlanmak için başvurdu:"
+      hopefully_you_2: openstreetmap.org hesabı bu e-posta ile.
     message_notification: 
       footer1: Ayrıca mesajı %{readurl} tıklayarak okuyabilirsin
       footer2: ve %{replyurl} üzerinden cevap verebilirsiniz
       header: "OpenStreetMap kullanıcı %{from_user} sana %{subject} konulu bir mesaj gönderdi:"
       hi: Merhaba %{to_user},
     signup_confirm: 
+      created: Birisi (umarım sen) %{site_url} sitesinde yeni bir hesap açtı.
+      greeting: Merhaba!
       subject: "[OpenStreetMap] e-posta adresi onaylama mesajı"
     signup_confirm_html: 
-      greeting: Merhaba!
       introductory_video: "%{introductory_video_link} seyretebilirsin."
       more_videos_here: daha fazla video
       video_to_openstreetmap: OpenStreetMap tanıtım filmi
     signup_confirm_plain: 
-      greeting: Merhaba!
       more_videos: "Burada daha fazla video var:"
   oauth_clients: 
     edit: 
@@ -987,20 +1028,52 @@ tr:
       name: Isim
       required: Gerekli
     index: 
+      my_apps: Benim istemci uygulamalarım
       revoke: İptal!
       title: OAuth Ayrıntılarım
     new: 
       submit: Kayıt ol
     show: 
+      confirm: Emin misiniz?
+      delete: İstemci Sil
       edit: Ayrıntıları Düzenle
+  redaction: 
+    create: 
+      flash: Redaksiyon oluşturuldu.
+    destroy: 
+      error: Bu redaksiyon kaldırılırken bir hata oluştu.
+      flash: Redaksiyon kaldırıldı.
+      not_empty: Redaksiyon boş değil. Lütfen bu redaksiyonu kaldırmadan önce tüm sürümlerini tekrar düzenleyin.
+    edit: 
+      description: Açıklama
+      heading: Redaksiyonu düzenle
+      submit: Redaksiyonu kaydet
+      title: Redaksiyonu düzenle
+    index: 
+      empty: Gösterilecek redaksiyon yok.
+      heading: Redaksiyonların listesi
+      title: Redaksiyonların listesi
+    new: 
+      description: Açıklama
+      heading: Yeni redaksiyon için bilgi giriniz
+      submit: Redaksiyon oluştur
+      title: Yeni redaksiyon oluşturma
+    show: 
+      confirm: Emin misiniz?
+      description: "Açıklama:"
+      destroy: Bu redaksiyonu kaldır
+      edit: Bu redaksiyonu düzenle
+      heading: Redaksiyon "% {başlık}" göster
+      title: Redaksiyon göster
+      user: "Oluşturan:"
+    update: 
+      flash: Değişiklikler kaydedildi.
   site: 
     edit: 
       anon_edits: (%{link})
       user_page_link: kullanıcı sayfası
     index: 
       js_2: OpenStreetMap harita gösterim için JavaScript kullanıyor.
-      license: 
-        project_name: OpenStreetMap projesi
       permalink: Kalıcı Bağlantı
       shortlink: Kısa Bağlantı
     key: 
@@ -1070,6 +1143,14 @@ tr:
           unclassified: Sınıflandırılmamış yol
           unsurfaced: Ham yolu
           wood: Orman
+    markdown_help: 
+      image: Görsel
+      link: Bağlantı
+      text: Metin
+      url: URL
+    richtext_area: 
+      edit: Düzenle
+      preview: Ön izle
     search: 
       search: Ara
       search_help: "örneğin: 'Beyoğlu', 'İstiklal Caddesi, İstanbul', 'CB2 5AQ' ya da 'Fatih yakınlarında postane' <a href='http://wiki.openstreetmap.org/wiki/Search'>daha fazla örnek...</a>"
@@ -1145,8 +1226,6 @@ tr:
     trace_optionals: 
       tags: Etiketler
     trace_paging_nav: 
-      next: Sonraki »
-      previous: « Önceki
       showing_page: Sayfa %{page} görüntüleniyor
     view: 
       delete_track: Bu izi sil
@@ -1173,13 +1252,16 @@ tr:
         agreed: Yeni katılımcı şartları kabul ettin.
         agreed_with_pd: Ayrıca düzenlediklerin Kamu Malı olsun diye kabul ettin.
         heading: "Katılımcı Şartları:"
-        link text: nemiş bu?
+        link text: Bu nedir?
         not yet agreed: Yeni katılımcı şartları kabul etmedin.
       current email address: "Geçerli E-posta Adresi:"
       delete image: Geçerli resim kaldır
-      email never displayed publicly: (asla genel olarak görüntülenir)
+      email never displayed publicly: (hiçbir zaman görüntülenmez)
       flash update success: Kullanıcı bilgisi başarıyla güncellendi.
       flash update success confirm needed: Kullanıcı bilgisi başarıyla güncellendi. Yeni e-posta adresinizi onaylamak için e-mail'inizi lütfen kontrol ediniz.
+      gravatar: 
+        gravatar: Gravatar kullanın
+        link text: bu nedir?
       home location: "Konum:"
       image: "Resim:"
       image size hint: (100x100 olan kare görüntüleri en iyi görünür)
@@ -1193,7 +1275,7 @@ tr:
       no home location: Konumunu girmedin.
       openid: 
         link: http://wiki.openstreetmap.org/wiki/OpenID
-        link text: nemiş bu?
+        link text: Bu nedir?
         openid: "OpenID:"
       preferred editor: "Tercih edilen harita düzenleyici:"
       preferred languages: "Tercih edilen diller (mesela tr,en,de):"
@@ -1203,7 +1285,7 @@ tr:
         disabled link text: neden düzenleyemiyorum?
         enabled: Etkin. Anonim değil ve verileri düzenleyebilir.
         enabled link: http://wiki.openstreetmap.org/wiki/Anonymous_edits
-        enabled link text: bu da ne?
+        enabled link text: Bu nedir?
         heading: "Herkese açık düzenleme modu:"
       public editing note: 
         heading: Herkese açık düzenleme modu
@@ -1215,7 +1297,7 @@ tr:
     confirm: 
       button: Onayla
       heading: Kullanıcı hesabı onayla
-      success: Hesabın onaylandı, teşekkür ve iyi çalışmaları!<br /><br /><a href="http://wiki.openstreetmap.org/wiki/Tr:Main_Page">Hoşgeldin sayfasında</a> Türkiye'deki harita durumu konusunda bilgi alabilirsin.
+      success: Hesabın onaylandı, teşekkür ve iyi çalışmalar!<br /><br /><a href="http://wiki.openstreetmap.org/wiki/Tr:Main_Page">Hoşgeldin sayfasında</a> Türkiye'deki harita durumu konusunda bilgi alabilirsin.
     confirm_email: 
       button: Onayla
       success: E-posta adresinizi doğrulandı, kaydolduğu için teşekkür ederiz! İyi çalışmaları dileriz!
@@ -1239,14 +1321,35 @@ tr:
       lost password link: Şifren mi unuttun?
       new to osm: OpenStreetMap sitesinde yeni misiniz?
       no account: Hesabın yok mu?
+      openid invalid: Üzgünüz, OpenID hatalı biçimlendirilmiş gözüküyor
+      openid missing provider: Üzgünüz, OpenID sağlayınızla iletişim kurulamadı
+      openid_logo_alt: OpenID ile giriş
       openid_providers: 
+        aol: 
+          alt: AOL OpenID ile giriş
+          title: AOL ile giriş
+        google: 
+          alt: Google OpenID ile giriş
+          title: Google ile giriş
+        myopenid: 
+          alt: myOpenID OpenID ile giriş
+          title: MyOpenID ile giriş
         openid: 
+          alt: OpenID URL ile giriş
           title: OpenID kullanarak oturum aç
+        wordpress: 
+          alt: Wordpress OpenID ile giriş
+          title: Wordpress ile giriş
+        yahoo: 
+          alt: Yahoo OpenID ile giriş
+          title: Yahoo ile giriş
       password: "Şifre:"
       register now: Şimdi kayıt ol
       remember: "Beni hatırla:"
       title: Giriş
       to make changes: OpenStreetMap verileri değiştirmek için bir hesabın olması gerekir.
+      with openid: "Alternatif olarak OpenID ile giriş yapın:"
+      with username: "OpenStreetMap hesabınız var mı? Lütfen kullanıcı adı ve şifrenizle giriş yapınız:"
     logout: 
       heading: OpenStreetMap'den çıkış
       logout_button: Çıkış
@@ -1266,6 +1369,7 @@ tr:
       display name: "Görünen Ad:"
       display name description: Herkes tarafından görünen ad. Bu adı istediği zaman 'tercihlerim' bölümünde değiştirebilirsin.
       email address: "E-posta Adresi:"
+      flash create success message: Kayıt olduğunuz için teşekkür ederiz. Şu anda %{email} e-posta adresinize işlemlerin tamamlandığına dair son bir onaylama daha gönderildi. E-posta adresindeki onay işlemlerini gerçekleştirdikten sonra kendi haritalarınıza ulaşabilicek ve oluşturabileceksiniz<br /><br />Eğer siz antispam sistemi kullanıyorsanız, gönderdiğimiz onay e-postasının spam listesine düşmüş olabileceğini unutmayın. Ayrıca doğrulama istek e-postalarınıza cevap veremiyoruz. Bunun yerine sorun için bizimle webmaster@openstreetmap.org e-posta adresinden iletişim kurabilirsiniz.
       heading: Kullanıcı Hesabı Oluştur
       openid: "%{logo} OpenID:"
       password: "Şifre:"
@@ -1296,15 +1400,19 @@ tr:
       webmaster: site yönetici
     terms: 
       agree: Kabul Et
+      consider_pd: Yukarıdaki anlaşmaya ek olarak, katkılarınızın kamu malı olarak kabul edilmesini de seçebilirsiniz
       consider_pd_why: bu nedir?
       decline: Reddet
+      guidance: "Buradaki bilgileri anlamanıza yardımcı olabilecek bilgiler:  <a href=\"%{summary}\">okunabilir bir özet</a> ve ayrıca <a href=\"%{translations}\">genel çeviriler</a>"
       heading: Katılımcı Şartları
       legale_names: 
         france: Fransa
         italy: İtalya
         rest_of_world: Dünyanın geri kalanı
       legale_select: "İkamet ettiğiniz ülke seç:"
+      read and accept: Lütfen aşağıdaki anlaşmayı okuyun ve mevcut ya da gelecekteki katkılarınız için bu sözleşmenin şartlarını kabul ettiğinizi onaylamak için kabul et butonuna basın.
       title: Katılımcı Şartları
+      you need to accept or decline: Lütfen katılımcı şartlarını okuyunuz ve şartları kabul ya da ret ediniz.
     view: 
       activate_user: Bu kullanıcıyı etkinleştir
       add as friend: arkadaş olarak ekle
@@ -1350,7 +1458,13 @@ tr:
       remove as friend: Arkadaş listesinden çıkar
       role: 
         administrator: Bu kullanıcı bir yönetici dir.
+        grant: 
+          administrator: Yönetici erişim hakkı
+          moderator: Moderatör erişim izni
         moderator: Bu kullanıcı bir moderatör dür.
+        revoke: 
+          administrator: Yönetici erişimini iptal etme
+          moderator: Moderatör erişimini iptal etme
       send message: mesaj gönder
       settings_link_text: ayarları
       spam score: "Spam puanı:"
@@ -1385,11 +1499,14 @@ tr:
       creator_name: Oluşturan
       display_name: Engellenmiş kullanıcı
       edit: Düzenle
+      next: Sonraki »
       not_revoked: (iptal edilmemiş)
+      previous: « Önceki
       reason: Engelleme sebebi
       revoke: İptal!
       revoker_name: İptal eden
       show: Göster
+      showing_page: Sayfa %{page} görüntüleniyor
       status: Durum
     period: 
       one: 1 saat

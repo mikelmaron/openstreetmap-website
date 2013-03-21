@@ -63,7 +63,6 @@ ka:
     changeset: 
       changeset: "ცვლილებების პაკეტი: %{id}"
       changesetxml: ცვლილებების პაკეტის XML
-      download: გადმოწერა %{changeset_xml_link}, ან %{osmchange_xml_link}
       feed: 
         title: ცვლილებების პაკეტი %{id}
         title_comment: ცვლილებების პაკეტი %{id} - %{comment}
@@ -119,20 +118,18 @@ ka:
         next_changeset_tooltip: შემდეგი შესწორება %{user}
         prev_changeset_tooltip: წინა შესწორება %{user}
     node: 
-      download: "%{download_xml_link}, %{view_history_link} ან %{edit_link}"
       download_xml: გადმოწერა XML
-      edit: რედაქტირება
+      edit: კვანძის რედაქტირება
       node: კვანძი
       node_title: "კვანძი: %{node_name}"
-      view_history: ისტორიის ნახვა
+      view_history: ისტორიის ხილვა
     node_details: 
       coordinates: "კოორდინატები:"
     node_history: 
-      download: "%{download_xml_link} ან %{view_details_link}"
       download_xml: გადმოწერა XML
       node_history: კვანძის ისტორია
       node_history_title: "კვანძის ისტორია: %{node_name}"
-      view_details: ვრცლად
+      view_details: დეტალების ხილვა
     not_found: 
       sorry: უკაცრავად, %{type} იდენტიფიკატორით %{id}, ვერ მოიძებნა.
       type: 
@@ -145,37 +142,34 @@ ka:
       showing_page: გვერდის ჩვენება
     redacted: 
       type: 
+        node: კვანძი
+        relation: ურთიერთობა
         way: გზა
     relation: 
-      download: "%{download_xml_link} ან %{view_history_link}"
       download_xml: გადმოწერა XML
       relation: ურთიერთობა
       relation_title: "ურთიერთობა: %{relation_name}"
-      view_history: ისტორიის ნახვა
+      view_history: ისტორიის ხილვა
     relation_details: 
       members: "წევრები:"
     relation_history: 
-      download: "%{download_xml_link} ან %{view_details_link}"
       download_xml: გადმოწერა XML
       relation_history: ურთიერთობის ისტორია
       relation_history_title: "ურთიერთობის ისტორია: %{relation_name}"
-      view_details: ვრცლად
+      view_details: დეტალების ხილვა
     relation_member: 
       entry_role: "%{type} %{name} როგორც %{role}"
       type: 
         node: კვანძი
         relation: ურთიერთობა
         way: გზა
-    start: 
-      manually_select: სხვა ტერიტორიის გამოყოფა ხელით
     start_rjs: 
       data_frame_title: მონაცემები
       data_layer_name: რუკის მონაცემების ნახვა
       details: დეტალები
-      drag_a_box: რეგიონის ასარჩევად რუკაზე გაწელეთ ჩარჩო
-      edited_by_user_at_timestamp: შეცვალა [[user]] [[timestamp]]-ში
+      edited_by_user_at_timestamp: შეცვალა %{user} %{timestamp}-ში
       hide_areas: ტერიტორიების დამალვა
-      history_for_feature: ისტორია [[feature]]-თვის
+      history_for_feature: ისტორია %{feature}-თვის
       load_data: მონაცემების ატვირთვა
       loading: იტვირთება...
       manually_select: სხვა რეგიონის გამოყოფა ხელით
@@ -185,12 +179,12 @@ ka:
         heading: ობიექტების სია
         history: 
           type: 
-            node: კვანძი [[id]]
-            way: გზა [[id]]
+            node: კვანძი %{id}
+            way: გზა %{id}
         selected: 
           type: 
-            node: კვანძი [[id]]
-            way: გზა [[id]]
+            node: კვანძი %{id}
+            way: გზა %{id}
         type: 
           node: კვანძი
           way: გზა
@@ -209,10 +203,9 @@ ka:
         relation: ურთიერთობა
         way: გზა
     way: 
-      download: "%{download_xml_link}, %{view_history_link} ან %{edit_link}"
       download_xml: გადმოწერა XML
-      edit: რედაქტირება
-      view_history: ისტორიის ნახვა
+      edit: კვანძის რედაქტირება
+      view_history: ისტორიის ხილვა
       way: გზა
       way_title: "გზა: %{way_name}"
     way_details: 
@@ -221,9 +214,8 @@ ka:
         other: აგრეთვე გზების ნაწილი %{related_ways}
       nodes: "კვანძები:"
     way_history: 
-      download: "%{download_xml_link} ან %{view_details_link}"
       download_xml: გადმოწერა XML
-      view_details: ვრცლად
+      view_details: დეტალების ხილვა
       way_history: გზის ისტორია
       way_history_title: "გზის ისტორია: %{way_name}"
   changeset: 
@@ -266,8 +258,9 @@ ka:
       hide_link: ამ კომენტარის დამალვა
     diary_entry: 
       comment_count: 
-        one: 1 კომენტარი
+        one: "%{count} კომენტარი"
         other: "%{count} კომენტარი"
+        zero: არ არის კომენტარი
       comment_link: კომენტარი
       confirm: დადასტურება
       edit_link: ჩანაწერის რედაქტირება
@@ -356,8 +349,6 @@ ka:
         cities: ქალაქები
         places: ადგილები
         towns: დაბები
-    description_osm_namefinder: 
-      prefix: "%{distance} %{direction} %{type}"
     direction: 
       east: აღმოსავლეთი
       north: ჩრდილოეთი
@@ -379,12 +370,9 @@ ka:
         ca_postcode: <a href="http://geocoder.ca/">Geocoder.CA</a>–ს შედეგები
         geonames: <a href="http://www.geonames.org/">GeoNames</a>–ის შედეგები
         latlon: <a href="http://openstreetmap.org/">შიდა შედეგები</a>
-        osm_namefinder: <a href="http://gazetteer.openstreetmap.org/namefinder/">OpenStreetMap Namefinder</a>–ის შედეგები
         osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>–ის შედეგები
         uk_postcode: <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>–ის შედეგები
         us_postcode: <a href="http://geocoder.us/">Geocoder.us</a>–ის შედეგები
-    search_osm_namefinder: 
-      suffix_place: ", %{distance} %{direction} %{placename}–დან"
     search_osm_nominatim: 
       prefix: 
         aeroway: 
@@ -547,6 +535,7 @@ ka:
           brownfield: მიტოვებული ადგილი
           cemetery: სასაფლაო
           commercial: კომერციული ტერიტორია
+          conservation: კონსერვაცია
           construction: მშენებლობა
           farm: ფერმა
           farmland: სავარგული
@@ -567,6 +556,7 @@ ka:
           recreation_ground: რეკრეაციული ზონა
           reservoir: წყალსაცავი
           residential: საცხოვრებელი ტერიტორია
+          retail: სავაჭრო ტერიტორია
           village_green: მწვანე სოფელი
           vineyard: ვენახი
           wetland: ჭარბტენიანი ტერიტორია
@@ -700,8 +690,10 @@ ka:
           cosmetics: კოსმეტიკის მაღაზია
           electronics: ელექტროტექნიკის მაღაზია
           estate_agent: უძრავი ქონების აგენტი
+          fashion: მოდური ტანსაცმლის მაღაზია
           fish: თევზების მაღაზია
           florist: ყვავილების მაღაზია
+          food: საკვების მაღაზია
           furniture: ავეჯი
           gallery: გალერეა
           gift: საჩუქრების მაღაზია
@@ -777,7 +769,7 @@ ka:
     history: ისტორია
     home: სახლი
     home_tooltip: საწყის მდებარეობაზე დაბრუნება
-    inbox: შემომავალი (%{count})
+    inbox_html: შემომავალი %{count}
     intro_1: OpenStreetMap არის მსოფლიოს თავისუფალი რუკა, შექმნილი თქვენნაირი ადამიანების მიერ.
     intro_2_create_account: მომხმარებლის ანგარიშის შექმნა
     intro_2_download: გადმოწერა
@@ -794,12 +786,11 @@ ka:
     partners_partners: პარტნიორები
     partners_url: http://wiki.openstreetmap.org/wiki/Partners
     sign_up: რეგისტრაცია
-    tag_line: მსოფლიოს თავისუფალი ვიკი-რუკა
+    tag_line: თავისუფალი ვიკი-რუკა
     user_diaries: მომხმარებლების დღიურები
     user_diaries_tooltip: მომხმარებლების დღიურების ნახვა
     view: იხილეთ
     view_tooltip: რუკის ხილვა
-    welcome_user: კეთილი იყოს თქვენი მობრძანება, %{user_link}
     welcome_user_link_tooltip: თქვენი მომხმარებლის გვერდი
     wiki: ვიკი
   license_page: 
@@ -867,8 +858,6 @@ ka:
       back_to_outbox: გაგზავნილებში დაბრუნება
       date: თარიღი
       from: გამომგზავნი
-      reading_your_messages: შეტყობინებების წაკითხვა
-      reading_your_sent_messages: გაგზავნილი შეტყობინებების წაკითხვა
       reply_button: პასუხი
       subject: თემა
       title: შეტყობინების წაკითხვა
@@ -900,13 +889,10 @@ ka:
     message_notification: 
       hi: გამარჯობა %{to_user},
     signup_confirm: 
-      subject: "[OpenStreetMap] დაადასტურეთ ელ.ფოსტის მისამართი"
+      subject: "[OpenStreetMap] მოგესალმებით OpenStreetMap-ში"
     signup_confirm_html: 
-      greeting: გამარჯობა!
       more_videos: აქ არის %{more_videos_link}.
       more_videos_here: მეტი ვიდეო აქ
-    signup_confirm_plain: 
-      greeting: გამარჯობა!
   oauth: 
     oauthorize: 
       allow_write_api: რუკის შეცვლა.
@@ -929,15 +915,13 @@ ka:
     edit: 
       description: აღწერა
     show: 
+      confirm: დარწმუნებული ხართ?
       description: "აღწერა:"
       user: "შემქმნელი:"
   site: 
     edit: 
       user_page_link: მომხმარებლის გვერდი
     index: 
-      license: 
-        license_name: Creative Commons Attribution-Share Alike 2.0
-        project_name: პროექტი OpenStreetMap
       permalink: მუდმივი ბმული
       shortlink: მოკლე ბმული
     key: 
@@ -1045,8 +1029,6 @@ ka:
       visibility: "ხილვადობა:"
       visibility_help: ეს რას ნიშნავს?
     trace_paging_nav: 
-      next: შემდეგი »
-      previous: « წინა
       showing_page: ნაჩვენებია გვერდი %{page}
     view: 
       description: "აღწერა:"
@@ -1231,7 +1213,9 @@ ka:
       creator_name: შემქმნელი
       display_name: დაბლოკილი მომხმარებელი
       edit: რედაქტირება
+      next: შემდეგი »
       not_revoked: (არ არის განბლოკილი)
+      previous: « წინა
       reason: დაბლოკვის მიზეზი
       revoke: განბლოკვა!
       revoker_name: განბლოკილია

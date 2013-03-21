@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class GeocoderController < ApplicationController
   require 'uri'
   require 'net/http'
@@ -5,6 +7,7 @@ class GeocoderController < ApplicationController
 
   before_filter :authorize_web
   before_filter :set_locale
+  before_filter :convert_latlon, :only => [:search]
 
   def search
     @query = params[:query]
@@ -132,84 +135,6 @@ class GeocoderController < ApplicationController
     render :action => "error"
   end
 
-  def search_osm_namefinder
-    # get query parameters
-    query = params[:query]
-
-    # create result array
-    @results = Array.new
-
-    # ask OSM namefinder
-    response = fetch_xml("http://gazetteer.openstreetmap.org/namefinder/search.xml?find=#{escape_query(query)}")
-
-    # parse the response
-    response.elements.each("searchresults/named") do |named|
-      lat = named.attributes["lat"].to_s
-      lon = named.attributes["lon"].to_s
-      zoom = named.attributes["zoom"].to_s
-      place = named.elements["place/named"] || named.elements["nearestplaces/named"]
-      type = named.attributes["info"].to_s.capitalize
-      name = named.attributes["name"].to_s
-      description = named.elements["description"].to_s
-
-      if name.empty?
-        prefix = ""
-        name = type
-      else
-        prefix =  t "geocoder.search_osm_namefinder.prefix", :type => type
-      end
-
-      if place
-        distance = format_distance(place.attributes["approxdistance"].to_i)
-        direction = format_direction(place.attributes["direction"].to_i)
-        placename = format_name(place.attributes["name"].to_s)
-        suffix = t "geocoder.search_osm_namefinder.suffix_place", :distance => distance, :direction => direction, :placename => placename
-
-        if place.attributes["rank"].to_i <= 30
-          parent = nil
-          parentrank = 0
-          parentscore = 0
-
-          place.elements.each("nearestplaces/named") do |nearest|
-            nearestrank = nearest.attributes["rank"].to_i
-            nearestscore = nearestrank / nearest.attributes["distance"].to_f
-
-            if nearestrank > 30 and
-               ( nearestscore > parentscore or
-                 ( nearestscore == parentscore and nearestrank > parentrank ) )
-              parent = nearest
-              parentrank = nearestrank
-              parentscore = nearestscore
-            end
-          end
-
-          if parent
-            parentname = format_name(parent.attributes["name"].to_s)
-
-            if  place.attributes["info"].to_s == "suburb"
-              suffix = t "geocoder.search_osm_namefinder.suffix_suburb", :suffix => suffix, :parentname => parentname
-            else
-              parentdistance = format_distance(parent.attributes["approxdistance"].to_i)
-              parentdirection = format_direction(parent.attributes["direction"].to_i)
-              suffix = t "geocoder.search_osm_namefinder.suffix_parent", :suffix => suffix, :parentdistance => parentdistance, :parentdirection => parentdirection, :parentname => parentname
-            end
-          end
-        end
-      else
-        suffix = ""
-      end
-
-      @results.push({:lat => lat, :lon => lon, :zoom => zoom,
-                     :prefix => prefix, :name => name, :suffix => suffix,
-                     :description => description})
-    end
-
-    render :action => "results"
-  rescue Exception => ex
-    @error = "Error contacting gazetteer.openstreetmap.org: #{ex.to_s}"
-    render :action => "error"
-  end
-
   def search_osm_nominatim
     # get query parameters
     query = params[:query]
@@ -299,42 +224,6 @@ class GeocoderController < ApplicationController
     @sources.push({ :name => "geonames" })
   end
 
-  def description_osm_namefinder
-    # get query parameters
-    lat = params[:lat]
-    lon = params[:lon]
-    types = params[:types]
-    max = params[:max]
-
-    # create result array
-    @results = Array.new
-
-    # ask OSM namefinder
-    response = fetch_xml("http://gazetteer.openstreetmap.org/namefinder/search.xml?find=#{types}+near+#{lat},#{lon}&max=#{max}")
-
-    # parse the response
-    response.elements.each("searchresults/named") do |named|
-      lat = named.attributes["lat"].to_s
-      lon = named.attributes["lon"].to_s
-      zoom = named.attributes["zoom"].to_s
-      place = named.elements["place/named"] || named.elements["nearestplaces/named"]
-      type = named.attributes["info"].to_s
-      name = named.attributes["name"].to_s
-      description = named.elements["description"].to_s
-      distance = format_distance(place.attributes["approxdistance"].to_i)
-      direction = format_direction((place.attributes["direction"].to_i - 180) % 360)
-      prefix = t "geocoder.description_osm_namefinder.prefix", :distance => distance, :direction => direction, :type => type
-      @results.push({:lat => lat, :lon => lon, :zoom => zoom,
-                     :prefix => prefix.capitalize, :name => name,
-                     :description => description})
-    end
-
-    render :action => "results"
-  rescue Exception => ex
-    @error = "Error contacting gazetteer.openstreetmap.org: #{ex.to_s}"
-    render :action => "error"
-  end
-
   def description_osm_nominatim
     # get query parameters
     lat = params[:lat]
@@ -344,7 +233,7 @@ class GeocoderController < ApplicationController
     # create result array
     @results = Array.new
 
-    # ask OSM namefinder
+    # ask nominatim
     response = fetch_xml("#{NOMINATIM_URL}reverse?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&accept-language=#{request.user_preferred_languages.join(',')}")
 
     # parse the response
@@ -426,4 +315,63 @@ private
   def escape_query(query)
     return URI.escape(query, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]", false, 'N'))
   end
+
+  def convert_latlon
+    @query = params[:query]
+
+    if latlon = @query.match(/^([NS])\s*(\d{1,3}(\.\d*)?)\W*([EW])\s*(\d{1,3}(\.\d*)?)$/).try(:captures) # [NSEW] decimal degrees
+      params[:query] = nsew_to_decdeg(latlon)
+    elsif latlon = @query.match(/^(\d{1,3}(\.\d*)?)\s*([NS])\W*(\d{1,3}(\.\d*)?)\s*([EW])$/).try(:captures) # decimal degrees [NSEW]
+      params[:query] = nsew_to_decdeg(latlon)
+
+    elsif latlon = @query.match(/^([NS])\s*(\d{1,3})°?\s*(\d{1,3}(\.\d*)?)?['′]?\W*([EW])\s*(\d{1,3})°?\s*(\d{1,3}(\.\d*)?)?['′]?$/).try(:captures) # [NSEW] degrees, decimal minutes
+      params[:query] = ddm_to_decdeg(latlon)
+    elsif latlon = @query.match(/^(\d{1,3})°?\s*(\d{1,3}(\.\d*)?)?['′]?\s*([NS])\W*(\d{1,3})°?\s*(\d{1,3}(\.\d*)?)?['′]?\s*([EW])$/).try(:captures) # degrees, decimal minutes [NSEW]
+      params[:query] = ddm_to_decdeg(latlon)
+
+    elsif latlon = @query.match(/^([NS])\s*(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(\.\d*)?)?["″]?\W*([EW])\s*(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(\.\d*)?)?["″]?$/).try(:captures) # [NSEW] degrees, minutes, decimal seconds
+      params[:query] = dms_to_decdeg(latlon)
+    elsif latlon = @query.match(/^(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(\.\d*)?)?["″]\s*([NS])\W*(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(\.\d*)?)?["″]?\s*([EW])$/).try(:captures) # degrees, minutes, decimal seconds [NSEW]
+      params[:query] = dms_to_decdeg(latlon)
+    else
+      return
+    end
+  end
+
+  def nsew_to_decdeg(captures)
+    begin
+      Float(captures[0])
+      captures[1].downcase != 's' ? lat = captures[0].to_f : lat = -(captures[0].to_f)
+      captures[4].downcase != 'w' ? lon = captures[3].to_f : lon = -(captures[3].to_f)
+    rescue
+      captures[0].downcase != 's' ? lat = captures[1].to_f : lat = -(captures[1].to_f)
+      captures[3].downcase != 'w' ? lon = captures[4].to_f : lon = -(captures[4].to_f)
+    end
+    return "#{lat}, #{lon}"
+  end
+
+  def ddm_to_decdeg(captures)
+    begin
+      Float(captures[0])
+      captures[3].downcase != 's' ? lat = captures[0].to_f + captures[1].to_f/60 : lat = -(captures[0].to_f + captures[1].to_f/60)
+      captures[7].downcase != 'w' ? lon = captures[4].to_f + captures[5].to_f/60 : lon = -(captures[4].to_f + captures[5].to_f/60)
+    rescue
+      captures[0].downcase != 's' ? lat = captures[1].to_f + captures[2].to_f/60 : lat = -(captures[1].to_f + captures[2].to_f/60)
+      captures[4].downcase != 'w' ? lon = captures[5].to_f + captures[6].to_f/60 : lon = -(captures[5].to_f + captures[6].to_f/60)
+    end
+    return "#{lat}, #{lon}"
+  end
+
+  def dms_to_decdeg(captures)
+    begin
+      Float(captures[0])
+      captures[4].downcase != 's' ? lat = captures[0].to_f + (captures[1].to_f + captures[2].to_f/60)/60 : lat = -(captures[0].to_f + (captures[1].to_f + captures[2].to_f/60)/60)
+      captures[9].downcase != 'w' ? lon = captures[5].to_f + (captures[6].to_f + captures[7].to_f/60)/60 : lon = -(captures[5].to_f + (captures[6].to_f + captures[7].to_f/60)/60)
+    rescue
+      captures[0].downcase != 's' ? lat = captures[1].to_f + (captures[2].to_f + captures[3].to_f/60)/60 : lat = -(captures[1].to_f + (captures[2].to_f + captures[3].to_f/60)/60)
+      captures[5].downcase != 'w' ? lon = captures[6].to_f + (captures[7].to_f + captures[8].to_f/60)/60 : lon = -(captures[6].to_f + (captures[7].to_f + captures[8].to_f/60)/60)
+    end
+    return "#{lat}, #{lon}"
+  end
+
 end

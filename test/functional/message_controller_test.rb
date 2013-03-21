@@ -85,16 +85,10 @@ class MessageControllerTest < ActionController::TestCase
     m = Message.find(3)
     assert_equal users(:normal_user).id, m.from_user_id
     assert_equal users(:public_user).id, m.to_user_id
-    assert_in_delta Time.now, m.sent_on, 1
+    assert_in_delta Time.now, m.sent_on, 2
     assert_equal "Test Message", m.title
     assert_equal "Test message body", m.body
     assert_equal "markdown", m.body_format
-
-    # Asking to send a message with no user name should fail
-    get :new
-    assert_response :not_found
-    assert_template "user/no_such_user"
-    assert_select "h2", "The user  does not exist"
 
     # Asking to send a message with a bogus user name should fail
     get :new, :display_name => "non_existent_user"
@@ -107,37 +101,38 @@ class MessageControllerTest < ActionController::TestCase
   # test the reply action
   def test_reply
     # Check that the message reply page requires us to login
-    get :reply, :message_id => messages(:read_message).id
-    assert_redirected_to login_path(:referer => reply_message_path(:message_id => messages(:read_message).id))
+    get :reply, :message_id => messages(:unread_message).id
+    assert_redirected_to login_path(:referer => reply_message_path(:message_id => messages(:unread_message).id))
 
     # Login as the wrong user
     session[:user] = users(:second_public_user).id
     cookies["_osm_username"] = users(:second_public_user).display_name
 
     # Check that we can't reply to somebody else's message
-    get :reply, :message_id => messages(:read_message).id
-    assert_redirected_to login_path(:referer => reply_message_path(:message_id => messages(:read_message).id))
+    get :reply, :message_id => messages(:unread_message).id
+    assert_redirected_to login_path(:referer => reply_message_path(:message_id => messages(:unread_message).id))
     assert_equal "You are logged in as `pulibc_test2' but the message you have asked to reply to was not sent to that user. Please login as the correct user in order to reply.", flash[:notice]
 
     # Login as the right user
-    session[:user] = users(:normal_user).id
-    cookies["_osm_username"] = users(:normal_user).display_name
+    session[:user] = users(:public_user).id
+    cookies["_osm_username"] = users(:public_user).display_name
 
     # Check that the message reply page loads
-    get :reply, :message_id => messages(:read_message).id
+    get :reply, :message_id => messages(:unread_message).id
     assert_response :success
     assert_template "new"
-    assert_select "title", "OpenStreetMap | Re: test message 2"
-    assert_select "form[action='#{new_message_path(:display_name => users(:public_user).display_name)}']", :count => 1 do
-      assert_select "input#message_title[value='Re: test message 2']", :count => 1
+    assert_select "title", "OpenStreetMap | Re: test message 1"
+    assert_select "form[action='#{new_message_path(:display_name => users(:normal_user).display_name)}']", :count => 1 do
+      assert_select "input#message_title[value='Re: test message 1']", :count => 1
       assert_select "textarea#message_body", :count => 1
       assert_select "input[type='submit'][value='Send']", :count => 1
     end
+    assert_equal true, Message.find(messages(:unread_message).id).message_read
 
     # Asking to reply to a message with no ID should fail
-    get :reply
-    assert_response :not_found
-    assert_template "no_such_message"
+    assert_raise ActionController::RoutingError do
+      get :reply
+    end
 
     # Asking to reply to a message with a bogus ID should fail
     get :reply, :message_id => 99999
@@ -182,9 +177,9 @@ class MessageControllerTest < ActionController::TestCase
     assert_equal true, Message.find(messages(:unread_message).id).message_read
 
     # Asking to read a message with no ID should fail
-    get :read
-    assert_response :not_found
-    assert_template "no_such_message"
+    assert_raise ActionController::RoutingError do
+      get :read
+    end
 
     # Asking to read a message with a bogus ID should fail
     get :read, :message_id => 99999
@@ -285,9 +280,9 @@ class MessageControllerTest < ActionController::TestCase
     assert_equal false, Message.find(messages(:unread_message).id).message_read
 
     # Asking to mark a message with no ID should fail
-    post :mark
-    assert_response :not_found
-    assert_template "no_such_message"
+    assert_raise ActionController::RoutingError do
+      post :mark
+    end
 
     # Asking to mark a message with a bogus ID should fail
     post :mark, :message_id => 99999
@@ -332,9 +327,9 @@ class MessageControllerTest < ActionController::TestCase
     assert_equal true, m.to_user_visible
 
     # Asking to delete a message with no ID should fail
-    post :delete
-    assert_response :not_found
-    assert_template "no_such_message"
+    assert_raise ActionController::RoutingError do
+      post :delete
+    end
 
     # Asking to delete a message with a bogus ID should fail
     post :delete, :message_id => 99999

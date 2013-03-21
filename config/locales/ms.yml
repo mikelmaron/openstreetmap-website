@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Export driver: syck-pecl
 # Author: Anakmalaysia
+# Author: Nemo bis
 ms: 
   activerecord: 
     attributes: 
@@ -83,7 +84,6 @@ ms:
     changeset: 
       changeset: "Set Ubah: %{id}"
       changesetxml: XML Set Ubah
-      download: Muat turun %{changeset_xml_link} atau %{osmchange_xml_link}
       feed: 
         title: Set Ubah %{id}
         title_comment: Set Ubah %{id} - %{comment}
@@ -139,21 +139,19 @@ ms:
         next_changeset_tooltip: Suntingan berikutnya oleh %{user}
         prev_changeset_tooltip: Suntingan sebelumnya oleh %{user}
     node: 
-      download: "%{download_xml_link}, %{view_history_link} atau %{edit_link}"
       download_xml: Muat Turun XML
-      edit: sunting
+      edit: Sunting nod
       node: Nod
       node_title: "Nod: %{node_name}"
-      view_history: lihat sejarah
+      view_history: Lihat sejarah
     node_details: 
       coordinates: "Koordinat:"
       part_of: "Sebahagian:"
     node_history: 
-      download: "%{download_xml_link} atau %{view_details_link}"
       download_xml: Muat Turun XML
       node_history: Sejarah Nod
       node_history_title: "Sejarah Nod: %{node_name}"
-      view_details: lihat butiran
+      view_details: Lihat butiran
     not_found: 
       sorry: Maaf, %{type} dengan id %{id} tidak dapat dijumpai.
       type: 
@@ -163,7 +161,7 @@ ms:
         way: jalan
     paging_nav: 
       of: daripada
-      showing_page: Memaparkan laman
+      showing_page: halaman
     redacted: 
       message_html: Versi %{version} %{type} ini tidak boleh ditunjukkan kerana ia telah diredaksi. Sila lihat %{redaction_link} untuk perincian.
       redaction: Redaksi %{id}
@@ -172,61 +170,56 @@ ms:
         relation: hubungan
         way: jalan
     relation: 
-      download: "%{download_xml_link} atau %{view_history_link}"
       download_xml: Muat Turun XML
       relation: Hubungan
       relation_title: "Hubungan: %{relation_name}"
-      view_history: lihat sejarah
+      view_history: Lihat sejarah
     relation_details: 
       members: "Anggota:"
       part_of: "Sebahagian:"
     relation_history: 
-      download: "%{download_xml_link} atau %{view_details_link}"
       download_xml: Muat Turun XML
       relation_history: Sejarah Hubungan
       relation_history_title: "Sejarah Hubungan: %{relation_name}"
-      view_details: lihat butiran
+      view_details: Lihat butiran
     relation_member: 
       entry_role: "%{type} %{name} sebagai %{role}"
       type: 
         node: Nod
         relation: Hubungan
         way: Jalan
-    start: 
-      manually_select: Pilih kawasan yang lain secara insani
-      view_data: Lihat data untuk paparan peta semasa
     start_rjs: 
       data_frame_title: Data
       data_layer_name: Telusuri Data Peta
       details: Butiran
-      drag_a_box: Seretkan petak di atas peta untuk memilih kawasan
-      edited_by_user_at_timestamp: Disunting oleh [[user]] pada [[timestamp]]
+      edited_by_user_at_timestamp: Disunting oleh %{user} pada %{timestamp}
       hide_areas: Sorokkan kawasan
-      history_for_feature: Sejarah [[feature]]
+      history_for_feature: Sejarah %{feature}
       load_data: Muatkan Data
-      loaded_an_area_with_num_features: Anda telah memilih satu kawasan yang mengandungi [[num_features]] ciri. Pada umumnya, sesetengah pelayar web tidak mungkin mampu memaparkan sebegini banyak data dengan betul. Lazimnya, pelayar paling berkemampuan apabila memaparkan kurang daripada 100 ciri sekaligus; lebih daripada itu mungkin akan melambatkan pelayar anda atau membuatnya tidak responsif. Jika anda betul-betul ingin memaparkan data ini, anda boleh berbuat demikian dengan mengklik butang di bawah.
+      loaded_an_area_with_num_features: Anda telah memilih satu kawasan yang mengandungi %{num_features} ciri. Pada umumnya, sesetengah pelayar web tidak mungkin mampu memaparkan sebegini banyak data dengan betul. Lazimnya, pelayar paling berkemampuan apabila memaparkan kurang daripada %{max_features} ciri sekaligus; lebih daripada itu mungkin akan melambatkan pelayar anda atau membuatnya tidak responsif. Jika anda betul-betul ingin memaparkan data ini, anda boleh berbuat demikian dengan mengklik butang di bawah.
       loading: Memuatkan...
       manually_select: Pilih kawasan yang lain secara insani
       object_list: 
         api: Ambil kawasan in dari API
-        back: Paparkan senarai objek
+        back: Kembali ke senarai objek
         details: Butiran
         heading: Senarai objek
         history: 
           type: 
-            node: Nod [[id]]
-            way: Jalan [[id]]
+            node: Nod %{id}
+            way: Jalan %{id}
         selected: 
           type: 
-            node: Nod [[id]]
-            way: Jalan [[id]]
+            node: Nod %{id}
+            way: Jalan %{id}
         type: 
           node: Nod
           way: Jalan
       private_user: pengguna persendirian
       show_areas: Tunjukkan kawasan
       show_history: Tunjukkan Sejarah
-      unable_to_load_size: "Tidak dapat muat: Saiz petak pembatasan [[bbox_size]] terlalu besar (mesti lebih kecil daripada %{max_bbox_size})"
+      unable_to_load_size: "Tidak dapat muat: Saiz petak pembatasan %{bbox_size} terlalu besar (mesti lebih kecil daripada %{max_bbox_size})"
+      view_data: Lihat data untuk paparan peta semasa
       wait: Tunggu...
       zoom_or_select: Zum dekat atau pilih satu kawasan pada peta untuk dilihat
     tag_details: 
@@ -243,22 +236,20 @@ ms:
         relation: hubungan
         way: jalan
     way: 
-      download: "%{download_xml_link}, %{view_history_link} atau %{edit_link}"
       download_xml: Muat Turun XML
-      edit: sunting
-      view_history: lihat sejarah
+      edit: Sunting jalan
+      view_history: Lihat sejarah
       way: Jalan
       way_title: "Jalan: %{way_name}"
     way_details: 
       also_part_of: 
-        one: juga sebahagian daripada jalan %{related_ways}
-        other: juga sebahagian daripada jalan-jalan %{related_ways}
+        one: sebahagian daripada jalan %{related_ways}
+        other: sebahagian daripada jalan-jalan %{related_ways}
       nodes: "Nod:"
       part_of: "Sebahagian:"
     way_history: 
-      download: "%{download_xml_link} atau %{view_details_link}"
       download_xml: Muat Turun XML
-      view_details: lihat butiran
+      view_details: Lihat butiran
       way_history: Sejarah Jalan
       way_history_title: "Sejarah Jalan: %{way_name}"
   changeset: 
@@ -273,7 +264,7 @@ ms:
     changeset_paging_nav: 
       next: Berikutnya &raquo;
       previous: "&laquo; Sebelumnya"
-      showing_page: Memaparkan halaman %{page}
+      showing_page: Page %{page}
     changesets: 
       area: Kawasan
       comment: Komen
@@ -281,12 +272,14 @@ ms:
       saved_at: Disimpan pada
       user: Pengguna
     list: 
-      description: Perubahan terkini
+      description: Semak imbas sumbangan terkini pada peta
       description_bbox: Set Ubah di dalam %{bbox}
       description_friend: Set ubah oleh kawan anda
       description_nearby: Set ubah pengguna berdekatan
       description_user: Set Ubah oleh %{user}
       description_user_bbox: Set Ubah oleh %{user} di dalam %{bbox}
+      empty_anon_html: Suntingan belum dibuat.
+      empty_user_html: Nampaknya anda belum membuat suntingan. Untuk bermula, sila baca <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.3'>Panduan Permulaan</a>.
       heading: Set Ubah
       heading_bbox: Set Ubah
       heading_friend: Set Ubah
@@ -315,7 +308,9 @@ ms:
       confirm: Sahkan
       hide_link: Sorokkan komen ini
     diary_entry: 
-      comment_count: "%{count} komen"
+      comment_count: 
+        other: "%{count} komen"
+        zero: Tiada komen
       comment_link: Ulas catatan ini
       confirm: Sahkan
       edit_link: Sunting catatan ini
@@ -350,7 +345,7 @@ ms:
       newer_entries: Catatan Terkini
       no_entries: Tiada catatan diari
       older_entries: Catatan Terdahulu
-      recent_entries: "Catatan diari terkini:"
+      recent_entries: Catatan diari terkini
       title: Diari pengguna
       title_friends: Diari kawan
       title_nearby: Diari pengguna berdekatan
@@ -389,7 +384,7 @@ ms:
       area_to_export: Kawasan untuk Dieksport
       embeddable_html: HTML Boleh Benam
       export_button: Eksport
-      export_details: Data OpenStreetMap dilesenkan di bawah lesen <a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Pengiktirafan-PerkongsianSerupa 2.0 Umum</a>.
+      export_details: Data OpenStreetMap dilesenkan di bawah lesen <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open Data Commons Open Database License</a> (ODbL).
       format: Format
       format_to_export: Format untuk Dieksport
       image_size: Saiz Imej
@@ -420,14 +415,11 @@ ms:
     description: 
       title: 
         geonames: Lokasi carian <a href="http://www.geonames.org/">GeoNames</a>
-        osm_namefinder: "%{types} carian <a href=\"http://gazetteer.openstreetmap.org/namefinder/\">OpenStreetMap Namefinder</a>"
         osm_nominatim: Lokasi carian <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
       types: 
         cities: Bandaraya
         places: Tempat
         towns: Pekan
-    description_osm_namefinder: 
-      prefix: "%{distance} ke %{direction} dari %{type}"
     direction: 
       east: timur
       north: utara
@@ -449,13 +441,9 @@ ms:
         ca_postcode: Hasil carian <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: Hasil carian <a href="http://www.geonames.org/">GeoNames</a>
         latlon: Hasil carian <a href="http://openstreetmap.org/">dalaman</a>
-        osm_namefinder: Hasil Carian <a href="http://gazetteer.openstreetmap.org/namefinder/">OpenStreetMap Namefinder</a>
         osm_nominatim: Hasil Carian <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: Hasil carian <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: Hasil carian <a href="http://geocoder.us/">Geocoder.us</a>
-    search_osm_namefinder: 
-      suffix_parent: "%{suffix} (%{parentdistance} ke %{parentdirection} dari %{parentname})"
-      suffix_place: ", %{distance} ke %{direction} dari %{placename}"
     search_osm_nominatim: 
       prefix: 
         aeroway: 
@@ -702,6 +690,8 @@ ms:
           airfield: Lapangan Terbang Tentera
           barracks: Tangsi
           bunker: Bunker
+        mountain_pass: 
+          "yes": Genting Gunung
         natural: 
           bay: Teluk
           beach: Pantai
@@ -955,7 +945,7 @@ ms:
     history: Sejarah
     home: laman utama
     home_tooltip: Pergi ke lokasi rumah
-    inbox: peti masuk (%{count})
+    inbox_html: peti masuk %{count}
     inbox_tooltip: 
       one: Peti masuk anda mengandungi sepucuk pesanan yang belum dibaca
       other: Peti masuk anda mengandungi %{count} pesanan yang belum dibaca
@@ -966,8 +956,6 @@ ms:
     intro_2_html: Data ini boleh %{download} dan %{use} dengan percuma di bawah %{license}nya. %{create_account} untuk memperbaiki peta ini.
     intro_2_license: lesen terbuka
     intro_2_use: digunakan
-    license: 
-      title: Data OpenStreetMap dilesenkan di bawah lesen Creative Commons Pengiktirafan-PerkongsianSerupa 2.0 Umum
     log_in: log masuk
     log_in_tooltip: Log masuk dengan akaun yang sedia ada
     logo: 
@@ -986,13 +974,11 @@ ms:
     partners_ucl: Pusat VR UCL
     sign_up: daftar diri
     sign_up_tooltip: Buka akaun untuk menyunting
-    sotm2011: "-"
     tag_line: Peta Dunia Wiki Bebas
     user_diaries: Diari Pengguna
     user_diaries_tooltip: Lihat diari pengguna
     view: Lihat
     view_tooltip: Lihat peta
-    welcome_user: Selamat datang, %{user_link}
     welcome_user_link_tooltip: Laman pengguna anda
     wiki: Wiki
     wiki_title: Tapak wiki projek
@@ -1001,7 +987,35 @@ ms:
       english_link: teks asal bahasa Inggeris
       text: Sekiranya terdapat percanggahan antara halaman yang diterjemah ini dengan %{english_original_link}, maka versi bahasa Inggeris itu akan diberi keutamaan
       title: Perihal terjemahan ini
-    legal_babble: "<h2>Hak Cipta dan Lesen</h2>\n<p>\n   OpenStreetMap merupakan <i>data terbuka</i> yang dilesenkan di bawah lesen <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">Pengiktirafan-PerkongsianSerupa 2.0</a> (CC BY-SA).\n</p>\n<p>\n  Anda diberi kebebasan untuk menyalin, mengedarkan, memancarkan dan mengubah suai peta-peta dan data kami asalkan anda memberikan penghargaan kepada OpenStreetMap dan para penyumbangnya. Sekiranya anda mengubah atau menokok tambah peta-peta atau data kami, anda boleh mengedarkan hasilnya di bawah lesen yang sama sahaja. <a href=\"http://creativecommons.org/licenses/by-sa/2.0/legalcode\">Hukum undang-undang</a> yang penuh ini menjelaskan hak-hak dan tanggungjawab anda.\n</p>\n\n<h3>Cara memberikan penghargaan kepada OpenStreetMap</h3>\n<p>\n  Sekiranya anda menggunakan imej-imej peta OpenStreetMap map images, kami memohon supaya penghargaan anda menyatakan sekurang-kurangnya yang berikut: &ldquo;&copy; para penyumbang OpenStreetMap, CC BY-SA&rdquo;. Jika anda menggunakan data peta sahaja, kami memohon &ldquo;Data peta &copy; penyumbang OpenStreetMap, CC BY-SA&rdquo;.\n</p>\n<p>\n  Di mana mungkin, OpenStreetMap sewajarnya dihiperpautkan dengan <a href=\"http://www.openstreetmap.org/\">http://www.openstreetmap.org/</a> dan CC BY-SA dengan <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">http://creativecommons.org/licenses/by-sa/2.0/</a>. Jika anda menggunakan bahantara yang tidak membolehkan pautan (cth. hasil cetakan), kami mencadangkan agar anda melencongkan para pembaca anda kepada www.openstreetmap.org (mungkin dengan mengembangkan &lsquo;OpenStreetMap&rsquo; kepada alamat penuh ini) dan juga www.creativecommons.org.\n</p>\n\n<h3>Mengetahui lebih lanjut</h3>\n<p>\n  Baca lebih lanjut tentang penggunaan data kami di <a href=\"http://wiki.openstreetmap.org/wiki/Legal_FAQ\">Soalan Lazim Undang-Undang</a>.\n</p>\n<p>\n  Para penyumbang OSM diingatkan supaya tidak sesekali menambahkan data dari mana-mana sumber yang berhak cipta (cth. Google Maps atau peta cetakan) tanpa kebenaran yang tersurat daripada pemegang hak cipta.\n</p>\n<p>\n  Sungguhpun OpenStreetMap merupakan data terbuka, namun kami tidak boleh menyediakan API peta yang percuma untuk pemaju pihak ketiga.\n\n  Bacalah <a href=\"http://wiki.openstreetmap.org/wiki/API_usage_policy\">Dasar Penggunaan API</a>, <a href=\"http://wiki.openstreetmap.org/wiki/Tile_usage_policy\">Dasar Penggunaan Jubin</a> dan <a href=\"http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy\">Dasar Penggunaan Nominatim</a> kami.\n</p>\n\n<h3>Penyumbang kami</h3>\n<p>\n  Lesen CC BY-SA kami mengehendaki anda untuk &ldquo;memberikan penghargaan Pengarang Asal yang berpatutan dengan bahantara atau kaedah yang Anda sedang gunakan&rdquo;. Setiap seorang pemeta OSM tidak memohon penghargaan yang melebihi penghargaan kepada &ldquo;para penyumbang OpenStreetMap&rdquo;, tetapi seandainya data daripada agensi pemetaan kebangsaan atau sebarang sumber utama yang lain telah disertakan dalam OpenStreetMap, maka adalah wajar untuk memberikan penghargaan kepadanya dengan terus mengeluarkan semula penghargaannya atau membubuh pautan kepadanya dalam laman ini.\n</p>\n\n<!--\nMakluman untuk penyunting halaman\n\nSenarai berikut hanya menyertakan pihak-pihak yang memerlukan atribusi sebagai syarat penggunaan data di OpenStreetMap. Ia bukan katalog import am dan tidak boleh digunakan melainkan apabila atribusi diperlukan untuk mematuhi lesen data yang diimport itu.\n\nSebarang tambahan di sini mesti dibincangkan dengan penyelia sistem OSM terlebih dahulu.\n-->\n\n<ul id=\"contributors\">\n   <li><strong>Afrika Selatan</strong>: Mengandungi data yang disumberkan daripada\n   <a href=\"http://www.ngi.gov.za/\">Pejabat Ketua Pengarah:\n   National Geo-Spatial Information</a>, Hak cipta kerajaan dipelihara.</li>\n    <li><strong>Australia</strong>: Mengandungi data subbandar berasaskan data Australian Bureau of Statistics.</li>\n    <li><strong>Austria</strong>: Mengandungi data daripada <a href=\"http://data.wien.gv.at/\">Stadt Wien</a> (di bawah <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.de\">CC BY</a>) dan <a href=\"http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm\">Land Vorarlberg</a>, dan Land Tirol (under <a href=\"http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/\">CC-BY AT dengan pindaan</a>).</li>.</li>\n    <li><strong>Belanda</strong>: Mendandungi data &copy; AND, 2007\n   (<a href=\"http://www.and.com\">www.and.com</a>)</li>\n    <li><strong>Kanada</strong>: Mengandungi data daripada GeoBase&reg;, GeoGratis (&copy; Department of Natural Resources Canada), CanVec (&copy; Department of Natural Resources Canada), and StatCan (Geography Division, Statistics Canada).</li>\n    <li><strong>New Zealand</strong>: Mengandungi data yang disumberkan daripada Land Information New Zealand. Crown Copyright reserved.</li>\n    <li><strong>Perancis</strong>: Mengandungi data yang disumberkan daripada Direction Générale des Impôts.</li>\n    <li><strong>Poland</strong>: Mengandungi data daripada <a href=\"http://ump.waw.pl/\">peta-peta UMP-pcPL</a>. Hak cipta penyumbang UMP-pcPL.\n<a href=\"http://wiki.openstreetmap.org/wiki/UMP2OSM_Importing\">\n   Maklumat lanjut mengenai penggunaan data UMP oleh OSM&</a></li>\n    <li><strong>United Kingdom</strong>: Mengandungi data Ordnance Survey data &copy; Crown copyright and database right 2010.</li>\n</ul>\n\n<p>\n  Penyertaan data dalam OpenStreetMap tidak bermaksud bahawa pembekal data asal menyokong OpenStreetMap, menyediakan sebarang waranti, atau menerima sebarang tanggungan.\n</p>"
+    legal_babble: 
+      attribution_example: 
+        alt: Contoh mengatribusikan OpenStreetMap pada halaman sesawang
+        title: Contoh atribusi
+      contributors_at_html: "<strong>Austria</strong>: Mengandungi data daripada <a href=\"http://data.wien.gv.at/\">Stadt Wien</a> (di bawah <a href=\"http://creativecommons.org/licenses/by/3.0/at/deed.de\">CC BY</a>) dan <a href=\"http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm\">Land Vorarlberg</a>, dan Land Tirol (under <a href=\"http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/\">CC-BY AT dengan pindaan</a>)."
+      contributors_ca_html: "<strong>Kanada</strong>: Mengandungi data daripada GeoBase&reg;, GeoGratis (&copy; Department of Natural Resources Canada), CanVec (&copy; Department of Natural Resources Canada), and StatCan (Geography Division, Statistics Canada)."
+      contributors_footer_1_html: "  Untuk keterangan lanjut tentang semua ini, serta sumber-sumber lain yang telah digunakan untuk membantu menambah baik OpenStreetMap, sila rujuk <a href=\"http://wiki.openstreetmap.org/wiki/Contributors\">Halaman penyumbang</a> di Wiki OpenStreetMap."
+      contributors_footer_2_html: "  Penyertaan data dalam OpenStreetMap tidak bermaksud bahawa pembekal data asal menyokong OpenStreetMap, menyediakan sebarang waranti, atau menerima sebarang tanggungan."
+      contributors_fr_html: "<strong>Perancis</strong>: Mengandungi data yang disumberkan daripada Direction Générale des Impôts."
+      contributors_gb_html: "<strong>United Kingdom</strong>: Mengandungi data Ordnance Survey data &copy; Crown copyright and database right 2010-12."
+      contributors_intro_html: "Penyumbang kami merupakan ribuan individu. Kami turut menyertakan data yang dilesenkan secara terbuka daripada lembaga-lembaga pemetaan kebangsaan dan sumber-sumber yang lain, antaranya:"
+      contributors_nl_html: "<strong>Belanda</strong>: Mendandungi data &copy; AND, 2007\n   (<a href=\"http://www.and.com\">www.and.com</a>)"
+      contributors_nz_html: "<strong>New Zealand</strong>: Mengandungi data yang disumberkan daripada Land Information New Zealand. Crown Copyright reserved."
+      contributors_title_html: Penyumbang kami
+      contributors_za_html: "<strong>Afrika Selatan</strong>: Mengandungi data yang disumberkan daripada\n   <a href=\"http://www.ngi.gov.za/\">Pejabat Ketua Pengarah:\n   National Geo-Spatial Information</a>, Hak cipta kerajaan dipelihara."
+      credit_1_html: Kami memerlukan anda menggunakan dikenali sebagai &ldquo;&copy; penyumbang OpenStreetMap&rdquo; dalam penghargaan.
+      credit_2_html: "Anda juga mesti memperjelas bahawa data ini tersedia di bawah Open Database License, dan juga kartografinya berada di bawah lesen CC-BY-SA jika jubin peta kami turut digunakan. Anda boleh berbuat demikian dengan membuat pautan ke <a href=\"http://www.openstreetmap.org/copyright\">halaman hak cipta ini</a>.\nSelain itu, dan sebagai kemestian untuk mengedarkan OSM dalam bentuk data, anda boleh menyatakan nama dan membuat pautan secara terus kepada lesen. Untuk media yang tidak membolehkan pautan (cth. bahan cetakan), kami mencadangkan supaya anda menghalakan pembaca-pembaca ke openstreetmap.org (misalnya, dengan meluaskan 'OpenStreetMap' ke alamat penuh ini), ke opendatacommons.org, dan juga creativecommons.org jika berkenaan."
+      credit_3_html: "Untuk peta elektronik yang boleh disemak imbas, kredit seharusnya disiarkan di sudut peta.\nContoh:"
+      credit_title_html: Cara memberikan penghargaan kepada OpenStreetMap
+      infringement_1_html: Penyumbang OSM diingatkan supaya tidak sesekali menambah data dari mana-mana sumber berhak cipta (cth. Google Maps atau peta cetakan) tanpa izin bersurat dari pemegang hak cipta.
+      infringement_2_html: "Sekiranya anda percaya bahawa bahan berhak cipta telah dtambahkan secara tidak berpatutan ke dalam pangkalan OpenStreetMap atau tapak ini, sila rujuk <a href=\"http://www.osmfoundation.org/wiki/License/Takedown_procedure\">prosedur penarikan</a> atau laporkan secara terus ke dalam \n<a href=\"http://dmca.openstreetmap.org/\">halaman laporan on-line</a>."
+      infringement_title_html: Pencabulan hak cipta
+      intro_1_html: "OpenStreetMap ialah <i>data terbuka</i> yang dilesenkan di bawah <a\nhref=\"http://opendatacommons.org/licenses/odbl/\">Open Data\nCommons Open Database License</a> (ODbL)."
+      intro_2_html: Anda bebas menyalin, mengedarkan, menyebarkan dan mengubah suai data kami, asalkan anda memperakui OpenStreetMap dan para penyumbangnya. Jika anda mengubah suai atau menokok tambah data kami, anda boleh mengedarkannya di bawah lesen yang sama sahaja. <a href="http://opendatacommons.org/licenses/odbl/1.0/">Kanun undang-undang</a> yang lengkap ini menerangkan hak-hak dan tanggungjawab anda.
+      intro_3_html: Kartografi jubin peta kami serta dokumentasi kami dilesenkan di bawah lesen <a href="http://creativecommons.org/licenses/by-sa/2.0/">Pengiktirafan-PerkongsianSerupa 2.0</a> (CC-BY-SA).
+      more_1_html: Baca lebih lanjut tentang penggunaan data kami serta memperakui kami di <a href="http://wiki.openstreetmap.org/wiki/Legal_FAQ">Soalan Lazim Undang-Undang</a>.
+      more_2_html: Sungguhpun OpenStreetMap merupakan data terbuka, namun kami tidak boleh menyediakan API peta yang percuma kepada pembangun pihak ketiga. Sila rujuk <a href="http://wiki.openstreetmap.org/wiki/API_usage_policy">Dasar Penggunaan API</a>, <a href="http://wiki.openstreetmap.org/wiki/Tile_usage_policy">Dasar Penggunaan Jubin</a> dan <a href="http://wiki.openstreetmap.org/wiki/Nominatim#Usage_Policy">Dasar Penggunaan Nominatim</a>.
+      more_title_html: Mengetahui lebih lanjut
+      title_html: Hak Cipta dan Lesen
     native: 
       mapping_link: mula membuat peta
       native_link: versi Bahasa Melayu
@@ -1059,8 +1073,6 @@ ms:
       back_to_outbox: Kembali ke peti keluar
       date: Tarikh
       from: Daripada
-      reading_your_messages: Membaca pesanan anda
-      reading_your_sent_messages: Membaca pesanan yang dihantar
       reply_button: Balas
       subject: Subjek
       title: Baca pesanan
@@ -1124,14 +1136,15 @@ ms:
       header: "%{from_user} telah menghantar sepucuk pesanan kepada anda melalui OpenStreetMap dengan subjek %{subject}:"
       hi: Apa khabar %{to_user},
     signup_confirm: 
-      subject: "[OpenStreetMap] Sahkan alamat e-mel anda"
+      confirm: "Sebelum kami berbuat apa-apa lagi, kami perlu memastikan bahawa permintaan ini datang daripada anda; jika betul, sila klik pautan di bawah untuk mengesahkan akaun anda:"
+      created: Seseorang (harap-harap anda) baru membuka akaun di %{site_url}.
+      greeting: Apa khabar!
+      subject: "[OpenStreetMap] Selamat datang ke OpenStreetMap"
+      welcome: Kami ingin menyambut kedatangan anda serta memberi anda maklumat tambahan sebagai permulaan.
     signup_confirm_html: 
       ask_questions: Anda boleh menanyakan sebarang soalan tentang OpenStreetMap di <a href="http://help.openstreetmap.org/">tapak soal jawab</a> kami.
-      click_the_link: Jika anda orangnya, selamat datang! Sila klik pautan di bawah untuk mengesahkan akaun anda dan teruskan membaca untuk maklumat lanjut tentang OpenStreetMap.
       current_user: Senarai pengguna semasa dalam kategori berasaskan kedudukan mereka di dunia, terdapat di <a href="http://wiki.openstreetmap.org/wiki/Category:Users_by_geographical_region">Category:Users_by_geographical_region</a>.
       get_reading: Bacalah maklumat tentang OpenStreetMap <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_Guide">di wiki ini</a>, ikutilah perkembangan terbaru melalui <a href="http://blog.openstreetmap.org/">blog</a> atau <a href="http://twitter.com/openstreetmap">Twitter OpenStreetMap</a>, ataupun layari <a href="http://www.opengeodata.org/">blog OpenGeoData</a> oleh Steve Coast, pengasas OpenStreetMap untuk mempelajari sejarah ringkas projek ini, lengkap dengan <a href="http://www.opengeodata.org/?cat=13">podcast</a> juga!
-      greeting: Apa khabar!
-      hopefully_you: Seseorang (harap-harap iaitu anda) ingin membuka akaun di
       introductory_video: Anda boleh menonton %{introductory_video_link}.
       more_videos: Terdapat %{more_videos_link}.
       more_videos_here: banyak lagi video di sini
@@ -1141,18 +1154,12 @@ ms:
     signup_confirm_plain: 
       ask_questions: "Anda boleh menanyakan sebarang soalan tentang OpenStreetMap di tapak soal jawab kami:"
       blog_and_twitter: "Dapatkan berita mutakhir melalui blog OpenStreetMap blog atau Twitter:"
-      click_the_link_1: Jika anda orangnya, selamat datang! Sila klik pautan di bawah untuk mengesahkan akaun
-      click_the_link_2: anda dan teruskan membaca untuk maklumat lanjut tentang OpenStreetMap.
-      current_user_1: Senarai pengguna semasa dalam kategori berasaskan kedudukan mereka di dunia,
-      current_user_2: "boleh didapati di:"
-      greeting: Apa khabar!
-      hopefully_you: Seseorang (harap-harap iaitu anda) ingin membuka akaun di
+      current_user: "Senarai pengguna semasa mengikut kategori, berasaskan kedudukan mereka di dunia, terdapat di:"
       introductory_video: "Anda boleh menonton video pengenalan OpenStreetMap di sini:"
       more_videos: "Ada banyak lagi video di sini:"
       opengeodata: "OpenGeoData.org merupakan blog milik pengasas OpenStreetMap, Steve Coast, dan juga mempunyai podcast:"
       the_wiki: "Bacalah perihal OpenStreetMap di wiki:"
-      user_wiki_1: Anda disaran supaya mewujudkan laman wiki pengguna yang merangkumi
-      user_wiki_2: tag-tag kategori yang menyatakan kedudukan anda, seperti [[Category:Users_in_London]].
+      user_wiki_page: Anda disyorkan supaya membentuk sebuah halaman wiki pengguna yang merangkumi tag-tag kategori yang menyatakan kedudukan anda, seperti [[Category:Users_in_Kuala_Lumpur]].
       wiki_signup: "Anda juga boleh mendaftarkan diri untuk menyertai wiki OpenStreetMap di:"
   oauth: 
     oauthorize: 
@@ -1218,7 +1225,7 @@ ms:
       key: "Kunci Pengguna:"
       requests: "Kebenaran-kebenaran berikut dipohon daripada pengguna tersebut:"
       secret: "Rahsia Pengguna:"
-      support_notice: Kami menyokong HMAC-SHA1 (disyorkan) dan juga teks biasa dalam mod ssl.
+      support_notice: Kam menyokong tandatangan HMAC-SHA1 (yang disyorkan) dan RSA-SHA1.
       title: Butiran OAuth untuk %{app_name}
       url: "URL Token Permohonan:"
     update: 
@@ -1269,9 +1276,7 @@ ms:
       js_1: Anda sedang menggunakan pelayar web yang tidak menyokong JavaScript, ataupun anda tidak menghidupkan JavaScript.
       js_2: OpenStreetMap menggunakan JavaScript untuk peta licinnya.
       license: 
-        license_name: Pengiktirafan-PerkongsianSerupa 2.0
-        notice: Dilesenkan di bawah lesen %{license_name} oleh %{project_name} dan para penyumbangnya.
-        project_name: Projek OpenStreetMap
+        copyright: Hak cipta OpenStreetMap dan para penyumbang di bawah lesen terbuka
       permalink: Pautan Kekal
       remote_failed: Penyuntingan gagal - pastikan JOSM atau Merkaartor dimuatkan dan ciri kawalan jauh dihidupkan
       shortlink: Pautan Ringkas
@@ -1397,6 +1402,8 @@ ms:
       visibility: "Keterlihatan:"
       visibility_help: apakah maksud ini?
     list: 
+      description: Semak imbas muatnaikan jejak GPS terkini
+      empty_html: Belum ada apa-apa lagi di sini. <a href='%{upload_link}'>Muat naik jejak baru</a> atau ketahui lebih lanjut tentang penjejakan GPS di <a href='http://wiki.openstreetmap.org/wiki/Beginners_Guide_1.2'>halaman wiki</a> ini.
       public_traces: Jejak GPS umum
       public_traces_from: Jejak GPS umum oleh %{user}
       tagged_with: " ditagkan dengan %{tags}"
@@ -1425,7 +1432,7 @@ ms:
       trackable: BOLEH DIJEJAKI
       view_map: Lihat Peta
     trace_form: 
-      description: Keterangan
+      description: "Keterangan:"
       help: Bantuan
       tags: "Tag:"
       tags_help: terbatas tanda koma
@@ -1441,9 +1448,9 @@ ms:
     trace_optionals: 
       tags: Tag
     trace_paging_nav: 
-      next: Berikutnya &raquo;
-      previous: "&laquo; Sebelumnya"
-      showing_page: Memaparkan halaman %{page}
+      newer: Jejak Baru
+      older: Jejak Lama
+      showing_page: Halaman %{page}
     view: 
       delete_track: Hapuskan jejak ini
       description: "Keterangan:"
@@ -1482,6 +1489,10 @@ ms:
       email never displayed publicly: (tidak sesekali dipaparkan kepada umum)
       flash update success: Maklumat pengguna berjaya dikemaskinikan.
       flash update success confirm needed: Maklumat pengguna berjaya dikemaskinikan. Semak e-mel anda untuk pesanan untuk mengesahkan alamat e-mel baru anda.
+      gravatar: 
+        gravatar: Gunakan Gravatar
+        link: http://wiki.openstreetmap.org/wiki/Gravatar
+        link text: apakah ini?
       home location: "Lokasi Rumah:"
       image: "Imej:"
       image size hint: (imej segi empat sama yang sekurang-kurangnya 100x100 adalah paling bagus)
@@ -1543,8 +1554,8 @@ ms:
       heading: Pengguna
       hide: Sorokkan Pengguna-Pengguna Terpilih
       showing: 
-        one: Menunjukkan halaman %{page} (%{first_item} daripada %{items})
-        other: Menunjukkan halaman %{page} (%{first_item}-%{last_item} daripada %{items})
+        one: Halaman %{page} (%{first_item} / %{items})
+        other: Halaman %{page} (%{first_item}-%{last_item} / %{items})
       summary: "%{name} diwujudkan dari %{ip_address} pada %{date}"
       summary_no_ip: "%{name} diwujudkan pada %{date}"
       title: Pengguna
@@ -1559,8 +1570,6 @@ ms:
       lost password link: Lupa kata laluan anda?
       new to osm: Baru kenal OpenStreetMap?
       no account: Belum buka akaun?
-      notice: <a href="http://www.osmfoundation.org/wiki/License/We_Are_Changing_The_License">Ketahui lebih lanjut tentang perubahan lesen OpenStreetMap yang akan datang</a> (<a href="http://wiki.openstreetmap.org/wiki/ODbL/We_Are_Changing_The_License">terjemahan</a>) (<a href="http://wiki.openstreetmap.org/wiki/Talk:ODbL/Upcoming">perbincangan</a>)
-      notice_terms: OpenStreetMap akan beralih kepada lesen baru pada 1 April 2012. Ia sama terbukanya dengan lesen yang kami ada sekarang, cuma butiran undang-undangnya lebih sesuai dengan pangkalan data peta kami. Kami teringin untuk menyimpan sumbangan-sumbangan anda di OpenStreetMap, cuma asalkan anda membenarkan kami untuk mengedarkannya di bawah lesen baru itu. Jika tidak, kami terpaksa membuangnya daripada pangkalan data.<br /><br />Sila log masuk, kemudian luangkan sedikit masa untuk meneliti dan menerima syarat-syarat baru ini. Terima kasih!
       openid: "OpenID %{logo}:"
       openid invalid: Maaf, OpenID anda nampaknya tidak betul formatnya
       openid missing provider: Maaf, pembekal OpenID anda tidak dapat dihubungi
@@ -1586,7 +1595,7 @@ ms:
           title: Log masuk dengan Yahoo
       password: "Kata laluan:"
       register now: Daftar sekarang
-      remember: "Ingati saya:"
+      remember: Ingati saya
       title: Log masuk
       to make changes: Untuk membuat perubahan pada data OpenStreetMap, anda mesti mempunyai akaun.
       with openid: "Ataupun, sila gunakan OpenID anda untuk log masuk:"
@@ -1605,8 +1614,10 @@ ms:
       title: Terlupa kata laluan
     make_friend: 
       already_a_friend: Anda sudah berkawan dengan %{name}.
+      button: Jadikan kawan
       failed: Maaf, %{name} tidak dapat ditambahkan sebagai kawan.
-      success: "%{name} kini kawan anda."
+      heading: Jadikan %{user} sebagai kawan?
+      success: "%{name} kini kawan anda!"
     new: 
       confirm email address: "Sahkan Alamat E-mel:"
       confirm password: "Sahkan Kata Laluan:"
@@ -1617,6 +1628,7 @@ ms:
       email address: "Alamat E-mel:"
       fill_form: Isi borang ini, dan kami akan segera menghantar pesanan e-mel kepada anda untuk mengaktifkan akaun anda.
       flash create success message: Terima kasih kerana mendaftar. Kami telah menghantar pesanan pengesahan kepada %{email}. Sebaik sahaja anda mengesahkan akaun anda, anda akan boleh menyunting peta.<br /><br />Jika anda menggunakan sistem anti-spam yang menghantar permohonan untuk pengesahan, sila pastikan anda membenarkan webmaster@openstreetmap.org kerana kami tidak dapat membalas sebarang permohonan untuk pengesahan.
+      flash welcome: Terima kasih kerana mendaftar. Kami telah menghantar pesanan selamat datang ke %{email} dengan beberapa petua sebagai permulaan.
       heading: Buka Akaun Pengguna
       license_agreement: Ketika mengesahkan akaun anda, anda perlu bersetuju dengan <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">terma-terma penyumbang</a>.
       no_auto_account_create: Sayang sekali, kami tidak dapat membuka akaun secara automatik untuk anda buat masa ini.
@@ -1638,6 +1650,8 @@ ms:
       nearby mapper: Pemeta berdekatan
       your location: Lokasi anda
     remove_friend: 
+      button: Gugurkan kawan
+      heading: Gugurkan %{user} sebagai kawan?
       not_a_friend: "%{name} bukan kawan anda."
       success: "%{name} telah dibuang daripada senarai kawan anda."
     reset_password: 
@@ -1672,9 +1686,9 @@ ms:
       you need to accept or decline: Sila baca, kemudian terima atau tolak Terma-Terma Penyumbang yang baru untuk bersambung.
     view: 
       activate_user: aktifkan pengguna ini
-      add as friend: jadikan kawan
+      add as friend: perkawankan
       ago: (%{time_in_words_ago} lalu)
-      block_history: lihat sekatan yang diterima
+      block_history: sekatan yang diterima
       blocks by me: sekatan oleh saya
       blocks on me: sekatan ke atas saya
       comments: komen
@@ -1692,23 +1706,23 @@ ms:
       diary: diari
       edits: suntingan
       email address: "Alamat e-mel:"
-      friends_changesets: Semak seimbas semua set ubah kawan-kawan
-      friends_diaries: Semak seimbas semua catatan diari kawan-kawan
+      friends_changesets: set ubah kawan-kawan
+      friends_diaries: catatan diari kawan-kawan
       hide_user: sorokkan pengguna ini
-      if set location: Jika anda menetapkan lokasi anda, peta yang cantik dan sebagainya akan muncul di sini. Anda boleh menetapkan lokasi rumah anda di laman %{settings_link} anda.
+      if set location: Tetapkan lokasi rumah anda di halaman %{settings_link} untuk melihat pengguna berdekatan.
       km away: "%{count}km jauhnya"
       latest edit: "Suntingan terkini %{ago}:"
       m away: "%{count}m jauhnya"
       mapper since: "Pemeta sejak:"
-      moderator_history: lihat sekatan yang dikenakan
+      moderator_history: sekatan yang dikenakan
       my comments: komen saya
       my diary: diari saya
       my edits: suntingan saya
       my settings: tetapan saya
       my traces: jejak saya
       nearby users: Pengguna lain yang berdekatan
-      nearby_changesets: Semak seimbas semua set ubah pengguna berdekatan
-      nearby_diaries: Semak seimbas semua catatan diari pengguna berdekatan
+      nearby_changesets: set ubah pengguna berdekatan
+      nearby_diaries: catatan diari pengguna berdekatan
       new diary entry: catatan diari baru
       no friends: Anda belum mencari kawan lagi.
       no nearby users: Belum ada pengguna lain yang mengaku memetakan kawasan berdekatan.
@@ -1785,11 +1799,14 @@ ms:
       creator_name: Pembuat
       display_name: Pengguna yang Disekat
       edit: Sunting
+      next: Berikutnya »
       not_revoked: (tidak ditarik balik)
+      previous: « Sebelumnya
       reason: Sebab sekatan
       revoke: Tarik Balik!
       revoker_name: Ditarik balik oleh
       show: Tunjukkan
+      showing_page: Halaman %{page}
       status: Status
     period: 
       one: 1 jam

@@ -1,11 +1,13 @@
 <% @title = t('redaction.show.title') %>
-<h1><%= t('redaction.show.heading', :title => @redaction.title) %></h1>
+<% content_for :heading do %>
+  <h1><%= t('redaction.show.heading', :title => @redaction.title) %></h1>
+<% end %>
 
 <p>
   <b><%= t 'redaction.show.user' %></b>
   <%= link_to(@redaction.user.display_name, {:controller => 'user', :action => 'view', :display_name => @redaction.user.display_name}) %>
 </p>
-<p>
+<p class="richtext">
   <b><%= t 'redaction.show.description' %></b>
   <%= @redaction.description.to_html %>
 </p>
@@ -14,7 +16,7 @@
 <table>
 <tr>
 <td><%= button_to t('redaction.show.edit'), edit_redaction_path(@redaction), :method => :get %></td>
-<td><%= button_to t('redaction.show.destroy'), @redaction, :confirm => t('redaction.show.confirm'), :method => "delete", :remote => true %></td>
+<td><%= button_to t('redaction.show.destroy'), @redaction, :method => "delete", :remote => true, :data => { :confirm => t('redaction.show.confirm') } %></td>
 </tr>
 </table>
 <% end %>

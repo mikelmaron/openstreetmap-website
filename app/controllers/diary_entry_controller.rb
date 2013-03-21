@@ -9,9 +9,9 @@ class DiaryEntryController < ApplicationController
   before_filter :check_database_writable, :only => [:new, :edit]
   before_filter :require_administrator, :only => [:hide, :hidecomment]
 
-  caches_action :list, :layout => false, :unless => :user_specific_list?
+#  caches_action :list, :layout => false, :unless => :user_specific_list?
   caches_action :rss, :layout => true
-  caches_action :view, :layout => false
+#  caches_action :view, :layout => false
   cache_sweeper :diary_sweeper, :only => [:new, :edit, :comment, :hide, :hidecomment]
 
   def new
@@ -29,7 +29,7 @@ class DiaryEntryController < ApplicationController
         else
           @user.preferences.create(:k => "diary.default_language", :v => @diary_entry.language_code)
         end
-        redirect_to :controller => 'diary_entry', :action => 'list', :display_name => @user.display_name 
+        redirect_to :controller => 'diary_entry', :action => 'list', :display_name => @user.display_name
       else
         render :action => 'edit'
       end
@@ -37,6 +37,7 @@ class DiaryEntryController < ApplicationController
       default_lang = @user.preferences.where(:k => "diary.default_language").first
       lang_code = default_lang ? default_lang.v : @user.preferred_language
       @diary_entry = DiaryEntry.new(:language_code => lang_code)
+      set_map_location
       render :action => 'edit'
     end
   end
@@ -47,11 +48,11 @@ class DiaryEntryController < ApplicationController
 
     if @user != @diary_entry.user
       redirect_to :controller => 'diary_entry', :action => 'view', :id => params[:id]
-    elsif params[:diary_entry]
-      if @diary_entry.update_attributes(params[:diary_entry])
-        redirect_to :controller => 'diary_entry', :action => 'view', :id => params[:id]
-      end
+    elsif params[:diary_entry] and @diary_entry.update_attributes(params[:diary_entry])
+      redirect_to :controller => 'diary_entry', :action => 'view', :id => params[:id]
     end
+
+    set_map_location
   rescue ActiveRecord::RecordNotFound
     render :action => "no_such_entry", :status => :not_found
   end
@@ -69,6 +70,8 @@ class DiaryEntryController < ApplicationController
     else
       render :action => 'view'
     end
+  rescue ActiveRecord::RecordNotFound
+    render :action => "no_such_entry", :status => :not_found
   end
 
   def list
@@ -78,9 +81,9 @@ class DiaryEntryController < ApplicationController
       if @this_user
         @title = t 'diary_entry.list.user_title', :user => @this_user.display_name
         @entry_pages, @entries = paginate(:diary_entries,
-                                          :conditions => { 
+                                          :conditions => {
                                             :user_id => @this_user.id,
-                                            :visible => true 
+                                            :visible => true
                                           },
                                           :order => 'created_at DESC',
                                           :per_page => 20)
@@ -109,7 +112,7 @@ class DiaryEntryController < ApplicationController
                                           :per_page => 20)
       else
           require_user
-          return     
+          return
       end
     elsif params[:nearby]
       if @user
@@ -120,11 +123,11 @@ class DiaryEntryController < ApplicationController
                                             :visible => true
                                           },
                                           :order => 'created_at DESC',
-                                          :per_page => 20)                                        
+                                          :per_page => 20)
       else
           require_user
-          return     
-      end                                  
+          return
+      end
     else
       @title = t 'diary_entry.list.title'
       @entry_pages, @entries = paginate(:diary_entries, :include => :user,
@@ -188,14 +191,14 @@ class DiaryEntryController < ApplicationController
 
   def comments
     @comment_pages, @comments = paginate(:diary_comments,
-                                         :conditions => { 
+                                         :conditions => {
                                            :user_id => @this_user,
                                            :visible => true
                                          },
                                          :order => 'created_at DESC',
                                          :per_page => 20)
     @page = (params[:page] || 1).to_i
-  end  
+  end
 private
   ##
   # require that the user is a administrator, or fill out a helpful error message
@@ -211,5 +214,23 @@ private
   # is this list user specific?
   def user_specific_list?
     params[:friends] or params[:nearby]
+  end
+
+  ##
+  # decide on a location for the diary entry map
+  def set_map_location
+    if @diary_entry.latitude and @diary_entry.longitude
+      @lon = @diary_entry.longitude
+      @lat = @diary_entry.latitude
+      @zoom = 12
+    elsif @user.home_lat.nil? or @user.home_lon.nil?
+      @lon = params[:lon] || -0.1
+      @lat = params[:lat] || 51.5
+      @zoom = params[:zoom] || 4
+    else
+      @lon = @user.home_lon
+      @lat = @user.home_lat
+      @zoom = 12
+    end
   end
 end

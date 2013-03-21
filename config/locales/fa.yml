@@ -1,13 +1,16 @@
 # Messages for Persian (فارسی)
 # Exported from translatewiki.net
 # Export driver: syck-pecl
+# Author: BMRG14
 # Author: Grille chompa
+# Author: Hooshmand.hasannia
 # Author: Huji
 # Author: Leyth
 # Author: Reza1615
 # Author: Sahim
 # Author: Wayiran
 # Author: ZxxZxxZ
+# Author: جواد
 fa: 
   activerecord: 
     attributes: 
@@ -41,7 +44,7 @@ fa:
         description: توضیحات
         display_name: نام نمایشی
         email: پست الکترونیکی
-        languages: زبان ها
+        languages: زبان‌ها
         pass_crypt: کلمه عبور
     models: 
       acl: دسترسی به لیست کنترل
@@ -54,6 +57,7 @@ fa:
       node: گره
       node_tag: تگ گره
       notifier: آگاه‌گردان
+      old_way: راه قدیمی
       relation: ارتباط
       session: نشست
       trace: ردیابی
@@ -68,7 +72,6 @@ fa:
     changeset: 
       changeset: "مجموعه تغییرات: %{id}"
       changesetxml: مجموعه تغییرات XML
-      download: بارگیری %{changeset_xml_link} یا %{osmchange_xml_link}
       feed: 
         title: مجموعه تغییرات %{id}
         title_comment: مجموعه تغییرات %{id} - %{comment}
@@ -81,7 +84,8 @@ fa:
       closed_at: "بسته شده بر:"
       created_at: "ایجاد توسط:"
       has_nodes: 
-        other: "یک=دارای %{count} نقطه:"
+        one: "Has the following %{count} node:"
+        other: "Has the following %{count} nodes:"
       has_relations: 
         other: "یک=دارای %{count} مرتبط:"
       has_ways: 
@@ -111,7 +115,7 @@ fa:
         node: مشاهده منطقه روی نقشه بزرگتر
         relation: مشاهده رابطه در نقشه بزرگتر
         way: روش نمایش بر روی نقشه بزرگتر
-      loading: در حال بارگذاری…
+      loading: در حال بارگیری...
     navigation: 
       all: 
         next_changeset_tooltip: تغییرات بعدی
@@ -127,7 +131,6 @@ fa:
         next_changeset_tooltip: "%{user} ویرایش بعدی توسط"
         prev_changeset_tooltip: "%{user} قبلی ویرایش توسط"
     node: 
-      download: "%{download_xml_link}، %{view_history_link} یا %{edit_link}"
       download_xml: بارگیری XML
       edit: ویرایش
       node: گره
@@ -137,7 +140,6 @@ fa:
       coordinates: "مختصات:"
       part_of: "بخشی از:"
     node_history: 
-      download: "%{download_xml_link} یا %{view_details_link}"
       download_xml: بارگیری XML
       node_history: تاریخچه منطقه
       node_history_title: "تاریخچه منطقه: %{node_name}"
@@ -152,8 +154,12 @@ fa:
     paging_nav: 
       of: از
       showing_page: صفحه نمایش
+    redacted: 
+      type: 
+        node: گره
+        relation: ارتباط
+        way: راه
     relation: 
-      download: "%{download_xml_link} یا %{view_history_link}"
       download_xml: بارگیری XML
       relation: ارتباط
       relation_title: "ارتباطات: %{relation_name}"
@@ -162,7 +168,6 @@ fa:
       members: "اعضا:"
       part_of: "بخشی از:"
     relation_history: 
-      download: "%{download_xml_link} یا %{view_details_link}"
       download_xml: بارگیری XML
       relation_history: تاریخچه ارتباطات
       relation_history_title: "تاریخچه ارتباطات: %{relation_name}"
@@ -173,20 +178,16 @@ fa:
         node: گره
         relation: ارتباط
         way: راه
-    start: 
-      manually_select: به صورت دستی منطقه دیگری را انتخاب کنید
-      view_data: مشاهده اطلاعات برای نمایش نقشه فعلی
     start_rjs: 
       data_frame_title: داده ها
       data_layer_name: داده ها
       details: جزئیات
-      drag_a_box: " جعبه‌ای را روی نقشه برای انتخاب یک منطقه بکشید"
-      edited_by_user_at_timestamp: "[[timestamp]] در [[user]] ویرایش توسط"
+      edited_by_user_at_timestamp: "%{timestamp} در %{user} ویرایش توسط"
       hide_areas: پنهان‌کردن منطقه‌ها
-      history_for_feature: "[[feature]] تاریخچه برای"
+      history_for_feature: "%{feature} تاریخچه برای"
       load_data: بارگذاری داده ها
-      loaded_an_area_with_num_features: "  شما منطقه‌ای را بارگذاری کردید که شامل[[num_features]] می‌شود. به طورکلی بعضی از مرورگرها نمی توانند با این مقدار اطلاعات تصویری کار کنند.کلا مرورگرها برای نمایش اطلاعات کمتر از 100 مورد در زمان  در بهترین وضعیت هستند: و هر میزان دیگر میتواند مرورگر ار کند  یا قفل کند.اگر شما میخواهید این اطلاعات دیده شود دکمه زیر را فشار دهید."
-      loading: در حال بارگذاری…
+      loaded_an_area_with_num_features: "  شما منطقه‌ای را بارگذاری کردید که شامل%{num_features} می‌شود. به طورکلی بعضی از مرورگرها نمی توانند با این مقدار اطلاعات تصویری کار کنند.کلا مرورگرها برای نمایش اطلاعات کمتر از 100 مورد در زمان  در بهترین وضعیت هستند: و هر میزان دیگر میتواند مرورگر ار کند  یا قفل کند.اگر شما میخواهید این اطلاعات دیده شود دکمه زیر را فشار دهید."
+      loading: در حال بارگیری...
       manually_select: به صورت دستی منطقه دیگری را انتخاب کنید
       object_list: 
         api: بازیابی این منطقه از ای‌پی‌آی
@@ -195,19 +196,19 @@ fa:
         heading: لیست اجزاء
         history: 
           type: 
-            node: گره [[id]]
-            way: راه [[id]]
+            node: گره %{id}
+            way: راه %{id}
         selected: 
           type: 
-            node: گره [[id]]
-            way: راه [[id]]
+            node: گره %{id}
+            way: راه %{id}
         type: 
           node: گره
           way: راه
       private_user: کاربر شخصی
       show_areas: نمایش منطقه‌ها
       show_history: نمایش سابقه
-      unable_to_load_size: "نمی‌تواند بارگذاری کند: اندازه جعبه ارتباطی [[bbox_size]] خیلی زیاد هست و باید کمتر از %{max_bbox_size} باشد"
+      unable_to_load_size: "نمی‌تواند بارگذاری کند: اندازه جعبه ارتباطی %{bbox_size} خیلی زیاد هست و باید کمتر از %{max_bbox_size} باشد"
       wait: صبر کنید...
       zoom_or_select: بزگنمایی کنید یا بخشی از منطقه را برای دیدن انتخاب کنید
     tag_details: 
@@ -224,7 +225,6 @@ fa:
         relation: ارتباط
         way: راه
     way: 
-      download: "%{download_xml_link}، %{view_history_link} یا %{edit_link}"
       download_xml: بارگیری XML
       edit: ویرایش
       view_history: نمایش تاریخچه
@@ -236,7 +236,6 @@ fa:
       nodes: "گره‌ها:"
       part_of: "بخشی از:"
     way_history: 
-      download: "%{download_xml_link} یا %{view_details_link}"
       download_xml: بارگیری XML
       view_details: نمایش جزئیات
       way_history: تاریخچهٔ راه
@@ -262,6 +261,11 @@ fa:
     list: 
       description: تغییرات اخیر
   diary_entry: 
+    comments: 
+      ago: "% {پیش} پیش"
+      comment: توضیح
+      newer_comments: نظرات جدیدتر
+      older_comments: نظرات قدیمی‌تر
     diary_comment: 
       confirm: تأیید
     diary_entry: 
@@ -309,7 +313,7 @@ fa:
       export_details: اطلاعات نقشه‌باز‌شهری تحت مجوز <a href="http://creativecommons.org/licenses/by-sa/2.0/">  کریتیو کانز اشتراک‌یکسان 2 است
       format: قالب
       format_to_export: قالب برای خروجی‌سازی
-      image_size: اندازه تصویر
+      image_size: اندازهٔ تصویر
       latitude: "عرض:"
       licence: اجازه‌نامه
       longitude: "طول:"
@@ -338,8 +342,6 @@ fa:
         cities: شهرها
         places: مکانها
         towns: شهرستانها
-    description_osm_namefinder: 
-      prefix: "%{distance} %{direction} %{type}"
     direction: 
       east: شرق
       north: شمال
@@ -353,23 +355,28 @@ fa:
       one: تقریباً 1کیلومتر
       other: تقریباً %{count}کیلومتر
       zero: کمتر از 1کیلومتر
+    results: 
+      more_results: نتایج بیشتر
+      no_results: نتیجه‌ای پیدا نشد
     search: 
       title: 
         ca_postcode: نتایج <a href="http://geocoder.ca/">Geocoder.CA</a>
         geonames: نتایج <a href="http://www.geonames.org/">GeoNames</a>
         latlon: نتایج <a href="http://openstreetmap.org/">داخلی</a>
-        osm_namefinder: نتایج <a href="http://gazetteer.openstreetmap.org/namefinder/">OpenStreetMap Namefinder</a>
         osm_nominatim: نتایج <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
         uk_postcode: نتایج <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
         us_postcode: نتایج <a href="http://geocoder.us/">Geocoder.us</a>
-    search_osm_namefinder: 
-      suffix_parent: "%{suffix} (%{parentdistance} %{parentdirection} %{parentname})"
-      suffix_place: ", %{distance} %{direction} %{placename}"
     search_osm_nominatim: 
       prefix: 
+        aeroway: 
+          gate: ورودی
+          runway: باند
+          terminal: پایانه
         amenity: 
+          WLAN: دسترسی به وای‌فای
           airport: فرودگاه
           arts_centre: هنرکده
+          artwork: اثر هنری
           atm: عابربانک
           auditorium: سالن
           bank: بانک
@@ -446,6 +453,7 @@ fa:
           social_club: باشگاه اجتماعی
           studio: استودیو
           supermarket: سوپرمارکت
+          swimming_pool: استخر شنا
           taxi: تاکسی
           telephone: تلفن عمومی
           theatre: تئاتر
@@ -460,15 +468,20 @@ fa:
           youth_centre: مرکز جوانان
         boundary: 
           administrative: مرز کشوری
+          national_park: پارک ملی
+          protected_area: منطقه حفاظت‌شده
+        bridge: 
+          "yes": پل
         building: 
           "yes": ساختمان
         highway: 
           bus_stop: ایستگاه اتوبوس
           construction: بزرگراه در دست ساخت
-          cycleway: مسیر چرخه
+          cycleway: مسیر دوچرخه
           emergency_access_point: نقطهٔ دسترسی اضطراری
           footway: پیاده رو
           ford: فورد
+          living_street: خیابان محل سکونت
           minor: جادهٔ فرعی
           motorway: اتوبان
           motorway_junction: اتصال بزرگراه‌ها
@@ -479,10 +492,12 @@ fa:
           primary: جادهٔ اصلی
           primary_link: جادهٔ اصلی
           residential: مسکونی
+          rest_area: استراحتگاه
           road: جاده
           secondary: جادهٔ فرعی
           secondary_link: جادهٔ فرعی
           services: خدمات بزرگراه‌ها
+          speed_camera: دوربین کنترل سرعت
           steps: پله
           track: ردیابی
           trunk: بزرگراه
@@ -514,11 +529,14 @@ fa:
           grass: چمن
           greenfield: فضای سبز
           industrial: ناحیهٔ صنعتی
+          meadow: علفزار
           military: منطقهٔ نظامی
           mine: معدن
+          orchard: باغ
           park: پارک
           railway: راه‌آهن
           reservoir: مخزن
+          residential: منطقهٔ مسکونی
           retail: خرده‌فروشی
           vineyard: تاکستان
           wetland: تالاب
@@ -527,6 +545,7 @@ fa:
           beach_resort: تفریحگاه ساحلی
           common: سرزمین مشترک
           fishing: منطقهٔ ماهی‌گیری
+          fitness_station: ایستگاه تناسب اندام
           garden: باغ
           golf_course: زمین گلف
           marina: تفریح‌گاه ساحلی
@@ -538,12 +557,18 @@ fa:
           stadium: ورزشگاه
           swimming_pool: استخر شنا
           water_park: پارک آبی
+        military: 
+          airfield: فرودگاه نظامی
+          barracks: پادگان
         natural: 
           bay: خلیج
           beach: ساحل
           cave_entrance: ورودی غار
           channel: کانال
+          cliff: صخره
+          dune: ریگ روان
           fell: قطع کردن
+          forest: جنگل
           glacier: یخچال طبیعی
           hill: تپه
           island: جزیره
@@ -558,6 +583,7 @@ fa:
           river: رود خانه
           rock: صخره
           spring: بهار
+          stone: سنگ
           strait: تنگه
           tree: درخت
           valley: دره
@@ -566,6 +592,16 @@ fa:
           wetland: تالاب
           wetlands: تالاب‌ها
           wood: جنگل
+        office: 
+          architect: معمار
+          company: شرکت
+          government: دفتر دولتی
+          insurance: دفتر بیمه
+          lawyer: وکیل
+          ngo: دفتر سازمان غیر دولتی
+          telecommunication: دفتر مخابرات
+          travel_agent: آژانس مسافرتی
+          "yes": دفتر
         place: 
           airport: فرودگاه
           city: شهر بزرگ
@@ -624,7 +660,12 @@ fa:
           greengrocer: سبزی فروش
           kiosk: کیوسک
           laundry: خشکشویی
+          mall: بازار
           market: بازار
+          mobile_phone: فروشگاه تلفن همراه
+          motorcycle: فروشگاه موتورسیکلت
+          organic: فروشگاه مواد غذایی ارگانیک
+          pet: فروشگاه حیوانات خانگی
           supermarket: سوپرمارکت
           toys: اسباب‌بازی‌فروشی
           travel_agency: آژانس مسافرتی
@@ -643,10 +684,13 @@ fa:
           museum: موزه
           valley: دره
           zoo: باغ وحش
+        tunnel: 
+          "yes": تونل
         waterway: 
           canal: کانال
           dam: سد
           lock: قفل
+          mineral_spring: چشمهٔ آب معدنی
           river: رودخانه
           waterfall: ابشار
   html: 
@@ -655,12 +699,22 @@ fa:
     copyright: حق تکثیر و مجوز
     documentation: مستندات
     documentation_title: مستندات برای پروژه
+    donate_link_text: حمایت مالی
     edit: ویرایش
+    edit_with: با {editor} % ویرایش کن
     export: صدور
+    foundation: بنیاد
     foundation_title: بنیاد OpenStreetMap
     help: راهنما
+    help_centre: مرکز کمک
+    help_title: سایت راهنما برای پروژه
     history: تاریخچه
+    home: خانه
     home_tooltip: رفتن به مکان خانگی
+    intro_2_create_account: ایجاد حساب کاربری
+    intro_2_download: بارگیری
+    intro_2_license: مجوز آزاد
+    intro_2_use: استفاده کن
     log_in: ورود به سیستم
     logo: 
       alt_text: لوگوی OpenStreetMap
@@ -669,17 +723,20 @@ fa:
     make_a_donation: 
       text: کمک مالی
       title: OpenStreetMap پشتیبانی با اهداء پولی
+    partners_ic: کالج سلطنتی لندن
     sign_up: ثبت نام
     sign_up_tooltip: ایجاد یک حساب کاربری برای ویرایش
+    tag_line: ویکی رایگان نقشهٔ جهان
     user_diaries: یادداشت کاربر
     view: نمایش
     view_tooltip: نمایش نقشه
-    welcome_user: خوش آمدید، %{user_link}
+    welcome_user_link_tooltip: صفحهٔ کاربری شما
     wiki: ویکی‌
+    wiki_title: سایت ویکی برای پروژه
   license_page: 
     foreign: 
       english_link: اصل انگلیسی
-      text: در زمان به وجود آمدن تداخل بین ترجمه  فارسی و %{english_original_link} متن انگلیسی در اولویت است
+      text: در زمان به وجود آمدن تداخل بین برگردان پارسی و %{english_original_link}، نوشته‌ی انگلیسی برتری دارد
       title: درباره این ترجمه‌ها
     native: 
       mapping_link: شروع به نقشه‌کشی
@@ -721,7 +778,6 @@ fa:
       back_to_inbox: بازگشت به صندوق پستی
       date: تاریخ
       from: از
-      reading_your_sent_messages: خواندن پیام‌هایی که فرستاده‌اید
       reply_button: پاسخ
       subject: عنوان
       to: به
@@ -744,19 +800,12 @@ fa:
       greeting: سلام ،
     message_notification: 
       hi: سلام %{to_user},
-    signup_confirm_html: 
-      greeting: سلام!
-    signup_confirm_plain: 
-      greeting: سلام!
   oauth_clients: 
     edit: 
       submit: ویرایش
     form: 
       name: نام
   site: 
-    index: 
-      license: 
-        project_name: پروژه OpenStreetMap
     key: 
       table: 
         entry: 
@@ -856,8 +905,6 @@ fa:
     trace_optionals: 
       tags: برچسب‌ها
     trace_paging_nav: 
-      next: بعدی »
-      previous: « قبلی
       showing_page: نمایش صفحه %{page}
     view: 
       delete_track: حذف این رهگیری

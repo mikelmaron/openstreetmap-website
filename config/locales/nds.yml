@@ -100,19 +100,19 @@ nds:
       data_layer_name: Daten
       details: Details
       hide_areas: Rebeden versteken
-      history_for_feature: Geschicht för [[feature]]
+      history_for_feature: Geschicht för %{feature}
       loading: An’t Laden...
       object_list: 
         details: Details
         heading: Objektlist
         history: 
           type: 
-            node: Knütt [[id]]
-            way: Weg [[id]]
+            node: Knütt %{id}
+            way: Weg %{id}
         selected: 
           type: 
-            node: Knütt [[id]]
-            way: Weg [[id]]
+            node: Knütt %{id}
+            way: Weg %{id}
         type: 
           node: Knütt
           way: Weg
@@ -124,7 +124,6 @@ nds:
       type: 
         way: Weg
     way: 
-      download: "%{download_xml_link}, %{view_history_link} oder %{edit_link}"
       download_xml: XML dalladen
       edit: ännern
       view_history: Geschicht wiesen
@@ -210,14 +209,11 @@ nds:
     description: 
       title: 
         geonames: Steed von <a href="http://www.geonames.org/">GeoNames</a>
-        osm_namefinder: "%{types} von <a href=\"http://gazetteer.openstreetmap.org/namefinder/\">OpenStreetMap Namefinder</a>"
         osm_nominatim: Steed von <a href="http://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>
       types: 
         cities: Städer
         places: Öörd
         towns: lüttje Städer
-    description_osm_namefinder: 
-      prefix: "%{distance} %{direction} von %{type}"
     direction: 
       east: oosten
       north: noorden
@@ -234,9 +230,6 @@ nds:
     results: 
       more_results: Mehr
       no_results: nix funnen
-    search_osm_namefinder: 
-      suffix_parent: "%{suffix} (%{parentdistance} %{parentdirection} von %{parentname})"
-      suffix_place: ", %{distance} %{direction} von %{placename}"
     search_osm_nominatim: 
       prefix: 
         amenity: 
@@ -524,7 +517,6 @@ nds:
     user_diaries_tooltip: Bruker-Dagböker wiesen
     view: ankieken
     view_tooltip: Koort wiesen
-    welcome_user: Willkamen, %{user_link}
     welcome_user_link_tooltip: Dien Brukersied
     wiki: Wiki
   license_page: 
@@ -581,10 +573,6 @@ nds:
       greeting: Moin,
     message_notification: 
       hi: Moin %{to_user},
-    signup_confirm_html: 
-      greeting: Moin!
-    signup_confirm_plain: 
-      greeting: Moin!
   oauth_clients: 
     edit: 
       submit: Ännern
@@ -598,8 +586,6 @@ nds:
     edit: 
       user_page_link: Brukersied
     index: 
-      license: 
-        project_name: OpenStreetMap-Projekt
       permalink: Permalink
       shortlink: Kortlink
     key: 

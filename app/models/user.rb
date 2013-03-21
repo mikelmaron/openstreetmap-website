@@ -16,7 +16,10 @@ class User < ActiveRecord::Base
   has_many :client_applications
   has_many :oauth_tokens, :class_name => "OauthToken", :order => "authorized_at desc", :include => [:client_application]
 
-  has_many :active_blocks, :class_name => "UserBlock", :conditions => proc { [ "user_blocks.ends_at > :ends_at or user_blocks.needs_view", { :ends_at => Time.now.getutc } ] }
+  has_many :blocks, :class_name => "UserBlock"
+  has_many :blocks_created, :class_name => "UserBlock", :foreign_key => :creator_id
+  has_many :blocks_revoked, :class_name => "UserBlock", :foreign_key => :revoker_id
+
   has_many :roles, :class_name => "UserRole"
 
   scope :visible, where(:status => ["pending", "active", "confirmed"])
@@ -33,7 +36,7 @@ class User < ActiveRecord::Base
   validates_length_of :display_name, :within => 3..255, :allow_nil => true
   validates_email_format_of :email, :if => Proc.new { |u| u.email_changed? }
   validates_email_format_of :new_email, :allow_blank => true, :if => Proc.new { |u| u.new_email_changed? }
-  validates_format_of :display_name, :with => /^[^\/;.,?]*$/, :if => Proc.new { |u| u.display_name_changed? }
+  validates_format_of :display_name, :with => /^[^\/;.,?%#]*$/, :if => Proc.new { |u| u.display_name_changed? }
   validates_format_of :display_name, :with => /^\S/, :message => "has leading whitespace", :if => Proc.new { |u| u.display_name_changed? }
   validates_format_of :display_name, :with => /\S$/, :message => "has trailing whitespace", :if => Proc.new { |u| u.display_name_changed? }
   validates_numericality_of :home_lat, :allow_nil => true
@@ -42,12 +45,13 @@ class User < ActiveRecord::Base
   validates_inclusion_of :preferred_editor, :in => Editors::ALL_EDITORS, :allow_nil => true
 
   attr_accessible :display_name, :email, :email_confirmation, :openid_url,
-                  :pass_crypt, :pass_crypt_confirmation, :consider_pd
+                  :pass_crypt, :pass_crypt_confirmation, :consider_pd,
+                  :image_use_gravatar
 
   after_initialize :set_defaults
   before_save :encrypt_password
 
-  has_attached_file :image, 
+  has_attached_file :image,
     :default_url => "/assets/:class/:attachment/:style.png",
     :styles => { :large => "100x100>", :small => "50x50>" }
 
@@ -76,10 +80,10 @@ class User < ActiveRecord::Base
       user = nil
     end
 
-    token.update_attribute(:expiry, 1.week.from_now) if token and user
+    token.update_column(:expiry, 1.week.from_now) if token and user
 
     return user
-  end 
+  end
 
   def to_xml
     doc = OSM::API.new.get_xml_doc
@@ -122,7 +126,7 @@ class User < ActiveRecord::Base
   end
 
   def nearby(radius = NEARBY_RADIUS, num = NEARBY_USERS)
-    if self.home_lon and self.home_lat 
+    if self.home_lon and self.home_lat
       gc = OSM::GreatCircle.new(self.home_lat, self.home_lon)
       bounds = gc.bounds(radius)
       sql_for_distance = gc.sql_for_distance("home_lat", "home_lon")
@@ -179,10 +183,10 @@ class User < ActiveRecord::Base
   end
 
   ##
-  # returns the first active block which would require users to view 
+  # returns the first active block which would require users to view
   # a message, or nil if there are none.
   def blocked_on_view
-    active_blocks.detect { |b| b.needs_view? }
+    blocks.active.detect { |b| b.needs_view? }
   end
 
   ##
@@ -195,6 +199,7 @@ class User < ActiveRecord::Base
     self.image = nil
     self.email_valid = false
     self.new_email = nil
+    self.openid_url = nil
     self.status = "deleted"
     self.save
   end
@@ -202,8 +207,8 @@ class User < ActiveRecord::Base
   ##
   # return a spam score for a user
   def spam_score
-    changeset_score = self.changesets.limit(10).length * 50
-    trace_score = self.traces.limit(10).length * 50
+    changeset_score = self.changesets.size * 50
+    trace_score = self.traces.size * 50
     diary_entry_score = self.diary_entries.inject(0) { |s,e| s += e.body.spam_score }
     diary_comment_score = self.diary_comments.inject(0) { |s,c| s += c.body.spam_score }
 
@@ -233,6 +238,7 @@ private
     if pass_crypt_confirmation
       self.pass_salt = OSM::make_token(8)
       self.pass_crypt = OSM::encrypt_password(pass_crypt, pass_salt)
+      self.pass_crypt_confirmation = nil
     end
   end
 end

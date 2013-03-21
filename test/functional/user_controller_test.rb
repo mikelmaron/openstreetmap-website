@@ -7,6 +7,10 @@ class UserControllerTest < ActionController::TestCase
   # test all routes which lead to this controller
   def test_routes
     assert_routing(
+      { :path => "/api/0.6/user/1", :method => :get },
+      { :controller => "user", :action => "api_read", :id => "1" }
+    )
+    assert_routing(
       { :path => "/api/0.6/user/details", :method => :get },
       { :controller => "user", :action => "api_details" }
     )
@@ -144,7 +148,15 @@ class UserControllerTest < ActionController::TestCase
       { :controller => "user", :action => "make_friend", :display_name => "username" }
     )
     assert_routing(
+      { :path => "/user/username/make_friend", :method => :post },
+      { :controller => "user", :action => "make_friend", :display_name => "username" }
+    )
+    assert_routing(
       { :path => "/user/username/remove_friend", :method => :get },
+      { :controller => "user", :action => "remove_friend", :display_name => "username" }
+    )
+    assert_routing(
+      { :path => "/user/username/remove_friend", :method => :post },
       { :controller => "user", :action => "remove_friend", :display_name => "username" }
     )
 
@@ -204,7 +216,13 @@ class UserControllerTest < ActionController::TestCase
     display_name = "new_tester"
     assert_difference('User.count') do
       assert_difference('ActionMailer::Base.deliveries.size') do
-        post :save, {:user => { :email => new_email, :email_confirmation => new_email, :display_name => display_name, :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"}}
+        session[:new_user] = User.new({
+          :status => "pending", :display_name => display_name,
+          :email => new_email, :email_confirmation => new_email, 
+          :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"
+        }, :without_protection => true)
+
+        post :save
       end
     end
       
@@ -225,7 +243,13 @@ class UserControllerTest < ActionController::TestCase
     display_name = "new_tester"
     assert_difference('User.count', 0) do
       assert_difference('ActionMailer::Base.deliveries.size', 0) do
-        post :save, :user => { :email => email, :email_confirmation => email, :display_name => display_name, :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"}
+        session[:new_user] = User.new({
+          :status => "pending", :display_name => display_name,
+          :email => email, :email_confirmation => email, 
+          :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"
+        }, :without_protection => true)
+
+        post :save
       end
     end
     assert_response :success                                                                       
@@ -239,7 +263,13 @@ class UserControllerTest < ActionController::TestCase
     display_name = "new_tester"
     assert_difference('User.count', 0) do
       assert_difference('ActionMailer::Base.deliveries.size', 0) do
-        post :save, :user => { :email => email, :email_confirmation => email, :display_name => display_name, :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"}
+        session[:new_user] = User.new({
+          :status => "pending", :display_name => display_name,
+          :email => email, :email_confirmation => email, 
+          :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"
+        }, :without_protection => true)
+
+        post :save
       end
     end
     assert_response :success                                                                       
@@ -253,7 +283,13 @@ class UserControllerTest < ActionController::TestCase
     display_name = users(:public_user).display_name
     assert_difference('User.count', 0) do
       assert_difference('ActionMailer::Base.deliveries.size', 0) do
-        post :save, :user => { :email => email, :email_confirmation => email, :display_name => display_name, :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"}
+        session[:new_user] = User.new({
+          :status => "pending", :display_name => display_name,
+          :email => email, :email_confirmation => email, 
+          :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"
+        }, :without_protection => true)
+
+        post :save
       end
     end
     assert_response :success                                                                       
@@ -267,7 +303,13 @@ class UserControllerTest < ActionController::TestCase
     display_name = users(:public_user).display_name.upcase
     assert_difference('User.count', 0) do
       assert_difference('ActionMailer::Base.deliveries.size', 0) do
-        post :save, :user => { :email => email, :email_confirmation => email, :display_name => display_name, :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"}
+        session[:new_user] = User.new({
+          :status => "pending", :display_name => display_name,
+          :email => email, :email_confirmation => email, 
+          :pass_crypt => "testtest", :pass_crypt_confirmation => "testtest"
+        }, :without_protection => true)
+
+        post :save
       end
     end
     assert_response :success                                                                       
@@ -429,14 +471,113 @@ class UserControllerTest < ActionController::TestCase
   
   # Check that the user account page will display and contains some relevant
   # information for the user
-  def test_view_user_account
+  def test_user_view_account
+    # Test a non-existent user
     get :view, {:display_name => "unknown"}
     assert_response :not_found
     
+    # Test a normal user
     get :view, {:display_name => "test"}
     assert_response :success
+    assert_select "div#userinformation" do
+      assert_select "a[href=/user/test/edits]", 1
+      assert_select "a[href=/user/test/traces]", 1
+      assert_select "a[href=/user/test/diary]", 1
+      assert_select "a[href=/user/test/diary/comments]", 1
+      assert_select "a[href=/user/test/account]", 0
+      assert_select "a[href=/user/test/blocks]", 0
+      assert_select "a[href=/user/test/blocks_by]", 0
+      assert_select "a[href=/blocks/new/test]", 0
+    end
+    
+    # Test a user who has been blocked
+    get :view, {:display_name => "blocked"}
+    assert_response :success
+    assert_select "div#userinformation" do
+      assert_select "a[href=/user/blocked/edits]", 1
+      assert_select "a[href=/user/blocked/traces]", 1
+      assert_select "a[href=/user/blocked/diary]", 1
+      assert_select "a[href=/user/blocked/diary/comments]", 1
+      assert_select "a[href=/user/blocked/account]", 0
+      assert_select "a[href=/user/blocked/blocks]", 1
+      assert_select "a[href=/user/blocked/blocks_by]", 0
+      assert_select "a[href=/blocks/new/blocked]", 0
+    end
+    
+    # Test a moderator who has applied blocks
+    get :view, {:display_name => "moderator"}
+    assert_response :success
+    assert_select "div#userinformation" do
+      assert_select "a[href=/user/moderator/edits]", 1
+      assert_select "a[href=/user/moderator/traces]", 1
+      assert_select "a[href=/user/moderator/diary]", 1
+      assert_select "a[href=/user/moderator/diary/comments]", 1
+      assert_select "a[href=/user/moderator/account]", 0
+      assert_select "a[href=/user/moderator/blocks]", 0
+      assert_select "a[href=/user/moderator/blocks_by]", 1
+      assert_select "a[href=/blocks/new/moderator]", 0
+    end
+
+    # Login as a normal user
+    session[:user] = users(:normal_user).id
+    cookies["_osm_username"] = users(:normal_user).display_name
+
+    # Test the normal user
+    get :view, {:display_name => "test"}
+    assert_response :success
+    assert_select "div#userinformation" do
+      assert_select "a[href=/user/test/edits]", 1
+      assert_select "a[href=/traces/mine]", 1
+      assert_select "a[href=/user/test/diary]", 1
+      assert_select "a[href=/user/test/diary/comments]", 1
+      assert_select "a[href=/user/test/account]", 1
+      assert_select "a[href=/user/test/blocks]", 0
+      assert_select "a[href=/user/test/blocks_by]", 0
+      assert_select "a[href=/blocks/new/test]", 0
+    end
+
+    # Login as a moderator
+    session[:user] = users(:moderator_user).id
+    cookies["_osm_username"] = users(:moderator_user).display_name
+
+    # Test the normal user
+    get :view, {:display_name => "test"}
+    assert_response :success
+    assert_select "div#userinformation" do
+      assert_select "a[href=/user/test/edits]", 1
+      assert_select "a[href=/user/test/traces]", 1
+      assert_select "a[href=/user/test/diary]", 1
+      assert_select "a[href=/user/test/diary/comments]", 1
+      assert_select "a[href=/user/test/account]", 0
+      assert_select "a[href=/user/test/blocks]", 0
+      assert_select "a[href=/user/test/blocks_by]", 0
+      assert_select "a[href=/blocks/new/test]", 1
+    end
   end
-  
+
+  def test_user_api_read
+    # check that a visible user is returned properly
+    get :api_read, :id => users(:normal_user).id
+    assert_response :success
+
+    # check that we aren't revealing private information
+    assert_select "contributor-terms[pd]", false
+    assert_select "home", false
+    assert_select "languages", false
+
+    # check that a suspended user is not returned
+    get :api_read, :id => users(:suspended_user).id
+    assert_response :gone
+
+    # check that a deleted user is not returned
+    get :api_read, :id => users(:deleted_user).id
+    assert_response :gone
+
+    # check that a non-existent user is not returned
+    get :api_read, :id => 0
+    assert_response :not_found
+  end
+
   def test_user_api_details
     get :api_details
     assert_response :unauthorized
@@ -444,5 +585,111 @@ class UserControllerTest < ActionController::TestCase
     basic_authorization(users(:normal_user).email, "test")
     get :api_details
     assert_response :success
+  end
+
+  def test_user_make_friend
+    # Get users to work with
+    user = users(:normal_user)
+    friend = users(:second_public_user)
+
+    # Check that the users aren't already friends
+    assert_nil Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # Set the username cookie
+    @request.cookies["_osm_username"] = user.display_name
+
+    # When not logged in a GET should ask us to login
+    get :make_friend, {:display_name => friend.display_name}
+    assert_redirected_to :controller => :user, :action => "login", :referer => make_friend_path(:display_name => friend.display_name)
+
+    # When not logged in a POST should error
+    post :make_friend, {:display_name => friend.display_name}
+    assert_response :forbidden
+    assert_nil Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # When logged in a GET should get a confirmation page
+    get :make_friend, {:display_name => friend.display_name}, {"user" => user}
+    assert_response :success
+    assert_template :make_friend
+    assert_select "form" do
+      assert_select "input[type=hidden][name=referer]", 0
+      assert_select "input[type=submit]", 1
+    end
+    assert_nil Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # The GET should preserve any referer
+    get :make_friend, {:display_name => friend.display_name, :referer => "/test"}, {"user" => user}
+    assert_response :success
+    assert_template :make_friend
+    assert_select "form" do
+      assert_select "input[type=hidden][name=referer][value=/test]", 1
+      assert_select "input[type=submit]", 1
+    end
+    assert_nil Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # When logged in a POST should add the friendship
+    post :make_friend, {:display_name => friend.display_name}, {"user" => user}
+    assert_redirected_to user_path(:display_name => friend.display_name)
+    assert_match /is now your friend/, flash[:notice]
+    assert Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # A second POST should report that the friendship already exists
+    post :make_friend, {:display_name => friend.display_name}, {"user" => user}
+    assert_redirected_to user_path(:display_name => friend.display_name)
+    assert_match /You are already friends with/, flash[:warning]
+    assert Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+  end
+
+  def test_user_remove_friend
+    # Get users to work with
+    user = users(:normal_user)
+    friend = users(:public_user)
+
+    # Check that the users are friends
+    assert Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # Set the username cookie
+    @request.cookies["_osm_username"] = user.display_name
+
+    # When not logged in a GET should ask us to login
+    get :remove_friend, {:display_name => friend.display_name}
+    assert_redirected_to :controller => :user, :action => "login", :referer => remove_friend_path(:display_name => friend.display_name)
+
+    # When not logged in a POST should error
+    post :remove_friend, {:display_name => friend.display_name}
+    assert_response :forbidden
+    assert Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # When logged in a GET should get a confirmation page
+    get :remove_friend, {:display_name => friend.display_name}, {"user" => user}
+    assert_response :success
+    assert_template :remove_friend
+    assert_select "form" do
+      assert_select "input[type=hidden][name=referer]", 0
+      assert_select "input[type=submit]", 1
+    end
+    assert Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # The GET should preserve any referer
+    get :remove_friend, {:display_name => friend.display_name, :referer => "/test"}, {"user" => user}
+    assert_response :success
+    assert_template :remove_friend
+    assert_select "form" do
+      assert_select "input[type=hidden][name=referer][value=/test]", 1
+      assert_select "input[type=submit]", 1
+    end
+    assert Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # When logged in a POST should remove the friendship
+    post :remove_friend, {:display_name => friend.display_name}, {"user" => user}
+    assert_redirected_to user_path(:display_name => friend.display_name)
+    assert_match /was removed from your friends/, flash[:notice]
+    assert_nil Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
+
+    # A second POST should report that the friendship does not exist
+    post :remove_friend, {:display_name => friend.display_name}, {"user" => user}
+    assert_redirected_to user_path(:display_name => friend.display_name)
+    assert_match /is not one of your friends/, flash[:error]
+    assert_nil Friend.where(:user_id => user.id, :friend_user_id => friend.id).first
   end
 end

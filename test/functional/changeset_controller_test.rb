@@ -172,8 +172,12 @@ class ChangesetControllerTest < ActionController::TestCase
   # check that a changeset that doesn't exist returns an appropriate message
   def test_read_not_found
     [0, -32, 233455644, "afg", "213"].each do |id|
-      get :read, :id => id
-      assert_response :not_found, "should get a not found"
+      begin
+        get :read, :id => id
+        assert_response :not_found, "should get a not found"
+      rescue ActionController::RoutingError => ex
+        assert_match /No route matches/, ex.to_s
+      end
     end
   end
   
@@ -234,15 +238,23 @@ class ChangesetControllerTest < ActionController::TestCase
     
     # First try to do it with no auth
     cs_ids.each do |id|
-      put :close, :id => id
-      assert_response :unauthorized, "Shouldn't be able close the non-existant changeset #{id}, when not authorized"
+      begin
+        put :close, :id => id
+        assert_response :unauthorized, "Shouldn't be able close the non-existant changeset #{id}, when not authorized"
+      rescue ActionController::RoutingError => ex
+        assert_match /No route matches/, ex.to_s
+      end
     end
     
     # Now try with auth
     basic_authorization users(:public_user).email, "test"
     cs_ids.each do |id|
-      put :close, :id => id
-      assert_response :not_found, "The changeset #{id} doesn't exist, so can't be closed"
+      begin
+        put :close, :id => id
+        assert_response :not_found, "The changeset #{id} doesn't exist, so can't be closed"
+      rescue ActionController::RoutingError => ex
+        assert_match /No route matches/, ex.to_s
+      end
     end
   end
 
@@ -1723,7 +1735,7 @@ EOF
     assert_template "list"
     # Now check that all 20 (or however many were returned) changesets are in the html
     assert_select "h1", :text => "Changesets", :count => 1
-    assert_select "table[id='changeset_list'] tr", :count => changesets.size
+    assert_select "div[id='changeset_list'] ul", :count => changesets.size
     changesets.each do |changeset|
       # FIXME this test needs rewriting - test for table contents
     end

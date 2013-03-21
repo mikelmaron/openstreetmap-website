@@ -38,6 +38,8 @@ class MessageController < ApplicationController
     message = Message.find(params[:message_id])
 
     if message.to_user_id == @user.id then
+      message.update_attribute(:message_read, true)
+
       @body = "On #{message.sent_on} #{message.sender.display_name} wrote:\n\n#{message.body.gsub(/^/, '> ')}"
       @title = @subject = "Re: #{message.title.sub(/^Re:\s*/, '')}"
       @this_user = User.find(message.from_user_id)
@@ -98,11 +100,9 @@ class MessageController < ApplicationController
       notice = t 'message.mark.as_read'
     end
     @message.message_read = message_read
-    if @message.save
-      if not request.xhr?
-        flash[:notice] = notice
-        redirect_to :controller => 'message', :action => 'inbox', :display_name => @user.display_name
-      end
+    if @message.save and not request.xhr?
+      flash[:notice] = notice
+      redirect_to :controller => 'message', :action => 'inbox', :display_name => @user.display_name
     end
   rescue ActiveRecord::RecordNotFound
     @title = t'message.no_such_message.title'
@@ -111,10 +111,10 @@ class MessageController < ApplicationController
 
   # Delete the message.
   def delete
-    message = Message.where("to_user_id = ? OR from_user_id = ?", @user.id, @user.id).find(params[:message_id])
-    message.from_user_visible = false if message.sender == @user
-    message.to_user_visible = false if message.recipient == @user
-    if message.save
+    @message = Message.where("to_user_id = ? OR from_user_id = ?", @user.id, @user.id).find(params[:message_id])
+    @message.from_user_visible = false if @message.sender == @user
+    @message.to_user_visible = false if @message.recipient == @user
+    if @message.save and not request.xhr?
       flash[:notice] = t 'message.delete.deleted'
 
       if params[:referer]
