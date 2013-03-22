@@ -171,6 +171,7 @@ class DiaryEntryController < ApplicationController
     @entry = @this_user.diary_entries.visible.where(:id => params[:id]).first
     if @entry
       @title = t 'diary_entry.view.title', :user => params[:display_name], :title => @entry.title
+      @features = scan_text_for_features(@entry.body)
     else
       @title = t 'diary_entry.no_such_entry.title', :id => params[:id]
       render :action => 'no_such_entry', :status => :not_found
@@ -231,6 +232,25 @@ private
       @lon = @user.home_lon
       @lat = @user.home_lat
       @zoom = 12
+    end
+  end
+
+  def scan_text_for_features(t)
+    object_refs = t.scan(/\[.*?\]\(http:\/\/#{SERVER_URL}\/browse\/(.+?)\/(\d+)\)/).collect { |type, id| {:type => type, :id => id }}
+    a = Array.new
+    object_refs.each do |obj|
+      begin
+        if obj[:type] == "node"
+          d = Node.find(obj[:id])
+        elsif obj[:type] == "way"
+          d = Way.find(obj[:id])
+        end
+        a.push d
+      rescue
+      end
+    end
+    if a.length > 0
+      return a
     end
   end
 end

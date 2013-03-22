@@ -48,30 +48,39 @@ $(document).ready(function () {
     $("#object_larger_map").hide();
     $("#object_edit").hide();
 
-    var object = {type: params.type, id: params.id};
-
-    if (!params.visible) {
-      object.version = params.version - 1;
+    var objects;
+    if (params.type != "objects") {
+      objects = [ params ];
+    } else {
+      objects = params.objects;
     }
 
-    addObjectToMap(object, true, function(extent) {
-      $("#loading").hide();
-      $("#browse_map .geolink").show();
+    var listbounds = new L.LatLngBounds();
+    for (var i = 0; i < objects.length; i++) {
+      var object = {type: objects[i].type, id: objects[i].id};
+  
+      if (!objects[i].visible) {
+        object.version = objects[i].version - 1;
+      }
 
-      if (extent) {
-        $("a.bbox[data-editor=remote]").click(function () {
-          return remoteEditHandler(extent);
-        });
+      addObjectToMap(object, object.length == 1, function(extent) {
+        $("#loading").hide();
+        $("#browse_map .geolink").show();
 
-        $("a.object[data-editor=remote]").click(function () {
-          return remoteEditHandler(extent, params.type + params.id);
-        });
+        if (extent) {
+          $("a.bbox[data-editor=remote]").click(function () {
+            return remoteEditHandler(extent);
+          });
 
-        $("#object_larger_map").show();
-        $("#object_edit").show();
+          $("a.object[data-editor=remote]").click(function () {
+            return remoteEditHandler(extent, params.type + params.id);
+          });
 
-        var centre = extent.getCenter();
-        updatelinks(centre.lng,
+          $("#object_larger_map").show();
+          $("#object_edit").show();
+
+          var centre = extent.getCenter();
+          updatelinks(centre.lng,
                     centre.lat,
                     16, null,
                     extent.getWestLng(),
@@ -79,12 +88,16 @@ $(document).ready(function () {
                     extent.getEastLng(),
                     extent.getNorthLat(),
                     object);
-      } else {
-        $("#small_map").hide();
-      }
-    });
+          if (object.length != 1) {
+            listbounds.extend(extent);
+            map.fitBounds(listbounds);
+          }
+        } else {
+          $("#small_map").hide();
+        }
+      });
+    }
   }
-
   createMenu("area_edit", "area_edit_menu", "right");
   createMenu("object_edit", "object_edit_menu", "right");
 });
